@@ -198,7 +198,7 @@ form button{width:100%;margin-top:20px;justify-content:center}
 
 <nav class="nav" id="nav">
   <div class="nav-in">
-    <a class="nav-logo" href="#top"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+    <a class="nav-logo" href="#top" onclick="goTo(event,'top')"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
    viewBox="0 0 1060.000000 387.000000"
  preserveAspectRatio="xMidYMid meet">
 <metadata>
@@ -259,12 +259,12 @@ m1143 692 c117 -41 186 -84 271 -168 83 -81 145 -190 178 -312 30 -113 30
 </g>
 </svg></a>
     <div class="nav-links" id="navlinks">
-      <a href="#services" onclick="closeNav()"><span class="zh">服务</span><span class="en">Services</span></a>
-      <a href="#approach" onclick="closeNav()"><span class="zh">方法</span><span class="en">Approach</span></a>
-      <a href="#work" onclick="closeNav()"><span class="zh">作品</span><span class="en">Work</span></a>
-      <a href="#industries" onclick="closeNav()"><span class="zh">行业</span><span class="en">Industries</span></a>
-      <a href="#why" onclick="closeNav()"><span class="zh">优势</span><span class="en">Why Us</span></a>
-      <a href="#contact" onclick="closeNav()"><span class="zh">联系</span><span class="en">Contact</span></a>
+      <a href="#services" onclick="goTo(event,'services')"><span class="zh">服务</span><span class="en">Services</span></a>
+      <a href="#approach" onclick="goTo(event,'approach')"><span class="zh">方法</span><span class="en">Approach</span></a>
+      <a href="#work" onclick="goTo(event,'work')"><span class="zh">作品</span><span class="en">Work</span></a>
+      <a href="#industries" onclick="goTo(event,'industries')"><span class="zh">行业</span><span class="en">Industries</span></a>
+      <a href="#why" onclick="goTo(event,'why')"><span class="zh">优势</span><span class="en">Why Us</span></a>
+      <a href="#contact" onclick="goTo(event,'contact')"><span class="zh">联系</span><span class="en">Contact</span></a>
     </div>
     <div class="nav-right">
       <div class="langbar"><button data-l="zh" class="active" onclick="setLang('zh')">中</button><button data-l="en" onclick="setLang('en')">EN</button></div>
@@ -283,7 +283,7 @@ m1143 692 c117 -41 186 -84 271 -168 83 -81 145 -190 178 -312 30 -113 30
     <p class="reveal"><span class="zh">从<b>品牌、系统到增长</b>，AUDO 一站式帮马来西亚中小企业打通——品牌设计、流程自动化、数据智能、定制系统、Meta 广告。</span><span class="en">From <b>brand to systems to growth</b> — AUDO is the one partner Malaysian SMEs need. Branding, automation, data intelligence, custom systems and Meta ads.</span></p>
     <div class="btns reveal">
       <a class="btn btn-gold" href="https://wa.me/60125676118"><span class="zh">免费诊断 · WhatsApp</span><span class="en">Free Audit · WhatsApp</span></a>
-      <a class="btn btn-ghost" href="#services"><span class="zh">看我们能做什么</span><span class="en">See what we do</span></a>
+      <a class="btn btn-ghost" href="#services" onclick="goTo(event,'services')"><span class="zh">看我们能做什么</span><span class="en">See what we do</span></a>
     </div>
     <div class="hero-tag reveal"><b>Automate.</b> Optimize. Elevate.</div>
   </div></div>
@@ -371,7 +371,7 @@ m1143 692 c117 -41 186 -84 271 -168 83 -81 145 -190 178 -312 30 -113 30
 </div></div></section>
 
 <footer class="foot"><div class="wrap"><div class="foot-in">
-  <div><a class="foot-logo" href="#top"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+  <div><a class="foot-logo" href="#top" onclick="goTo(event,'top')"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
    viewBox="0 0 1060.000000 387.000000"
  preserveAspectRatio="xMidYMid meet">
 <metadata>
@@ -442,6 +442,7 @@ m1143 692 c117 -41 186 -84 271 -168 83 -81 145 -190 178 -312 30 -113 30
 function setLang(l){document.body.className='lang-'+l;document.querySelectorAll('.langbar button').forEach(b=>b.classList.toggle('active',b.dataset.l===l));document.documentElement.lang=(l==='zh'?'zh':'en');}
 function toggleNav(){document.getElementById('navlinks').classList.toggle('open');}
 function closeNav(){document.getElementById('navlinks').classList.remove('open');}
+function goTo(e,id){if(e)e.preventDefault();var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});closeNav();}
 function sendWA(e){e.preventDefault();var n=document.getElementById('f_name').value,b=document.getElementById('f_biz').value,m=document.getElementById('f_msg').value;var zh=document.body.classList.contains('lang-zh');var t=zh?('你好 AUDO，我是 '+n+(b?'（'+b+'）':'')+'。'+(m||'想了解系统自动化。')):('Hi AUDO, I\'m '+n+(b?' ('+b+')':'')+'. '+(m||'I would like to learn about automation.'));window.open('https://wa.me/60125676118?text='+encodeURIComponent(t),'_blank');return false;}
 // nav scrolled state
 addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',scrollY>20);});
