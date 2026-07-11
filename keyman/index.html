@@ -182,6 +182,30 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 .btn-line{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
 .draft-hint{font-size:13px;color:var(--tx2);margin-top:4px}
 
+/* ============ SURVEY / DECISION ============ */
+.survey-q{margin-bottom:18px}
+.survey-q:last-of-type{margin-bottom:8px}
+.survey-q .q-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.survey-q .q-hint{font-size:13px;color:var(--tx2);margin-bottom:8px}
+.decide{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
+.decide-tile{border-radius:12px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--line)}
+.decide-tile .dt-lab{font-size:12px;color:var(--tx2);letter-spacing:.06em}
+.decide-tile .dt-val{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px;line-height:1.25}
+.decide-tile .dt-say{font-size:13.5px;color:var(--tx);margin-top:6px;line-height:1.55}
+.decide-tile.ok{background:var(--teal-soft);border-color:#9ecfc8}
+.decide-tile.ok .dt-val{color:var(--teal)}
+.decide-tile.warn{background:var(--gold-soft);border-color:#e0d0a0}
+.decide-tile.warn .dt-val{color:#8A6B25}
+.decide-tile.bad{background:var(--red-soft);border-color:#e5b7ac}
+.decide-tile.bad .dt-val{color:var(--red)}
+.decide-punch{margin-top:12px;border-radius:12px;padding:14px 16px;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.6}
+.decide-punch b{color:var(--gold-hi)}
+
+@media (min-width:720px){
+  .decide{grid-template-columns:1fr 1fr}
+  .decide-tile.span2{grid-column:1 / -1}
+}
+
 /* ============ DAILY COST ============ */
 .daily{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .daily .d-tile{background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.35);border-radius:12px;padding:11px 12px;text-align:center}
@@ -258,6 +282,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   }
   .desk-lower .contact{grid-column:1 / -1}
   .desk-lower footer{grid-column:1 / -1;padding-top:8px}
+  .desk-lower .survey{grid-column:1 / -1}
   .verdict{padding:32px 28px;border-radius:20px}
   .verdict .v-sum{font-size:52px}
   .verdict .pols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
@@ -542,6 +567,63 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 <div class="desk-lower">
 
+<!-- ============ 决策校准 Survey ============ -->
+<section class="card survey" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
+  <div class="step-tag">
+    <div class="step-ico">🎯</div>
+    <div><span class="no">决 策 校 准</span><h2>三个问题，帮老板把账算清楚</h2></div>
+  </div>
+  <p class="step-desc">不是问卷，是成交前的心理对齐：愿付多少、公司长多快、谁会真正买单。答案会立刻对照上方建议方案。</p>
+
+  <div class="survey-q">
+    <div class="q-title">1. 您愿意每年拿净利的几 %，买回企业续存？</div>
+    <div class="q-hint">多数中小企业把 1–3% 净利视为「合理经营成本」；超过 5% 通常需分期或先保债务。</div>
+    <div class="chips" id="spendChips">
+      <button class="chip" data-spend="0.5" type="button">0.5%<small>极低预算</small></button>
+      <button class="chip on" data-spend="1" type="button">1%<small>保守</small></button>
+      <button class="chip" data-spend="2" type="button">2%<small>务实</small></button>
+      <button class="chip" data-spend="3" type="button">3%<small>稳健</small></button>
+      <button class="chip" data-spend="5" type="button">5%<small>优先续存</small></button>
+    </div>
+  </div>
+
+  <div class="survey-q">
+    <div class="q-title">2. 公司未来 3 年，净利大概每年增长几 %？</div>
+    <div class="q-hint">增长越快，关键人缺口越大——保额往往要比「今天的利润」看得更远。</div>
+    <div class="chips" id="growthChips">
+      <button class="chip" data-growth="0" type="button">持平 0%</button>
+      <button class="chip on" data-growth="10" type="button">稳健 10%</button>
+      <button class="chip" data-growth="20" type="button">快跑 20%</button>
+      <button class="chip" data-growth="30" type="button">高速 30%+</button>
+    </div>
+  </div>
+
+  <div class="survey-q">
+    <div class="q-title">3. 万一关键人明天缺席，第一笔救急钱谁出？</div>
+    <div class="q-hint">这个问题会暴露真实痛点：公司现金、银行、家人，还是早已安排好的保险。</div>
+    <div class="chips" id="payerChips">
+      <button class="chip" data-payer="cash" type="button">公司现金 / 存款<small>吃营运资金</small></button>
+      <button class="chip" data-payer="bank" type="button">再找银行<small>未必批得过</small></button>
+      <button class="chip on" data-payer="family" type="button">家人 / 个人积蓄<small>最常见也最痛</small></button>
+      <button class="chip" data-payer="ins" type="button">已有保险安排<small>理想答案</small></button>
+    </div>
+  </div>
+
+  <div class="survey-q">
+    <div class="q-title">4. 没有关键人，公司现金撑得住几个月？</div>
+    <div class="q-hint">对照第贰步的恢复期（通常 2–5 年）。现金跑道越短，越需要立刻有保额入账。</div>
+    <div class="chips" id="runwayChips">
+      <button class="chip on" data-runway="1" type="button">≤ 1 个月<small>非常紧</small></button>
+      <button class="chip" data-runway="3" type="button">约 3 个月<small>常见</small></button>
+      <button class="chip" data-runway="6" type="button">约 6 个月<small>稍有缓冲</small></button>
+      <button class="chip" data-runway="12" type="button">≥ 12 个月<small>少见</small></button>
+    </div>
+  </div>
+
+  <div class="decide" id="decideBoard"></div>
+  <div class="decide-punch" id="decidePunch"></div>
+</section>
+
 <!-- ============ 时间轴对比 ============ -->
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
   <div class="step-tag">
@@ -588,7 +670,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 <footer>
   保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
-  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.5
+  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.6
   <div class="draft-hint no-print" id="draftHint"></div>
 </footer>
 </div><!-- /.desk-lower -->
@@ -620,7 +702,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 <script>
 /* ================= state & utils ================= */
-const S = { gender:'M', smoker:false, attr:0.5, rec:3 };
+const S = { gender:'M', smoker:false, attr:0.5, rec:3, spend:1, growth:10, payer:'family', runway:1 };
 const $ = id => document.getElementById(id);
 const num = id => parseFloat($(id).value) || 0;
 const fmt = v => 'RM ' + Math.round(v).toLocaleString('en-MY');
@@ -799,11 +881,82 @@ function render(r){
 
   lastR = r;
   renderTimeline();
+  renderDecide();
+}
+
+/* ================= timeline + decide state ================= */
+let lastR = null;
+let tlMode = 'no'; // 'no' | 'yes'
+
+/* ================= decision survey ================= */
+const PAYER_SAY = {
+  cash: '救急靠公司现金——等于用营运资金去扛灾难，扩张和发薪都会被拖累。',
+  bank: '再找银行——关键人缺席时银行通常更紧，不是更松。',
+  family: '落到家人身上——这是最常见、也最不公平的结局。',
+  ins: '已有保险安排——方向正确；接下来要核对保额是否盖得住今天的缺口。'
+};
+
+function renderDecide(){
+  if(!lastR || !$('decideBoard')) return;
+  const r = lastR;
+  const np = Math.max(num('np'), 1);
+  const premMid = (r.premLo + r.premHi) / 2;
+  const premPct = premMid / np * 100;
+  const budget = np * (S.spend / 100);
+  const gap = premMid - budget;
+  const afford = premMid <= budget * 1.05 ? 'ok' : premMid <= budget * 1.5 ? 'warn' : 'bad';
+  const affordLabel = afford==='ok' ? '预算内可执行' : afford==='warn' ? '略超预算，可分期/先保债务' : '明显超预算，需调整结构';
+
+  const g = S.growth / 100;
+  const np3 = np * Math.pow(1+g, 3);
+  const riskNow = r.SA_C + r.SA_B + (r.bsOn ? r.SA_D : 0);
+  const risk3 = riskNow * Math.pow(1+g, 3);
+
+  const runwayOk = S.runway >= S.rec * 12;
+  const runwayClass = runwayOk ? 'ok' : (S.runway >= 6 ? 'warn' : 'bad');
+  const runwaySay = runwayOk
+    ? `现金跑道约 ${S.runway} 个月，接近/超过 ${S.rec} 年恢复期——缓冲较好，但仍建议用保险锁定「不用卖资产」的确定性。`
+    : `现金只够撑约 ${S.runway} 个月，但恢复期要 ${S.rec} 年。缺口不是「紧一点」，是数量级不对。`;
+
+  $('decideBoard').innerHTML = `
+    <div class="decide-tile ${afford}">
+      <div class="dt-lab">保费占净利</div>
+      <div class="dt-val">${premPct.toFixed(2)}%</div>
+      <div class="dt-say">建议年保费约 <b>${fmt(premMid)}</b>。您愿付 ${S.spend}%（≈ <b>${fmt(budget)}</b>/年）→ <b>${affordLabel}</b>${gap>0 && afford!=='ok'?`，差额约 ${fmt(gap)}。`: '。'}</div>
+    </div>
+    <div class="decide-tile">
+      <div class="dt-lab">3 年后风险敞口（按增长外推）</div>
+      <div class="dt-val">${fmtM(risk3)}</div>
+      <div class="dt-say">净利从 ${fmtM(np)} → 约 ${fmtM(np3)}（年增 ${S.growth}%）。今天不定保额，明天要保的是更大的公司。</div>
+    </div>
+    <div class="decide-tile ${runwayClass}">
+      <div class="dt-lab">现金跑道 vs 恢复期</div>
+      <div class="dt-val">${S.runway} 月 / ${S.rec} 年</div>
+      <div class="dt-say">${runwaySay}</div>
+    </div>
+    <div class="decide-tile span2">
+      <div class="dt-lab">第一笔救急钱</div>
+      <div class="dt-val" style="font-size:18px">${
+        S.payer==='cash'?'公司现金':S.payer==='bank'?'再找银行':S.payer==='family'?'家人 / 个人':'已有保险'
+      }</div>
+      <div class="dt-say">${PAYER_SAY[S.payer]}</div>
+    </div>`;
+
+  let punch;
+  if(S.payer==='ins' && afford==='ok'){
+    punch = `方向已对齐：预算够、也打算用保险扛。下一步是锁定正式 Quotation，把「打算」变成「安排好」。`;
+  } else if(afford==='ok'){
+    punch = `以您愿付的 <b>${S.spend}%</b> 净利，这套方案在预算内。真正的问题不是贵不贵，而是：要不要在意外发生前把续存权买下来。`;
+  } else if(afford==='warn'){
+    punch = `预算略紧。成交路径：先保<b>债务单</b>（银行最急），利润单分期加保；或把愿付比例调到 <b>${Math.ceil(premPct)}%</b> 再对照。`;
+  } else {
+    punch = `若坚持只付 ${S.spend}% 净利，建议先缩到债务保障 <b>${fmt(r.SA_C||0)}</b>，把「公司不被银行拖垮」先锁住，再谈利润与股权。`;
+  }
+  if(S.payer==='family') punch += ` 您已选择救急靠家人——这正是 Keyman 要替家人卸下的担子。`;
+  $('decidePunch').innerHTML = punch;
 }
 
 /* ================= timeline ================= */
-let lastR = null;
-let tlMode = 'no'; // 'no' | 'yes'
 function renderTimeline(){
   if(!lastR) return;
   const r = lastR;
@@ -846,13 +999,13 @@ function personalize(){
 }
 
 /* ================= draft (localStorage) ================= */
-const DRAFT_KEY = 'keyman-calc-draft-v2';
+const DRAFT_KEY = 'keyman-calc-draft-v3';
 const FIELD_IDS = ['compName','bossName','age','rem','gp','np','loan','od','odu','pg','exist','pe','eq'];
 
 function saveDraft(){
   try{
     const draft = {
-      fields:{}, S:{gender:S.gender,smoker:S.smoker,attr:S.attr,rec:S.rec},
+      fields:{}, S:{gender:S.gender,smoker:S.smoker,attr:S.attr,rec:S.rec,spend:S.spend,growth:S.growth,payer:S.payer,runway:S.runway},
       checks:{bsOn:$('bsOn').checked,uDebt:$('uDebt').checked,uProfit:$('uProfit').checked,uBS:$('uBS').checked,grossup:$('grossup').checked},
       tlMode, savedAt: Date.now()
     };
@@ -871,10 +1024,15 @@ function loadDraft(){
     if(draft.fields) FIELD_IDS.forEach(id=>{ if(draft.fields[id]!=null && $(id)) $(id).value=draft.fields[id]; });
     if(draft.S){
       S.gender=draft.S.gender||'M'; S.smoker=!!draft.S.smoker; S.attr=draft.S.attr??0.5; S.rec=draft.S.rec??3;
+      S.spend=draft.S.spend??1; S.growth=draft.S.growth??10; S.payer=draft.S.payer||'family'; S.runway=draft.S.runway??1;
       document.querySelectorAll('[data-group=gender]').forEach(b=>b.classList.toggle('on', b.dataset.val===S.gender));
       document.querySelectorAll('[data-group=smoker]').forEach(b=>b.classList.toggle('on', S.smoker));
       document.querySelectorAll('#attrChips .chip').forEach(b=>b.classList.toggle('on', parseFloat(b.dataset.attr)===S.attr));
       document.querySelectorAll('#recChips .chip').forEach(b=>b.classList.toggle('on', parseFloat(b.dataset.rec)===S.rec));
+      document.querySelectorAll('#spendChips .chip').forEach(b=>b.classList.toggle('on', parseFloat(b.dataset.spend)===S.spend));
+      document.querySelectorAll('#growthChips .chip').forEach(b=>b.classList.toggle('on', parseFloat(b.dataset.growth)===S.growth));
+      document.querySelectorAll('#payerChips .chip').forEach(b=>b.classList.toggle('on', b.dataset.payer===S.payer));
+      document.querySelectorAll('#runwayChips .chip').forEach(b=>b.classList.toggle('on', parseFloat(b.dataset.runway)===S.runway));
     }
     if(draft.checks){
       ['bsOn','uDebt','uProfit','uBS','grossup'].forEach(id=>{
@@ -925,6 +1083,7 @@ function openPrintPreview(){
     {t:'盈利 · 债务 · 股权分析', d:'输入假设与即时解读'},
     {t:'四种算法对比', d:'含核保上限红线'},
     {t:'建议保障方案', d: r ? `总保额 ${fmt(r.grossSA)} · 预估保费区间` : '建议保额与保费'},
+    {t:'决策校准', d:'愿付利润% · 增长 · 救急来源 · 现金跑道'},
     {t:'12 个月双剧本', d:'有 / 无 Keyman 对照'},
     {t:'核保文件清单', d:'按保额分级的文件要求'},
     {t:'顾问联系与签署栏', d:'WhatsApp QR · 双方签名'},
@@ -953,6 +1112,18 @@ document.querySelectorAll('#recChips .chip').forEach(btn=>btn.addEventListener('
   document.querySelectorAll('#recChips .chip').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on'); S.rec=parseFloat(btn.dataset.rec); calc();
 }));
+function bindChipGroup(sel, key, parse=v=>v){
+  document.querySelectorAll(sel).forEach(btn=>btn.addEventListener('click', ()=>{
+    document.querySelectorAll(sel).forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    S[key]=parse(btn.dataset[key]);
+    renderDecide(); saveDraft();
+  }));
+}
+bindChipGroup('#spendChips .chip', 'spend', parseFloat);
+bindChipGroup('#growthChips .chip', 'growth', parseFloat);
+bindChipGroup('#payerChips .chip', 'payer');
+bindChipGroup('#runwayChips .chip', 'runway', parseFloat);
 $('bsOn').addEventListener('change', e=>{
   setBuySell(e.target.checked, 'bs');
   calc();
