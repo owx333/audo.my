@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>未来现金流蓝图 · 储蓄 · 退休 · 教育金 | AUDO × Hong Leong Assurance</title>
+<meta name="description" content="用你自己的数字算退休与教育金缺口：EPF、通胀、强制储蓄结构。AUDO × Hong Leong Assurance。">
+<link rel="canonical" href="https://audo.my/future/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="未来现金流蓝图 | AUDO">
+<meta property="og:description" content="不是在存钱，是在买「到点还能领到」的强制权。">
+<meta property="og:url" content="https://audo.my/future/">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --ink:#0F1E3D; --ink-2:#1B2D52; --ink-3:#2A3E68;
+  --paper:#F7F6F2; --card:#FFFFFF;
+  --gold:#C9A24B; --gold-hi:#E8C775; --gold-soft:#F6EFDD;
+  --teal:#0E8C7F; --teal-soft:#E1F1EE;
+  --red:#B4452F; --red-soft:#F8E9E4;
+  --plum:#6B4E8E; --plum-soft:#EFEAF6;
+  --line:#E5E2D8; --tx:#232A3C; --tx2:#707786;
+  --serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC",Georgia,serif;
+  --sans:-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  background:
+    radial-gradient(900px 420px at 12% -10%, rgba(14,140,127,.10), transparent 55%),
+    radial-gradient(700px 380px at 92% 8%, rgba(201,162,75,.08), transparent 50%),
+    var(--paper);
+  color:var(--tx);font-family:var(--sans);font-size:17px;line-height:1.7;padding-bottom:92px
+}
+body.lang-en .zh, body.lang-zh .en{display:none!important}
+body.lang-en{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+body.lang-en .step-tag h2,body.lang-en header h1,body.lang-en .gap-card h3,body.lang-en .verdict .v-punch,body.lang-en .contact .c-name,body.lang-en .reframe .rf-title{
+  font-family:Georgia,"Times New Roman",serif;letter-spacing:0
+}
+.langbar{position:absolute;top:14px;right:14px;z-index:6;display:flex;gap:4px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:3px}
+.langbar button{border:0;background:transparent;color:#A9B4CC;font-size:12px;font-weight:800;letter-spacing:.08em;padding:6px 10px;border-radius:999px;cursor:pointer;font-family:inherit}
+.langbar button.active{background:var(--gold);color:var(--ink)}
+b,strong{color:var(--ink);font-weight:800}
+.wrap{width:100%;max-width:660px;margin:0 auto;padding:0 14px}
+
+header{background:linear-gradient(160deg,#0C1830 0%,#0F1E3D 55%,#0E8C7F18 100%),#0F1E3D;color:#fff;padding:34px 0 38px;position:relative;overflow:hidden}
+header::before{content:"";position:absolute;right:-60px;top:-60px;width:230px;height:230px;border:1px solid rgba(201,162,75,.30);border-radius:50%}
+header::after{content:"";position:absolute;right:-20px;top:-110px;width:230px;height:230px;border:1px solid rgba(14,140,127,.22);border-radius:50%}
+.eyebrow{font-size:12px;letter-spacing:.4em;color:var(--gold);margin-bottom:10px}
+header h1{font-family:var(--serif);font-size:32px;font-weight:800;letter-spacing:.05em;position:relative;display:inline-block;
+  background:linear-gradient(100deg,#fff 30%,var(--gold-hi) 46%,#7FE0D3 52%,#fff 64%);
+  background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:sweep 5.5s ease-in-out infinite}
+@keyframes sweep{0%,20%{background-position:120% 0}55%,100%{background-position:-60% 0}}
+header .sub{font-size:15px;color:#A9B4CC;margin-top:8px;max-width:560px}
+header .presenter{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#C9D2E4;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px}
+header .presenter i{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block}
+.header-brand{font-size:13px;color:#8FA0C0;margin-top:10px;letter-spacing:.08em}
+
+.gap-wrap{margin-top:-18px;position:relative;z-index:5}
+.gap-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:0 10px 30px rgba(15,30,61,.10)}
+.gap-card h3{font-family:var(--serif);font-size:19px;color:var(--ink);text-align:center;font-weight:800}
+.gap-card .q{text-align:center;font-size:14px;color:var(--tx2);margin:2px 0 14px}
+.gap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gap-tile{border-radius:12px;padding:12px 8px;text-align:center;border:1.5px solid transparent;transition:.2s}
+.gap-tile .t-name{font-size:13px;font-weight:800;margin-top:2px}
+.gap-tile .t-status{font-family:var(--serif);font-size:18px;font-weight:800;margin-top:4px;line-height:1.2;font-variant-numeric:tabular-nums}
+.gap-tile .t-note{font-size:11.5px;color:var(--tx2);margin-top:4px;line-height:1.35}
+.gs-red{background:var(--red-soft);border-color:rgba(180,69,47,.25)}.gs-red .t-name,.gs-red .t-status{color:var(--red)}
+.gs-gold{background:var(--gold-soft);border-color:rgba(201,162,75,.35)}.gs-gold .t-name,.gs-gold .t-status{color:#8A6B25}
+.gs-teal{background:var(--teal-soft);border-color:rgba(14,140,127,.25)}.gs-teal .t-name,.gs-teal .t-status{color:var(--teal)}
+.gap-foot{text-align:center;font-size:13.5px;color:var(--tx2);margin-top:12px}
+.gap-foot b{color:var(--ink)}
+
+.workspace{max-width:660px;margin:0 auto;padding:20px 14px 0}
+.desk-lower{max-width:660px;margin:0 auto;padding:0 14px 30px}
+.verdict-wrap{max-width:660px;margin:0 auto;padding:0 14px}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-bottom:18px;position:relative;overflow:hidden}
+section.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--gold))}
+.step-tag{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.step-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;font-family:var(--serif);background:var(--accent-soft,var(--gold-soft));color:var(--ink);flex:none}
+.step-tag h2{font-family:var(--serif);font-size:22px;color:var(--ink);font-weight:800}
+.step-tag .no{font-size:12px;letter-spacing:.18em;color:var(--tx2);display:block;font-weight:700}
+.step-desc{font-size:15px;color:var(--tx2);margin-bottom:16px}
+
+.live{border-radius:10px;padding:12px 14px;font-size:15px;margin-top:4px;background:var(--accent-soft,var(--gold-soft));color:var(--ink)}
+.live b{font-variant-numeric:tabular-nums}
+
+.field{margin-bottom:15px}
+.field label{display:block;font-size:15.5px;font-weight:800;color:var(--ink);margin-bottom:3px}
+.hint{font-size:13.5px;color:var(--tx2);margin-bottom:6px}
+.money-wrap{position:relative}
+.money-wrap span.rm{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--tx2)}
+input[type=number],input[type=text]{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:14px;font-size:18px;background:#fff;color:var(--tx);font-variant-numeric:tabular-nums}
+.money-wrap input{padding-left:44px}
+input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.18)}
+input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 14px;font-size:15px;color:var(--tx);cursor:pointer;transition:.15s;text-align:left}
+.chip small{display:block;font-size:12.5px;color:var(--tx2);line-height:1.3}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 12px rgba(15,30,61,.25);font-weight:700}
+.chip.on small{color:#C4CCDD}
+.chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.goal-grid{display:grid;gap:8px}
+.goal{display:flex;align-items:flex-start;gap:12px;border:1.5px solid var(--line);border-radius:13px;padding:14px;cursor:pointer;background:#fff;transition:.15s;text-align:left;width:100%;font:inherit;color:inherit}
+.goal.on{border-color:var(--teal);background:var(--teal-soft);box-shadow:0 3px 10px rgba(14,140,127,.12)}
+.goal .g-ico{width:36px;height:36px;border-radius:10px;background:var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:800;font-size:15px;color:var(--tx2);flex:none}
+.goal.on .g-ico{background:var(--teal);color:#fff}
+.goal b{font-size:16px;font-weight:800;display:block;color:var(--ink)}
+.goal span{font-size:13.5px;color:var(--tx2)}
+
+.cover-grid{display:grid;gap:8px}
+.cover-item{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:13px;padding:13px 14px;cursor:pointer;transition:.15s;background:#fff}
+.cover-item.on{border-color:var(--teal);background:var(--teal-soft)}
+.cover-item > input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:var(--ink);flex:none}
+.cover-item .cover-body{flex:1;min-width:0}
+.cover-item b{font-size:15.5px;font-weight:800;display:block}
+.cover-item p{font-size:13.5px;color:var(--tx2)}
+.cover-item .amt{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed rgba(14,140,127,.25)}
+.cover-item.on .amt{display:block}
+.cover-item .amt .hint{margin-bottom:8px}
+.cover-item .amt .money-wrap{width:100%}
+.cover-item .amt input[type=number]{
+  width:100%;min-height:52px;padding:14px 14px 14px 48px;font-size:20px;font-weight:700;
+  border:1.5px solid var(--line);border-radius:11px;background:#fff;color:var(--tx);
+  font-variant-numeric:tabular-nums
+}
+
+.struct-grid{display:grid;gap:8px}
+.struct{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:13px;padding:14px;cursor:pointer;transition:.15s;background:#fff}
+.struct.on{border-color:var(--gold);background:var(--gold-soft);box-shadow:0 3px 10px rgba(201,162,75,.15)}
+.struct input{width:19px;height:19px;margin-top:3px;accent-color:var(--ink);flex:none}
+.struct b{font-size:16px;font-weight:800;display:block}
+.struct p{font-size:13.5px;color:var(--tx2)}
+
+.budget-box{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px}
+.budget-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.budget-top .bv{font-family:var(--serif);font-size:28px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+.budget-top .bl{font-size:13px;color:var(--tx2)}
+input[type=range]{width:100%;accent-color:var(--ink);height:6px;cursor:pointer}
+.budget-marks{display:flex;justify-content:space-between;font-size:12px;color:var(--tx2);margin-top:6px}
+.budget-pct{font-size:14px;color:var(--tx2);margin-top:10px}
+
+.note{border-left:3px solid var(--gold);background:var(--gold-soft);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14.5px;color:#5A4A22;margin:12px 0}
+.note.teal{border-left-color:var(--teal);background:var(--teal-soft);color:#0A5C54}
+.note.red{border-left-color:var(--red);background:var(--red-soft);color:#7A2F22}
+.badge{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;background:var(--gold-soft);color:#8A6B25;margin-left:6px;vertical-align:middle}
+
+.assume{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.assume button{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:12px 8px;cursor:pointer;font:inherit;text-align:center;transition:.15s}
+.assume button.on{border-color:var(--ink);background:var(--ink);color:#fff}
+.assume button .a-name{font-size:14px;font-weight:800;display:block}
+.assume button .a-meta{font-size:11.5px;color:var(--tx2);margin-top:3px;line-height:1.3}
+.assume button.on .a-meta{color:#C4CCDD}
+
+.survey-q{margin-bottom:18px}
+.survey-q:last-of-type{margin-bottom:8px}
+.survey-q .q-title{font-size:15.5px;font-weight:800;color:var(--ink);margin-bottom:4px}
+.survey-q .q-hint{font-size:13px;color:var(--tx2);margin-bottom:8px}
+
+.verdict{background:linear-gradient(165deg,#0C1830 0%,#0F1E3D 60%,#0E4A44 100%);color:#fff;border-radius:18px;padding:24px 18px;margin:8px 0 18px;box-shadow:0 16px 40px rgba(15,30,61,.28)}
+.verdict .v-label{font-size:12px;letter-spacing:.35em;color:var(--gold);margin-bottom:8px}
+.verdict .v-punch{font-family:var(--serif);font-size:22px;font-weight:800;line-height:1.35;margin-bottom:14px}
+.verdict .v-punch b{-webkit-text-fill-color:initial;color:var(--gold-hi)}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.dual .d-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px}
+.dual .d-lab{font-size:12px;color:#8FA0C0;letter-spacing:.08em}
+.dual .d-val{font-family:var(--serif);font-size:24px;font-weight:800;color:var(--gold-hi);margin-top:4px;font-variant-numeric:tabular-nums}
+.dual .d-sub{font-size:12.5px;color:#A9B4CC;margin-top:4px}
+.layers{display:grid;gap:10px;margin:14px 0}
+.layer{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:14px}
+.layer .l-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.layer .l-name{font-size:15px;font-weight:800}
+.layer .l-tag{font-size:11px;padding:2px 8px;border-radius:999px;flex:none}
+.layer .l-tag.must{background:rgba(180,69,47,.25);color:#F0B4A8}
+.layer .l-tag.core{background:rgba(201,162,75,.22);color:var(--gold-hi)}
+.layer .l-tag.ok{background:rgba(14,140,127,.25);color:#8FE0D4}
+.layer .l-tag.later{background:rgba(255,255,255,.1);color:#A9B4CC}
+.layer .l-detail{font-size:13.5px;color:#A9B4CC;margin-top:6px;line-height:1.55}
+.layer .l-detail b{color:#fff;font-weight:700}
+.phase{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.v-foot{font-size:12.5px;color:#7E8DAB;margin-top:14px;line-height:1.5}
+
+.reframe{border-radius:14px;padding:16px 18px;background:linear-gradient(135deg,#0C1830,#134A44);color:#fff;margin-bottom:16px}
+.reframe .rf-lab{font-size:12px;letter-spacing:.28em;color:var(--gold);font-weight:700}
+.reframe .rf-title{font-family:var(--serif);font-size:22px;font-weight:800;margin-top:6px;line-height:1.35}
+.reframe .rf-sub{font-size:14px;color:#B8C4DA;margin-top:8px;line-height:1.6}
+
+.detail-grid{display:grid;gap:10px}
+.d-card{border:1.5px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+.d-card h4{font-size:15.5px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.d-row{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:5px 0;border-bottom:1px dashed var(--line)}
+.d-row:last-child{border-bottom:0}
+.d-row .dk{color:var(--tx2)}
+.d-row .dv{font-weight:700;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+
+.path-row{display:grid;gap:10px;margin:14px 0}
+.phase-card{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px;text-align:left;cursor:pointer;color:var(--tx);font:inherit;transition:.15s}
+.phase-card.on{border-color:var(--gold);background:var(--gold-soft)}
+.phase-card .pc-tag{font-size:11px;letter-spacing:.12em;color:var(--gold);margin-bottom:4px}
+.phase-card .pc-title{font-size:15px;font-weight:800;color:var(--ink)}
+.phase-card .pc-body{font-size:13px;color:var(--tx2);margin-top:4px}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:14px 18px;font-size:15.5px;font-weight:800;cursor:pointer;text-decoration:none;transition:.15s}
+.btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--ink)}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-line{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.close-note{font-size:13.5px;color:var(--tx2);margin-top:10px}
+
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(12,24,48,.55);z-index:80;align-items:flex-end;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border-radius:18px 18px 14px 14px;width:100%;max-width:420px;padding:22px 20px 18px;box-shadow:0 20px 50px rgba(15,30,61,.35);max-height:88vh;overflow:auto}
+.modal h3{font-family:var(--serif);font-size:23px;color:var(--ink)}
+.modal .m-desc{font-size:15px;color:var(--tx2);margin:4px 0 14px}
+.modal ul{list-style:none;margin:0 0 16px}
+.modal li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--tx)}
+.modal li:last-child{border-bottom:none}
+.modal li .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:6px;flex:none}
+.modal .m-actions{display:flex;gap:10px}
+.modal .m-actions .btn{flex:1}
+
+.contact{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-bottom:18px;text-align:center}
+.contact .c-name{font-family:var(--serif);font-size:22px;font-weight:800;color:var(--ink)}
+.contact .c-sub{font-size:14px;color:var(--tx2);margin-top:4px}
+.contact .c-phone{font-size:18px;font-weight:800;color:var(--ink);margin-top:10px}
+.sign-row{display:none;margin-top:22px;gap:20px;text-align:left}
+.sign-row .s-box{flex:1;border-top:1.5px solid var(--line);padding-top:6px;font-size:13px;color:var(--tx2);text-align:center}
+
+#cover{display:none}
+footer{text-align:center;font-size:12.5px;color:var(--tx2);padding:8px 0 20px;line-height:1.6}
+footer a{color:var(--ink);font-weight:700;text-decoration:none}
+
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(15,30,61,.94);backdrop-filter:blur(10px);padding:10px 14px;border-top:1px solid rgba(255,255,255,.08)}
+.sticky-inner{max-width:660px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sticky .s-lab{font-size:12px;color:#8FA0C0}
+.sticky .s-val{font-size:16px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.sticky .btn-row{display:flex;gap:8px;align-items:center;flex:none}
+.sticky a,.sticky button.btn-sticky{
+  flex:none;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:800;font-size:14px;
+  padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-family:inherit
+}
+.sticky button.btn-sticky-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
+
+@media print{
+  body{padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sticky,.no-print,.modal-bg,header{display:none!important}
+  .workspace,.desk-lower,.verdict-wrap,.wrap{max-width:none;display:block;padding:0 12px}
+  section.card,.verdict,.gap-card,.contact{break-inside:avoid;box-shadow:none}
+  #cover{display:flex;flex-direction:column;justify-content:center;min-height:96vh;background:var(--ink);color:#fff;padding:60px 50px;page-break-after:always;border-radius:0}
+  #cover .cv-eyebrow{font-size:12px;letter-spacing:.45em;color:var(--gold)}
+  #cover h1{font-family:var(--serif);font-size:36px;margin:14px 0 6px;color:#fff;background:none;-webkit-text-fill-color:#fff}
+  #cover .cv-for{font-family:var(--serif);font-size:22px;color:var(--gold-hi);margin-top:30px}
+  #cover .cv-meta{font-size:13px;color:#A9B4CC;margin-top:40px;line-height:2}
+  .sign-row{display:flex}
+  .gap-wrap{margin-top:0}
+}
+
+@media (min-width:900px){
+  .wrap{max-width:1120px;padding:0 28px}
+  .gap-card{padding:22px 24px}
+  .gap-tile .t-status{font-size:20px}
+  .gap-card h3{font-size:22px}
+  header{padding:48px 0 56px}
+  header h1{font-size:46px}
+  header .sub{font-size:17px;max-width:720px;margin-top:12px}
+  .workspace,.verdict-wrap,.desk-lower,.sticky-inner{max-width:1120px;padding-left:28px;padding-right:28px}
+  .workspace{padding-top:28px}
+  .desk-lower{padding-bottom:40px;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}
+  .desk-lower .contact,.desk-lower footer,.desk-lower .close-kit{grid-column:1 / -1}
+  .verdict{padding:32px 28px;border-radius:20px}
+  .verdict .v-punch{font-size:28px}
+  .layers{grid-template-columns:1fr 1fr;gap:12px}
+  .layers .layer.span2{grid-column:1 / -1}
+  .detail-grid{grid-template-columns:1fr 1fr}
+  section.card{padding:24px 22px}
+  .step-tag h2{font-size:26px}
+  .goal-grid,.struct-grid{grid-template-columns:1fr 1fr}
+  .cover-grid{grid-template-columns:1fr 1fr}
+}
+@media (min-width:1200px){
+  .workspace,.desk-lower,.wrap,.sticky-inner,.verdict-wrap{max-width:1200px}
+  header h1{font-size:50px}
+}
+.gap-foot b,.live b,.layer .l-detail b,.verdict .v-punch b{font-weight:800}
+#eduFields{display:none}
+body.goal-edu #retireFields{display:none}
+body.goal-edu #eduFields{display:block}
+</style>
+</head>
+<body class="lang-zh goal-retire">
+
+<div id="cover">
+  <div class="cv-eyebrow">CONFIDENTIAL · FUTURE CASHFLOW BLUEPRINT</div>
+  <h1><span class="zh">未来现金流蓝图建议书</span><span class="en">Future Cashflow Blueprint</span></h1>
+  <div style="width:70px;height:3px;background:var(--gold)"></div>
+  <div class="cv-for" id="cvFor">呈交：客户</div>
+  <div class="cv-meta">
+    <span class="zh">分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance</span>
+    <span class="en">Advisor: Wilson Ooi · Hong Leong Assurance</span><br>
+    <span class="zh">分析日期：</span><span class="en">Date: </span><span id="cvDate"></span><br>
+    <span class="zh">联系：</span><span class="en">Contact: </span>+60 12-567 6118 (WhatsApp)
+  </div>
+</div>
+
+<header>
+  <div class="wrap" style="position:relative">
+    <div class="langbar no-print" role="group" aria-label="Language">
+      <button type="button" data-lang="zh" class="active">中文</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
+    <div class="eyebrow">FUTURE CASHFLOW BLUEPRINT</div>
+    <h1><span class="zh">未来现金流蓝图</span><span class="en">Future Cashflow Blueprint</span></h1>
+    <div class="sub">
+      <span class="zh">不是在存钱，是在买「到点还能领到」的强制权——退休与教育金按缺口拼，不按产品目录卖</span>
+      <span class="en">Not just saving — buying the right to still receive money on time. Build retirement &amp; education around gaps, not a catalogue.</span>
+    </div>
+    <div class="presenter"><i></i>
+      <span class="zh">分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</span>
+      <span class="en">Advisor · Wilson Ooi · Hong Leong Assurance</span>
+    </div>
+    <div class="header-brand">AUDO × Hong Leong Assurance · Savings &amp; Retirement</div>
+  </div>
+</header>
+
+<div class="wrap gap-wrap">
+  <div class="gap-card">
+    <h3><span class="zh">你现在的现金流缺口</span><span class="en">Your cashflow gap</span></h3>
+    <div class="q">
+      <span class="zh">随资料实时更新 · 红＝缺口大 · 黄＝偏紧 · 绿＝接近够</span>
+      <span class="en">Live updates · Red = large gap · Amber = tight · Green = near enough</span>
+    </div>
+    <div class="gap-grid">
+      <div class="gap-tile gs-gold" id="tileTarget">
+        <div class="t-name"><span class="zh">目标需求</span><span class="en">Target need</span></div>
+        <div class="t-status" id="gTarget">—</div>
+        <div class="t-note" id="gTargetNote"></div>
+      </div>
+      <div class="gap-tile gs-teal" id="tileExist">
+        <div class="t-name"><span class="zh">现有可动用</span><span class="en">What you have</span></div>
+        <div class="t-status" id="gExist">—</div>
+        <div class="t-note" id="gExistNote"></div>
+      </div>
+      <div class="gap-tile gs-red" id="tileGap">
+        <div class="t-name"><span class="zh">还差多少</span><span class="en">Still short</span></div>
+        <div class="t-status" id="gGap">—</div>
+        <div class="t-note" id="gGapNote"></div>
+      </div>
+    </div>
+    <div class="gap-foot" id="gapFoot"></div>
+  </div>
+</div>
+
+<div class="workspace">
+
+<!-- 01 Goal -->
+<section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
+  <div class="step-tag">
+    <div class="step-ico">01</div>
+    <div>
+      <span class="no"><span class="zh">人生目标</span><span class="en">Life goal</span></span>
+      <h2><span class="zh">这笔钱要解决什么</span><span class="en">What is this money for</span></h2>
+    </div>
+  </div>
+  <p class="step-desc">
+    <span class="zh">先锁主目标。公式与建议结构会跟着变。</span>
+    <span class="en">Pick the primary goal. Maths and structure follow.</span>
+  </p>
+  <div class="goal-grid" id="goalGrid">
+    <button class="goal on" type="button" data-goal="retire">
+      <div class="g-ico">退</div>
+      <div>
+        <b><span class="zh">退休生活费</span><span class="en">Retirement income</span></b>
+        <span><span class="zh">到点每月还有钱用</span><span class="en">Monthly income when you stop working</span></span>
+      </div>
+    </button>
+    <button class="goal" type="button" data-goal="edu">
+      <div class="g-ico">教</div>
+      <div>
+        <b><span class="zh">子女教育金</span><span class="en">Education fund</span></b>
+        <span><span class="zh">入学年有一笔到位</span><span class="en">A lump sum ready by school / uni year</span></span>
+      </div>
+    </button>
+  </div>
+
+  <div class="row2" style="margin-top:14px">
+    <div class="field">
+      <label for="name"><span class="zh">称呼</span><span class="en">Name</span></label>
+      <input type="text" id="name" placeholder="e.g. Wei Xiang / Alex">
+    </div>
+    <div class="field">
+      <label for="age"><span class="zh">现龄</span><span class="en">Current age</span></label>
+      <input type="number" id="age" value="35" min="18" max="65" inputmode="numeric">
+    </div>
+  </div>
+
+  <div id="retireFields">
+    <div class="row2">
+      <div class="field">
+        <label for="retireAge"><span class="zh">目标退休年龄</span><span class="en">Target retire age</span></label>
+        <input type="number" id="retireAge" value="60" min="45" max="70" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="income"><span class="zh">现年收入</span><span class="en">Annual income now</span></label>
+        <div class="money-wrap"><span class="rm">RM</span><input type="number" id="income" value="84000" inputmode="numeric"></div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="retireSpend"><span class="zh">退休后期望月支出（今天币值）</span><span class="en">Desired monthly spend in retirement (today’s RM)</span></label>
+      <div class="hint"><span class="zh">大约数即可；系统会按通胀推到退休年</span><span class="en">Approx. is fine; we inflate it to retirement year</span></div>
+      <div class="money-wrap"><span class="rm">RM</span><input type="number" id="retireSpend" value="5000" inputmode="numeric"></div>
+    </div>
+  </div>
+
+  <div id="eduFields">
+    <div class="row2">
+      <div class="field">
+        <label for="childAge"><span class="zh">孩子现龄</span><span class="en">Child’s age now</span></label>
+        <input type="number" id="childAge" value="5" min="0" max="17" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="eduAge"><span class="zh">目标入学年龄</span><span class="en">Target start age</span></label>
+        <div class="hint"><span class="zh">大学常见 18–19</span><span class="en">Uni often 18–19</span></div>
+        <input type="number" id="eduAge" value="18" min="6" max="22" inputmode="numeric">
+      </div>
+    </div>
+    <div class="field">
+      <label for="eduNeed"><span class="zh">目标教育金（今天币值）</span><span class="en">Education target (today’s RM)</span></label>
+      <div class="hint"><span class="zh">本地公立约 5–10 万；私立/海外更高</span><span class="en">Local public ~50–100k; private/overseas higher</span></div>
+      <div class="money-wrap"><span class="rm">RM</span><input type="number" id="eduNeed" value="150000" inputmode="numeric"></div>
+    </div>
+  </div>
+  <div class="live" id="live1" style="--accent-soft:var(--teal-soft)"></div>
+</section>
+
+<!-- 02 Assets -->
+<section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
+  <div class="step-tag">
+    <div class="step-ico">02</div>
+    <div>
+      <span class="no"><span class="zh">现有资产盘点</span><span class="en">What you already have</span></span>
+      <h2><span class="zh">先算已有，再补缺口</span><span class="en">Count what exists, then fill the gap</span> <span class="badge"><span class="zh">客制化关键</span><span class="en">Key</span></span></h2>
+    </div>
+  </div>
+  <p class="step-desc">
+    <span class="zh">有就勾、有数字就填。系统只补缺口，避免叠买。</span>
+    <span class="en">Tick what you have. We only fill gaps — no stacking.</span>
+  </p>
+
+  <div class="cover-grid">
+    <div class="cover-item has-amt on" id="cvEpf" role="button" tabindex="0">
+      <input type="checkbox" id="hasEpf" checked>
+      <div class="cover-body">
+        <b><span class="zh">EPF / KWSP</span><span class="en">EPF / KWSP</span></b>
+        <p><span class="zh">目前余额（约数即可）</span><span class="en">Current balance (approx.)</span></p>
+        <div class="amt" data-stop>
+          <div class="hint"><span class="zh">Account 1+2 合计</span><span class="en">Account 1+2 combined</span></div>
+          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="epfBal" value="120000" inputmode="numeric" min="0" step="1000"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-item has-amt on" id="cvCash" role="button" tabindex="0">
+      <input type="checkbox" id="hasCash" checked>
+      <div class="cover-body">
+        <b><span class="zh">现金 / 定存 / ASB</span><span class="en">Cash / FD / ASB</span></b>
+        <p><span class="zh">可拨给此目标的部分</span><span class="en">Portion earmarked for this goal</span></p>
+        <div class="amt" data-stop>
+          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="cashBal" value="30000" inputmode="numeric" min="0" step="1000"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-item has-amt" id="cvSave" role="button" tabindex="0">
+      <input type="checkbox" id="hasSave">
+      <div class="cover-body">
+        <b><span class="zh">已有储蓄 / 退休保单</span><span class="en">Existing savings / retirement policy</span></b>
+        <p><span class="zh">到期利益或现有现金价值</span><span class="en">Maturity benefit or cash value</span></p>
+        <div class="amt" data-stop>
+          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="saveBal" value="50000" inputmode="numeric" min="0" step="1000"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-item has-amt" id="cvInv" role="button" tabindex="0">
+      <input type="checkbox" id="hasInv">
+      <div class="cover-body">
+        <b><span class="zh">其他投资（可选）</span><span class="en">Other investments (optional)</span></b>
+        <p><span class="zh">股票、基金等粗估</span><span class="en">Stocks, funds — rough estimate</span></p>
+        <div class="amt" data-stop>
+          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="invBal" value="20000" inputmode="numeric" min="0" step="1000"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="note teal">
+    <span class="zh">马来西亚现实：多数人只靠 EPF，退休后替代率往往不到现收入的一半。缺口不是吓你，是把数字摊开。</span>
+    <span class="en">Malaysia reality: EPF alone often replaces under half of current income. The gap is clarity, not fear.</span>
+  </div>
+  <div class="live" id="live2"></div>
+</section>
+
+<!-- 03 Assumptions + contribution -->
+<section class="card" style="--accent:var(--plum);--accent-soft:var(--plum-soft)">
+  <div class="step-tag">
+    <div class="step-ico">03</div>
+    <div>
+      <span class="no"><span class="zh">时间 · 假设 · 贡献</span><span class="en">Time · assumptions · contribution</span></span>
+      <h2><span class="zh">通胀会吃掉「今天的够」</span><span class="en">Inflation eats “enough today”</span></h2>
+    </div>
+  </div>
+  <p class="step-desc">
+    <span class="zh">选一档假设，再填每月「一定存得住」的数——不是理想数。</span>
+    <span class="en">Pick an assumption set, then enter what you can truly save each month — not the ideal number.</span>
+  </p>
+
+  <div class="assume" id="assumeGrid">
+    <button type="button" data-assume="conservative">
+      <span class="a-name"><span class="zh">保守</span><span class="en">Conservative</span></span>
+      <span class="a-meta">通胀 3.5% · 回报 3%</span>
+    </button>
+    <button type="button" class="on" data-assume="base">
+      <span class="a-name"><span class="zh">基准</span><span class="en">Base</span></span>
+      <span class="a-meta">通胀 3% · 回报 4.5%</span>
+    </button>
+    <button type="button" data-assume="optimistic">
+      <span class="a-name"><span class="zh">乐观</span><span class="en">Optimistic</span></span>
+      <span class="a-meta">通胀 2.5% · 回报 6%</span>
+    </button>
+  </div>
+
+  <div class="field">
+    <label for="monthlySave"><span class="zh">每月已在存 / 能存住</span><span class="en">Monthly you already save / can keep saving</span></label>
+    <div class="hint"><span class="zh">含银行自动转账、ASB、现有保单保费等</span><span class="en">Includes standing orders, ASB, existing premiums</span></div>
+    <div class="money-wrap"><span class="rm">RM</span><input type="number" id="monthlySave" value="500" inputmode="numeric"></div>
+  </div>
+  <div class="live" id="live3" style="--accent-soft:var(--plum-soft)"></div>
+</section>
+
+<!-- 04 Structure -->
+<section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
+  <div class="step-tag">
+    <div class="step-ico">04</div>
+    <div>
+      <span class="no"><span class="zh">结构选择</span><span class="en">Structure</span></span>
+      <h2><span class="zh">要强制，还是要弹性</span><span class="en">Discipline vs flexibility</span></h2>
+    </div>
+  </div>
+  <p class="step-desc">
+    <span class="zh">不是比谁回报高——是这笔钱能不能被动用、到点能不能拿到。</span>
+    <span class="en">Not about the highest return — about whether the money gets spent early, and whether it arrives on time.</span>
+  </p>
+  <div class="struct-grid" id="structGrid">
+    <label class="struct on"><input type="radio" name="struct" value="force" checked>
+      <div><b><span class="zh">强制储蓄</span><span class="en">Forced savings</span></b>
+      <p><span class="zh">定期定额，到期拿一笔 · 适合教育金 / 购房</span><span class="en">Regular premiums, lump sum at maturity · education / house</span></p></div>
+    </label>
+    <label class="struct"><input type="radio" name="struct" value="income">
+      <div><b><span class="zh">退休现金流</span><span class="en">Retirement cashflow</span></b>
+      <p><span class="zh">退休后分期领 · 怕活太久钱不够</span><span class="en">Drawdown / income after retirement · longevity risk</span></p></div>
+    </label>
+    <label class="struct"><input type="radio" name="struct" value="protect">
+      <div><b><span class="zh">保障 + 储蓄</span><span class="en">Protection + savings</span></b>
+      <p><span class="zh">储蓄期间顺带身故/伤残保障</span><span class="en">Savings with death / TPD cover along the way</span></p></div>
+    </label>
+    <label class="struct"><input type="radio" name="struct" value="flex">
+      <div><b><span class="zh">弹性投连</span><span class="en">Flexible ILP</span></b>
+      <p><span class="zh">愿承受波动，追求更高潜在回报</span><span class="en">Accept volatility for higher potential return</span></p></div>
+    </label>
+  </div>
+  <div class="note">
+    <span class="zh">银行灵活但容易被动用；储蓄保换的是纪律与用途锁定——不是保证更高回报。提前提取 / 断缴通常会伤本金，报价时会摊开说明。</span>
+    <span class="en">Banks are flexible but easy to raid. Savings policies buy discipline and purpose-lock — not a promised higher return. Early surrender / lapses usually hurt capital; we’ll show that at quotation.</span>
+  </div>
+  <div class="live" id="live4"></div>
+</section>
+
+<!-- 05 Budget -->
+<section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
+  <div class="step-tag">
+    <div class="step-ico">05</div>
+    <div>
+      <span class="no"><span class="zh">预算与取舍</span><span class="en">Budget &amp; trade-offs</span></span>
+      <h2><span class="zh">额外月供愿意加多少</span><span class="en">Extra monthly premium you can add</span></h2>
+    </div>
+  </div>
+  <p class="step-desc">
+    <span class="zh">这是「新增」部分；第 3 步已填的现有储蓄另算。拖动时缺口会跟着变。</span>
+    <span class="en">This is the new add-on; step 3 already counts current savings. Gap updates as you drag.</span>
+  </p>
+  <div class="budget-box">
+    <div class="budget-top">
+      <div class="bl"><span class="zh">新增月保费预算</span><span class="en">New monthly premium budget</span></div>
+      <div class="bv" id="budgetVal">RM 400</div>
+    </div>
+    <input type="range" id="budget" min="100" max="2000" step="50" value="400">
+    <div class="budget-marks"><span>RM100</span><span>RM500</span><span>RM1000</span><span>RM2000</span></div>
+    <div class="budget-pct" id="budgetPct"></div>
+  </div>
+  <div class="note red" id="protectFirst">
+    <span class="zh">若医药 / 危疾还没齐，建议先看 <a href="/medical/" style="color:var(--red);font-weight:800">保障蓝图</a>，再把预算全砸进储蓄。</span>
+    <span class="en">If medical / CI is still thin, start with the <a href="/medical/" style="color:var(--red);font-weight:800">protection blueprint</a> before pouring budget into savings.</span>
+  </div>
+  <div class="live" id="live5" style="--accent-soft:var(--red-soft)"></div>
+</section>
+
+<!-- Decision survey -->
+<section class="card survey" style="--accent:var(--ink);--accent-soft:#E8EBF2">
+  <div class="step-tag">
+    <div class="step-ico">◎</div>
+    <div>
+      <span class="no"><span class="zh">决策校准</span><span class="en">Decision check</span></span>
+      <h2><span class="zh">四个问题，把意愿与结构对齐</span><span class="en">Four questions to align will with structure</span></h2>
+    </div>
+  </div>
+
+  <div class="survey-q">
+    <div class="q-title"><span class="zh">1. 退休后想维持现收入的几成？（教育金可跳过）</span><span class="en">1. What % of today’s income do you want in retirement? (skip if education)</span></div>
+    <div class="q-hint"><span class="zh">常见目标 60–70%。越高，缺口越大。</span><span class="en">Common target 60–70%. Higher = larger gap.</span></div>
+    <div class="chips" id="repChips">
+      <button class="chip" data-rep="50" type="button">50%</button>
+      <button class="chip on" data-rep="60" type="button">60%</button>
+      <button class="chip" data-rep="70" type="button">70%</button>
+      <button class="chip" data-rep="80" type="button">80%</button>
+    </div>
+  </div>
+
+  <div class="survey-q">
+    <div class="q-title"><span class="zh">2. 最怕哪一件先发生？</span><span class="en">2. What worries you most?</span></div>
+    <div class="chips" id="fearChips">
+      <button class="chip on" data-fear="longevity" type="button"><span class="zh">活太久钱不够<small>长寿风险</small></span><span class="en">Outliving money<small>Longevity</span></span></button>
+      <button class="chip" data-fear="raid" type="button"><span class="zh">中途被动用<small>没纪律</small></span><span class="en">Spent early<small>No discipline</span></span></button>
+      <button class="chip" data-fear="inflate" type="button"><span class="zh">通胀吃掉<small>今天够明天不够</small></span><span class="en">Inflation<small>Enough today, not tomorrow</span></span></button>
+      <button class="chip" data-fear="shock" type="button"><span class="zh">突发要用钱<small>没缓冲</small></span><span class="en">Sudden need<small>No buffer</span></span></button>
+    </div>
+  </div>
+
+  <div class="survey-q">
+    <div class="q-title"><span class="zh">3. 这笔钱能不能中途动用？</span><span class="en">3. Can this money be touched early?</span></div>
+    <div class="chips" id="lockChips">
+      <button class="chip on" data-lock="no" type="button"><span class="zh">最好不能<small>偏强制储蓄</small></span><span class="en">Preferably no<small>Forced savings</span></span></button>
+      <button class="chip" data-lock="some" type="button"><span class="zh">偶尔可以<small>混合结构</small></span><span class="en">Sometimes<small>Hybrid</span></span></button>
+      <button class="chip" data-lock="yes" type="button"><span class="zh">要弹性<small>偏投连 / 银行</small></span><span class="en">Need flexibility<small>ILP / bank</span></span></button>
+    </div>
+  </div>
+
+  <div class="survey-q">
+    <div class="q-title"><span class="zh">4. 保障（医药 / 危疾）目前怎样？</span><span class="en">4. How is protection (medical / CI) today?</span></div>
+    <div class="chips" id="protChips">
+      <button class="chip" data-prot="ok" type="button"><span class="zh">已齐<small>可专注储蓄</small></span><span class="en">Adequate<small>Focus on savings</span></span></button>
+      <button class="chip on" data-prot="thin" type="button"><span class="zh">偏薄<small>建议先补</small></span><span class="en">Thin<small>Fix first</span></span></button>
+      <button class="chip" data-prot="empty" type="button"><span class="zh">几乎空白<small>先看保障蓝图</small></span><span class="en">Almost none<small>See protection first</span></span></button>
+    </div>
+  </div>
+  <div class="live" id="live6" style="--accent-soft:#E8EBF2"></div>
+</section>
+
+</div>
+
+<div class="verdict-wrap">
+  <div class="verdict" id="verdict"></div>
+</div>
+
+<div class="desk-lower">
+
+<section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
+  <div class="step-tag">
+    <div class="step-ico">06</div>
+    <div>
+      <span class="no"><span class="zh">利益明细</span><span class="en">Benefit details</span></span>
+      <h2><span class="zh">对照报价时看这些格子</span><span class="en">Use these fields at quotation</span></h2>
+    </div>
+  </div>
+  <p class="step-desc">
+    <span class="zh">对外是生活语言，对内落到产品参数——方便对照 HLA Quotation。</span>
+    <span class="en">Plain language outside, product parameters inside — ready for an HLA quotation.</span>
+  </p>
+  <div class="detail-grid" id="detailGrid"></div>
+  <div class="note" id="uwNote"></div>
+</section>
+
+<section class="card close-kit" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
+  <div class="step-tag">
+    <div class="step-ico">→</div>
+    <div>
+      <span class="no"><span class="zh">下一步</span><span class="en">Next step</span></span>
+      <h2><span class="zh">把蓝图变成正式报价</span><span class="en">Turn the blueprint into a quotation</span></h2>
+    </div>
+  </div>
+  <p class="step-desc">
+    <span class="zh">选路径后，WhatsApp 会自动带上目标、缺口、月供与结构。</span>
+    <span class="en">After you pick a path, WhatsApp carries goal, gap, premium and structure.</span>
+  </p>
+
+  <div class="reframe" id="reframeBox">
+    <div class="rf-lab">REFRAME</div>
+    <div class="rf-title" id="rfTitle"></div>
+    <div class="rf-sub" id="rfSub"></div>
+  </div>
+
+  <div class="path-row">
+    <button class="phase-card on" type="button" id="pathFull" data-path="full">
+      <div class="pc-tag"><span class="zh">路径 A · 按建议月供一次到位</span><span class="en">Path A · Full suggested premium</span></div>
+      <div class="pc-title" id="pathATitle"></div>
+      <div class="pc-body" id="pathABody"></div>
+    </button>
+    <button class="phase-card" type="button" id="pathPhase" data-path="phase">
+      <div class="pc-tag"><span class="zh">路径 B · 今年先锁最低强制</span><span class="en">Path B · Lock minimum this year</span></div>
+      <div class="pc-title" id="pathBTitle"></div>
+      <div class="pc-body" id="pathBBody"></div>
+    </button>
+  </div>
+
+  <div class="btn-row no-print">
+    <button class="btn btn-gold" type="button" id="btnPrint"><span class="zh">生成蓝图 PDF</span><span class="en">Save blueprint PDF</span></button>
+    <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener"><span class="zh">WhatsApp 要正式报价</span><span class="en">WhatsApp for quotation</span></a>
+    <a class="btn btn-ghost" id="btnAsk" href="https://wa.me/60125676118" target="_blank" rel="noopener"><span class="zh">先问一个问题</span><span class="en">Ask one question first</span></a>
+  </div>
+  <div class="close-note">
+    <span class="zh">正式数字以 Hong Leong Assurance Quotation 为准；本页为顾问估算工具。回报不保证。</span>
+    <span class="en">Official figures follow the Hong Leong Assurance Quotation; this page is an advisory estimator. Returns are not guaranteed.</span>
+  </div>
+</section>
+
+<div class="contact">
+  <div class="c-name">黄冠尊 Wilson Ooi</div>
+  <div class="c-sub">
+    <span class="zh">企业与家庭保障顾问 · Hong Leong Assurance</span>
+    <span class="en">Corporate &amp; Family Protection Advisor · Hong Leong Assurance</span>
+  </div>
+  <div class="c-phone">+60 12-567 6118</div>
+  <div class="sign-row">
+    <div class="s-box"><span class="zh">客户签署 / 日期</span><span class="en">Client sign / date</span></div>
+    <div class="s-box"><span class="zh">顾问签署 / 日期</span><span class="en">Advisor sign / date</span></div>
+  </div>
+</div>
+
+<footer>
+  <span class="zh">数字为<strong>行业参考估算</strong>，非 Hong Leong Assurance 正式报价；回报与分红不保证<br>
+  正式数字、条款与核保以保险公司 Quotation / Policy Contract 为准<br></span>
+  <span class="en">Figures are <strong>industry estimates</strong>, not an official Hong Leong Assurance quotation; returns / dividends are not guaranteed<br>
+  Final figures and terms follow the insurer Quotation / Policy Contract<br></span>
+  <a href="https://audo.my/">audo.my</a> ·
+  <a href="https://audo.my/medical/">Medical</a> ·
+  <a href="https://audo.my/keyman/">Key Man</a>
+</footer>
+
+</div>
+
+<div class="sticky no-print">
+  <div class="sticky-inner">
+    <div>
+      <div class="s-lab"><span class="zh">缺口 · 建议新增月供</span><span class="en">Gap · suggested new monthly</span></div>
+      <div class="s-val" id="stickyVal">RM —</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-sticky btn-sticky-ghost" type="button" id="stickyPrint">PDF</button>
+      <a id="stickyWA" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg no-print" id="printModal" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
+  <div class="modal">
+    <h3 id="printModalTitle"><span class="zh">蓝图 PDF 将包含</span><span class="en">This PDF will include</span></h3>
+    <p class="m-desc">
+      <span class="zh">打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。</span>
+      <span class="en">Confirm contents, then Print / Save as PDF. Enable “Background graphics” in the print dialog.</span>
+    </p>
+    <ul id="printPages"></ul>
+    <div class="m-actions">
+      <button class="btn btn-line" type="button" id="btnPrintCancel"><span class="zh">取消</span><span class="en">Cancel</span></button>
+      <button class="btn btn-ink" type="button" id="btnPrintGo"><span class="zh">打印 / 存 PDF</span><span class="en">Print / Save PDF</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const num = id => Math.max(0, Number($(id)?.value) || 0);
+const fmt = n => 'RM ' + Math.round(n).toLocaleString('en-MY');
+const fmtK = n => {
+  if(n >= 1000000) return 'RM ' + (n/1000000).toFixed(n%1000000===0?0:1) + 'M';
+  if(n >= 1000) return 'RM ' + Math.round(n/1000) + 'k';
+  return fmt(n);
+};
+
+function isEn(){ return document.body.classList.contains('lang-en'); }
+function t(zh, en){ return isEn() ? en : zh; }
+
+const ASSUME = {
+  conservative: { infl: 0.035, ret: 0.03, labelZh: '保守', labelEn: 'Conservative' },
+  base:         { infl: 0.03,  ret: 0.045, labelZh: '基准', labelEn: 'Base' },
+  optimistic:   { infl: 0.025, ret: 0.06, labelZh: '乐观', labelEn: 'Optimistic' }
+};
+
+const STRUCT = {
+  force:   { zh: '强制储蓄', en: 'Forced savings' },
+  income:  { zh: '退休现金流', en: 'Retirement cashflow' },
+  protect: { zh: '保障 + 储蓄', en: 'Protection + savings' },
+  flex:    { zh: '弹性投连', en: 'Flexible ILP' }
+};
+
+const S = {
+  goal: 'retire',
+  assume: 'base',
+  struct: 'force',
+  path: 'full',
+  budget: 400,
+  rep: 60,
+  fear: 'longevity',
+  lock: 'no',
+  prot: 'thin'
+};
+
+function fv(pv, r, years){
+  return pv * Math.pow(1 + r, years);
+}
+function fvAnnuity(pmt, r, years){
+  if(years <= 0) return 0;
+  const rm = r / 12;
+  const n = years * 12;
+  if(Math.abs(rm) < 1e-9) return pmt * n;
+  return pmt * (Math.pow(1 + rm, n) - 1) / rm;
+}
+function pmtFromFv(target, r, years){
+  if(years <= 0) return target;
+  const rm = r / 12;
+  const n = years * 12;
+  if(Math.abs(rm) < 1e-9) return target / n;
+  return target * rm / (Math.pow(1 + rm, n) - 1);
+}
+function roundTo(n, step){
+  return Math.round(n / step) * step;
+}
+
+function setLang(lang){
+  document.body.classList.toggle('lang-zh', lang === 'zh');
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+  document.querySelectorAll('.langbar button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('audo.future.lang', lang); } catch(e){}
+  document.title = lang === 'en'
+    ? 'Future Cashflow Blueprint · Savings · Retirement · Education | AUDO × Hong Leong Assurance'
+    : '未来现金流蓝图 · 储蓄 · 退休 · 教育金 | AUDO × Hong Leong Assurance';
+  render();
+}
+
+function setGoal(goal){
+  S.goal = goal;
+  document.body.classList.toggle('goal-retire', goal === 'retire');
+  document.body.classList.toggle('goal-edu', goal === 'edu');
+  document.querySelectorAll('#goalGrid .goal').forEach(el => el.classList.toggle('on', el.dataset.goal === goal));
+  // Auto-suggest structure
+  if(goal === 'retire' && S.struct === 'force'){
+    setStruct('income');
+  } else if(goal === 'edu' && S.struct === 'income'){
+    setStruct('force');
+  } else {
+    render();
+  }
+}
+
+function setStruct(v){
+  S.struct = v;
+  document.querySelectorAll('#structGrid .struct').forEach(el => {
+    const on = el.querySelector('input').value === v;
+    el.classList.toggle('on', on);
+    el.querySelector('input').checked = on;
+  });
+  render();
+}
+
+function yearsLeft(){
+  const age = Math.min(65, Math.max(18, num('age') || 35));
+  if(S.goal === 'edu'){
+    const child = Math.min(17, Math.max(0, num('childAge')));
+    const target = Math.min(22, Math.max(child + 1, num('eduAge') || 18));
+    return Math.max(1, target - child);
+  }
+  const retire = Math.min(70, Math.max(age + 1, num('retireAge') || 60));
+  return Math.max(1, retire - age);
+}
+
+function existingAssets(){
+  let total = 0;
+  if($('hasEpf').checked) total += num('epfBal');
+  if($('hasCash').checked) total += num('cashBal');
+  if($('hasSave').checked) total += num('saveBal');
+  if($('hasInv').checked) total += num('invBal');
+  return total;
+}
+
+function calc(){
+  const a = ASSUME[S.assume];
+  const years = yearsLeft();
+  const age = Math.min(65, Math.max(18, num('age') || 35));
+  const income = Math.max(num('income'), 12000);
+  const monthlySave = num('monthlySave');
+  const budget = S.budget;
+  const assets = existingAssets();
+
+  let targetToday, targetFV, monthlyNeedToday, monthlyNeedFuture;
+  let goalLabel;
+
+  if(S.goal === 'edu'){
+    targetToday = Math.max(num('eduNeed'), 10000);
+    targetFV = fv(targetToday, a.infl, years);
+    monthlyNeedToday = targetToday / (years * 12);
+    monthlyNeedFuture = targetFV / (years * 12);
+    goalLabel = t('子女教育金', 'Education fund');
+  } else {
+    // Retirement: desired monthly spend inflated, then capitalized for ~20 years of drawdown at real ~2%
+    const spendToday = Math.max(num('retireSpend'), 1000);
+    // If user set replacement %, nudge spend toward that (soft guide via live text; spend field is source of truth)
+    const spendFuture = fv(spendToday, a.infl, years);
+    const drawYears = 20;
+    const realRate = Math.max(0.005, a.ret - a.infl);
+    // Capital needed at retirement to support monthly spend for drawYears
+    const rm = realRate / 12;
+    const n = drawYears * 12;
+    targetFV = spendFuture * (1 - Math.pow(1 + rm, -n)) / rm;
+    targetToday = spendToday * (1 - Math.pow(1 + (0.02/12), -n)) / (0.02/12);
+    monthlyNeedToday = spendToday;
+    monthlyNeedFuture = spendFuture;
+    goalLabel = t('退休生活费', 'Retirement income');
+  }
+
+  const assetsFV = fv(assets, a.ret, years);
+  const saveFV = fvAnnuity(monthlySave, a.ret, years);
+  const budgetFV = fvAnnuity(budget, a.ret, years);
+  const existFV = assetsFV + saveFV;
+  const gapRaw = Math.max(0, targetFV - existFV);
+  const gapAfterBudget = Math.max(0, targetFV - existFV - budgetFV);
+  const needPmt = pmtFromFv(gapRaw, a.ret, years);
+  const suggestedPmt = roundTo(Math.max(100, needPmt), 50);
+  const phasePmt = roundTo(Math.max(100, Math.min(budget, suggestedPmt * 0.45)), 50);
+
+  const coverPct = targetFV > 0 ? Math.min(100, (existFV / targetFV) * 100) : 100;
+  const coverWithBudget = targetFV > 0 ? Math.min(100, ((existFV + budgetFV) / targetFV) * 100) : 100;
+
+  // Gap status
+  let gapStatus = 'red';
+  if(coverPct >= 85) gapStatus = 'teal';
+  else if(coverPct >= 55) gapStatus = 'gold';
+
+  // Monthly shortfall at target year (for dual display)
+  let monthShort = 0;
+  if(S.goal === 'retire'){
+    const fundedMonths = existFV > 0 ? (existFV / Math.max(monthlyNeedFuture, 1)) : 0;
+    // Rough: how many RM/month short vs desired future spend if drawing over 20y
+    const fundedMonthly = existFV > 0 ? existFV / ((1 - Math.pow(1 + Math.max(0.005, a.ret - a.infl)/12, -240)) / (Math.max(0.005, a.ret - a.infl)/12)) : 0;
+    monthShort = Math.max(0, monthlyNeedFuture - fundedMonthly);
+  } else {
+    monthShort = Math.max(0, (targetFV - existFV) / Math.max(years * 12, 1));
+  }
+
+  const inflateDemo = fv(S.goal === 'retire' ? Math.max(num('retireSpend'),1000) : Math.max(num('eduNeed'),10000) / Math.max(years*12,1) * 12, a.infl, years);
+
+  return {
+    a, years, age, income, monthlySave, budget, assets,
+    targetToday, targetFV, existFV, assetsFV, saveFV, budgetFV,
+    gapRaw, gapAfterBudget, needPmt, suggestedPmt, phasePmt,
+    coverPct, coverWithBudget, gapStatus, monthlyNeedToday, monthlyNeedFuture,
+    monthShort, goalLabel, inflateDemo
+  };
+}
+
+function planFrom(n){
+  const activePmt = S.path === 'full' ? Math.max(S.budget, n.suggestedPmt) : Math.min(S.budget, n.phasePmt);
+  const displayPmt = S.path === 'full' ? Math.max(S.budget, Math.min(n.suggestedPmt, S.budget || n.suggestedPmt)) : n.phasePmt;
+  // Use budget as chosen premium when path full; show suggested if budget too low
+  const chosen = S.path === 'full' ? S.budget : n.phasePmt;
+  const chosenFV = fvAnnuity(chosen, n.a.ret, n.years);
+  const finalCover = n.targetFV > 0 ? Math.min(100, ((n.existFV + chosenFV) / n.targetFV) * 100) : 100;
+  const remaining = Math.max(0, n.targetFV - n.existFV - chosenFV);
+
+  let punch;
+  if(n.gapRaw <= 0){
+    punch = t(
+      `按现况推算，到点大约<strong>够用</strong>。重点变成：锁纪律、防中途动用，并核对保障是否齐。`,
+      `On current numbers, you look <strong>roughly on track</strong>. Focus on discipline, preventing early raids, and checking protection.`
+    );
+  } else if(S.path === 'phase'){
+    punch = t(
+      `缺口约 <b>${fmtK(n.gapRaw)}</b>。今年先用 <b>${fmt(chosen)}</b>/月锁强制储蓄，明年再加厚。`,
+      `Gap about <b>${fmtK(n.gapRaw)}</b>. This year lock <b>${fmt(chosen)}</b>/mo forced savings; thicken next year.`
+    );
+  } else if(S.budget < n.suggestedPmt * 0.7){
+    punch = t(
+      `到点还差约 <b>${fmtK(n.gapRaw)}</b>——相当于每月少 <b>${fmtK(n.monthShort)}</b>。建议月供约 <b>${fmt(n.suggestedPmt)}</b>；现预算 <b>${fmt(S.budget)}</b> 会留下尾差。`,
+      `Still short ~ <b>${fmtK(n.gapRaw)}</b> at target — about <b>${fmtK(n.monthShort)}</b>/mo. Suggested premium ~ <b>${fmt(n.suggestedPmt)}</b>; current budget <b>${fmt(S.budget)}</b> leaves a remainder.`
+    );
+  } else {
+    punch = t(
+      `按现况，到点还差约 <b>${fmtK(n.gapRaw)}</b>。用 <b>${fmt(S.budget)}</b>/月的新增强制储蓄，覆盖率约 <b>${finalCover.toFixed(0)}%</b>。`,
+      `On current numbers, still short ~ <b>${fmtK(n.gapRaw)}</b>. At <b>${fmt(S.budget)}</b>/mo new forced savings, coverage ~ <b>${finalCover.toFixed(0)}%</b>.`
+    );
+  }
+
+  const structName = t(STRUCT[S.struct].zh, STRUCT[S.struct].en);
+  return { punch, chosen, finalCover, remaining, structName, activePmt: chosen };
+}
+
+function gapClass(status){
+  return status === 'teal' ? 'gs-teal' : status === 'gold' ? 'gs-gold' : 'gs-red';
+}
+
+function render(){
+  const n = calc();
+  const p = planFrom(n);
+
+  // Dashboard
+  $('gTarget').textContent = fmtK(n.targetFV);
+  $('gTargetNote').textContent = t(`${n.years} 年后币值`, `In ${n.years}y money`);
+  $('gExist').textContent = fmtK(n.existFV);
+  $('gExistNote').textContent = t('资产+现有月供推算', 'Assets + current savings FV');
+  $('gGap').textContent = n.gapRaw <= 0 ? t('接近够', 'Near enough') : fmtK(n.gapRaw);
+  $('gGapNote').textContent = n.gapRaw <= 0
+    ? t('维持纪律即可', 'Keep discipline')
+    : t(`约 ${fmtK(n.monthShort)}/月缺口感`, `~${fmtK(n.monthShort)}/mo feel`);
+
+  $('tileTarget').className = 'gap-tile gs-gold';
+  $('tileExist').className = 'gap-tile ' + (n.coverPct >= 70 ? 'gs-teal' : 'gs-gold');
+  $('tileGap').className = 'gap-tile ' + gapClass(n.gapStatus);
+
+  $('gapFoot').innerHTML = t(
+    `今天觉得够的数字，${n.years} 年后大约变成 <b>${fmtK(n.inflateDemo)}</b>（${isEn()?ASSUME[S.assume].labelEn:ASSUME[S.assume].labelZh}假设）。覆盖率 <b>${n.coverPct.toFixed(0)}%</b>。`,
+    `What feels enough today ≈ <b>${fmtK(n.inflateDemo)}</b> in ${n.years}y (${ASSUME[S.assume].labelEn} case). Coverage <b>${n.coverPct.toFixed(0)}%</b>.`
+  );
+
+  // Live strips
+  $('live1').innerHTML = S.goal === 'retire'
+    ? t(`还有 <b>${n.years}</b> 年退休。今天月支 <b>${fmt(num('retireSpend'))}</b> ≈ 到时 <b>${fmt(n.monthlyNeedFuture)}</b>/月。`,
+        `<b>${n.years}</b> years to retire. Today’s <b>${fmt(num('retireSpend'))}</b>/mo ≈ <b>${fmt(n.monthlyNeedFuture)}</b>/mo then.`)
+    : t(`还有 <b>${n.years}</b> 年入学。今天目标 <b>${fmtK(n.targetToday)}</b> ≈ 到时 <b>${fmtK(n.targetFV)}</b>。`,
+        `<b>${n.years}</b> years to start. Today’s <b>${fmtK(n.targetToday)}</b> ≈ <b>${fmtK(n.targetFV)}</b> then.`);
+
+  $('live2').innerHTML = t(
+    `现有资产 <b>${fmtK(n.assets)}</b> → 到点约 <b>${fmtK(n.assetsFV)}</b>；加现有月供后合计 <b>${fmtK(n.existFV)}</b>。`,
+    `Assets <b>${fmtK(n.assets)}</b> → ~ <b>${fmtK(n.assetsFV)}</b> at target; with current savings ≈ <b>${fmtK(n.existFV)}</b>.`
+  );
+
+  $('live3').innerHTML = t(
+    `假设：通胀 <b>${(n.a.infl*100).toFixed(1)}%</b> · 回报 <b>${(n.a.ret*100).toFixed(1)}%</b>（不保证）。要填平缺口，理论月供约 <b>${fmt(n.suggestedPmt)}</b>。`,
+    `Assumptions: inflation <b>${(n.a.infl*100).toFixed(1)}%</b> · return <b>${(n.a.ret*100).toFixed(1)}%</b> (not guaranteed). Theoretical monthly to close gap ≈ <b>${fmt(n.suggestedPmt)}</b>.`
+  );
+
+  const fearMap = {
+    longevity: t('怕活太久 → 偏退休现金流 / 分期领', 'Fear longevity → income / drawdown structure'),
+    raid: t('怕被动用 → 偏强制储蓄', 'Fear early spend → forced savings'),
+    inflate: t('怕通胀 → 检视假设档 + 拉长供期', 'Fear inflation → check assumption + longer term'),
+    shock: t('怕突发 → 先留应急金，再锁储蓄', 'Fear shocks → emergency fund first, then lock savings')
+  };
+  $('live4').innerHTML = t(
+    `结构：<b>${p.structName}</b>。${fearMap[S.fear]}`,
+    `Structure: <b>${p.structName}</b>. ${fearMap[S.fear]}`
+  );
+
+  const income = Math.max(num('income'), 1);
+  const pct = (S.budget * 12 / income) * 100;
+  $('budgetVal').textContent = fmt(S.budget);
+  $('budgetPct').innerHTML = t(
+    `约占年收入 <b>${pct.toFixed(1)}%</b> · 加上现有月供共 <b>${fmt(S.budget + n.monthlySave)}</b>/月`,
+    `≈ <b>${pct.toFixed(1)}%</b> of annual income · with current savings <b>${fmt(S.budget + n.monthlySave)}</b>/mo`
+  );
+  $('live5').innerHTML = t(
+    `新增 <b>${fmt(S.budget)}</b>/月 → 到点大约多 <b>${fmtK(n.budgetFV)}</b>；剩余缺口 <b>${fmtK(n.gapAfterBudget)}</b>。`,
+    `Add <b>${fmt(S.budget)}</b>/mo → ~ <b>${fmtK(n.budgetFV)}</b> more at target; remaining gap <b>${fmtK(n.gapAfterBudget)}</b>.`
+  );
+
+  $('protectFirst').style.display = S.prot === 'ok' ? 'none' : 'block';
+
+  const lockMap = {
+    no: t('不能动 → 强制储蓄更合适', 'No touch → forced savings fits'),
+    some: t('偶尔可以 → 混合结构', 'Sometimes → hybrid'),
+    yes: t('要弹性 → 投连 / 银行比重提高', 'Need flex → more ILP / bank')
+  };
+  $('live6').innerHTML = t(
+    `替代率意向 <b>${S.rep}%</b> · ${lockMap[S.lock]} · 保障：<b>${S.prot==='ok'?t('已齐','OK'):S.prot==='thin'?t('偏薄','Thin'):t('空白','Empty')}</b>`,
+    `Replacement intent <b>${S.rep}%</b> · ${lockMap[S.lock]} · Protection: <b>${S.prot}</b>`
+  );
+
+  // Verdict
+  const layers = [];
+  layers.push(`
+    <div class="layer">
+      <div class="l-top"><span class="l-name">${n.goalLabel}</span><span class="l-tag core">${t('主目标','Primary')}</span></div>
+      <div class="l-detail">${t('到点需求','Need at target')} <b>${fmtK(n.targetFV)}</b> · ${t('现有推算','Existing FV')} <b>${fmtK(n.existFV)}</b></div>
+    </div>`);
+  layers.push(`
+    <div class="layer">
+      <div class="l-top"><span class="l-name">${p.structName}</span><span class="l-tag must">${t('建议结构','Structure')}</span></div>
+      <div class="l-detail">${t('新增月供','New monthly')} <b>${fmt(p.chosen)}</b> · ${t('路径','Path')} <b>${S.path==='full'?t('一次到位','Full'):t('今年先锁','Phase')}</b></div>
+    </div>`);
+  layers.push(`
+    <div class="layer span2">
+      <div class="l-top"><span class="l-name">${t('覆盖与尾差','Coverage & remainder')}</span><span class="l-tag ${p.finalCover>=85?'ok':p.finalCover>=55?'core':'must'}">${p.finalCover.toFixed(0)}%</span></div>
+      <div class="l-detail">${t('按当前路径，剩余缺口','Under this path, remaining gap')} <b>${fmtK(p.remaining)}</b> · ${t('理论填平月供','Theoretical close-gap premium')} <b>${fmt(n.suggestedPmt)}</b></div>
+    </div>`);
+
+  $('verdict').innerHTML = `
+    <div class="v-label">${t('建 议 现 金 流 蓝 图','CASHFLOW BLUEPRINT')}</div>
+    <div class="v-punch">${p.punch}</div>
+    <div class="dual">
+      <div class="d-box">
+        <div class="d-lab">${t('到点还差','Still short at target')}</div>
+        <div class="d-val">${n.gapRaw<=0?t('≈0','≈0'):fmtK(n.gapRaw)}</div>
+        <div class="d-sub">${t('终值口径','Lump-sum view')}</div>
+      </div>
+      <div class="d-box">
+        <div class="d-lab">${t('每月缺口感','Monthly shortfall feel')}</div>
+        <div class="d-val">${n.monthShort<=0?t('≈0','≈0'):fmtK(n.monthShort)}</div>
+        <div class="d-sub">${S.goal==='retire'?t('退休后每月少多少','Less per month in retirement'):t('为达目标每月还差','Monthly still needed')}</div>
+      </div>
+    </div>
+    <div class="layers">${layers.join('')}</div>
+    <div class="v-foot">${t('以上为顾问估算，通胀与回报皆为假设、不保证；正式保费与利益以 Hong Leong Assurance Quotation 为准。','Advisory estimates only. Inflation and returns are assumptions, not guarantees. Official premiums and benefits follow the Hong Leong Assurance Quotation.')}</div>`;
+
+  // Details
+  $('detailGrid').innerHTML = `
+    <div class="d-card">
+      <h4>${t('目标参数','Goal parameters')}</h4>
+      <div class="d-row"><span class="dk">${t('主目标','Primary goal')}</span><span class="dv">${n.goalLabel}</span></div>
+      <div class="d-row"><span class="dk">${t('剩余年期','Years left')}</span><span class="dv">${n.years}</span></div>
+      <div class="d-row"><span class="dk">${t('到点需求','Need at target')}</span><span class="dv">${fmtK(n.targetFV)}</span></div>
+      <div class="d-row"><span class="dk">${t('假设档','Assumption')}</span><span class="dv">${t(ASSUME[S.assume].labelZh, ASSUME[S.assume].labelEn)}</span></div>
+      <div class="d-row"><span class="dk">${t('通胀 / 回报','Inflation / return')}</span><span class="dv">${(n.a.infl*100).toFixed(1)}% / ${(n.a.ret*100).toFixed(1)}%</span></div>
+    </div>
+    <div class="d-card">
+      <h4>${t('建议方案参数','Plan parameters')}</h4>
+      <div class="d-row"><span class="dk">${t('结构','Structure')}</span><span class="dv">${p.structName}</span></div>
+      <div class="d-row"><span class="dk">${t('新增月供','New monthly')}</span><span class="dv">${fmt(p.chosen)}</span></div>
+      <div class="d-row"><span class="dk">${t('现有月供','Current savings')}</span><span class="dv">${fmt(n.monthlySave)}</span></div>
+      <div class="d-row"><span class="dk">${t('现有资产','Existing assets')}</span><span class="dv">${fmtK(n.assets)}</span></div>
+      <div class="d-row"><span class="dk">${t('路径','Path')}</span><span class="dv">${S.path==='full'?t('A 一次到位','A Full'):t('B 今年先锁','B Phase')}</span></div>
+    </div>`;
+
+  let uw = [];
+  if(S.prot !== 'ok') uw.push(t('保障偏薄：建议同步打开 /medical/ 补医药与危疾', 'Thin protection: open /medical/ for medical & CI in parallel'));
+  if(n.years < 8) uw.push(t('年期偏短，月供会明显升高；可讨论拉长或降目标', 'Short horizon raises premium; discuss longer term or lower target'));
+  if(S.struct === 'flex') uw.push(t('投连有波动，须风险承受说明与基金选择', 'ILP has volatility — risk disclosure and fund choice needed'));
+  uw.push(t('提前提取 / 断缴通常不利，报价时会展示退保价值表', 'Early surrender / lapse usually hurts — surrender values shown at quotation'));
+  $('uwNote').textContent = t('执行提示：','Execution notes: ') + uw.join(t(' · ',' · ')) + (isEn()?'.':'。');
+
+  // Reframe
+  $('rfTitle').textContent = t('不是在存钱，是在买「到点还能领到」的强制权', 'Not saving — buying the right to still receive money on time');
+  $('rfSub').innerHTML = t(
+    `银行灵活，但最容易被动用。按你的数字，缺口约 <b style="color:var(--gold-hi)">${fmtK(n.gapRaw)}</b>——成交的不是保单，是未来每月还过不过得下去。`,
+    `Banks are flexible — and easiest to raid. On your numbers, gap ≈ <b style="color:var(--gold-hi)">${fmtK(n.gapRaw)}</b>. You’re not buying a policy; you’re buying whether next-decade months still work.`
+  );
+
+  // Paths
+  $('pathATitle').textContent = t(`新增 ${fmt(S.budget)}/月`, `Add ${fmt(S.budget)}/mo`);
+  $('pathABody').innerHTML = t(
+    `按当前预算推进；理论填平约 <b>${fmt(n.suggestedPmt)}</b>/月。`,
+    `Use current budget; theoretical close-gap ≈ <b>${fmt(n.suggestedPmt)}</b>/mo.`
+  );
+  $('pathBTitle').textContent = t(`今年先 ${fmt(n.phasePmt)}/月`, `This year ${fmt(n.phasePmt)}/mo first`);
+  $('pathBBody').innerHTML = t(
+    `先锁强制储蓄习惯，其余明年加厚——降低一次到位的抗拒。`,
+    `Lock the forced-savings habit first; thicken next year — lower resistance.`
+  );
+  document.querySelectorAll('.phase-card').forEach(el=>{
+    el.classList.toggle('on', el.dataset.path === S.path);
+  });
+
+  // Sticky + WA
+  $('stickyVal').textContent = n.gapRaw <= 0
+    ? t(`够 · ${fmt(S.budget)}/月`, `OK · ${fmt(S.budget)}/mo`)
+    : `${fmtK(n.gapRaw)} · ${fmt(p.chosen)}/月`;
+
+  const name = ($('name').value || '').trim() || t('客户','Client');
+  $('cvFor').textContent = t(`呈交：${name}`, `Prepared for: ${name}`);
+  $('cvDate').textContent = new Date().toLocaleDateString(isEn()?'en-MY':'zh-CN', {year:'numeric',month:'short',day:'numeric'});
+
+  const wa = buildWA(n, p, name, false);
+  const waAsk = buildWA(n, p, name, true);
+  $('btnWhatsApp').href = wa;
+  $('stickyWA').href = wa;
+  $('btnAsk').href = waAsk;
+
+  $('printPages').innerHTML = [
+    t('封面与客户资料','Cover & client details'),
+    t('缺口仪表盘与假设','Gap dashboard & assumptions'),
+    t('建议蓝图与利益明细','Blueprint & benefit details'),
+    t('路径选择与签署栏','Path choice & signature')
+  ].map(x=>`<li><span class="dot"></span><span>${x}</span></li>`).join('');
+}
+
+function buildWA(n, p, name, askOnly){
+  const lines = askOnly
+    ? [
+        t(`你好 Wilson，我想先问一个关于「未来现金流蓝图」的问题。`,`Hi Wilson, I have a quick question about the Future Cashflow Blueprint.`),
+        `${t('称呼','Name')}: ${name}`,
+        `${t('主目标','Goal')}: ${n.goalLabel}`,
+        `${t('缺口','Gap')}: ${fmtK(n.gapRaw)}`
+      ]
+    : [
+        t(`你好 Wilson，我想根据「未来现金流蓝图」要一份正式报价。`,`Hi Wilson, I’d like an official quotation based on the Future Cashflow Blueprint.`),
+        `${t('称呼','Name')}: ${name}`,
+        `${t('现龄','Age')}: ${n.age}`,
+        `${t('主目标','Goal')}: ${n.goalLabel}`,
+        `${t('剩余年期','Years left')}: ${n.years}`,
+        `${t('到点需求','Need at target')}: ${fmtK(n.targetFV)}`,
+        `${t('现有推算','Existing FV')}: ${fmtK(n.existFV)}`,
+        `${t('缺口','Gap')}: ${fmtK(n.gapRaw)}`,
+        `${t('建议结构','Structure')}: ${p.structName}`,
+        `${t('新增月供','New monthly')}: ${fmt(p.chosen)}`,
+        `${t('路径','Path')}: ${S.path==='full'?'A':'B'}`,
+        `${t('假设','Assumption')}: ${t(ASSUME[S.assume].labelZh, ASSUME[S.assume].labelEn)} (${(n.a.infl*100).toFixed(1)}% / ${(n.a.ret*100).toFixed(1)}%)`,
+        `${t('保障自评','Protection self-check')}: ${S.prot}`
+      ];
+  return 'https://wa.me/60125676118?text=' + encodeURIComponent(lines.join('\n'));
+}
+
+// —— Events ——
+document.querySelectorAll('.langbar button').forEach(b=>{
+  b.addEventListener('click', ()=> setLang(b.dataset.lang));
+});
+document.querySelectorAll('#goalGrid .goal').forEach(b=>{
+  b.addEventListener('click', ()=> setGoal(b.dataset.goal));
+});
+document.querySelectorAll('#assumeGrid button').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    S.assume = b.dataset.assume;
+    document.querySelectorAll('#assumeGrid button').forEach(x=> x.classList.toggle('on', x===b));
+    render();
+  });
+});
+document.querySelectorAll('#structGrid .struct').forEach(el=>{
+  el.addEventListener('click', ()=> setStruct(el.querySelector('input').value));
+});
+document.querySelectorAll('#structGrid input').forEach(inp=>{
+  inp.addEventListener('change', ()=> setStruct(inp.value));
+});
+
+function bindChipGroup(id, key, attr){
+  document.querySelectorAll(`#${id} .chip`).forEach(b=>{
+    b.addEventListener('click', ()=>{
+      S[key] = attr === 'rep' || attr === 'fear' || attr === 'lock' || attr === 'prot'
+        ? (b.dataset[attr] || b.dataset.rep)
+        : b.dataset[attr];
+      // normalize
+      if(b.dataset.rep) S.rep = Number(b.dataset.rep);
+      if(b.dataset.fear) S.fear = b.dataset.fear;
+      if(b.dataset.lock) S.lock = b.dataset.lock;
+      if(b.dataset.prot) S.prot = b.dataset.prot;
+      document.querySelectorAll(`#${id} .chip`).forEach(x=> x.classList.toggle('on', x===b));
+      // Soft-adjust retire spend when rep changes
+      if(b.dataset.rep && S.goal==='retire'){
+        const inc = Math.max(num('income'), 12000);
+        const suggested = roundTo((inc * S.rep / 100) / 12, 100);
+        if(!$('retireSpend').dataset.touched){
+          $('retireSpend').value = suggested;
+        }
+      }
+      // Soft-suggest structure from fear/lock
+      if(b.dataset.fear === 'longevity') setStruct('income');
+      else if(b.dataset.fear === 'raid' || b.dataset.lock === 'no') setStruct('force');
+      else if(b.dataset.lock === 'yes') setStruct('flex');
+      else render();
+    });
+  });
+}
+bindChipGroup('repChips', 'rep', 'rep');
+bindChipGroup('fearChips', 'fear', 'fear');
+bindChipGroup('lockChips', 'lock', 'lock');
+bindChipGroup('protChips', 'prot', 'prot');
+
+$('retireSpend').addEventListener('input', ()=>{ $('retireSpend').dataset.touched = '1'; });
+
+$('budget').addEventListener('input', ()=>{
+  S.budget = Number($('budget').value);
+  render();
+});
+
+['pathFull','pathPhase'].forEach(id=>{
+  $(id).addEventListener('click', ()=>{
+    S.path = $(id).dataset.path;
+    render();
+  });
+});
+
+// Cover toggles
+document.querySelectorAll('.cover-item').forEach(item=>{
+  const cb = item.querySelector('input[type=checkbox]');
+  const sync = ()=>{
+    item.classList.toggle('on', cb.checked);
+    render();
+  };
+  item.addEventListener('click', e=>{
+    if(e.target.closest('[data-stop]')) return;
+    if(e.target === cb) return;
+    cb.checked = !cb.checked;
+    sync();
+  });
+  cb.addEventListener('change', sync);
+  item.querySelectorAll('[data-stop] input').forEach(inp=>{
+    inp.addEventListener('input', render);
+    inp.addEventListener('click', e=> e.stopPropagation());
+  });
+});
+
+['name','age','retireAge','income','retireSpend','childAge','eduAge','eduNeed','monthlySave'].forEach(id=>{
+  const el = $(id);
+  if(el) el.addEventListener('input', render);
+});
+
+function openPrint(){ $('printModal').classList.add('open'); }
+function closePrint(){ $('printModal').classList.remove('open'); }
+$('btnPrint').addEventListener('click', openPrint);
+$('stickyPrint').addEventListener('click', openPrint);
+$('btnPrintCancel').addEventListener('click', closePrint);
+$('btnPrintGo').addEventListener('click', ()=>{ closePrint(); window.print(); });
+$('printModal').addEventListener('click', e=>{ if(e.target.id==='printModal') closePrint(); });
+
+try {
+  const saved = localStorage.getItem('audo.future.lang');
+  if(saved === 'en' || saved === 'zh') setLang(saved);
+  else render();
+} catch(e){ render(); }
+</script>
+</body>
+</html>

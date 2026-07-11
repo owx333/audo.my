@@ -616,7 +616,7 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
   正式数字、核保结果与条款以保险公司 Quotation / Policy Contract 为准<br></span>
   <span class="en">Premiums and sums are <strong>industry estimates</strong>, not an official Hong Leong Assurance quotation<br>
   Final figures, underwriting and terms follow the insurer Quotation / Policy Contract<br></span>
-  <a href="https://audo.my/">audo.my</a> · <a href="https://audo.my/keyman/">Key Man</a>
+  <a href="https://audo.my/">audo.my</a> · <a href="https://audo.my/future/">Future</a> · <a href="https://audo.my/keyman/">Key Man</a>
 </footer>
 
 </div>
@@ -1095,6 +1095,7 @@ function render(){
   if(n.age >= 50) uw.push(t('50 岁后医疗与 CI 费率跳档更快，宜尽早锁定','Medical & CI rates step up faster after 50 — lock earlier'));
   if(n.hasCompany) uw.push(t('请准备公司卡利益摘要（年限、panel、是否含门诊）','Prepare company-card benefit summary (limit, panel, outpatient)'));
   if(n.medScore === 'empty') uw.push(t('个人医药卡通常有等候期（意外除外）','Personal medical usually has waiting periods (except accident)'));
+  if(n.stage === 'preRetire') uw.push(t('接近退休：保障锁好后，可用 /future/ 算退休现金流缺口','Near retirement: after protection is set, use /future/ for retirement cashflow gap'));
   uw.push(t('报价前如实申报健康与职业，避免理赔争议','Declare health & occupation truthfully before quotation'));
   $('uwNote').textContent = t('核保与执行提示：','Underwriting notes: ') + uw.join(t(' · ',' · ')) + (isEn()?'.':'。');
 
