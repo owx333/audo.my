@@ -50,6 +50,9 @@ header .sub{font-size:15px;color:#A9B4CC;margin-top:8px;max-width:560px}
 header .presenter{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#C9D2E4;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px}
 header .presenter i{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block}
 .header-brand{font-size:13px;color:#8FA0C0;margin-top:10px;letter-spacing:.08em}
+.lang-switch{position:absolute;right:14px;top:16px;z-index:4;display:flex;gap:3px;padding:3px;border:1px solid rgba(201,162,75,.45);border-radius:999px;background:rgba(12,24,48,.45);backdrop-filter:blur(8px)}
+.lang-switch button{border:0;border-radius:999px;padding:4px 9px;background:transparent;color:#C9D2E4;font:700 12px/1 var(--sans);cursor:pointer}
+.lang-switch button.on{background:var(--gold);color:var(--ink)}
 
 /* ============ RISK DASH ============ */
 .risk-wrap{margin-top:-18px;position:relative;z-index:5}
@@ -152,7 +155,7 @@ table.docs{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
 table.docs td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 table.docs td:first-child{font-weight:800;color:var(--ink);white-space:nowrap}
 tr.active-band td{background:var(--gold-soft)}
-tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;color:#8A6B25}
+tr.active-band td:first-child::after{content:var(--band-label," ◄ 本方案");font-size:12px;color:#8A6B25}
 
 /* sticky */
 .sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(12,24,48,.97);backdrop-filter:blur(10px);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;border-top:1px solid rgba(201,162,75,.3)}
@@ -309,6 +312,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   .risk-tile .t-val{font-size:26px}
   .risk-card h3{font-size:22px}
   header{padding:48px 0 56px}
+  .lang-switch{right:28px;top:20px}
   header h1{font-size:48px}
   header .sub{font-size:17px;max-width:760px;margin-top:12px}
   .workspace,.verdict-wrap,.desk-lower{
@@ -354,49 +358,52 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 </head>
 <body>
 
-<!-- 打印封面（仅打印显示） -->
+<!-- PRINT COVER -->
 <div id="cover">
   <div class="cv-eyebrow">CONFIDENTIAL · BUSINESS PROTECTION PROPOSAL</div>
-  <h1>企业关键人风险分析建议书</h1>
+  <h1 data-i18n="cover.title">企业关键人风险分析建议书</h1>
   <div style="width:70px;height:3px;background:var(--gold)"></div>
   <div class="cv-for" id="cvFor">呈交：贵公司管理层</div>
   <div class="cv-meta">
-    分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance<br>
-    分析日期：<span id="cvDate"></span><br>
-    联系：+60 12-567 6118 (WhatsApp)
+    <span data-i18n="cover.advisor">分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance</span><br>
+    <span data-i18n="cover.date">分析日期：</span><span id="cvDate"></span><br>
+    <span data-i18n="cover.contact">联系：+60 12-567 6118 (WhatsApp)</span>
   </div>
 </div>
 
 <header>
   <div class="wrap">
+    <div class="lang-switch" aria-label="Language">
+      <button type="button" data-lang="zh">中文</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
     <div class="eyebrow">BUSINESS PROTECTION ANALYSIS</div>
-    <h1>企业关键人保障分析系统</h1>
+    <h1 data-i18n="header.title">企业关键人保障分析系统</h1>
     <div class="sub" id="headerSub">用您公司自己的数字，精算出企业风险缺口 —— 买的不是保险，是公司续存权</div>
-    <div class="presenter"><i></i>分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</div>
+    <div class="presenter"><i></i><span data-i18n="header.presenter">分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</span></div>
     <div class="header-brand">AUDO × Hong Leong Assurance · Key Man Policy</div>
   </div>
 </header>
 
-<!-- ============ RISK DASHBOARD ============ -->
 <div class="wrap risk-wrap">
   <div class="risk no-print-keep">
     <div class="risk-card">
       <h3 id="rkHead">如果关键人明天缺席，公司立刻面对——</h3>
-      <div class="q">以下数字随您输入的资料实时更新</div>
+      <div class="q" data-i18n="risk.q">以下数字随您输入的资料实时更新</div>
       <div class="risk-grid">
         <div class="risk-tile rt-red">
           <div class="t-ico">🏦</div>
-          <div class="t-name">银行照样追债</div>
+          <div class="t-name" data-i18n="risk.debt">银行照样追债</div>
           <div class="t-val" id="rkDebt">RM 0</div>
         </div>
         <div class="risk-tile rt-gold">
           <div class="t-ico">📉</div>
-          <div class="t-name">利润恢复缺口</div>
+          <div class="t-name" data-i18n="risk.profit">利润恢复缺口</div>
           <div class="t-val" id="rkProfit">RM 0</div>
         </div>
         <div class="risk-tile rt-plum">
           <div class="t-ico">⚖️</div>
-          <div class="t-name">股权动荡风险</div>
+          <div class="t-name" data-i18n="risk.equity">股权动荡风险</div>
           <div class="t-val" id="rkEquity">—</div>
         </div>
       </div>
@@ -407,276 +414,253 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 <div class="workspace">
 
-<!-- ============ 零 客户资料 ============ -->
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">🏢</div>
-    <div><span class="no">客户资料</span><h2>这份分析为谁定制</h2></div>
+    <div><span class="no" data-i18n="client.info">客户资料</span><h2 data-i18n="client.title">这份分析为谁定制</h2></div>
   </div>
   <div class="row2">
     <div class="field">
-      <label for="compName">公司名称</label>
-      <input type="text" id="compName" placeholder="例：ABC Engineering Sdn Bhd">
+      <label for="compName" data-i18n="client.comp">公司名称</label>
+      <input type="text" id="compName" data-i18n-placeholder="client.phComp" placeholder="例：ABC Engineering Sdn Bhd">
     </div>
     <div class="field">
-      <label for="bossName">关键人姓名 / 称呼</label>
-      <input type="text" id="bossName" placeholder="例：Dato' Tan / 陈老板">
+      <label for="bossName" data-i18n="client.boss">关键人姓名 / 称呼</label>
+      <input type="text" id="bossName" data-i18n-placeholder="client.phBoss" placeholder="例：Dato' Tan / 陈老板">
     </div>
   </div>
-  <div class="hint" style="margin:0">分析日期：<span id="todayStr"></span> · 资料仅用于本次风险分析，绝对保密。</div>
+  <div class="hint" style="margin:0"><span data-i18n="client.dateHint">分析日期：</span><span id="todayStr"></span><span data-i18n="client.dateHint2"> · 资料仅用于本次风险分析，绝对保密。</span></div>
 </section>
 
-<!-- ============ 壹 ============ -->
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">👤</div>
-    <div><span class="no">第 1 步</span><h2>关键人资料</h2></div>
+    <div><span class="no" data-i18n="step.1">第 1 步</span><h2 data-i18n="s1.title">关键人资料</h2></div>
   </div>
-  <p class="step-desc">"关键人"= 公司离了他会伤筋动骨的人。通常是老板本人、技术核心或头号业务功臣。</p>
-
+  <p class="step-desc" data-i18n="s1.desc">"关键人"= 公司离了他会伤筋动骨的人。通常是老板本人、技术核心或头号业务功臣。</p>
   <div class="row2">
     <div class="field">
-      <label for="age">年龄</label>
+      <label for="age" data-i18n="s1.age">年龄</label>
       <input type="number" id="age" value="45" min="18" max="70" inputmode="numeric">
     </div>
     <div class="field">
-      <label>性别 / 吸烟状况</label>
+      <label data-i18n="s1.gender">性别 / 吸烟状况</label>
       <div class="chips">
-        <button class="chip on" data-g="chip" data-group="gender" data-val="M" type="button">男</button>
-        <button class="chip" data-g="chip" data-group="gender" data-val="F" type="button">女</button>
-        <button class="chip" data-g="chip" data-group="smoker" data-val="Y" type="button">吸烟</button>
+        <button class="chip on" data-g="chip" data-group="gender" data-val="M" type="button" data-i18n="gender.male">男</button>
+        <button class="chip" data-g="chip" data-group="gender" data-val="F" type="button" data-i18n="gender.female">女</button>
+        <button class="chip" data-g="chip" data-group="smoker" data-val="Y" type="button" data-i18n="gender.smoker">吸烟</button>
       </div>
     </div>
   </div>
-
   <div class="field">
-    <label for="rem">年度总报酬</label>
-    <div class="hint">底薪 + 花红 + 董事费 + EPF 雇主部分，一年的总数。</div>
+    <label for="rem" data-i18n="s1.rem">年度总报酬</label>
+    <div class="hint" data-i18n="s1.remHint">底薪 + 花红 + 董事费 + EPF 雇主部分，一年的总数。</div>
     <div class="money-wrap"><span class="rm">RM</span><input type="number" id="rem" value="300000" inputmode="numeric"></div>
   </div>
   <div class="live" id="liveA"></div>
 </section>
 
-<!-- ============ 贰 ============ -->
 <section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
   <div class="step-tag">
     <div class="step-ico">📊</div>
-    <div><span class="no">第 2 步</span><h2>盈利分析 · 他为公司赚多少</h2></div>
+    <div><span class="no" data-i18n="step.2">第 2 步</span><h2 data-i18n="s2.title">盈利分析 · 他为公司赚多少</h2></div>
   </div>
-  <p class="step-desc">这一步量化一件事：公司每年的利润，有多少直接系在这个人身上。</p>
-
+  <p class="step-desc" data-i18n="s2.desc">这一步量化一件事：公司每年的利润，有多少直接系在这个人身上。</p>
   <div class="row2">
     <div class="field">
-      <label for="gp">近三年平均毛利</label>
-      <div class="hint">Gross Profit，大约数即可</div>
+      <label for="gp" data-i18n="s2.gp">近三年平均毛利</label>
+      <div class="hint" data-i18n="s2.gpHint">Gross Profit，大约数即可</div>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="gp" value="2500000" inputmode="numeric"></div>
     </div>
     <div class="field">
-      <label for="np">近三年平均净利</label>
-      <div class="hint">税前 Net Profit</div>
+      <label for="np" data-i18n="s2.np">近三年平均净利</label>
+      <div class="hint" data-i18n="s2.npHint">税前 Net Profit</div>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="np" value="1000000" inputmode="numeric"></div>
     </div>
   </div>
-
   <div class="field">
-    <label>他在公司扮演什么角色？</label>
-    <div class="hint">角色决定"利润贡献度"——公司的钱有多少是靠他赚回来的。</div>
+    <label data-i18n="s2.role">他在公司扮演什么角色？</label>
+    <div class="hint" data-i18n="s2.roleHint">角色决定"利润贡献度"——公司的钱有多少是靠他赚回来的。</div>
     <div class="chips" id="attrChips">
-      <button class="chip" data-attr="0.7" type="button">一人扛全部业务<small>贡献 70%</small></button>
-      <button class="chip on" data-attr="0.5" type="button">技术 / 业务核心<small>贡献 50%</small></button>
-      <button class="chip" data-attr="0.3" type="button">多位董事之一<small>贡献 30%</small></button>
-      <button class="chip" data-attr="0.2" type="button">关键高管<small>贡献 20%</small></button>
+      <button class="chip" data-attr="0.7" type="button" data-i18n-html="attr.70">一人扛全部业务<small>贡献 70%</small></button>
+      <button class="chip on" data-attr="0.5" type="button" data-i18n-html="attr.50">技术 / 业务核心<small>贡献 50%</small></button>
+      <button class="chip" data-attr="0.3" type="button" data-i18n-html="attr.30">多位董事之一<small>贡献 30%</small></button>
+      <button class="chip" data-attr="0.2" type="button" data-i18n-html="attr.20">关键高管<small>贡献 20%</small></button>
     </div>
   </div>
-
   <div class="field">
-    <label>如果他不在了，公司要多久恢复元气？</label>
+    <label data-i18n="s2.rec">如果他不在了，公司要多久恢复元气？</label>
     <div class="chips" id="recChips">
-      <button class="chip" data-rec="2" type="button">市场招得到人<small>2 年</small></button>
-      <button class="chip on" data-rec="3" type="button">要挖角 + 交接<small>3 年</small></button>
-      <button class="chip" data-rec="5" type="button">几乎无可替代<small>5 年</small></button>
+      <button class="chip" data-rec="2" type="button" data-i18n-html="rec.2">市场招得到人<small>2 年</small></button>
+      <button class="chip on" data-rec="3" type="button" data-i18n-html="rec.3">要挖角 + 交接<small>3 年</small></button>
+      <button class="chip" data-rec="5" type="button" data-i18n-html="rec.5">几乎无可替代<small>5 年</small></button>
     </div>
   </div>
   <div class="live" id="liveB"></div>
 </section>
 
-<!-- ============ 叁 ============ -->
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
   <div class="step-tag">
     <div class="step-ico">🏦</div>
-    <div><span class="no">第 3 步</span><h2>债务分析 · 银行不等人</h2></div>
+    <div><span class="no" data-i18n="step.3">第 3 步</span><h2 data-i18n="s3.title">债务分析 · 银行不等人</h2></div>
   </div>
-  <p class="step-desc">关键人不在，贷款照追。个人担保更会直接烧到家人身上。这里填公司对银行的敞口。</p>
-
+  <p class="step-desc" data-i18n="s3.desc">关键人不在，贷款照追。个人担保更会直接烧到家人身上。这里填公司对银行的敞口。</p>
   <div class="field">
-    <label for="loan">Term Loan 未还余额</label>
+    <label for="loan" data-i18n="s3.loan">Term Loan 未还余额</label>
     <div class="money-wrap"><span class="rm">RM</span><input type="number" id="loan" value="1500000" inputmode="numeric"></div>
   </div>
   <div class="row2">
     <div class="field">
-      <label for="od">OD 额度</label>
+      <label for="od" data-i18n="s3.od">OD 额度</label>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="od" value="500000" inputmode="numeric"></div>
     </div>
     <div class="field">
-      <label for="odu">平均使用率 %</label>
+      <label for="odu" data-i18n="s3.odu">平均使用率 %</label>
       <input type="number" id="odu" value="60" min="0" max="100" inputmode="numeric">
     </div>
   </div>
   <div class="row2">
     <div class="field">
-      <label for="pg">个人担保净额</label>
-      <div class="hint">未被以上贷款覆盖的部分</div>
+      <label for="pg" data-i18n="s3.pg">个人担保净额</label>
+      <div class="hint" data-i18n="s3.pgHint">未被以上贷款覆盖的部分</div>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="pg" value="0" inputmode="numeric"></div>
     </div>
     <div class="field">
-      <label for="exist">现有 Keyman 保额</label>
-      <div class="hint">已买过的要扣除</div>
+      <label for="exist" data-i18n="s3.exist">现有 Keyman 保额</label>
+      <div class="hint" data-i18n="s3.existHint">已买过的要扣除</div>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="exist" value="0" inputmode="numeric"></div>
     </div>
   </div>
   <div class="live" id="liveC"></div>
 </section>
 
-<!-- ============ 肆 ============ -->
 <section class="card" style="--accent:var(--plum);--accent-soft:var(--plum-soft)">
   <div class="step-tag">
     <div class="step-ico">⚖️</div>
-    <div><span class="no">第 4 步</span><h2>股权买卖 <span class="badge">合伙人公司适用</span></h2></div>
+    <div><span class="no" data-i18n="step.4">第 4 步</span><h2 data-i18n-html="s4.titleHtml">股权买卖 <span class="badge">合伙人公司适用</span></h2></div>
   </div>
-  <p class="step-desc">股东走了，股份落到家属手上——其他股东要有钱把股份买回来，公司决策才不会瘫痪。</p>
+  <p class="step-desc" data-i18n="s4.desc">股东走了，股份落到家属手上——其他股东要有钱把股份买回来，公司决策才不会瘫痪。</p>
   <label class="purpose" id="bsToggle">
     <input type="checkbox" id="bsOn">
-    <div><b>这家公司有 2 位或以上股东</b><p>启用 Buy-Sell 股权估值计算</p></div>
+    <div><b data-i18n="s4.bsTitle">这家公司有 2 位或以上股东</b><p data-i18n="s4.bsDesc">启用 Buy-Sell 股权估值计算</p></div>
   </label>
   <div class="fold" id="bsFold">
     <div class="fold-inner">
     <div class="row2">
       <div class="field">
-        <label for="pe">估值倍数 (PE)</label>
-        <div class="hint">中小企业一般 3–5 倍净利</div>
+        <label for="pe" data-i18n="s4.pe">估值倍数 (PE)</label>
+        <div class="hint" data-i18n="s4.peHint">中小企业一般 3–5 倍净利</div>
         <input type="number" id="pe" value="4" min="1" max="10" step="0.5" inputmode="decimal">
       </div>
       <div class="field">
-        <label for="eq">关键人持股 %</label>
+        <label for="eq" data-i18n="s4.eq">关键人持股 %</label>
         <input type="number" id="eq" value="40" min="1" max="100" inputmode="numeric">
       </div>
     </div>
     <div class="live" id="liveD" style="--accent-soft:var(--plum-soft)"></div>
-    <div class="note">保单只是资金工具，必须配律师起草的 Buy-Sell Agreement 才有法律骨架。股东 ≥3 人建议由公司统一持单。</div>
+    <div class="note" data-i18n="s4.note">保单只是资金工具，必须配律师起草的 Buy-Sell Agreement 才有法律骨架。股东 ≥3 人建议由公司统一持单。</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 伍 ============ -->
 <section class="card" style="--accent:var(--ink);--accent-soft:#E8EBF2">
   <div class="step-tag">
     <div class="step-ico">🛡️</div>
-    <div><span class="no">第 5 步</span><h2>保障结构选择</h2></div>
+    <div><span class="no" data-i18n="step.5">第 5 步</span><h2 data-i18n="s5.title">保障结构选择</h2></div>
   </div>
-  <p class="step-desc">不同用途分开设单，理赔用途和税务安排才清清楚楚。可多选。</p>
-
+  <p class="step-desc" data-i18n="s5.desc">不同用途分开设单，理赔用途和税务安排才清清楚楚。可多选。</p>
   <div class="purpose-grid">
   <label class="purpose on"><input type="checkbox" class="pUse" id="uDebt" checked>
-    <div><b>债务保障</b><p>Cover 银行贷款与担保，公司不被债务拖垮 → Level / Reducing Term</p></div></label>
+    <div><b data-i18n="purpose.debt">债务保障</b><p data-i18n="purpose.debtP">Cover 银行贷款与担保，公司不被债务拖垮 → Level / Reducing Term</p></div></label>
   <label class="purpose on"><input type="checkbox" class="pUse" id="uProfit" checked>
-    <div><b>利润 / 营运保障</b><p>补足恢复期少赚的钱，员工薪水照发、供应商照付 → Level Term</p></div></label>
+    <div><b data-i18n="purpose.profit">利润 / 营运保障</b><p data-i18n="purpose.profitP">补足恢复期少赚的钱，员工薪水照发、供应商照付 → Level Term</p></div></label>
   <label class="purpose"><input type="checkbox" class="pUse" id="uBS">
-    <div><b>股权买卖资金</b><p>需先启用第 4 步 → 独立保单 + Buy-Sell Agreement</p></div></label>
-
+    <div><b data-i18n="purpose.bs">股权买卖资金</b><p data-i18n="purpose.bsP">需先启用第 4 步 → 独立保单 + Buy-Sell Agreement</p></div></label>
   <label class="purpose span2" style="margin-top:0">
     <input type="checkbox" id="grossup" checked>
-    <div><b>税务优化：Term 扣税路线（Gross-up 24%）</b>
-    <p>仅放大<strong>债务保障</strong>与<strong>利润/营运保障</strong>的 Term 保额（保费可扣税 → 理赔金通常课 24% 公司税，故 ÷0.76）。<strong>股权买卖单</strong>为独立结构，不套用 Gross-up，税务请与 Tax Agent 确认。</p></div>
+    <div><b data-i18n="purpose.gu">税务优化：Term 扣税路线（Gross-up 24%）</b>
+    <p data-i18n-html="purpose.guP">仅放大<strong>债务保障</strong>与<strong>利润/营运保障</strong>的 Term 保额（保费可扣税 → 理赔金通常课 24% 公司税，故 ÷0.76）。<strong>股权买卖单</strong>为独立结构，不套用 Gross-up，税务请与 Tax Agent 确认。</p></div>
   </label>
   </div>
 </section>
 
-<!-- ============ 陆 四法分析 ============ -->
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">🧮</div>
-    <div><span class="no">第 6 步</span><h2>四种算法 · 详细分析</h2></div>
+    <div><span class="no" data-i18n="step.6">第 6 步</span><h2 data-i18n="s6.title">四种算法 · 详细分析</h2></div>
   </div>
-  <p class="step-desc">每种算法从不同角度衡量同一个风险。红线是保险公司的核保上限。</p>
+  <p class="step-desc" data-i18n="s6.desc">每种算法从不同角度衡量同一个风险。红线是保险公司的核保上限。</p>
   <div id="methods"></div>
   <div class="cap-note" id="capNote"></div>
 </section>
 
-</div><!-- /.workspace -->
+</div>
 
-<!-- ============ 建议保障方案（下方总结） ============ -->
 <div class="verdict-wrap">
   <div class="verdict" id="verdict"></div>
 </div>
 
 <div class="desk-lower">
 
-<!-- ============ 决策校准 Survey ============ -->
 <section class="card survey" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">🎯</div>
-    <div><span class="no">决策校准</span><h2>四个问题，把预算与风险对齐</h2></div>
+    <div><span class="no" data-i18n="survey.step">决策校准</span><h2 data-i18n="survey.title">四个问题，把预算与风险对齐</h2></div>
   </div>
-
   <div class="survey-q">
-    <div class="q-title">1. 您愿意每年拿净利的几 %，买回企业续存？</div>
-    <div class="q-hint">多数中小企业把 1–3% 净利视为合理经营成本；超过 5% 通常需分期或先保债务。</div>
+    <div class="q-title" data-i18n="survey.q1">1. 您愿意每年拿净利的几 %，买回企业续存？</div>
+    <div class="q-hint" data-i18n="survey.h1">多数中小企业把 1–3% 净利视为合理经营成本；超过 5% 通常需分期或先保债务。</div>
     <div class="chips" id="spendChips">
-      <button class="chip" data-spend="0.5" type="button">0.5%<small>极低预算</small></button>
-      <button class="chip on" data-spend="1" type="button">1%<small>保守</small></button>
-      <button class="chip" data-spend="2" type="button">2%<small>务实</small></button>
-      <button class="chip" data-spend="3" type="button">3%<small>稳健</small></button>
-      <button class="chip" data-spend="5" type="button">5%<small>优先续存</small></button>
+      <button class="chip" data-spend="0.5" type="button" data-i18n-html="survey.spend.05">0.5%<small>极低预算</small></button>
+      <button class="chip on" data-spend="1" type="button" data-i18n-html="survey.spend.1">1%<small>保守</small></button>
+      <button class="chip" data-spend="2" type="button" data-i18n-html="survey.spend.2">2%<small>务实</small></button>
+      <button class="chip" data-spend="3" type="button" data-i18n-html="survey.spend.3">3%<small>稳健</small></button>
+      <button class="chip" data-spend="5" type="button" data-i18n-html="survey.spend.5">5%<small>优先续存</small></button>
     </div>
   </div>
-
   <div class="survey-q">
-    <div class="q-title">2. 公司未来 3 年，净利大概每年增长几 %？</div>
-    <div class="q-hint">增长越快，关键人缺口往往越大——保额要比「今天的利润」看得更远。</div>
+    <div class="q-title" data-i18n="survey.q2">2. 公司未来 3 年，净利大概每年增长几 %？</div>
+    <div class="q-hint" data-i18n="survey.h2">增长越快，关键人缺口往往越大——保额要比「今天的利润」看得更远。</div>
     <div class="chips" id="growthChips">
-      <button class="chip" data-growth="0" type="button">持平 0%</button>
-      <button class="chip on" data-growth="10" type="button">稳健 10%</button>
-      <button class="chip" data-growth="20" type="button">快跑 20%</button>
-      <button class="chip" data-growth="30" type="button">高速 30%+</button>
+      <button class="chip" data-growth="0" type="button" data-i18n="survey.growth.0">持平 0%</button>
+      <button class="chip on" data-growth="10" type="button" data-i18n="survey.growth.10">稳健 10%</button>
+      <button class="chip" data-growth="20" type="button" data-i18n="survey.growth.20">快跑 20%</button>
+      <button class="chip" data-growth="30" type="button" data-i18n="survey.growth.30">高速 30%+</button>
     </div>
   </div>
-
   <div class="survey-q">
-    <div class="q-title">3. 万一关键人明天缺席，第一笔救急钱谁出？</div>
-    <div class="q-hint">公司现金、银行、家人，还是已有保险安排——答案会影响保障优先顺序。</div>
+    <div class="q-title" data-i18n="survey.q3">3. 万一关键人明天缺席，第一笔救急钱谁出？</div>
+    <div class="q-hint" data-i18n="survey.h3">公司现金、银行、家人，还是已有保险安排——答案会影响保障优先顺序。</div>
     <div class="chips" id="payerChips">
-      <button class="chip" data-payer="cash" type="button">公司现金 / 存款<small>吃营运资金</small></button>
-      <button class="chip" data-payer="bank" type="button">再找银行<small>未必批得过</small></button>
-      <button class="chip on" data-payer="family" type="button">家人 / 个人积蓄<small>最常见也最痛</small></button>
-      <button class="chip" data-payer="ins" type="button">已有保险安排<small>理想答案</small></button>
+      <button class="chip" data-payer="cash" type="button" data-i18n-html="survey.payer.cash">公司现金 / 存款<small>吃营运资金</small></button>
+      <button class="chip" data-payer="bank" type="button" data-i18n-html="survey.payer.bank">再找银行<small>未必批得过</small></button>
+      <button class="chip on" data-payer="family" type="button" data-i18n-html="survey.payer.family">家人 / 个人积蓄<small>最常见也最痛</small></button>
+      <button class="chip" data-payer="ins" type="button" data-i18n-html="survey.payer.ins">已有保险安排<small>理想答案</small></button>
     </div>
   </div>
-
   <div class="survey-q">
-    <div class="q-title">4. 没有关键人，公司现金撑得住几个月？</div>
-    <div class="q-hint">对照第 2 步的恢复期（通常 2–5 年）。现金跑道越短，越需要立刻有保额入账。</div>
+    <div class="q-title" data-i18n="survey.q4">4. 没有关键人，公司现金撑得住几个月？</div>
+    <div class="q-hint" data-i18n="survey.h4">对照第 2 步的恢复期（通常 2–5 年）。现金跑道越短，越需要立刻有保额入账。</div>
     <div class="chips" id="runwayChips">
-      <button class="chip on" data-runway="1" type="button">≤ 1 个月<small>非常紧</small></button>
-      <button class="chip" data-runway="3" type="button">约 3 个月<small>常见</small></button>
-      <button class="chip" data-runway="6" type="button">约 6 个月<small>稍有缓冲</small></button>
-      <button class="chip" data-runway="12" type="button">≥ 12 个月<small>少见</small></button>
+      <button class="chip on" data-runway="1" type="button" data-i18n-html="survey.runway.1">≤ 1 个月<small>非常紧</small></button>
+      <button class="chip" data-runway="3" type="button" data-i18n-html="survey.runway.3">约 3 个月<small>常见</small></button>
+      <button class="chip" data-runway="6" type="button" data-i18n-html="survey.runway.6">约 6 个月<small>稍有缓冲</small></button>
+      <button class="chip" data-runway="12" type="button" data-i18n-html="survey.runway.12">≥ 12 个月<small>少见</small></button>
     </div>
   </div>
-
   <div class="decide" id="decideBoard"></div>
   <div class="decide-punch" id="decidePunch"></div>
 </section>
 
-<!-- ============ 时间轴对比 ============ -->
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
   <div class="step-tag">
     <div class="step-ico">⏳</div>
-    <div><span class="no">两个剧本</span><h2>关键人缺席之后的 12 个月</h2></div>
+    <div><span class="no" data-i18n="timeline.step">两个剧本</span><h2 data-i18n="timeline.title">关键人缺席之后的 12 个月</h2></div>
   </div>
-  <p class="step-desc">同一家公司，同一场意外，两种截然不同的结局。数字来自您刚才输入的资料。</p>
+  <p class="step-desc" data-i18n="timeline.desc">同一家公司，同一场意外，两种截然不同的结局。数字来自您刚才输入的资料。</p>
   <div class="tl-tabs no-print">
-    <button class="tl-tab on-red" id="tabNo" type="button">没有保障<small>公司硬扛</small></button>
-    <button class="tl-tab" id="tabYes" type="button">有 Keyman 保障<small>保险公司扛</small></button>
+    <button class="tl-tab on-red" id="tabNo" type="button" data-i18n-html="timeline.no">没有保障<small>公司硬扛</small></button>
+    <button class="tl-tab" id="tabYes" type="button" data-i18n-html="timeline.yes">有 Keyman 保障<small>保险公司扛</small></button>
   </div>
   <div class="tl-wrap bg-red" id="tlWrap">
     <div class="tl" id="tlBody"></div>
@@ -684,110 +668,769 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   </div>
 </section>
 
-<!-- ============ 柒 ============ -->
 <section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
   <div class="step-tag">
     <div class="step-ico">📋</div>
-    <div><span class="no">第 7 步</span><h2>核保文件清单</h2></div>
+    <div><span class="no" data-i18n="step.7">第 7 步</span><h2 data-i18n="s7.title">核保文件清单</h2></div>
   </div>
-  <p class="step-desc">按方案总保额分级。文件一次备齐，核保一次过。</p>
+  <p class="step-desc" data-i18n="s7.desc">按方案总保额分级。文件一次备齐，核保一次过。</p>
   <table class="docs" id="docsTable">
-    <tr data-band="1"><td>&lt; RM1m</td><td>财务问卷 (Financial Questionnaire)</td></tr>
-    <tr data-band="2"><td>RM1m – 3m</td><td>问卷 + 近 2 年 Management Accounts</td></tr>
-    <tr data-band="3"><td>&gt; RM3m</td><td>近 3 年 Audited Accounts + 贷款 Offer Letter + 董事会决议（Keyman 用途声明）</td></tr>
+    <tr data-band="1"><td>&lt; RM1m</td><td data-i18n="docs.1">财务问卷 (Financial Questionnaire)</td></tr>
+    <tr data-band="2"><td>RM1m – 3m</td><td data-i18n="docs.2">问卷 + 近 2 年 Management Accounts</td></tr>
+    <tr data-band="3"><td>&gt; RM3m</td><td data-i18n="docs.3">近 3 年 Audited Accounts + 贷款 Offer Letter + 董事会决议（Keyman 用途声明）</td></tr>
   </table>
 </section>
 
 <div class="contact">
   <div class="c-name">黄冠尊 Wilson Ooi</div>
-  <div class="c-sub">企业保障顾问 · Hong Leong Assurance<br>
+  <div class="c-sub" data-i18n-html="contact.sub">企业保障顾问 · Hong Leong Assurance<br>
   WhatsApp <a href="https://wa.me/60125676118">+60 12-567 6118</a></div>
   <div class="sign-row">
-    <div class="s-box">客户签名 / 日期</div>
-    <div class="s-box">顾问签名 / 日期</div>
+    <div class="s-box" data-i18n="contact.signClient">客户签名 / 日期</div>
+    <div class="s-box" data-i18n="contact.signAdvisor">顾问签名 / 日期</div>
   </div>
 </div>
 
-<!-- ============ 顾问收口（默认折叠，不给老板看） ============ -->
 <section class="card close-kit no-print" id="closeKit" style="--accent:var(--ink);--accent-soft:#E8EBF2">
   <button type="button" class="advisor-toggle" id="btnCloseToggle" aria-expanded="false" aria-controls="closeBody">
     <span>
       <span class="at-lab">ADVISOR</span>
-      <span class="at-hint"> · 需要时再展开</span>
+      <span class="at-hint" data-i18n="advisor.hint"> · 需要时再展开</span>
     </span>
-    <span class="at-chev" id="closeChev">展开</span>
+    <span class="at-chev" id="closeChev" data-i18n="close.open">展开</span>
   </button>
   <div class="close-body" id="closeBody">
     <div class="reframe" id="reframeBox">
       <div class="rf-lab">REFRAME</div>
-      <div class="rf-title">不是在买保险，是在买公司的续存权</div>
-      <div class="rf-sub">关键人明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？成交的不是保单，是生意还能不能活。</div>
+      <div class="rf-title" data-i18n="reframe.titleDefault">不是在买保险，是在买公司的续存权</div>
+      <div class="rf-sub" data-i18n="reframe.subDefault">关键人明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？成交的不是保单，是生意还能不能活。</div>
     </div>
-
     <div class="break-grid" id="breakGrid"></div>
-
     <div class="path-row">
       <button class="path-card" type="button" id="pathA" data-path="full">
-        <div class="pc-tag">路径 A · 预算内全做</div>
-        <div class="pc-title">债务 + 利润（+股权若适用）一次到位</div>
-        <div class="pc-body" id="pathABody">锁定完整续存方案。</div>
+        <div class="pc-tag" data-i18n="path.a.tag">路径 A · 预算内全做</div>
+        <div class="pc-title" data-i18n="path.a.title">债务 + 利润（+股权若适用）一次到位</div>
+        <div class="pc-body" id="pathABody" data-i18n="path.a.body">锁定完整续存方案。</div>
       </button>
       <button class="path-card" type="button" id="pathB" data-path="debt">
-        <div class="pc-tag">路径 B · 先破冰成交</div>
-        <div class="pc-title">先保债务单，利润下季再加</div>
-        <div class="pc-body" id="pathBBody">银行最急、最好核保；把「公司不被拖垮」先锁住。</div>
+        <div class="pc-tag" data-i18n="path.b.tag">路径 B · 先破冰成交</div>
+        <div class="pc-title" data-i18n="path.b.title">先保债务单，利润下季再加</div>
+        <div class="pc-body" id="pathBBody" data-i18n="path.b.body">银行最急、最好核保；把「公司不被拖垮」先锁住。</div>
       </button>
     </div>
-
     <div class="close-cta">
-      <button class="btn btn-gold" type="button" id="btnClosePrint">生成建议书 PDF</button>
-      <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp 锁定正式 Quotation</a>
+      <button class="btn btn-gold" type="button" id="btnClosePrint" data-i18n="print.button">生成建议书 PDF</button>
+      <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener" data-i18n="print.wa">WhatsApp 锁定正式 Quotation</a>
     </div>
-    <div class="close-note" id="closeNote">收口只留两个选项：A 全做，或 B 先债务。不要留「再考虑」。</div>
+    <div class="close-note" id="closeNote" data-i18n="close.noteDefault">收口只留两个选项：A 全做，或 B 先债务。不要留「再考虑」。</div>
   </div>
 </section>
 
 <footer>
-  保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
-  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.9
+  <span data-i18n-html="footer.disclaimer">保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实</span><br>
+  <span data-i18n="footer.version">© 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v3.0</span>
   <div class="draft-hint no-print" id="draftHint"></div>
 </footer>
-</div><!-- /.desk-lower -->
+</div>
 
 <div class="sticky no-print">
   <div class="sticky-inner">
     <div>
-      <div class="s-label">建 议 总 保 额</div>
+      <div class="s-label" data-i18n="sticky.label">建 议 总 保 额</div>
       <div class="s-val" id="stickyVal">RM 0</div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-gold" id="btnPrint" type="button">生成建议书 PDF</button>
+      <button class="btn btn-gold" id="btnPrint" type="button" data-i18n="print.button">生成建议书 PDF</button>
     </div>
   </div>
 </div>
 
-<!-- 打印预览 -->
 <div class="modal-bg no-print" id="printModal" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
   <div class="modal">
-    <h3 id="printModalTitle">建议书将包含</h3>
-    <p class="m-desc">打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。</p>
+    <h3 id="printModalTitle" data-i18n="print.title">建议书将包含</h3>
+    <p class="m-desc" data-i18n="print.desc">打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。</p>
     <ul id="printPages"></ul>
     <div class="m-actions">
-      <button class="btn btn-line" id="btnPrintCancel" type="button">取消</button>
-      <button class="btn btn-ink" id="btnPrintGo" type="button">继续打印</button>
+      <button class="btn btn-line" id="btnPrintCancel" type="button" data-i18n="print.cancel">取消</button>
+      <button class="btn btn-ink" id="btnPrintGo" type="button" data-i18n="print.go">继续打印</button>
     </div>
   </div>
 </div>
 
 <script>
 /* ================= state & utils ================= */
+const I18N = {
+zh: {
+  'meta.title':'Key Man Policy · 企业关键人保障分析 | AUDO × Hong Leong Assurance',
+  'meta.description':'为企业关键人物量化风险缺口：四种国际通用算法、核保上限检验、税务 Gross-up 与建议保额。AUDO × Hong Leong Assurance。',
+  'meta.ogTitle':'Key Man Policy · 企业关键人保障分析 | AUDO',
+  'meta.ogDesc':'用公司自己的数字，精算关键人风险缺口与建议保障方案。',
+  'header.title':'企业关键人保障分析系统',
+  'header.presenter':'分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance',
+  'cover.title':'企业关键人风险分析建议书',
+  'cover.advisor':'分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance',
+  'cover.date':'分析日期：',
+  'cover.contact':'联系：+60 12-567 6118 (WhatsApp)',
+  'footer.disclaimer':'保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实',
+  'footer.version':'© 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v3.0',
+  'sticky.label':'建 议 总 保 额',
+  'print.button':'生成建议书 PDF',
+  'print.title':'建议书将包含',
+  'print.desc':'打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。',
+  'print.cancel':'取消',
+  'print.go':'继续打印',
+  'print.wa':'WhatsApp 锁定正式 Quotation',
+  'date.ymd':'{{y}}年{{m}}月{{d}}日',
+  'docs.band':' ◄ 本方案',
+  'client.info':'客户资料',
+  'client.title':'这份分析为谁定制',
+  'client.comp':'公司名称',
+  'client.boss':'关键人姓名 / 称呼',
+  'client.phComp':'例：ABC Engineering Sdn Bhd',
+  'client.phBoss':'例：Dato\' Tan / 陈老板',
+  'client.dateHint':'分析日期：',
+  'client.dateHint2':' · 资料仅用于本次风险分析，绝对保密。',
+  'step.1':'第 1 步',
+  'step.2':'第 2 步',
+  'step.3':'第 3 步',
+  'step.4':'第 4 步',
+  'step.5':'第 5 步',
+  'step.6':'第 6 步',
+  'step.7':'第 7 步',
+  's1.title':'关键人资料',
+  's1.desc':'"关键人"= 公司离了他会伤筋动骨的人。通常是老板本人、技术核心或头号业务功臣。',
+  's1.age':'年龄',
+  's1.gender':'性别 / 吸烟状况',
+  's1.rem':'年度总报酬',
+  's1.remHint':'底薪 + 花红 + 董事费 + EPF 雇主部分，一年的总数。',
+  's2.title':'盈利分析 · 他为公司赚多少',
+  's2.desc':'这一步量化一件事：公司每年的利润，有多少直接系在这个人身上。',
+  's2.gp':'近三年平均毛利',
+  's2.gpHint':'Gross Profit，大约数即可',
+  's2.np':'近三年平均净利',
+  's2.npHint':'税前 Net Profit',
+  's2.role':'他在公司扮演什么角色？',
+  's2.roleHint':'角色决定"利润贡献度"——公司的钱有多少是靠他赚回来的。',
+  's2.rec':'如果他不在了，公司要多久恢复元气？',
+  'attr.70':'一人扛全部业务<small>贡献 70%</small>',
+  'attr.50':'技术 / 业务核心<small>贡献 50%</small>',
+  'attr.30':'多位董事之一<small>贡献 30%</small>',
+  'attr.20':'关键高管<small>贡献 20%</small>',
+  'rec.2':'市场招得到人<small>2 年</small>',
+  'rec.3':'要挖角 + 交接<small>3 年</small>',
+  'rec.5':'几乎无可替代<small>5 年</small>',
+  's3.title':'债务分析 · 银行不等人',
+  's3.desc':'关键人不在，贷款照追。个人担保更会直接烧到家人身上。这里填公司对银行的敞口。',
+  's3.loan':'Term Loan 未还余额',
+  's3.od':'OD 额度',
+  's3.odu':'平均使用率 %',
+  's3.pg':'个人担保净额',
+  's3.pgHint':'未被以上贷款覆盖的部分',
+  's3.exist':'现有 Keyman 保额',
+  's3.existHint':'已买过的要扣除',
+  's4.titleHtml':'股权买卖 <span class="badge">合伙人公司适用</span>',
+  's4.desc':'股东走了，股份落到家属手上——其他股东要有钱把股份买回来，公司决策才不会瘫痪。',
+  's4.bsTitle':'这家公司有 2 位或以上股东',
+  's4.bsDesc':'启用 Buy-Sell 股权估值计算',
+  's4.pe':'估值倍数 (PE)',
+  's4.peHint':'中小企业一般 3–5 倍净利',
+  's4.eq':'关键人持股 %',
+  's4.note':'保单只是资金工具，必须配律师起草的 Buy-Sell Agreement 才有法律骨架。股东 ≥3 人建议由公司统一持单。',
+  's5.title':'保障结构选择',
+  's5.desc':'不同用途分开设单，理赔用途和税务安排才清清楚楚。可多选。',
+  'purpose.debt':'债务保障',
+  'purpose.debtP':'Cover 银行贷款与担保，公司不被债务拖垮 → Level / Reducing Term',
+  'purpose.profit':'利润 / 营运保障',
+  'purpose.profitP':'补足恢复期少赚的钱，员工薪水照发、供应商照付 → Level Term',
+  'purpose.bs':'股权买卖资金',
+  'purpose.bsP':'需先启用第 4 步 → 独立保单 + Buy-Sell Agreement',
+  'purpose.gu':'税务优化：Term 扣税路线（Gross-up 24%）',
+  'purpose.guP':'仅放大<strong>债务保障</strong>与<strong>利润/营运保障</strong>的 Term 保额（保费可扣税 → 理赔金通常课 24% 公司税，故 ÷0.76）。<strong>股权买卖单</strong>为独立结构，不套用 Gross-up，税务请与 Tax Agent 确认。',
+  's6.title':'四种算法 · 详细分析',
+  's6.desc':'每种算法从不同角度衡量同一个风险。红线是保险公司的核保上限。',
+  's7.title':'核保文件清单',
+  's7.desc':'按方案总保额分级。文件一次备齐，核保一次过。',
+  'docs.1':'财务问卷 (Financial Questionnaire)',
+  'docs.2':'问卷 + 近 2 年 Management Accounts',
+  'docs.3':'近 3 年 Audited Accounts + 贷款 Offer Letter + 董事会决议（Keyman 用途声明）',
+  'risk.q':'以下数字随您输入的资料实时更新',
+  'risk.debt':'银行照样追债',
+  'risk.profit':'利润恢复缺口',
+  'risk.equity':'股权动荡风险',
+  'risk.total':'合计风险敞口：<b style="color:var(--red)">{{total}}</b> —— 这不是保险问题，是企业续存问题。',
+  'survey.step':'决策校准',
+  'survey.title':'四个问题，把预算与风险对齐',
+  'survey.q1':'1. 您愿意每年拿净利的几 %，买回企业续存？',
+  'survey.h1':'多数中小企业把 1–3% 净利视为合理经营成本；超过 5% 通常需分期或先保债务。',
+  'survey.q2':'2. 公司未来 3 年，净利大概每年增长几 %？',
+  'survey.h2':'增长越快，关键人缺口往往越大——保额要比「今天的利润」看得更远。',
+  'survey.q3':'3. 万一关键人明天缺席，第一笔救急钱谁出？',
+  'survey.h3':'公司现金、银行、家人，还是已有保险安排——答案会影响保障优先顺序。',
+  'survey.q4':'4. 没有关键人，公司现金撑得住几个月？',
+  'survey.h4':'对照第 2 步的恢复期（通常 2–5 年）。现金跑道越短，越需要立刻有保额入账。',
+  'survey.spend.05':'0.5%<small>极低预算</small>',
+  'survey.spend.1':'1%<small>保守</small>',
+  'survey.spend.2':'2%<small>务实</small>',
+  'survey.spend.3':'3%<small>稳健</small>',
+  'survey.spend.5':'5%<small>优先续存</small>',
+  'survey.growth.0':'持平 0%',
+  'survey.growth.10':'稳健 10%',
+  'survey.growth.20':'快跑 20%',
+  'survey.growth.30':'高速 30%+',
+  'survey.payer.cash':'公司现金 / 存款<small>吃营运资金</small>',
+  'survey.payer.bank':'再找银行<small>未必批得过</small>',
+  'survey.payer.family':'家人 / 个人积蓄<small>最常见也最痛</small>',
+  'survey.payer.ins':'已有保险安排<small>理想答案</small>',
+  'survey.runway.1':'≤ 1 个月<small>非常紧</small>',
+  'survey.runway.3':'约 3 个月<small>常见</small>',
+  'survey.runway.6':'约 6 个月<small>稍有缓冲</small>',
+  'survey.runway.12':'≥ 12 个月<small>少见</small>',
+  'timeline.step':'两个剧本',
+  'timeline.title':'关键人缺席之后的 12 个月',
+  'timeline.desc':'同一家公司，同一场意外，两种截然不同的结局。数字来自您刚才输入的资料。',
+  'timeline.no':'没有保障<small>公司硬扛</small>',
+  'timeline.yes':'有 Keyman 保障<small>保险公司扛</small>',
+  'contact.sub':'企业保障顾问 · Hong Leong Assurance<br>WhatsApp <a href="https://wa.me/60125676118">+60 12-567 6118</a>',
+  'contact.signClient':'客户签名 / 日期',
+  'contact.signAdvisor':'顾问签名 / 日期',
+  'advisor.hint':' · 需要时再展开',
+  'close.open':'展开',
+  'close.close':'收起',
+  'path.a.tag':'路径 A · 预算内全做',
+  'path.a.title':'债务 + 利润（+股权若适用）一次到位',
+  'path.a.body':'锁定完整续存方案。',
+  'path.b.tag':'路径 B · 先破冰成交',
+  'path.b.title':'先保债务单，利润下季再加',
+  'path.b.body':'银行最急、最好核保；把「公司不被拖垮」先锁住。',
+  'close.noteDefault':'收口只留两个选项：A 全做，或 B 先债务。不要留「再考虑」。',
+  'reframe.titleDefault':'不是在买保险，是在买公司的续存权',
+  'reframe.subDefault':'关键人明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？成交的不是保单，是生意还能不能活。',
+  'gender.male':'男',
+  'gender.female':'女',
+  'gender.smoker':'吸烟',
+  'gender.nonsmoker':'非吸烟',
+  'draft.saved':'草稿已自动保存在本机浏览器，刷新不会丢失。',
+  'draft.restored':'已恢复本机草稿（{{date}}）',
+  'personal.header':'用您公司自己的数字，精算出企业风险缺口 —— 买的不是保险，是公司续存权',
+  'personal.headerNamed':'为 <b style="color:var(--gold-hi)">{{company}}</b> 定制 —— 买的不是保险，是公司续存权 · 四种算法 · 核保上限 · 成交路径',
+  'personal.riskHead':'如果{{boss}}明天缺席，{{company}}立刻面对——',
+  'personal.cover':'呈交：{{company}}{{boss}}',
+  'fallback.keyman':'关键人',
+  'fallback.company':'公司',
+  'fallback.management':'贵公司管理层',
+  'wa.greeting':'您好 Wilson，我想跟进 Key Man 方案。',
+  'wa.company':'公司：{{company}}',
+  'wa.keyman':'关键人：{{who}}',
+  'wa.cover':'建议保额：{{amount}}',
+  'wa.premium':'预估年保费：{{low}} – {{high}}',
+  'wa.request':'请协助出正式 Quotation。',
+  'live.a':'📌 {{age}} 岁核保档：保险公司最高接受 报酬 × <b>{{mult}} 倍</b> ≈ <b>{{sa}}</b> 的关键人保额。',
+  'live.b':'📌 分析：关键人每年为公司带来约 <b>{{profit}}</b> 毛利。若缺席 {{rec}} 年恢复期，公司总缺口 = <b>{{sa}}</b>。',
+  'live.c':'📌 分析：银行总敞口 <b>{{debt}}</b>{{existing}}，未被保障的债务风险 = <b>{{sa}}</b>。',
+  'live.cExisting':'，扣除现有保障 {{existing}}',
+  'live.d':'📌 分析：公司估值 ≈ 净利 × {{pe}} = <b>{{valuation}}</b>；关键人 {{eq}}% 股份价值 = <b>{{sa}}</b>，这就是其他股东需要准备的买回资金。',
+  'pol.debt':'① 债务保障单',
+  'pol.profit':'② 利润保障单',
+  'pol.bs':'③ 股权买卖单',
+  'pol.debtWhy':'银行贷款与担保一次清零，公司与家人不背债。贷款文件支持，通常可全额核保。',
+  'pol.profitWhyOk':'恢复期内员工薪水照发、供应商照付、客户不流失。',
+  'pol.profitWhyCap':'需求超出核保上限，先保到上限，其余分期加保。',
+  'pol.bsWhy':'理赔金直接成为股东买回股份的现金，家属拿钱、公司拿回控制权，两边都体面。',
+  'pol.typeDebt':'Level / Reducing Term',
+  'pol.typeProfit':'Level Term',
+  'pol.typeBS':'独立结构 + Buy-Sell Agreement',
+  'pol.guOn':' · 已 Gross-up',
+  'pol.guOff':' · 不套用 Gross-up',
+  'pol.empty':'请在第 5 步选择至少一个保障用途。',
+  'method.a':'薪资倍数法',
+  'method.b':'利润贡献法',
+  'method.c':'债务覆盖法',
+  'method.d':'股权买卖法',
+  'method.aMath':'{{rem}} 总报酬 × {{mult}} 倍（{{age}}岁核保档）',
+  'method.bMath':'{{gp}} 毛利 × {{attr}}% 贡献度 × {{rec}} 年恢复期',
+  'method.cMath':'Term Loan + OD 使用额 + 个人担保 − 现有保障',
+  'method.dMath':'(净利 {{np}} × PE {{pe}}) × 持股 {{eq}}%',
+  'method.aSay':'最保守的算法，也是保险公司核保的<b>锚点</b>。低于这个数，核保基本一路绿灯。',
+  'method.bSay':'最贴近真实的算法：量化<b>公司会真正少赚的钱</b>。这是企业风险的核心数字。',
+  'method.cSay':'痛点最具体：人不在，<b>银行照样追债</b>，个人担保直接波及家人。这部分保额刻不容缓。',
+  'method.dSay':'保护的是<b>公司控制权</b>：家属拿到公道的钱，股东拿回股份，生意继续跑。',
+  'method.capFlag':'▲ 超出核保上限，超出部分需 Audited Accounts 支持或分期加保',
+  'method.capNote':'核保上限 ≈ <b>{{cap}}</b>：取「报酬×倍数 {{cap1}}」与「净利×5 {{cap2}}」两者较低。红线以内 = 顺畅核保区。',
+  'verdict.label':'建 议 保 障 方 案',
+  'verdict.guOn':'Term 需求 {{term}} ÷ 0.76 = {{gross}}{{bsPart}} —— 公司<b style="color:var(--gold-hi)">Term 实拿足额</b>；保费同时享有扣税。',
+  'verdict.guBs':'；股权买卖 {{bs}} 不加 Gross-up',
+  'verdict.guEmpty':'已勾选 Gross-up，但当前方案无 Term 债务/利润单可放大；股权买卖单独立处理。',
+  'verdict.guOff':'未启用 Gross-up：走理赔免税路线（保费通常不可扣税）。',
+  'verdict.premLabel':'预估年保费',
+  'verdict.meta':'{{age}}岁 · {{gender}} · {{smoker}} · Level Term',
+  'verdict.perYear':' /年',
+  'verdict.perDay':'/天',
+  'verdict.dailyCap':'≈ 一顿饭钱，换整家公司的续存',
+  'verdict.leverageCap':'每 RM1 保费撬动的保障杠杆',
+  'verdict.foot':'以上保费为行业参考费率估算，非 HLA 正式报价；正式保费以 Quotation 为准。',
+  'payer.cash':'救急靠公司现金——等于用营运资金去扛灾难，扩张和发薪都会被拖累。',
+  'payer.bank':'再找银行——关键人缺席时银行通常更紧，不是更松。',
+  'payer.family':'落到家人身上——这是最常见、也最不公平的结局。',
+  'payer.ins':'已有保险安排——方向正确；接下来要核对保额是否盖得住今天的缺口。',
+  'payer.lab.cash':'公司现金',
+  'payer.lab.bank':'再找银行',
+  'payer.lab.family':'家人 / 个人',
+  'payer.lab.ins':'已有保险',
+  'decide.afford.ok':'预算内可执行',
+  'decide.afford.warn':'略超预算，可分期/先保债务',
+  'decide.afford.bad':'明显超预算，需调整结构',
+  'decide.runway.ok':'现金跑道约 {{runway}} 个月，接近/超过 {{rec}} 年恢复期——缓冲较好，但仍建议用保险锁定「不用卖资产」的确定性。',
+  'decide.runway.bad':'现金只够撑约 {{runway}} 个月，但恢复期要 {{rec}} 年。缺口不是「紧一点」，是数量级不对。',
+  'decide.lab.prem':'保费占净利',
+  'decide.lab.risk3':'3 年后风险敞口（按增长外推）',
+  'decide.lab.runway':'现金跑道 vs 恢复期',
+  'decide.lab.payer':'第一笔救急钱',
+  'decide.runwayVal':'{{runway}} 月 / {{rec}} 年',
+  'decide.say.prem':'建议年保费约 <b>{{prem}}</b>。您愿付 {{spend}}%（≈ <b>{{budget}}</b>/年）→ <b>{{afford}}</b>{{gap}}',
+  'decide.gap':'，差额约 {{gap}}。',
+  'decide.gapEnd':'。',
+  'decide.say.risk3':'净利从 {{np}} → 约 {{np3}}（年增 {{growth}}%）。今天不定保额，明天要保的是更大的公司。',
+  'decide.punch.ins':'方向已对齐：预算够、也打算用保险扛。下一步是锁定正式 Quotation，把「打算」变成「安排好」。',
+  'decide.punch.ok':'以您愿付的 <b>{{spend}}%</b> 净利，这套方案在预算内。真正的问题不是贵不贵，而是：要不要在意外发生前把续存权买下来。',
+  'decide.punch.warn':'预算略紧。成交路径：先保<b>债务单</b>（银行最急），利润单分期加保；或把愿付比例调到 <b>{{pct}}%</b> 再对照。',
+  'decide.punch.bad':'若坚持只付 {{spend}}% 净利，建议先缩到债务保障 <b>{{debt}}</b>，把「公司不被银行拖垮」先锁住，再谈利润与股权。',
+  'decide.punch.family':' 您已选择救急靠家人——这正是 Keyman 要替家人卸下的担子。',
+  'age.lt40.now':'40 岁前',
+  'age.lt40.next':'一过 40',
+  'age.lt40.jump':'倍数档与费率通常更敏感',
+  'age.lt50.now':'40–49 岁档',
+  'age.lt50.next':'一过 50',
+  'age.lt50.jump':'核保倍数与费率会再跳一档',
+  'age.lt55.now':'50–54 岁档',
+  'age.lt55.next':'一过 55',
+  'age.lt55.jump':'可保倍数下降、保费上升更快',
+  'age.ge55.now':'55 岁以上档',
+  'age.ge55.next':'每多一年一年',
+  'age.ge55.jump':'身体与核保会变得更挑',
+  'reframe.title':'不是在买保险，是在买 {{comp}} 的续存权',
+  'reframe.sub':'如果 {{who}} 明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？今天的风险敞口约 <b style="color:var(--gold-hi)">{{risk}}</b>——成交的不是保单，是生意还能不能活。',
+  'close.01.no':'01 · 续存权',
+  'close.01.title':'把问题问对',
+  'close.01.body':'别问「要不要买 Keyman」。问：<b>{{who}} 缺席后，{{comp}} 谁来扛债、谁来发薪、谁来留客户？</b>',
+  'close.02.no':'02 · 打脸对照',
+  'close.02.title':'用他自己的矛盾',
+  'close.02.body':'愿付净利 <b>{{spend}}%</b>，但风险敞口是净利的 <b>{{mult}} 倍</b>。现金跑道 <b>{{runway}} 个月</b>，恢复期却要 <b>{{rec}} 年</b>——不是紧一点，是数量级不对。',
+  'close.03.no':'03 · 杠杆',
+  'close.03.title':'少谈贵，多谈撬动',
+  'close.03.body':'约 <b>RM {{daily}}/天</b>，每 RM1 保费撬动约 <b>{{lev}}</b> 倍保障。广告、请人、利息都舍得；这是唯一能「人没了钱还在」的支出。',
+  'close.04.no':'04 · 增长恐惧',
+  'close.04.title':'越成功越危险',
+  'close.04.body':'按年增 <b>{{growth}}%</b>，三年后风险敞口约 <b>{{risk3}}</b>。<b>今天不定，三年后要保的是更大的公司、更贵的保费、更难的核保。</b>',
+  'close.05.no':'05 · 银行 / 股权',
+  'close.05.title':'解瘫痪，不只买保障',
+  'close.05.debt':'债务敞口 <b>{{debt}}</b>——人没了，Call Loan 找谁？',
+  'close.05.noDebt':'把银行贷款与个人担保填进第 3 步，痛点会立刻出现。',
+  'close.05.bs':' 股权约 <b>{{bs}}</b> 若落到家属手上，公司决策谁说了算？',
+  'close.06.no':'06 · 选择架构',
+  'close.06.title':'抗拒时先降摩擦',
+  'close.06.body':'别一次推满额。成交路径：<b>① 先锁债务单</b>（银行最急）→ ② 利润单 → ③ 股权 Buy-Sell。他说贵，就回：<b>「那我们先保公司不被银行拖垮。」</b>',
+  'close.07.no':'07 · 损失厌恶',
+  'close.07.title':'不是赚到，是留住',
+  'close.07.body':'理赔金不是让公司更赚钱，是<b>避免一场意外把十年心血归零</b>。不是「赚到一笔」，是「本来会失去的钱被留住」。',
+  'close.08.no':'08 · 身份证明',
+  'close.08.title':'不做 = 不够专业',
+  'close.08.body':'做大的老板，通常先把 Keyman 当<b>经营成本</b>，不是等出事再想。银行、审计、Tax Agent 也越来越常问：有没有 business protection。',
+  'close.09.no':'09 · 真实截止',
+  'close.09.title':'年龄与健康在催保费',
+  'close.09.body':'您目前约在 <b>{{now}}</b>。{{next}}，{{jump}}。不是顾问催您，是<b>年龄和健康在催保费与核保难度</b>。',
+  'close.10.no':'10 · 收口',
+  'close.10.title':'只留两个选项',
+  'close.10.body':'A：预算内全做（约净利的 <b>{{pct}}%</b>）。B：先做债务 <b>{{debt}}</b>，利润下季再加。<b>不要留「再考虑」这种第三选项。</b>',
+  'close.pathA':'建议总保额 <b>{{sa}}</b> · 预估年保费 <b>{{lo}} – {{hi}}</b>。一次把续存结构做完整。',
+  'close.pathB':'先保债务 <b>{{debt}}</b>，保费压力立刻下降；利润与股权可分期。银行最急、最好核保。',
+  'close.pathBEmpty':'请先在第 3 步填入贷款/担保；有债务数字后，路径 B 的杀伤力会更强。',
+  'close.note':'收口只留 A / B。选完路径后，立刻 PDF 或 WhatsApp 锁定 Quotation——把「打算」变成「安排好」。当前保费约占净利 <b>{{pct}}%</b>。',
+  'tl.m1':'第 1 个月',
+  'tl.m6':'第 6 个月',
+  'tl.m12':'第 12 个月',
+  'tl.no.1':'现金流立即失血：每月少 <b>{{loss}}</b> 毛利。银行察觉变故，OD 随时冻结，供应商开始收紧账期。',
+  'tl.no.6':'银行 Call Loan：<b>{{debt}}</b> 债务全数到期。核心员工被同行挖走，老客户流失，{{comp}} 元气大伤。',
+  'tl.no.12':'被迫贱卖资产还债{{pg}}。多年心血，一场变故归零。',
+  'tl.no.pg':'，个人担保 <b>{{pg}}</b> 直接追到家人身上',
+  'tl.no.punch':'没有人会为这个剧本负责——除了家人。',
+  'tl.yes.1':'理赔金 <b>{{sa}}</b> 免遗产程序直接到账。银行债务 <b>{{debt}}</b> 一次清零，OD 照常运作。',
+  'tl.yes.6':'公司有充足银弹高薪聘请接班人。员工薪水照发、供应商照付，客户完全无感，生意照跑。',
+  'tl.yes.12':'恢复期利润缺口由 <b>{{profit}}</b> 补贴，{{comp}} 平稳过渡{{bs}}。{{who}} 留给公司的不是烂摊子，是从容。',
+  'tl.yes.bs':'，股权按 Buy-Sell 协议体面交接',
+  'tl.yes.punch':'同一场意外，保险公司扛，不是家人扛。',
+  'pp.1.t':'封面',
+  'pp.1.d':'呈交 {{comp}} 的机密建议书封面',
+  'pp.2.t':'风险仪表板',
+  'pp.2.d':'债务 / 利润缺口 / 股权风险一览',
+  'pp.3.t':'客户与关键人资料',
+  'pp.3.d':'公司、关键人、年龄与报酬',
+  'pp.4.t':'盈利 · 债务 · 股权分析',
+  'pp.4.d':'输入假设与即时解读',
+  'pp.5.t':'四种算法对比',
+  'pp.5.d':'含核保上限红线',
+  'pp.6.t':'建议保障方案',
+  'pp.6.d':'总保额 {{sa}} · 预估保费区间',
+  'pp.6.dEmpty':'建议保额与保费',
+  'pp.7.t':'决策校准',
+  'pp.7.d':'愿付利润% · 增长 · 救急来源 · 现金跑道',
+  'pp.8.t':'12 个月双剧本',
+  'pp.8.d':'有 / 无 Keyman 对照',
+  'pp.9.t':'核保文件清单',
+  'pp.9.d':'按保额分级的文件要求',
+  'pp.10.t':'顾问联系与签署栏',
+  'pp.10.d':'WhatsApp 联系 · 双方签名',
+},
+en: {
+  'meta.title':'Key Man Policy · Business Protection Analysis | AUDO × Hong Leong Assurance',
+  'meta.description':'Quantify your key-person protection gap using four practical methods, underwriting capacity checks and tax Gross-up guidance. AUDO × Hong Leong Assurance.',
+  'meta.ogTitle':'Key Man Policy · Business Protection Analysis | AUDO',
+  'meta.ogDesc':'Use your company’s own figures to size the key-person gap and a practical protection plan.',
+  'header.title':'Key Person Protection Analysis',
+  'header.presenter':'Advisor · Wilson Ooi · Hong Leong Assurance',
+  'cover.title':'Key Person Risk Analysis Proposal',
+  'cover.advisor':'Advisor: Wilson Ooi · Hong Leong Assurance',
+  'cover.date':'Analysis date: ',
+  'cover.contact':'Contact: +60 12-567 6118 (WhatsApp)',
+  'footer.disclaimer':'Premiums are <strong>indicative industry estimates</strong>, not a formal Hong Leong Assurance quotation; final figures follow the insurer’s Quotation · Confirm tax treatment with your Tax Agent',
+  'footer.version':'© Wilson Ooi · Key Person Protection Analysis v3.0',
+  'sticky.label':'RECOMMENDED TOTAL COVER',
+  'print.button':'Generate PDF proposal',
+  'print.title':'Your proposal will include',
+  'print.desc':'Confirm the contents before printing or saving as PDF. Enable “Background graphics” in your browser print dialog.',
+  'print.cancel':'Cancel',
+  'print.go':'Print proposal',
+  'print.wa':'WhatsApp to lock a formal Quotation',
+  'date.ymd':'{{y}}-{{m}}-{{d}}',
+  'docs.band':' ◄ This plan',
+  'client.info':'Client info',
+  'client.title':'Who is this analysis for?',
+  'client.comp':'Company name',
+  'client.boss':'Key person name / title',
+  'client.phComp':'e.g. ABC Engineering Sdn Bhd',
+  'client.phBoss':'e.g. Dato\' Tan / Mr Chen',
+  'client.dateHint':'Analysis date:',
+  'client.dateHint2':' · Used only for this risk analysis; kept confidential.',
+  'step.1':'Step 1',
+  'step.2':'Step 2',
+  'step.3':'Step 3',
+  'step.4':'Step 4',
+  'step.5':'Step 5',
+  'step.6':'Step 6',
+  'step.7':'Step 7',
+  's1.title':'Key person profile',
+  's1.desc':'"Key person" = someone whose absence would materially hurt the business—usually the owner, technical lead or top rainmaker.',
+  's1.age':'Age',
+  's1.gender':'Gender / smoking',
+  's1.rem':'Total annual remuneration',
+  's1.remHint':'Base salary + bonus + directors’ fees + employer EPF, annual total.',
+  's2.title':'Profit analysis · What they earn for the firm',
+  's2.desc':'This step quantifies how much of the company’s annual profit is tied to this person.',
+  's2.gp':'3-year average gross profit',
+  's2.gpHint':'Gross Profit — approximate is fine',
+  's2.np':'3-year average net profit',
+  's2.npHint':'Pre-tax Net Profit',
+  's2.role':'What role do they play?',
+  's2.roleHint':'Role drives “profit attribution”—how much of the company’s earnings depend on them.',
+  's2.rec':'If they were gone, how long to recover?',
+  'attr.70':'Carries the whole book<small>70% attribution</small>',
+  'attr.50':'Technical / sales core<small>50% attribution</small>',
+  'attr.30':'One of several directors<small>30% attribution</small>',
+  'attr.20':'Key senior hire<small>20% attribution</small>',
+  'rec.2':'Replaceable on the market<small>2 years</small>',
+  'rec.3':'Needs hiring + handover<small>3 years</small>',
+  'rec.5':'Nearly irreplaceable<small>5 years</small>',
+  's3.title':'Debt analysis · The bank will not wait',
+  's3.desc':'If the key person is gone, lenders still collect. Personal guarantees can land on the family. Enter the company’s bank exposure here.',
+  's3.loan':'Term loan outstanding',
+  's3.od':'OD limit',
+  's3.odu':'Average utilisation %',
+  's3.pg':'Personal guarantee (net)',
+  's3.pgHint':'Portion not already covered above',
+  's3.exist':'Existing keyman cover',
+  's3.existHint':'Deduct cover already in force',
+  's4.titleHtml':'Buy-sell funding <span class="badge">For multi-shareholder firms</span>',
+  's4.desc':'When a shareholder dies, shares pass to the family—other shareholders need funding to buy them back so decision-making does not freeze.',
+  's4.bsTitle':'This company has 2 or more shareholders',
+  's4.bsDesc':'Enable Buy-Sell valuation',
+  's4.pe':'Valuation multiple (PE)',
+  's4.peHint':'SMEs often use 3–5× net profit',
+  's4.eq':'Key person shareholding %',
+  's4.note':'The policy is only the funding tool; a lawyer-drafted Buy-Sell Agreement provides the legal framework. With 3+ shareholders, company-owned cover is usually cleaner.',
+  's5.title':'Protection structure',
+  's5.desc':'Separate policies by purpose so claims use and tax treatment stay clear. Multi-select allowed.',
+  'purpose.debt':'Debt protection',
+  'purpose.debtP':'Cover bank loans and guarantees so debt does not sink the firm → Level / Reducing Term',
+  'purpose.profit':'Profit / operating cover',
+  'purpose.profitP':'Replace lost earnings in the recovery period—payroll and suppliers continue → Level Term',
+  'purpose.bs':'Buy-sell funding',
+  'purpose.bsP':'Enable Step 4 first → standalone policy + Buy-Sell Agreement',
+  'purpose.gu':'Tax optimisation: deductible Term route (Gross-up 24%)',
+  'purpose.guP':'Grosses up <strong>debt</strong> and <strong>profit/operating</strong> Term sums only (premiums often deductible → claims usually taxed at 24% corporate tax, so ÷0.76). <strong>Buy-sell</strong> is a separate structure without Gross-up—confirm with your Tax Agent.',
+  's6.title':'Four methods · Detailed analysis',
+  's6.desc':'Each method sizes the same risk from a different angle. The red line is the insurer’s underwriting capacity.',
+  's7.title':'Underwriting document checklist',
+  's7.desc':'Tiered by total sum assured. Prepare once, underwrite once.',
+  'docs.1':'Financial Questionnaire',
+  'docs.2':'Questionnaire + 2 years of Management Accounts',
+  'docs.3':'3 years Audited Accounts + loan Offer Letter + board resolution (keyman purpose)',
+  'risk.q':'Figures update live as you enter details',
+  'risk.debt':'Bank still collects',
+  'risk.profit':'Profit recovery gap',
+  'risk.equity':'Equity disruption',
+  'risk.total':'Total risk exposure: <b style="color:var(--red)">{{total}}</b> — this is a business-continuity issue, not merely an insurance issue.',
+  'survey.step':'Decision calibration',
+  'survey.title':'Align budget with business risk',
+  'survey.q1':'1. What % of net profit are you willing to spend each year to buy continuity?',
+  'survey.h1':'Most SMEs treat 1–3% of net profit as a reasonable operating cost; above 5% usually means staging or debt-first cover.',
+  'survey.q2':'2. Over the next 3 years, roughly how fast will net profit grow?',
+  'survey.h2':'Faster growth usually widens the key-person gap—cover should look beyond today’s profit.',
+  'survey.q3':'3. If the key person were absent tomorrow, who funds the first emergency cash?',
+  'survey.h3':'Company cash, the bank, family, or existing insurance—your answer shapes priority of cover.',
+  'survey.q4':'4. Without the key person, how many months of cash runway remain?',
+  'survey.h4':'Compare with the Step 2 recovery period (usually 2–5 years). Shorter runway means cover must land sooner.',
+  'survey.spend.05':'0.5%<small>Very lean</small>',
+  'survey.spend.1':'1%<small>Conservative</small>',
+  'survey.spend.2':'2%<small>Practical</small>',
+  'survey.spend.3':'3%<small>Well protected</small>',
+  'survey.spend.5':'5%<small>Continuity first</small>',
+  'survey.growth.0':'Flat 0%',
+  'survey.growth.10':'Steady 10%',
+  'survey.growth.20':'Fast 20%',
+  'survey.growth.30':'High growth 30%+',
+  'survey.payer.cash':'Company cash / deposits<small>Uses working capital</small>',
+  'survey.payer.bank':'Ask the bank again<small>Approval is uncertain</small>',
+  'survey.payer.family':'Family / personal savings<small>Common but painful</small>',
+  'survey.payer.ins':'Existing insurance<small>Preferred answer</small>',
+  'survey.runway.1':'≤ 1 month<small>Very tight</small>',
+  'survey.runway.3':'About 3 months<small>Common</small>',
+  'survey.runway.6':'About 6 months<small>Some buffer</small>',
+  'survey.runway.12':'≥ 12 months<small>Uncommon</small>',
+  'timeline.step':'Two scenarios',
+  'timeline.title':'The 12 months after key-person absence',
+  'timeline.desc':'Same company, same shock, two very different endings. Numbers come from the inputs above.',
+  'timeline.no':'No cover<small>Firm absorbs it</small>',
+  'timeline.yes':'With Keyman cover<small>Insurer funds it</small>',
+  'contact.sub':'Business protection advisor · Hong Leong Assurance<br>WhatsApp <a href="https://wa.me/60125676118">+60 12-567 6118</a>',
+  'contact.signClient':'Client signature / date',
+  'contact.signAdvisor':'Advisor signature / date',
+  'advisor.hint':' · Expand when needed',
+  'close.open':'Expand',
+  'close.close':'Collapse',
+  'path.a.tag':'Path A · Full plan in budget',
+  'path.a.title':'Debt + profit (+ buy-sell if needed) in one go',
+  'path.a.body':'Lock the full continuity structure.',
+  'path.b.tag':'Path B · Ice-breaker close',
+  'path.b.title':'Debt cover first; add profit next quarter',
+  'path.b.body':'Bank exposure is most urgent and easiest to underwrite—lock “company won’t collapse” first.',
+  'close.noteDefault':'Close with only two options: A full plan, or B debt first. Do not leave “think about it”.',
+  'reframe.titleDefault':'You are not buying insurance—you are buying the company’s right to continue',
+  'reframe.subDefault':'If the key person is gone tomorrow: is the firm still bankable? Will lenders still extend facilities? Must the family inject cash? You close continuity—not a policy.',
+  'gender.male':'Male',
+  'gender.female':'Female',
+  'gender.smoker':'Smoker',
+  'gender.nonsmoker':'Non-smoker',
+  'draft.saved':'Draft saved locally in this browser. It will remain after refresh.',
+  'draft.restored':'Local draft restored ({{date}})',
+  'personal.header':'Use your company’s own numbers to quantify the protection gap — this is about business continuity.',
+  'personal.headerNamed':'Prepared for <b style="color:var(--gold-hi)">{{company}}</b> — business continuity, four methods, underwriting capacity and a practical implementation path.',
+  'personal.riskHead':'If {{boss}} were absent tomorrow, {{company}} would immediately face—',
+  'personal.cover':'Prepared for: {{company}}{{boss}}',
+  'fallback.keyman':'the key person',
+  'fallback.company':'the company',
+  'fallback.management':'your management team',
+  'wa.greeting':'Hello Wilson, I would like to follow up on the Key Man proposal.',
+  'wa.company':'Company: {{company}}',
+  'wa.keyman':'Key person: {{who}}',
+  'wa.cover':'Recommended cover: {{amount}}',
+  'wa.premium':'Estimated annual premium: {{low}} – {{high}}',
+  'wa.request':'Please assist with a formal quotation.',
+  'live.a':'📌 At age {{age}}, the indicative underwriting capacity is remuneration × <b>{{mult}}</b> ≈ <b>{{sa}}</b> for key-person cover.',
+  'live.b':'📌 Analysis: this key person contributes about <b>{{profit}}</b> gross profit each year. Over a {{rec}}-year recovery period, the gap is <b>{{sa}}</b>.',
+  'live.c':'📌 Analysis: total bank exposure is <b>{{debt}}</b>{{existing}}. Unprotected debt exposure = <b>{{sa}}</b>.',
+  'live.cExisting':', after deducting existing cover of {{existing}}',
+  'live.d':'📌 Analysis: business value ≈ net profit × {{pe}} = <b>{{valuation}}</b>; the key person’s {{eq}}% shareholding is worth <b>{{sa}}</b>—the funding other shareholders need to buy it back.',
+  'pol.debt':'① Debt protection policy',
+  'pol.profit':'② Profit protection policy',
+  'pol.bs':'③ Buy-sell funding policy',
+  'pol.debtWhy':'Clears bank loans and guarantees so the company and family are not left carrying the debt. Loan documents usually support full underwriting.',
+  'pol.profitWhyOk':'Keeps payroll and suppliers funded through the recovery period so clients stay.',
+  'pol.profitWhyCap':'Need exceeds underwriting capacity—cover up to the cap first, then stage additional cover.',
+  'pol.bsWhy':'Claim proceeds become the cash to buy back shares—family is paid fairly, company keeps control.',
+  'pol.typeDebt':'Level / Reducing Term',
+  'pol.typeProfit':'Level Term',
+  'pol.typeBS':'Standalone structure + Buy-Sell Agreement',
+  'pol.guOn':' · Grossed-up',
+  'pol.guOff':' · No Gross-up',
+  'pol.empty':'Please select at least one protection purpose in Step 5.',
+  'method.a':'Multiple of remuneration',
+  'method.b':'Profit contribution',
+  'method.c':'Debt protection',
+  'method.d':'Buy-sell funding',
+  'method.aMath':'{{rem}} total remuneration × {{mult}} (age {{age}} band)',
+  'method.bMath':'{{gp}} GP × {{attr}}% attribution × {{rec}}-year recovery',
+  'method.cMath':'Term loan + OD drawn + personal guarantee − existing cover',
+  'method.dMath':'(NP {{np}} × PE {{pe}}) × {{eq}}% shareholding',
+  'method.aSay':'The most conservative method—and the insurer’s underwriting <b>anchor</b>. Below this level, underwriting is usually straightforward.',
+  'method.bSay':'Closest to commercial reality: the <b>profit the business would actually lose</b>. This is the core risk figure.',
+  'method.cSay':'Most concrete pain point: without the person, the <b>bank still collects</b>, and personal guarantees can hit the family. This cover is urgent.',
+  'method.dSay':'Protects <b>control</b>: family receives a fair price, remaining shareholders recover the shares, the business continues.',
+  'method.capFlag':'▲ Above underwriting capacity—excess needs Audited Accounts support or staged cover',
+  'method.capNote':'Underwriting capacity ≈ <b>{{cap}}</b>: the lower of “remuneration × multiple {{cap1}}” and “net profit × 5 {{cap2}}”. Inside the red line = smoother underwriting.',
+  'verdict.label':'RECOMMENDED PROTECTION PLAN',
+  'verdict.guOn':'Term need {{term}} ÷ 0.76 = {{gross}}{{bsPart}} — company receives <b style="color:var(--gold-hi)">full Term proceeds after tax</b>; premiums may also be deductible.',
+  'verdict.guBs':'; buy-sell {{bs}} without Gross-up',
+  'verdict.guEmpty':'Gross-up is selected, but there is no Term debt/profit policy to scale; buy-sell is handled separately.',
+  'verdict.guOff':'Gross-up off: tax-free claim route (premiums usually not deductible).',
+  'verdict.premLabel':'Estimated annual premium',
+  'verdict.meta':'Age {{age}} · {{gender}} · {{smoker}} · Level Term',
+  'verdict.perYear':' /yr',
+  'verdict.perDay':'/day',
+  'verdict.dailyCap':'≈ a meal a day for the firm’s continuity',
+  'verdict.leverageCap':'Protection leveraged per RM1 of premium',
+  'verdict.foot':'Premiums are indicative industry estimates, not an HLA quotation; final premiums follow Quotation.',
+  'payer.cash':'Emergency cash from company deposits—using working capital to absorb a shock, which can stall growth and payroll.',
+  'payer.bank':'Go back to the bank—lenders usually tighten, not loosen, when a key person is absent.',
+  'payer.family':'Falls on the family—the most common and least fair outcome.',
+  'payer.ins':'Existing insurance—right direction; next check whether sums still cover today’s gap.',
+  'payer.lab.cash':'Company cash',
+  'payer.lab.bank':'Ask the bank',
+  'payer.lab.family':'Family / personal',
+  'payer.lab.ins':'Existing insurance',
+  'decide.afford.ok':'Executable within budget',
+  'decide.afford.warn':'Slightly over budget—stage or debt-first',
+  'decide.afford.bad':'Clearly over budget—reshape the structure',
+  'decide.runway.ok':'Cash runway ~{{runway}} months is near/above the {{rec}}-year recovery period—decent buffer, but insurance still locks certainty without selling assets.',
+  'decide.runway.bad':'Cash covers ~{{runway}} months, yet recovery needs {{rec}} years. This is not “a bit tight”—it is the wrong order of magnitude.',
+  'decide.lab.prem':'Premium as % of net profit',
+  'decide.lab.risk3':'3-year risk exposure (growth-extrapolated)',
+  'decide.lab.runway':'Cash runway vs recovery',
+  'decide.lab.payer':'First emergency funding',
+  'decide.runwayVal':'{{runway}} mo / {{rec}} yr',
+  'decide.say.prem':'Indicative annual premium ~ <b>{{prem}}</b>. You are willing to pay {{spend}}% (≈ <b>{{budget}}</b>/yr) → <b>{{afford}}</b>{{gap}}',
+  'decide.gap':', shortfall ~ {{gap}}.',
+  'decide.gapEnd':'.',
+  'decide.say.risk3':'Net profit from {{np}} → ~{{np3}} ({{growth}}% p.a.). Delay cover today and you must insure a larger firm tomorrow.',
+  'decide.punch.ins':'Aligned: budget fits and insurance is the intended backstop. Next step—lock a formal Quotation and turn intent into an arrangement.',
+  'decide.punch.ok':'At <b>{{spend}}%</b> of net profit, this plan fits budget. The real question is not price—it is whether to buy continuity before an incident.',
+  'decide.punch.warn':'Budget is tight. Close path: debt cover first (most urgent for the bank), stage profit cover; or raise willingness to <b>{{pct}}%</b> and re-check.',
+  'decide.punch.bad':'If you stay at {{spend}}% of net profit, start with debt cover <b>{{debt}}</b>—lock “the bank cannot sink the firm”, then revisit profit and equity.',
+  'decide.punch.family':' You chose family as the emergency funder—that is exactly the burden Keyman is meant to remove.',
+  'age.lt40.now':'under 40',
+  'age.lt40.next':'Once you pass 40',
+  'age.lt40.jump':'multiples and rates usually become more sensitive',
+  'age.lt50.now':'age 40–49 band',
+  'age.lt50.next':'Once you pass 50',
+  'age.lt50.jump':'underwriting multiples and rates typically step up again',
+  'age.lt55.now':'age 50–54 band',
+  'age.lt55.next':'Once you pass 55',
+  'age.lt55.jump':'insurable multiples fall and premiums rise faster',
+  'age.ge55.now':'age 55+ band',
+  'age.ge55.next':'With every additional year',
+  'age.ge55.jump':'health and underwriting become stricter',
+  'reframe.title':'You are not buying insurance—you are buying {{comp}}’s right to continue',
+  'reframe.sub':'If {{who}} is gone tomorrow: is the firm still bankable? Will lenders still extend facilities? Must the family inject cash? Today’s risk exposure is about <b style="color:var(--gold-hi)">{{risk}}</b>—you close continuity, not a policy.',
+  'close.01.no':'01 · Continuity',
+  'close.01.title':'Ask the right question',
+  'close.01.body':'Don’t ask “do you want Keyman?” Ask: <b>after {{who}} is gone, who at {{comp}} carries the debt, payroll and clients?</b>',
+  'close.02.no':'02 · Contradiction',
+  'close.02.title':'Use their own numbers',
+  'close.02.body':'Willing to spend <b>{{spend}}%</b> of NP, yet risk exposure is <b>{{mult}}×</b> NP. Cash runway <b>{{runway}} months</b> vs <b>{{rec}} years</b> recovery—not a little tight; wrong magnitude.',
+  'close.03.no':'03 · Leverage',
+  'close.03.title':'Talk leverage, not “expensive”',
+  'close.03.body':'About <b>RM {{daily}}/day</b>, each RM1 of premium levers ~ <b>{{lev}}×</b> cover. Ads, hires and interest get spent freely; this is the only expense that still pays when the person is gone.',
+  'close.04.no':'04 · Growth fear',
+  'close.04.title':'Success raises the stakes',
+  'close.04.body':'At <b>{{growth}}%</b> growth, 3-year risk exposure is ~ <b>{{risk3}}</b>. <b>Delay today and you insure a larger firm, at higher premiums, with harder underwriting.</b>',
+  'close.05.no':'05 · Bank / equity',
+  'close.05.title':'Unfreeze control—not just buy cover',
+  'close.05.debt':'Debt exposure <b>{{debt}}</b>—if they are gone, who answers the call loan?',
+  'close.05.noDebt':'Fill bank loans and personal guarantees in Step 3 and the pain point appears immediately.',
+  'close.05.bs':' Equity ~ <b>{{bs}}</b> falling to the family—who then controls decisions?',
+  'close.06.no':'06 · Architecture',
+  'close.06.title':'Lower friction when they resist',
+  'close.06.body':'Don’t push full cover at once. Path: <b>① lock debt first</b> (bank urgency) → ② profit → ③ buy-sell. If they say it’s expensive: <b>“Then let’s first make sure the bank cannot sink the firm.”</b>',
+  'close.07.no':'07 · Loss aversion',
+  'close.07.title':'Not a gain—a retained loss',
+  'close.07.body':'Claims are not about making the firm richer; they <b>stop one incident from wiping out a decade of work</b>. Not “winning a payout”—keeping what would otherwise be lost.',
+  'close.08.no':'08 · Identity',
+  'close.08.title':'Skipping it looks unprofessional',
+  'close.08.body':'Serious owners treat Keyman as an <b>operating cost</b>, not something to invent after a crisis. Banks, auditors and Tax Agents increasingly ask about business protection.',
+  'close.09.no':'09 · Real deadline',
+  'close.09.title':'Age and health raise the cost',
+  'close.09.body':'You are roughly in the <b>{{now}}</b> band. {{next}}, {{jump}}. It isn’t the advisor pushing—<b>age and health are pushing premiums and underwriting difficulty</b>.',
+  'close.10.no':'10 · Close',
+  'close.10.title':'Only two options',
+  'close.10.body':'A: full plan in budget (~ <b>{{pct}}%</b> of NP). B: debt first <b>{{debt}}</b>, add profit next quarter. <b>Do not leave a third option called “think about it”.</b>',
+  'close.pathA':'Recommended total cover <b>{{sa}}</b> · estimated annual premium <b>{{lo}} – {{hi}}</b>. Complete the continuity structure in one step.',
+  'close.pathB':'Start with debt <b>{{debt}}</b> to cut premium pressure; stage profit and equity later. Most urgent for the bank and easiest to underwrite.',
+  'close.pathBEmpty':'Enter loans/guarantees in Step 3 first—Path B only bites once debt figures exist.',
+  'close.note':'Close with A / B only. After the path is chosen, lock Quotation via PDF or WhatsApp—turn intent into an arrangement. Premium is currently ~ <b>{{pct}}%</b> of net profit.',
+  'tl.m1':'Month 1',
+  'tl.m6':'Month 6',
+  'tl.m12':'Month 12',
+  'tl.no.1':'Cashflow bleeds immediately: ~ <b>{{loss}}</b> GP lost each month. Banks notice; OD can freeze; suppliers tighten terms.',
+  'tl.no.6':'Bank call loan: <b>{{debt}}</b> falls due in full. Key staff leave, clients churn, {{comp}} is badly damaged.',
+  'tl.no.12':'Forced asset fire-sale to repay debt{{pg}}. Years of work wiped out by one event.',
+  'tl.no.pg':'; personal guarantee <b>{{pg}}</b> lands on the family',
+  'tl.no.punch':'Nobody owns this ending—except the family.',
+  'tl.yes.1':'Claim proceeds <b>{{sa}}</b> arrive without probate delay. Bank debt <b>{{debt}}</b> is cleared; OD stays operable.',
+  'tl.yes.6':'Cash to hire a successor at market rates. Payroll and suppliers continue; clients barely notice; operations keep running.',
+  'tl.yes.12':'Recovery-period profit gap funded by <b>{{profit}}</b>; {{comp}} transitions steadily{{bs}}. {{who}} leaves composure—not a mess.',
+  'tl.yes.bs':', with equity handed over cleanly under the Buy-Sell Agreement',
+  'tl.yes.punch':'Same shock—funded by the insurer, not the family.',
+  'pp.1.t':'Cover page',
+  'pp.1.d':'Confidential proposal cover for {{comp}}',
+  'pp.2.t':'Risk dashboard',
+  'pp.2.d':'Debt / profit gap / equity risk at a glance',
+  'pp.3.t':'Client & key person',
+  'pp.3.d':'Company, key person, age and remuneration',
+  'pp.4.t':'Profit · debt · equity analysis',
+  'pp.4.d':'Assumptions and live interpretation',
+  'pp.5.t':'Four-method comparison',
+  'pp.5.d':'Including underwriting capacity line',
+  'pp.6.t':'Recommended plan',
+  'pp.6.d':'Total cover {{sa}} · estimated premium range',
+  'pp.6.dEmpty':'Recommended cover and premiums',
+  'pp.7.t':'Decision calibration',
+  'pp.7.d':'Willingness % · growth · emergency payer · runway',
+  'pp.8.t':'12-month dual scenarios',
+  'pp.8.d':'With / without Keyman contrast',
+  'pp.9.t':'Underwriting checklist',
+  'pp.9.d':'Document requirements by sum assured',
+  'pp.10.t':'Advisor contact & signatures',
+  'pp.10.d':'WhatsApp contact · dual signatures',
+}
+};
+let lang = localStorage.getItem('keyman-lang') === 'en' ? 'en' : 'zh';
+function t(key, vars={}){
+  const value = I18N[lang][key] ?? I18N.zh[key] ?? key;
+  return String(value).replace(/\{\{(\w+)\}\}/g, (_, name) => vars[name] ?? '');
+}
+function applyLang(){
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+  document.title = t('meta.title');
+  const md = document.querySelector('meta[name="description"]');
+  if(md) md.content = t('meta.description');
+  const ogt = document.querySelector('meta[property="og:title"]');
+  if(ogt) ogt.content = t('meta.ogTitle');
+  const ogd = document.querySelector('meta[property="og:description"]');
+  if(ogd) ogd.content = t('meta.ogDesc');
+  document.documentElement.style.setProperty('--band-label', JSON.stringify(t('docs.band')));
+  document.querySelectorAll('[data-i18n]').forEach(el=>{ el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{ el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{ el.placeholder = t(el.dataset.i18nPlaceholder); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el=>{ el.setAttribute('aria-label', t(el.dataset.i18nAria)); });
+  document.querySelectorAll('[data-lang]').forEach(btn=>btn.classList.toggle('on', btn.dataset.lang===lang));
+  const kit = document.getElementById('closeKit');
+  const chev = document.getElementById('closeChev');
+  if(kit && chev) chev.textContent = kit.classList.contains('open') ? t('close.close') : t('close.open');
+}
 const S = { gender:'M', smoker:false, attr:0.5, rec:3, spend:1, growth:10, payer:'family', runway:1 };
 const $ = id => document.getElementById(id);
 const num = id => parseFloat($(id).value) || 0;
 const fmt = v => 'RM ' + Math.round(v).toLocaleString('en-MY');
 const fmtM = v => v>=1000000 ? 'RM ' + (v/1000000).toFixed(2).replace(/\.?0+$/,'') + 'm' : fmt(v);
 
-/* count-up animation */
 const counters = {};
 function countUp(el, target){
   const key = el.id || el.dataset.k;
@@ -795,15 +1438,14 @@ function countUp(el, target){
   counters[key] = target;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent = fmt(target); return; }
   const t0 = performance.now(), dur = 650;
-  function tick(t){
-    const p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,3);
+  function tick(now){
+    const p = Math.min(1,(now-t0)/dur), e = 1-Math.pow(1-p,3);
     el.textContent = fmt(from + (target-from)*e);
     if(p<1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
 }
 
-/* ================= tables ================= */
 const RATE = [[30,2600],[35,3200],[40,5000],[45,7500],[50,12000],[55,20000],[60,32000]];
 function rate(age){
   if(age<=RATE[0][0]) return RATE[0][1];
@@ -815,7 +1457,6 @@ function rate(age){
 }
 const multiplier = age => age<40?10 : age<50?8 : age<55?6 : 5;
 
-/* ================= core ================= */
 function calc(){
   const age=num('age'), rem=num('rem'), gp=num('gp'), np=num('np');
   const loan=num('loan'), od=num('od'), odu=num('odu')/100, pg=num('pg'), exist=num('exist');
@@ -838,18 +1479,16 @@ function calc(){
   const profitCapped = rawProfit > cap;
 
   let parts=[];
-  if(useDebt && SA_C>0) parts.push({name:'① 债务保障单', sa:SA_C, type:'Level / Reducing Term', why:'银行贷款与担保一次清零，公司与家人不背债。贷款文件支持，通常可全额核保。', gu:true});
-  if(useProfit && cappedProfit>0) parts.push({name:'② 利润保障单', sa:cappedProfit, type:'Level Term', why: (profitCapped?'需求超出核保上限，先保到上限，其余分期加保。':'恢复期内员工薪水照发、供应商照付、客户不流失。'), gu:true});
-  if(useBS && SA_D>0) parts.push({name:'③ 股权买卖单', sa:SA_D, type:'独立结构 + Buy-Sell Agreement', why:'理赔金直接成为股东买回股份的现金，家属拿钱、公司拿回控制权，两边都体面。', gu:false});
+  if(useDebt && SA_C>0) parts.push({name:t('pol.debt'), sa:SA_C, type:t('pol.typeDebt'), why:t('pol.debtWhy'), gu:true});
+  if(useProfit && cappedProfit>0) parts.push({name:t('pol.profit'), sa:cappedProfit, type:t('pol.typeProfit'), why: profitCapped?t('pol.profitWhyCap'):t('pol.profitWhyOk'), gu:true});
+  if(useBS && SA_D>0) parts.push({name:t('pol.bs'), sa:SA_D, type:t('pol.typeBS'), why:t('pol.bsWhy'), gu:false});
 
   const gu = $('grossup').checked;
-  /* Gross-up 仅套用债务 + 利润 Term；股权买卖单独立不加 */
   let termSA = 0, bsSA = 0;
   parts.forEach(p=>{ if(p.gu) termSA += p.sa; else bsSA += p.sa; });
   const termGross = gu ? termSA/0.76 : termSA;
   const totalSA = termSA + bsSA;
   const grossSA = termGross + bsSA;
-  /* 展示用：把 Term 部分按比例放大到各单 */
   const guFactor = (gu && termSA>0) ? (1/0.76) : 1;
   parts = parts.map(p=>({...p, displaySA: p.gu ? p.sa*guFactor : p.sa}));
 
@@ -862,36 +1501,32 @@ function calc(){
   saveDraft();
 }
 
-/* ================= render ================= */
 function render(r){
-  /* risk dashboard */
   countUp($('rkDebt'), r.SA_C);
   countUp($('rkProfit'), r.SA_B);
   $('rkEquity').textContent = r.bsOn ? fmtM(r.SA_D) : '—';
   const totRisk = r.SA_C + r.SA_B + (r.bsOn?r.SA_D:0);
-  $('rkTotal').innerHTML = `合计风险敞口：<b style="color:var(--red)">${fmt(totRisk)}</b> —— 这不是保险问题，是企业续存问题。`;
+  $('rkTotal').innerHTML = t('risk.total', {total:fmt(totRisk)});
 
-  /* live analysis strips */
-  $('liveA').innerHTML = `📌 ${r.age} 岁核保档：保险公司最高接受 报酬 × <b>${r.mult} 倍</b> ≈ <b>${fmtM(r.SA_A)}</b> 的关键人保额。`;
-  $('liveB').innerHTML = `📌 分析：关键人每年为公司带来约 <b>${fmtM(r.attrProfit)}</b> 毛利。若缺席 ${S.rec} 年恢复期，公司总缺口 = <b>${fmtM(r.SA_B)}</b>。`;
-  $('liveC').innerHTML = `📌 分析：银行总敞口 <b>${fmtM(r.debtGross)}</b>${r.exist>0?`，扣除现有保障 ${fmtM(r.exist)}`:''}，未被保障的债务风险 = <b>${fmtM(r.SA_C)}</b>。`;
-  if(r.bsOn) $('liveD').innerHTML = `📌 分析：公司估值 ≈ 净利 × ${num('pe')} = <b>${fmtM(r.valuation)}</b>；关键人 ${num('eq')}% 股份价值 = <b>${fmtM(r.SA_D)}</b>，这就是其他股东需要准备的买回资金。`;
+  $('liveA').innerHTML = t('live.a', {age:r.age,mult:r.mult,sa:fmtM(r.SA_A)});
+  $('liveB').innerHTML = t('live.b', {profit:fmtM(r.attrProfit),rec:S.rec,sa:fmtM(r.SA_B)});
+  $('liveC').innerHTML = t('live.c', {debt:fmtM(r.debtGross),existing:r.exist>0?t('live.cExisting',{existing:fmtM(r.exist)}):'',sa:fmtM(r.SA_C)});
+  if(r.bsOn) $('liveD').innerHTML = t('live.d', {pe:num('pe'),valuation:fmtM(r.valuation),eq:num('eq'),sa:fmtM(r.SA_D)});
 
-  /* method cards */
   const items=[
-    {n:'薪资倍数法', en:'MULTIPLE OF REMUNERATION', v:r.SA_A, c:'var(--ink)',
-     math:`${fmt(num('rem'))} 总报酬 × ${r.mult} 倍（${r.age}岁核保档）`,
-     say:`最保守的算法，也是保险公司核保的<b>锚点</b>。低于这个数，核保基本一路绿灯。`},
-    {n:'利润贡献法', en:'PROFIT CONTRIBUTION', v:r.SA_B, c:'var(--gold)',
-     math:`${fmtM(num('gp'))} 毛利 × ${Math.round(S.attr*100)}% 贡献度 × ${S.rec} 年恢复期`,
-     say:`最贴近真实的算法：量化<b>公司会真正少赚的钱</b>。这是企业风险的核心数字。`},
-    {n:'债务覆盖法', en:'DEBT PROTECTION', v:r.SA_C, c:'var(--teal)',
-     math:`Term Loan + OD 使用额 + 个人担保 − 现有保障`,
-     say:`痛点最具体：人不在，<b>银行照样追债</b>，个人担保直接波及家人。这部分保额刻不容缓。`},
+    {n:t('method.a'), en:'MULTIPLE OF REMUNERATION', v:r.SA_A, c:'var(--ink)',
+     math:t('method.aMath',{rem:fmt(num('rem')),mult:r.mult,age:r.age}),
+     say:t('method.aSay')},
+    {n:t('method.b'), en:'PROFIT CONTRIBUTION', v:r.SA_B, c:'var(--gold)',
+     math:t('method.bMath',{gp:fmtM(num('gp')),attr:Math.round(S.attr*100),rec:S.rec}),
+     say:t('method.bSay')},
+    {n:t('method.c'), en:'DEBT PROTECTION', v:r.SA_C, c:'var(--teal)',
+     math:t('method.cMath'),
+     say:t('method.cSay')},
   ];
-  if(r.bsOn) items.push({n:'股权买卖法', en:'BUY-SELL FUNDING', v:r.SA_D, c:'var(--plum)',
-     math:`(净利 ${fmtM(num('np'))} × PE ${num('pe')}) × 持股 ${num('eq')}%`,
-     say:`保护的是<b>公司控制权</b>：家属拿到公道的钱，股东拿回股份，生意继续跑。`});
+  if(r.bsOn) items.push({n:t('method.d'), en:'BUY-SELL FUNDING', v:r.SA_D, c:'var(--plum)',
+     math:t('method.dMath',{np:fmtM(num('np')),pe:num('pe'),eq:num('eq')}),
+     say:t('method.dSay')});
 
   const maxV = Math.max(...items.map(i=>i.v), r.cap, 1);
   $('methods').innerHTML = items.map(i=>`
@@ -906,53 +1541,56 @@ function render(r){
         <div class="bar-fill" style="width:${Math.min(100,i.v/maxV*100)}%"></div>
         <div class="cap-line" style="left:${Math.min(100,r.cap/maxV*100)}%"></div>
       </div>
-      ${i.v>r.cap?'<div class="cap-flag">▲ 超出核保上限，超出部分需 Audited Accounts 支持或分期加保</div>':''}
+      ${i.v>r.cap?'<div class="cap-flag">'+t('method.capFlag')+'</div>':''}
     </div>`).join('');
-  $('capNote').innerHTML = `核保上限 ≈ <b>${fmt(r.cap)}</b>：取「报酬×倍数 ${fmtM(r.cap1)}」与「净利×5 ${fmtM(r.cap2)}」两者较低。红线以内 = 顺畅核保区。`;
+  $('capNote').innerHTML = t('method.capNote',{cap:fmt(r.cap),cap1:fmtM(r.cap1),cap2:fmtM(r.cap2)});
 
-  /* verdict */
   let polHTML = r.parts.map(p=>`
     <div class="pol">
       <div class="p-head"><span class="p-name">${p.name}</span><span class="p-sa">${fmt(p.displaySA)}</span></div>
-      <div class="p-type">${p.type}${r.gu && p.gu ? ' · 已 Gross-up' : (!p.gu ? ' · 不套用 Gross-up' : '')}</div>
+      <div class="p-type">${p.type}${r.gu && p.gu ? t('pol.guOn') : (!p.gu ? t('pol.guOff') : '')}</div>
       <div class="p-why">${p.why}</div>
     </div>`).join('');
-  if(!r.parts.length) polHTML = '<div class="pol span-full"><div class="p-why">请在第 5 步选择至少一个保障用途。</div></div>';
+  if(!r.parts.length) polHTML = '<div class="pol span-full"><div class="p-why">'+t('pol.empty')+'</div></div>';
 
   let guSub;
   if(r.gu && r.termSA>0){
-    guSub = `Term 需求 ${fmt(r.termSA)} ÷ 0.76 = ${fmt(r.termGross)}${r.bsSA>0?`；股权买卖 ${fmt(r.bsSA)} 不加 Gross-up`:''} —— 公司<b style="color:var(--gold-hi)">Term 实拿足额</b>；保费同时享有扣税。`;
+    guSub = t('verdict.guOn',{term:fmt(r.termSA),gross:fmt(r.termGross),bsPart:r.bsSA>0?t('verdict.guBs',{bs:fmt(r.bsSA)}):''});
   } else if(r.gu && r.termSA===0){
-    guSub = '已勾选 Gross-up，但当前方案无 Term 债务/利润单可放大；股权买卖单独立处理。';
+    guSub = t('verdict.guEmpty');
   } else {
-    guSub = '未启用 Gross-up：走理赔免税路线（保费通常不可扣税）。';
+    guSub = t('verdict.guOff');
   }
 
+  const genderLab = S.gender==='M'?t('gender.male'):t('gender.female');
+  const smokerLab = S.smoker?t('gender.smoker'):t('gender.nonsmoker');
+  const daily = Math.round(((r.premLo+r.premHi)/2)/365).toLocaleString();
+  const lev = ((r.premLo+r.premHi)/2)>0?Math.round(r.grossSA/((r.premLo+r.premHi)/2)).toLocaleString():'—';
+
   $('verdict').innerHTML = `
-    <div class="v-label">建 议 保 障 方 案</div>
+    <div class="v-label">${t('verdict.label')}</div>
     <div class="v-sum" id="vSum">${fmt(r.grossSA)}</div>
     <div class="v-sub">${guSub}</div>
     <div class="pols">${polHTML}</div>
     <div class="v-prem">
-      <span class="pl">预估年保费<br><span style="font-size:13px;color:#7E8DAB">${r.age}岁 · ${S.gender==='M'?'男':'女'} · ${S.smoker?'吸烟':'非吸烟'} · Level Term</span></span>
-      <span class="pv">${fmt(r.premLo)}<br>– ${fmt(r.premHi)} /年</span>
+      <span class="pl">${t('verdict.premLabel')}<br><span style="font-size:13px;color:#7E8DAB">${t('verdict.meta',{age:r.age,gender:genderLab,smoker:smokerLab})}</span></span>
+      <span class="pv">${fmt(r.premLo)}<br>– ${fmt(r.premHi)}${t('verdict.perYear')}</span>
     </div>
     <div class="daily">
       <div class="d-tile">
-        <div class="d-big">RM ${Math.round(((r.premLo+r.premHi)/2)/365).toLocaleString()}<span style="font-size:14px">/天</span></div>
-        <div class="d-cap">≈ 一顿饭钱，换整家公司的续存</div>
+        <div class="d-big">RM ${daily}<span style="font-size:14px">${t('verdict.perDay')}</span></div>
+        <div class="d-cap">${t('verdict.dailyCap')}</div>
       </div>
       <div class="d-tile">
-        <div class="d-big">1 : ${((r.premLo+r.premHi)/2)>0?Math.round(r.grossSA/((r.premLo+r.premHi)/2)).toLocaleString():'—'}</div>
-        <div class="d-cap">每 RM1 保费撬动的保障杠杆</div>
+        <div class="d-big">1 : ${lev}</div>
+        <div class="d-cap">${t('verdict.leverageCap')}</div>
       </div>
     </div>
-    <div class="v-foot">以上保费为行业参考费率估算，非 HLA 正式报价；正式保费以 Quotation 为准。</div>`;
+    <div class="v-foot">${t('verdict.foot')}</div>`;
   const vs = $('vSum'); vs.dataset.k='vsum'; countUp(vs, r.grossSA);
 
   $('stickyVal').textContent = fmt(r.grossSA);
 
-  /* docs band */
   document.querySelectorAll('#docsTable tr').forEach(tr=>tr.classList.remove('active-band'));
   const band = r.grossSA<1000000?1 : r.grossSA<=3000000?2 : 3;
   const tr = document.querySelector(`#docsTable tr[data-band="${band}"]`);
@@ -963,17 +1601,10 @@ function render(r){
   renderDecide();
 }
 
-/* ================= timeline + decide state ================= */
 let lastR = null;
-let tlMode = 'no'; // 'no' | 'yes'
+let tlMode = 'no';
 
-/* ================= decision survey ================= */
-const PAYER_SAY = {
-  cash: '救急靠公司现金——等于用营运资金去扛灾难，扩张和发薪都会被拖累。',
-  bank: '再找银行——关键人缺席时银行通常更紧，不是更松。',
-  family: '落到家人身上——这是最常见、也最不公平的结局。',
-  ins: '已有保险安排——方向正确；接下来要核对保额是否盖得住今天的缺口。'
-};
+function payerSay(key){ return t('payer.'+key); }
 
 function renderDecide(){
   if(!lastR || !$('decideBoard')) return;
@@ -984,7 +1615,7 @@ function renderDecide(){
   const budget = np * (S.spend / 100);
   const gap = premMid - budget;
   const afford = premMid <= budget * 1.05 ? 'ok' : premMid <= budget * 1.5 ? 'warn' : 'bad';
-  const affordLabel = afford==='ok' ? '预算内可执行' : afford==='warn' ? '略超预算，可分期/先保债务' : '明显超预算，需调整结构';
+  const affordLabel = t('decide.afford.'+afford);
 
   const g = S.growth / 100;
   const np3 = np * Math.pow(1+g, 3);
@@ -994,54 +1625,53 @@ function renderDecide(){
   const runwayOk = S.runway >= S.rec * 12;
   const runwayClass = runwayOk ? 'ok' : (S.runway >= 6 ? 'warn' : 'bad');
   const runwaySay = runwayOk
-    ? `现金跑道约 ${S.runway} 个月，接近/超过 ${S.rec} 年恢复期——缓冲较好，但仍建议用保险锁定「不用卖资产」的确定性。`
-    : `现金只够撑约 ${S.runway} 个月，但恢复期要 ${S.rec} 年。缺口不是「紧一点」，是数量级不对。`;
+    ? t('decide.runway.ok',{runway:S.runway,rec:S.rec})
+    : t('decide.runway.bad',{runway:S.runway,rec:S.rec});
+
+  const gapTxt = gap>0 && afford!=='ok' ? t('decide.gap',{gap:fmt(gap)}) : t('decide.gapEnd');
 
   $('decideBoard').innerHTML = `
     <div class="decide-tile ${afford}">
-      <div class="dt-lab">保费占净利</div>
+      <div class="dt-lab">${t('decide.lab.prem')}</div>
       <div class="dt-val">${premPct.toFixed(2)}%</div>
-      <div class="dt-say">建议年保费约 <b>${fmt(premMid)}</b>。您愿付 ${S.spend}%（≈ <b>${fmt(budget)}</b>/年）→ <b>${affordLabel}</b>${gap>0 && afford!=='ok'?`，差额约 ${fmt(gap)}。`: '。'}</div>
+      <div class="dt-say">${t('decide.say.prem',{prem:fmt(premMid),spend:S.spend,budget:fmt(budget),afford:affordLabel,gap:gapTxt})}</div>
     </div>
     <div class="decide-tile">
-      <div class="dt-lab">3 年后风险敞口（按增长外推）</div>
+      <div class="dt-lab">${t('decide.lab.risk3')}</div>
       <div class="dt-val">${fmtM(risk3)}</div>
-      <div class="dt-say">净利从 ${fmtM(np)} → 约 ${fmtM(np3)}（年增 ${S.growth}%）。今天不定保额，明天要保的是更大的公司。</div>
+      <div class="dt-say">${t('decide.say.risk3',{np:fmtM(np),np3:fmtM(np3),growth:S.growth})}</div>
     </div>
     <div class="decide-tile ${runwayClass}">
-      <div class="dt-lab">现金跑道 vs 恢复期</div>
-      <div class="dt-val">${S.runway} 月 / ${S.rec} 年</div>
+      <div class="dt-lab">${t('decide.lab.runway')}</div>
+      <div class="dt-val">${t('decide.runwayVal',{runway:S.runway,rec:S.rec})}</div>
       <div class="dt-say">${runwaySay}</div>
     </div>
     <div class="decide-tile span2">
-      <div class="dt-lab">第一笔救急钱</div>
-      <div class="dt-val" style="font-size:18px">${
-        S.payer==='cash'?'公司现金':S.payer==='bank'?'再找银行':S.payer==='family'?'家人 / 个人':'已有保险'
-      }</div>
-      <div class="dt-say">${PAYER_SAY[S.payer]}</div>
+      <div class="dt-lab">${t('decide.lab.payer')}</div>
+      <div class="dt-val" style="font-size:18px">${t('payer.lab.'+S.payer)}</div>
+      <div class="dt-say">${payerSay(S.payer)}</div>
     </div>`;
 
   let punch;
   if(S.payer==='ins' && afford==='ok'){
-    punch = `方向已对齐：预算够、也打算用保险扛。下一步是锁定正式 Quotation，把「打算」变成「安排好」。`;
+    punch = t('decide.punch.ins');
   } else if(afford==='ok'){
-    punch = `以您愿付的 <b>${S.spend}%</b> 净利，这套方案在预算内。真正的问题不是贵不贵，而是：要不要在意外发生前把续存权买下来。`;
+    punch = t('decide.punch.ok',{spend:S.spend});
   } else if(afford==='warn'){
-    punch = `预算略紧。成交路径：先保<b>债务单</b>（银行最急），利润单分期加保；或把愿付比例调到 <b>${Math.ceil(premPct)}%</b> 再对照。`;
+    punch = t('decide.punch.warn',{pct:Math.ceil(premPct)});
   } else {
-    punch = `若坚持只付 ${S.spend}% 净利，建议先缩到债务保障 <b>${fmt(r.SA_C||0)}</b>，把「公司不被银行拖垮」先锁住，再谈利润与股权。`;
+    punch = t('decide.punch.bad',{spend:S.spend,debt:fmt(r.SA_C||0)});
   }
-  if(S.payer==='family') punch += ` 您已选择救急靠家人——这正是 Keyman 要替家人卸下的担子。`;
+  if(S.payer==='family') punch += t('decide.punch.family');
   $('decidePunch').innerHTML = punch;
   renderClose();
 }
 
-/* ================= close kit / 破局成交 ================= */
 function ageBand(age){
-  if(age<40) return {now:'40 岁前', next:'一过 40', jump:'倍数档与费率通常更敏感'};
-  if(age<50) return {now:'40–49 岁档', next:'一过 50', jump:'核保倍数与费率会再跳一档'};
-  if(age<55) return {now:'50–54 岁档', next:'一过 55', jump:'可保倍数下降、保费上升更快'};
-  return {now:'55 岁以上档', next:'每多一年一年', jump:'身体与核保会变得更挑'};
+  if(age<40) return {now:t('age.lt40.now'), next:t('age.lt40.next'), jump:t('age.lt40.jump')};
+  if(age<50) return {now:t('age.lt50.now'), next:t('age.lt50.next'), jump:t('age.lt50.jump')};
+  if(age<55) return {now:t('age.lt55.now'), next:t('age.lt55.next'), jump:t('age.lt55.jump')};
+  return {now:t('age.ge55.now'), next:t('age.ge55.next'), jump:t('age.ge55.jump')};
 }
 
 function renderClose(){
@@ -1055,47 +1685,29 @@ function renderClose(){
   const g = S.growth / 100;
   const risk3 = riskNow * Math.pow(1 + g, 3);
   const band = ageBand(r.age);
-  const who = ($('bossName').value.trim() || '关键人');
-  const comp = ($('compName').value.trim() || '公司');
+  const who = ($('bossName').value.trim() || t('fallback.keyman'));
+  const comp = ($('compName').value.trim() || t('fallback.company'));
   const daily = Math.round(premMid / 365);
 
   $('reframeBox').innerHTML = `
     <div class="rf-lab">REFRAME</div>
-    <div class="rf-title">不是在买保险，是在买 ${comp} 的续存权</div>
-    <div class="rf-sub">如果 ${who} 明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？
-    今天的风险敞口约 <b style="color:var(--gold-hi)">${fmt(riskNow)}</b>——成交的不是保单，是生意还能不能活。</div>`;
+    <div class="rf-title">${t('reframe.title',{comp})}</div>
+    <div class="rf-sub">${t('reframe.sub',{who,risk:fmt(riskNow)})}</div>`;
+
+  const body05 = (r.SA_C>0 ? t('close.05.debt',{debt:fmt(r.SA_C)}) : t('close.05.noDebt'))
+    + (r.bsOn ? t('close.05.bs',{bs:fmt(r.SA_D)}) : '');
 
   const cards = [
-    {hot:true, no:'01 · 续存权', title:'把问题问对',
-      body:`别问「要不要买 Keyman」。问：<b>${who} 缺席后，${comp} 谁来扛债、谁来发薪、谁来留客户？</b>`},
-    {hot:true, no:'02 · 打脸对照', title:'用他自己的矛盾',
-      body:`愿付净利 <b>${S.spend}%</b>，但风险敞口是净利的 <b>${(riskNow/np).toFixed(1)} 倍</b>。
-      现金跑道 <b>${S.runway} 个月</b>，恢复期却要 <b>${S.rec} 年</b>——不是紧一点，是数量级不对。`},
-    {hot:false, no:'03 · 杠杆', title:'少谈贵，多谈撬动',
-      body:`约 <b>RM ${daily.toLocaleString()}/天</b>，每 RM1 保费撬动约 <b>${Math.round(mult).toLocaleString()}</b> 倍保障。
-      广告、请人、利息都舍得；这是唯一能「人没了钱还在」的支出。`},
-    {hot:false, no:'04 · 增长恐惧', title:'越成功越危险',
-      body:`按年增 <b>${S.growth}%</b>，三年后风险敞口约 <b>${fmtM(risk3)}</b>。
-      <b>今天不定，三年后要保的是更大的公司、更贵的保费、更难的核保。</b>`},
-    {hot:false, no:'05 · 银行 / 股权', title:'解瘫痪，不只买保障',
-      body:`${r.SA_C>0?`债务敞口 <b>${fmt(r.SA_C)}</b>——人没了，Call Loan 找谁？`:'把银行贷款与个人担保填进第 3 步，痛点会立刻出现。'}
-      ${r.bsOn?` 股权约 <b>${fmt(r.SA_D)}</b> 若落到家属手上，公司决策谁说了算？`:''}`},
-    {hot:false, no:'06 · 选择架构', title:'抗拒时先降摩擦',
-      body:`别一次推满额。成交路径：<b>① 先锁债务单</b>（银行最急）→ ② 利润单 → ③ 股权 Buy-Sell。
-      他说贵，就回：<b>「那我们先保公司不被银行拖垮。」</b>`},
-    {hot:false, no:'07 · 损失厌恶', title:'不是赚到，是留住',
-      body:`理赔金不是让公司更赚钱，是<b>避免一场意外把十年心血归零</b>。
-      不是「赚到一笔」，是「本来会失去的钱被留住」。`},
-    {hot:false, no:'08 · 身份证明', title:'不做 = 不够专业',
-      body:`做大的老板，通常先把 Keyman 当<b>经营成本</b>，不是等出事再想。
-      银行、审计、Tax Agent 也越来越常问：有没有 business protection。`},
-    {hot:false, no:'09 · 真实截止', title:'年龄与健康在催保费',
-      body:`您目前约在 <b>${band.now}</b>。${band.next}，${band.jump}。
-      不是顾问催您，是<b>年龄和健康在催保费与核保难度</b>。`},
-    {hot:true, no:'10 · 收口', title:'只留两个选项',
-      body:`A：预算内全做（约净利的 <b>${premPct.toFixed(2)}%</b>）。
-      B：先做债务 <b>${fmt(r.SA_C||0)}</b>，利润下季再加。
-      <b>不要留「再考虑」这种第三选项。</b>`},
+    {hot:true, no:t('close.01.no'), title:t('close.01.title'), body:t('close.01.body',{who,comp})},
+    {hot:true, no:t('close.02.no'), title:t('close.02.title'), body:t('close.02.body',{spend:S.spend,mult:(riskNow/np).toFixed(1),runway:S.runway,rec:S.rec})},
+    {hot:false, no:t('close.03.no'), title:t('close.03.title'), body:t('close.03.body',{daily:daily.toLocaleString(),lev:Math.round(mult).toLocaleString()})},
+    {hot:false, no:t('close.04.no'), title:t('close.04.title'), body:t('close.04.body',{growth:S.growth,risk3:fmtM(risk3)})},
+    {hot:false, no:t('close.05.no'), title:t('close.05.title'), body:body05},
+    {hot:false, no:t('close.06.no'), title:t('close.06.title'), body:t('close.06.body')},
+    {hot:false, no:t('close.07.no'), title:t('close.07.title'), body:t('close.07.body')},
+    {hot:false, no:t('close.08.no'), title:t('close.08.title'), body:t('close.08.body')},
+    {hot:false, no:t('close.09.no'), title:t('close.09.title'), body:t('close.09.body',{now:band.now,next:band.next,jump:band.jump})},
+    {hot:true, no:t('close.10.no'), title:t('close.10.title'), body:t('close.10.body',{pct:premPct.toFixed(2),debt:fmt(r.SA_C||0)})},
   ];
 
   $('breakGrid').innerHTML = cards.map(c=>`
@@ -1105,26 +1717,26 @@ function renderClose(){
       <div class="bc-body">${c.body}</div>
     </div>`).join('');
 
-  $('pathABody').innerHTML = `建议总保额 <b>${fmt(r.grossSA)}</b> · 预估年保费 <b>${fmt(r.premLo)} – ${fmt(r.premHi)}</b>。一次把续存结构做完整。`;
+  $('pathABody').innerHTML = t('close.pathA',{sa:fmt(r.grossSA),lo:fmt(r.premLo),hi:fmt(r.premHi)});
   $('pathBBody').innerHTML = r.SA_C>0
-    ? `先保债务 <b>${fmt(r.SA_C)}</b>，保费压力立刻下降；利润与股权可分期。银行最急、最好核保。`
-    : `请先在第 3 步填入贷款/担保；有债务数字后，路径 B 的杀伤力会更强。`;
+    ? t('close.pathB',{debt:fmt(r.SA_C)})
+    : t('close.pathBEmpty');
 
   const wa = buildWhatsApp(r, who, comp);
   const waBtn = $('btnWhatsApp');
   if(waBtn) waBtn.href = wa;
 
-  $('closeNote').innerHTML = `收口只留 A / B。选完路径后，立刻 PDF 或 WhatsApp 锁定 Quotation——把「打算」变成「安排好」。当前保费约占净利 <b>${premPct.toFixed(2)}%</b>。`;
+  $('closeNote').innerHTML = t('close.note',{pct:premPct.toFixed(2)});
 }
 
 function buildWhatsApp(r, who, comp){
   const lines = [
-    `您好 Wilson，我想跟进 Key Man 方案。`,
-    `公司：${comp}`,
-    `关键人：${who}`,
-    `建议保额：${fmt(r.grossSA)}`,
-    `预估年保费：${fmt(r.premLo)} – ${fmt(r.premHi)}`,
-    `请协助出正式 Quotation。`
+    t('wa.greeting'),
+    t('wa.company', {company:comp}),
+    t('wa.keyman', {who}),
+    t('wa.cover', {amount:fmt(r.grossSA)}),
+    t('wa.premium', {low:fmt(r.premLo),high:fmt(r.premHi)}),
+    t('wa.request')
   ];
   return 'https://wa.me/60125676118?text=' + encodeURIComponent(lines.join('\n'));
 }
@@ -1152,49 +1764,46 @@ function applyClosePath(path){
   $('verdict')?.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-/* ================= timeline ================= */
 function renderTimeline(){
   if(!lastR) return;
   const r = lastR;
   const mLoss = r.attrProfit/12;
-  const who = ($('bossName').value.trim() || '关键人');
-  const comp = ($('compName').value.trim() || '公司');
+  const who = ($('bossName').value.trim() || t('fallback.keyman'));
+  const comp = ($('compName').value.trim() || t('fallback.company'));
 
   let nodes, punch;
   if(tlMode==='no'){
     nodes = [
-      {w:'第 1 个月', t:`现金流立即失血：每月少 <b>${fmt(mLoss)}</b> 毛利。银行察觉变故，OD 随时冻结，供应商开始收紧账期。`},
-      {w:'第 6 个月', t:`银行 Call Loan：<b>${fmt(r.debtGross)}</b> 债务全数到期。核心员工被同行挖走，老客户流失，${comp} 元气大伤。`},
-      {w:'第 12 个月', t:`被迫贱卖资产还债${num('pg')>0?`，个人担保 <b>${fmt(num('pg'))}</b> 直接追到家人身上`:''}。多年心血，一场变故归零。`},
+      {w:t('tl.m1'), txt:t('tl.no.1',{loss:fmt(mLoss)})},
+      {w:t('tl.m6'), txt:t('tl.no.6',{debt:fmt(r.debtGross),comp})},
+      {w:t('tl.m12'), txt:t('tl.no.12',{pg:num('pg')>0?t('tl.no.pg',{pg:fmt(num('pg'))}):''})},
     ];
-    punch = '没有人会为这个剧本负责——除了家人。';
+    punch = t('tl.no.punch');
   } else {
     nodes = [
-      {w:'第 1 个月', t:`理赔金 <b>${fmt(r.grossSA)}</b> 免遗产程序直接到账。银行债务 <b>${fmt(r.SA_C)}</b> 一次清零，OD 照常运作。`},
-      {w:'第 6 个月', t:`公司有充足银弹高薪聘请接班人。员工薪水照发、供应商照付，客户完全无感，生意照跑。`},
-      {w:'第 12 个月', t:`恢复期利润缺口由 <b>${fmt(r.SA_B)}</b> 补贴，${comp} 平稳过渡${$('bsOn').checked?'，股权按 Buy-Sell 协议体面交接':''}。${who} 留给公司的不是烂摊子，是从容。`},
+      {w:t('tl.m1'), txt:t('tl.yes.1',{sa:fmt(r.grossSA),debt:fmt(r.SA_C)})},
+      {w:t('tl.m6'), txt:t('tl.yes.6')},
+      {w:t('tl.m12'), txt:t('tl.yes.12',{profit:fmt(r.SA_B),comp,bs:$('bsOn').checked?t('tl.yes.bs'):'',who})},
     ];
-    punch = '同一场意外，保险公司扛，不是家人扛。';
+    punch = t('tl.yes.punch');
   }
   $('tlBody').innerHTML = nodes.map(n=>`
-    <div class="tl-node"><div class="tl-when">${n.w}</div><div class="tl-what">${n.t}</div></div>`).join('');
+    <div class="tl-node"><div class="tl-when">${n.w}</div><div class="tl-what">${n.txt}</div></div>`).join('');
   $('tlPunch').textContent = punch;
   $('tlWrap').className = 'tl-wrap ' + (tlMode==='no'?'bg-red':'bg-teal');
 }
 
-/* ================= personalization ================= */
 function personalize(){
   const comp = $('compName').value.trim();
   const boss = $('bossName').value.trim();
   $('headerSub').innerHTML = comp
-    ? `为 <b style="color:var(--gold-hi)">${comp}</b> 定制 —— 买的不是保险，是公司续存权 · 四种算法 · 核保上限 · 成交路径`
-    : '用您公司自己的数字，精算出企业风险缺口 —— 买的不是保险，是公司续存权';
-  $('rkHead').textContent = `如果${boss||'关键人'}明天缺席，${comp||'公司'}立刻面对——`;
-  $('cvFor').textContent = `呈交：${comp||'贵公司管理层'}${boss?` · ${boss}`:''}`;
+    ? t('personal.headerNamed', {company:comp})
+    : t('personal.header');
+  $('rkHead').textContent = t('personal.riskHead', {boss:boss||t('fallback.keyman'),company:comp||t('fallback.company')});
+  $('cvFor').textContent = t('personal.cover', {company:comp||t('fallback.management'),boss:boss?` · ${boss}`:''});
   renderTimeline();
 }
 
-/* ================= draft (localStorage) ================= */
 const DRAFT_KEY = 'keyman-calc-draft-v3';
 const FIELD_IDS = ['compName','bossName','age','rem','gp','np','loan','od','odu','pg','exist','pe','eq'];
 
@@ -1208,7 +1817,7 @@ function saveDraft(){
     FIELD_IDS.forEach(id=>{ const el=$(id); if(el) draft.fields[id]=el.value; });
     localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
     const hint=$('draftHint');
-    if(hint) hint.textContent = '草稿已自动保存在本机浏览器，刷新不会丢失。';
+    if(hint) hint.textContent = t('draft.saved');
   }catch(e){/* private mode */}
 }
 
@@ -1249,14 +1858,13 @@ function loadDraft(){
     const hint=$('draftHint');
     if(hint && draft.savedAt){
       const d=new Date(draft.savedAt);
-      hint.textContent = `已恢复本机草稿（${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}）`;
+      hint.textContent = t('draft.restored', {date:`${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`});
     }
     return true;
   }catch(e){ return false; }
 }
 
 function setBuySell(on, from){
-  /* bidirectional: 第 4 步 ↔ 第 5 步股权买卖 */
   if(from!=='bs') $('bsOn').checked = on;
   $('bsFold').classList.toggle('open', on);
   $('bsToggle').classList.toggle('on', on);
@@ -1266,28 +1874,26 @@ function setBuySell(on, from){
   }
 }
 
-/* ================= print preview ================= */
 function openPrintPreview(){
   const r = lastR;
-  const comp = ($('compName').value.trim() || '贵公司');
+  const comp = ($('compName').value.trim() || t('fallback.management'));
   const pages = [
-    {t:'封面', d:`呈交 ${comp} 的机密建议书封面`},
-    {t:'风险仪表板', d:'债务 / 利润缺口 / 股权风险一览'},
-    {t:'客户与关键人资料', d:'公司、关键人、年龄与报酬'},
-    {t:'盈利 · 债务 · 股权分析', d:'输入假设与即时解读'},
-    {t:'四种算法对比', d:'含核保上限红线'},
-    {t:'建议保障方案', d: r ? `总保额 ${fmt(r.grossSA)} · 预估保费区间` : '建议保额与保费'},
-    {t:'决策校准', d:'愿付利润% · 增长 · 救急来源 · 现金跑道'},
-    {t:'12 个月双剧本', d:'有 / 无 Keyman 对照'},
-    {t:'核保文件清单', d:'按保额分级的文件要求'},
-    {t:'顾问联系与签署栏', d:'WhatsApp 联系 · 双方签名'},
+    {title:t('pp.1.t'), d:t('pp.1.d',{comp})},
+    {title:t('pp.2.t'), d:t('pp.2.d')},
+    {title:t('pp.3.t'), d:t('pp.3.d')},
+    {title:t('pp.4.t'), d:t('pp.4.d')},
+    {title:t('pp.5.t'), d:t('pp.5.d')},
+    {title:t('pp.6.t'), d: r ? t('pp.6.d',{sa:fmt(r.grossSA)}) : t('pp.6.dEmpty')},
+    {title:t('pp.7.t'), d:t('pp.7.d')},
+    {title:t('pp.8.t'), d:t('pp.8.d')},
+    {title:t('pp.9.t'), d:t('pp.9.d')},
+    {title:t('pp.10.t'), d:t('pp.10.d')},
   ];
-  $('printPages').innerHTML = pages.map(p=>`<li><span class="dot"></span><div><b>${p.t}</b><br><span style="color:var(--tx2);font-size:14px">${p.d}</span></div></li>`).join('');
+  $('printPages').innerHTML = pages.map(p=>`<li><span class="dot"></span><div><b>${p.title}</b><br><span style="color:var(--tx2);font-size:14px">${p.d}</span></div></li>`).join('');
   $('printModal').classList.add('open');
 }
 function closePrintPreview(){ $('printModal').classList.remove('open'); }
 
-/* ================= events ================= */
 document.querySelectorAll('input[type=number]').forEach(el=>el.addEventListener('input', calc));
 document.querySelectorAll('[data-g=chip]').forEach(btn=>{
   btn.addEventListener('click', ()=>{
@@ -1331,11 +1937,9 @@ document.querySelectorAll('.pUse, #grossup').forEach(cb=>cb.addEventListener('ch
   calc();
 }));
 
-/* client info */
 $('compName').addEventListener('input', ()=>{ personalize(); saveDraft(); });
 $('bossName').addEventListener('input', ()=>{ personalize(); saveDraft(); });
 
-/* timeline tabs */
 $('tabNo').addEventListener('click', ()=>{
   tlMode='no';
   $('tabNo').className='tl-tab on-red'; $('tabYes').className='tl-tab';
@@ -1347,7 +1951,6 @@ $('tabYes').addEventListener('click', ()=>{
   renderTimeline(); saveDraft();
 });
 
-/* print modal */
 $('btnPrint').addEventListener('click', openPrintPreview);
 $('btnPrintCancel').addEventListener('click', closePrintPreview);
 $('btnPrintGo').addEventListener('click', ()=>{ closePrintPreview(); setTimeout(()=>window.print(), 80); });
@@ -1361,22 +1964,38 @@ $('btnCloseToggle')?.addEventListener('click', ()=>{
   const open = !kit.classList.contains('open');
   kit.classList.toggle('open', open);
   $('btnCloseToggle').setAttribute('aria-expanded', open ? 'true' : 'false');
-  $('closeChev').textContent = open ? '收起' : '展开';
+  $('closeChev').textContent = open ? t('close.close') : t('close.open');
   if(open){
     renderClose();
     requestAnimationFrame(()=>kit.scrollIntoView({behavior:'smooth', block:'nearest'}));
   }
 });
 
-/* dates */
 const today = new Date();
-const dStr = today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日';
-$('todayStr').textContent = dStr;
-$('cvDate').textContent = dStr;
+function localizedDate(d){
+  return lang==='en'
+    ? d.toLocaleDateString('en-MY',{day:'numeric',month:'long',year:'numeric'})
+    : t('date.ymd',{y:d.getFullYear(),m:d.getMonth()+1,d:d.getDate()});
+}
+function refreshDates(){
+  const dStr = localizedDate(today);
+  $('todayStr').textContent = dStr;
+  $('cvDate').textContent = dStr;
+}
 
 loadDraft();
+applyLang();
+refreshDates();
 calc();
 personalize();
+document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click', ()=>{
+  lang = btn.dataset.lang;
+  localStorage.setItem('keyman-lang', lang);
+  applyLang();
+  refreshDates();
+  calc();
+  personalize();
+}));
 </script>
 </body>
 </html>
