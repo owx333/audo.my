@@ -201,9 +201,40 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 .decide-punch{margin-top:12px;border-radius:12px;padding:14px 16px;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.6}
 .decide-punch b{color:var(--gold-hi)}
 
+/* ============ CLOSE KIT / 破局成交 ============ */
+.close-kit{--accent:var(--ink);--accent-soft:#E8EBF2}
+.reframe{border-radius:14px;padding:16px 18px;background:linear-gradient(135deg,#0C1830,#1a3358);color:#fff;margin-bottom:16px}
+.reframe .rf-lab{font-size:12px;letter-spacing:.28em;color:var(--gold);font-weight:700}
+.reframe .rf-title{font-family:var(--serif);font-size:22px;font-weight:800;margin-top:6px;line-height:1.35}
+.reframe .rf-sub{font-size:14px;color:#B8C4DA;margin-top:8px;line-height:1.6}
+.break-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.break-card{border:1.5px solid var(--line);border-radius:13px;padding:14px 15px;background:#fff}
+.break-card .bc-no{font-size:11px;letter-spacing:.2em;color:var(--tx2);font-weight:700}
+.break-card .bc-title{font-size:16px;font-weight:800;color:var(--ink);margin-top:2px}
+.break-card .bc-body{font-size:14px;color:var(--tx);margin-top:6px;line-height:1.6}
+.break-card .bc-body b{font-weight:800}
+.break-card.hot{border-color:rgba(201,162,75,.55);background:var(--gold-soft)}
+.path-row{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+.path-card{border:2px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;background:#fff;text-align:left;transition:.15s;width:100%;font:inherit;color:inherit}
+.path-card:hover,.path-card.on{border-color:var(--gold);background:var(--gold-soft);box-shadow:0 4px 14px rgba(201,162,75,.18)}
+.path-card .pc-tag{font-size:11px;letter-spacing:.2em;color:#8A6B25;font-weight:800}
+.path-card .pc-title{font-size:17px;font-weight:800;color:var(--ink);margin-top:4px}
+.path-card .pc-body{font-size:13.5px;color:var(--tx2);margin-top:6px;line-height:1.55}
+.path-card .pc-body b{color:var(--ink);font-weight:800}
+.close-cta{margin-top:16px;display:grid;grid-template-columns:1fr;gap:10px}
+.close-cta .btn{width:100%;text-align:center}
+.close-note{font-size:13px;color:var(--tx2);margin-top:10px;line-height:1.55}
+
 @media (min-width:720px){
   .decide{grid-template-columns:1fr 1fr}
   .decide-tile.span2{grid-column:1 / -1}
+  .break-grid{grid-template-columns:1fr 1fr}
+  .path-row{grid-template-columns:1fr 1fr}
+  .close-cta{grid-template-columns:1fr 1fr}
+}
+@media (min-width:960px){
+  .desk-lower .close-kit{grid-column:1 / -1}
+  .reframe .rf-title{font-size:26px}
 }
 
 /* ============ DAILY COST ============ */
@@ -331,7 +362,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   <div class="wrap">
     <div class="eyebrow">BUSINESS PROTECTION ANALYSIS</div>
     <h1>企业关键人保障分析系统</h1>
-    <div class="sub" id="headerSub">用您公司自己的数字，精算出企业风险缺口 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构</div>
+    <div class="sub" id="headerSub">用您公司自己的数字，精算出企业风险缺口 —— 买的不是保险，是公司续存权</div>
     <div class="presenter"><i></i>分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</div>
     <div class="header-brand">AUDO × Hong Leong Assurance · Key Man Policy</div>
   </div>
@@ -626,6 +657,42 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   <div class="decide-punch" id="decidePunch"></div>
 </section>
 
+<!-- ============ 破局与成交 ============ -->
+<section class="card close-kit no-print" style="--accent:var(--ink);--accent-soft:#E8EBF2">
+  <div class="step-tag">
+    <div class="step-ico">🔥</div>
+    <div><span class="no">破局成交</span><h2>把思维打穿，把决定做掉</h2></div>
+  </div>
+  <p class="step-desc">以下内容会随您的数字实时改写——用来当面带老板走完「想清楚 → 选路径 → 下一步」。</p>
+
+  <div class="reframe" id="reframeBox">
+    <div class="rf-lab">REFRAME</div>
+    <div class="rf-title">不是在买保险，是在买公司的续存权</div>
+    <div class="rf-sub">关键人明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？成交的不是保单，是生意还能不能活。</div>
+  </div>
+
+  <div class="break-grid" id="breakGrid"></div>
+
+  <div class="path-row">
+    <button class="path-card" type="button" id="pathA" data-path="full">
+      <div class="pc-tag">路径 A · 预算内全做</div>
+      <div class="pc-title">债务 + 利润（+股权若适用）一次到位</div>
+      <div class="pc-body" id="pathABody">锁定完整续存方案。</div>
+    </button>
+    <button class="path-card" type="button" id="pathB" data-path="debt">
+      <div class="pc-tag">路径 B · 先破冰成交</div>
+      <div class="pc-title">先保债务单，利润下季再加</div>
+      <div class="pc-body" id="pathBBody">银行最急、最好核保；把「公司不被拖垮」先锁住。</div>
+    </button>
+  </div>
+
+  <div class="close-cta">
+    <button class="btn btn-gold" type="button" id="btnClosePrint">生成建议书 PDF</button>
+    <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp 锁定正式 Quotation</a>
+  </div>
+  <div class="close-note" id="closeNote">收口只留两个选项：A 全做，或 B 先债务。不要留「再考虑」。</div>
+</section>
+
 <!-- ============ 时间轴对比 ============ -->
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
   <div class="step-tag">
@@ -672,7 +739,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 <footer>
   保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
-  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.7
+  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.8
   <div class="draft-hint no-print" id="draftHint"></div>
 </footer>
 </div><!-- /.desk-lower -->
@@ -956,6 +1023,123 @@ function renderDecide(){
   }
   if(S.payer==='family') punch += ` 您已选择救急靠家人——这正是 Keyman 要替家人卸下的担子。`;
   $('decidePunch').innerHTML = punch;
+  renderClose();
+}
+
+/* ================= close kit / 破局成交 ================= */
+function ageBand(age){
+  if(age<40) return {now:'40 岁前', next:'一过 40', jump:'倍数档与费率通常更敏感'};
+  if(age<50) return {now:'40–49 岁档', next:'一过 50', jump:'核保倍数与费率会再跳一档'};
+  if(age<55) return {now:'50–54 岁档', next:'一过 55', jump:'可保倍数下降、保费上升更快'};
+  return {now:'55 岁以上档', next:'每多一年一年', jump:'身体与核保会变得更挑'};
+}
+
+function renderClose(){
+  if(!lastR || !$('breakGrid')) return;
+  const r = lastR;
+  const np = Math.max(num('np'), 1);
+  const premMid = (r.premLo + r.premHi) / 2;
+  const premPct = premMid / np * 100;
+  const riskNow = r.SA_C + r.SA_B + (r.bsOn ? r.SA_D : 0);
+  const mult = riskNow / Math.max(premMid, 1);
+  const g = S.growth / 100;
+  const risk3 = riskNow * Math.pow(1 + g, 3);
+  const band = ageBand(r.age);
+  const who = ($('bossName').value.trim() || '关键人');
+  const comp = ($('compName').value.trim() || '公司');
+  const daily = Math.round(premMid / 365);
+
+  $('reframeBox').innerHTML = `
+    <div class="rf-lab">REFRAME</div>
+    <div class="rf-title">不是在买保险，是在买 ${comp} 的续存权</div>
+    <div class="rf-sub">如果 ${who} 明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？
+    今天的风险敞口约 <b style="color:var(--gold-hi)">${fmt(riskNow)}</b>——成交的不是保单，是生意还能不能活。</div>`;
+
+  const cards = [
+    {hot:true, no:'01 · 续存权', title:'把问题问对',
+      body:`别问「要不要买 Keyman」。问：<b>${who} 缺席后，${comp} 谁来扛债、谁来发薪、谁来留客户？</b>`},
+    {hot:true, no:'02 · 打脸对照', title:'用他自己的矛盾',
+      body:`愿付净利 <b>${S.spend}%</b>，但风险敞口是净利的 <b>${(riskNow/np).toFixed(1)} 倍</b>。
+      现金跑道 <b>${S.runway} 个月</b>，恢复期却要 <b>${S.rec} 年</b>——不是紧一点，是数量级不对。`},
+    {hot:false, no:'03 · 杠杆', title:'少谈贵，多谈撬动',
+      body:`约 <b>RM ${daily.toLocaleString()}/天</b>，每 RM1 保费撬动约 <b>${Math.round(mult).toLocaleString()}</b> 倍保障。
+      广告、请人、利息都舍得；这是唯一能「人没了钱还在」的支出。`},
+    {hot:false, no:'04 · 增长恐惧', title:'越成功越危险',
+      body:`按年增 <b>${S.growth}%</b>，三年后风险敞口约 <b>${fmtM(risk3)}</b>。
+      <b>今天不定，三年后要保的是更大的公司、更贵的保费、更难的核保。</b>`},
+    {hot:false, no:'05 · 银行 / 股权', title:'解瘫痪，不只买保障',
+      body:`${r.SA_C>0?`债务敞口 <b>${fmt(r.SA_C)}</b>——人没了，Call Loan 找谁？`:'把银行贷款与个人担保填进第 3 步，痛点会立刻出现。'}
+      ${r.bsOn?` 股权约 <b>${fmt(r.SA_D)}</b> 若落到家属手上，公司决策谁说了算？`:''}`},
+    {hot:false, no:'06 · 选择架构', title:'抗拒时先降摩擦',
+      body:`别一次推满额。成交路径：<b>① 先锁债务单</b>（银行最急）→ ② 利润单 → ③ 股权 Buy-Sell。
+      他说贵，就回：<b>「那我们先保公司不被银行拖垮。」</b>`},
+    {hot:false, no:'07 · 损失厌恶', title:'不是赚到，是留住',
+      body:`理赔金不是让公司更赚钱，是<b>避免一场意外把十年心血归零</b>。
+      不是「赚到一笔」，是「本来会失去的钱被留住」。`},
+    {hot:false, no:'08 · 身份证明', title:'不做 = 不够专业',
+      body:`做大的老板，通常先把 Keyman 当<b>经营成本</b>，不是等出事再想。
+      银行、审计、Tax Agent 也越来越常问：有没有 business protection。`},
+    {hot:false, no:'09 · 真实截止', title:'年龄与健康在催保费',
+      body:`您目前约在 <b>${band.now}</b>。${band.next}，${band.jump}。
+      不是顾问催您，是<b>年龄和健康在催保费与核保难度</b>。`},
+    {hot:true, no:'10 · 收口', title:'只留两个选项',
+      body:`A：预算内全做（约净利的 <b>${premPct.toFixed(2)}%</b>）。
+      B：先做债务 <b>${fmt(r.SA_C||0)}</b>，利润下季再加。
+      <b>不要留「再考虑」这种第三选项。</b>`},
+  ];
+
+  $('breakGrid').innerHTML = cards.map(c=>`
+    <div class="break-card${c.hot?' hot':''}">
+      <div class="bc-no">${c.no}</div>
+      <div class="bc-title">${c.title}</div>
+      <div class="bc-body">${c.body}</div>
+    </div>`).join('');
+
+  $('pathABody').innerHTML = `建议总保额 <b>${fmt(r.grossSA)}</b> · 预估年保费 <b>${fmt(r.premLo)} – ${fmt(r.premHi)}</b>。一次把续存结构做完整。`;
+  $('pathBBody').innerHTML = r.SA_C>0
+    ? `先保债务 <b>${fmt(r.SA_C)}</b>，保费压力立刻下降；利润与股权可分期。银行最急、最好核保。`
+    : `请先在第 3 步填入贷款/担保；有债务数字后，路径 B 的杀伤力会更强。`;
+
+  const wa = buildWhatsApp(r, who, comp);
+  const waBtn = $('btnWhatsApp');
+  if(waBtn) waBtn.href = wa;
+
+  $('closeNote').innerHTML = `收口只留 A / B。选完路径后，立刻 PDF 或 WhatsApp 锁定 Quotation——把「打算」变成「安排好」。当前保费约占净利 <b>${premPct.toFixed(2)}%</b>。`;
+}
+
+function buildWhatsApp(r, who, comp){
+  const lines = [
+    `您好 Wilson，我想跟进 Key Man 方案。`,
+    `公司：${comp}`,
+    `关键人：${who}`,
+    `建议保额：${fmt(r.grossSA)}`,
+    `预估年保费：${fmt(r.premLo)} – ${fmt(r.premHi)}`,
+    `请协助出正式 Quotation。`
+  ];
+  return 'https://wa.me/60125676118?text=' + encodeURIComponent(lines.join('\n'));
+}
+
+function applyClosePath(path){
+  document.querySelectorAll('.path-card').forEach(el=>el.classList.toggle('on', el.dataset.path===path));
+  if(path==='full'){
+    $('uDebt').checked = true;
+    $('uProfit').checked = true;
+    $('uDebt').closest('.purpose').classList.add('on');
+    $('uProfit').closest('.purpose').classList.add('on');
+    if($('bsOn').checked){
+      $('uBS').checked = true;
+      $('uBS').closest('.purpose').classList.add('on');
+    }
+  } else {
+    $('uDebt').checked = true;
+    $('uProfit').checked = false;
+    $('uBS').checked = false;
+    $('uDebt').closest('.purpose').classList.add('on');
+    $('uProfit').closest('.purpose').classList.remove('on');
+    $('uBS').closest('.purpose').classList.remove('on');
+  }
+  calc();
+  $('verdict')?.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
 /* ================= timeline ================= */
@@ -993,8 +1177,8 @@ function personalize(){
   const comp = $('compName').value.trim();
   const boss = $('bossName').value.trim();
   $('headerSub').innerHTML = comp
-    ? `为 <b style="color:var(--gold-hi)">${comp}</b> 定制的企业风险分析 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构`
-    : '用您公司自己的数字，精算出企业风险缺口 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构';
+    ? `为 <b style="color:var(--gold-hi)">${comp}</b> 定制 —— 买的不是保险，是公司续存权 · 四种算法 · 核保上限 · 成交路径`
+    : '用您公司自己的数字，精算出企业风险缺口 —— 买的不是保险，是公司续存权';
   $('rkHead').textContent = `如果${boss||'关键人'}明天缺席，${comp||'公司'}立刻面对——`;
   $('cvFor').textContent = `呈交：${comp||'贵公司管理层'}${boss?` · ${boss}`:''}`;
   renderTimeline();
@@ -1086,6 +1270,7 @@ function openPrintPreview(){
     {t:'四种算法对比', d:'含核保上限红线'},
     {t:'建议保障方案', d: r ? `总保额 ${fmt(r.grossSA)} · 预估保费区间` : '建议保额与保费'},
     {t:'决策校准', d:'愿付利润% · 增长 · 救急来源 · 现金跑道'},
+    {t:'破局与成交', d:'续存权 reframing · 路径 A/B · WhatsApp'},
     {t:'12 个月双剧本', d:'有 / 无 Keyman 对照'},
     {t:'核保文件清单', d:'按保额分级的文件要求'},
     {t:'顾问联系与签署栏', d:'WhatsApp QR · 双方签名'},
@@ -1157,6 +1342,10 @@ $('btnPrint').addEventListener('click', openPrintPreview);
 $('btnPrintCancel').addEventListener('click', closePrintPreview);
 $('btnPrintGo').addEventListener('click', ()=>{ closePrintPreview(); setTimeout(()=>window.print(), 80); });
 $('printModal').addEventListener('click', e=>{ if(e.target===$('printModal')) closePrintPreview(); });
+const btnClosePrint = $('btnClosePrint');
+if(btnClosePrint) btnClosePrint.addEventListener('click', openPrintPreview);
+$('pathA')?.addEventListener('click', ()=>applyClosePath('full'));
+$('pathB')?.addEventListener('click', ()=>applyClosePath('debt'));
 
 /* dates */
 const today = new Date();
