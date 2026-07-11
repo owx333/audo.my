@@ -202,8 +202,17 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 .decide-punch{margin-top:12px;border-radius:12px;padding:14px 16px;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.6}
 .decide-punch b{color:var(--gold-hi)}
 
-/* ============ CLOSE KIT / 破局成交 ============ */
-.close-kit{--accent:var(--ink);--accent-soft:#E8EBF2}
+/* ============ CLOSE KIT / 顾问收口（默认折叠） ============ */
+section.card.close-kit{--accent:var(--ink);--accent-soft:#E8EBF2;padding:0;overflow:hidden;border-style:dashed;background:transparent;box-shadow:none}
+.close-kit .advisor-toggle{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border:0;background:transparent;cursor:pointer;font:inherit;color:var(--tx2);text-align:left}
+.close-kit .advisor-toggle:hover{color:var(--ink);background:var(--paper)}
+.close-kit .advisor-toggle .at-lab{font-size:12px;letter-spacing:.18em;font-weight:700}
+.close-kit .advisor-toggle .at-hint{font-size:12px;color:var(--tx2)}
+.close-kit .advisor-toggle .at-chev{font-size:12px;font-weight:700;color:var(--tx2);flex:none}
+.close-kit.open{border-style:solid;background:var(--card,#fff);box-shadow:0 8px 24px rgba(15,30,61,.06)}
+.close-kit.open .advisor-toggle{border-bottom:1px solid var(--line);color:var(--ink)}
+.close-body{display:none;padding:16px 16px 18px}
+.close-kit.open .close-body{display:block}
 .reframe{border-radius:14px;padding:16px 18px;background:linear-gradient(135deg,#0C1830,#1a3358);color:#fff;margin-bottom:16px}
 .reframe .rf-lab{font-size:12px;letter-spacing:.28em;color:var(--gold);font-weight:700}
 .reframe .rf-title{font-family:var(--serif);font-size:22px;font-weight:800;margin-top:6px;line-height:1.35}
@@ -607,13 +616,12 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card survey" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">🎯</div>
-    <div><span class="no">决策校准</span><h2>三个问题，帮老板把账算清楚</h2></div>
+    <div><span class="no">决策校准</span><h2>四个问题，把预算与风险对齐</h2></div>
   </div>
-  <p class="step-desc">不是问卷，是成交前的心理对齐：愿付多少、公司长多快、谁会真正买单。答案会立刻对照上方建议方案。</p>
 
   <div class="survey-q">
     <div class="q-title">1. 您愿意每年拿净利的几 %，买回企业续存？</div>
-    <div class="q-hint">多数中小企业把 1–3% 净利视为「合理经营成本」；超过 5% 通常需分期或先保债务。</div>
+    <div class="q-hint">多数中小企业把 1–3% 净利视为合理经营成本；超过 5% 通常需分期或先保债务。</div>
     <div class="chips" id="spendChips">
       <button class="chip" data-spend="0.5" type="button">0.5%<small>极低预算</small></button>
       <button class="chip on" data-spend="1" type="button">1%<small>保守</small></button>
@@ -625,7 +633,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
   <div class="survey-q">
     <div class="q-title">2. 公司未来 3 年，净利大概每年增长几 %？</div>
-    <div class="q-hint">增长越快，关键人缺口越大——保额往往要比「今天的利润」看得更远。</div>
+    <div class="q-hint">增长越快，关键人缺口往往越大——保额要比「今天的利润」看得更远。</div>
     <div class="chips" id="growthChips">
       <button class="chip" data-growth="0" type="button">持平 0%</button>
       <button class="chip on" data-growth="10" type="button">稳健 10%</button>
@@ -636,7 +644,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
   <div class="survey-q">
     <div class="q-title">3. 万一关键人明天缺席，第一笔救急钱谁出？</div>
-    <div class="q-hint">这个问题会暴露真实痛点：公司现金、银行、家人，还是早已安排好的保险。</div>
+    <div class="q-hint">公司现金、银行、家人，还是已有保险安排——答案会影响保障优先顺序。</div>
     <div class="chips" id="payerChips">
       <button class="chip" data-payer="cash" type="button">公司现金 / 存款<small>吃营运资金</small></button>
       <button class="chip" data-payer="bank" type="button">再找银行<small>未必批得过</small></button>
@@ -658,42 +666,6 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
   <div class="decide" id="decideBoard"></div>
   <div class="decide-punch" id="decidePunch"></div>
-</section>
-
-<!-- ============ 破局与成交 ============ -->
-<section class="card close-kit no-print" style="--accent:var(--ink);--accent-soft:#E8EBF2">
-  <div class="step-tag">
-    <div class="step-ico">🔥</div>
-    <div><span class="no">破局成交</span><h2>把思维打穿，把决定做掉</h2></div>
-  </div>
-  <p class="step-desc">以下内容会随您的数字实时改写——用来当面带老板走完「想清楚 → 选路径 → 下一步」。</p>
-
-  <div class="reframe" id="reframeBox">
-    <div class="rf-lab">REFRAME</div>
-    <div class="rf-title">不是在买保险，是在买公司的续存权</div>
-    <div class="rf-sub">关键人明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？成交的不是保单，是生意还能不能活。</div>
-  </div>
-
-  <div class="break-grid" id="breakGrid"></div>
-
-  <div class="path-row">
-    <button class="path-card" type="button" id="pathA" data-path="full">
-      <div class="pc-tag">路径 A · 预算内全做</div>
-      <div class="pc-title">债务 + 利润（+股权若适用）一次到位</div>
-      <div class="pc-body" id="pathABody">锁定完整续存方案。</div>
-    </button>
-    <button class="path-card" type="button" id="pathB" data-path="debt">
-      <div class="pc-tag">路径 B · 先破冰成交</div>
-      <div class="pc-title">先保债务单，利润下季再加</div>
-      <div class="pc-body" id="pathBBody">银行最急、最好核保；把「公司不被拖垮」先锁住。</div>
-    </button>
-  </div>
-
-  <div class="close-cta">
-    <button class="btn btn-gold" type="button" id="btnClosePrint">生成建议书 PDF</button>
-    <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp 锁定正式 Quotation</a>
-  </div>
-  <div class="close-note" id="closeNote">收口只留两个选项：A 全做，或 B 先债务。不要留「再考虑」。</div>
 </section>
 
 <!-- ============ 时间轴对比 ============ -->
@@ -740,9 +712,48 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   </div>
 </div>
 
+<!-- ============ 顾问收口（默认折叠，不给老板看） ============ -->
+<section class="card close-kit no-print" id="closeKit" style="--accent:var(--ink);--accent-soft:#E8EBF2">
+  <button type="button" class="advisor-toggle" id="btnCloseToggle" aria-expanded="false" aria-controls="closeBody">
+    <span>
+      <span class="at-lab">ADVISOR</span>
+      <span class="at-hint"> · 需要时再展开</span>
+    </span>
+    <span class="at-chev" id="closeChev">展开</span>
+  </button>
+  <div class="close-body" id="closeBody">
+    <div class="reframe" id="reframeBox">
+      <div class="rf-lab">REFRAME</div>
+      <div class="rf-title">不是在买保险，是在买公司的续存权</div>
+      <div class="rf-sub">关键人明天不在：公司还值不值钱？银行还会不会给过？家人要不要出钱？成交的不是保单，是生意还能不能活。</div>
+    </div>
+
+    <div class="break-grid" id="breakGrid"></div>
+
+    <div class="path-row">
+      <button class="path-card" type="button" id="pathA" data-path="full">
+        <div class="pc-tag">路径 A · 预算内全做</div>
+        <div class="pc-title">债务 + 利润（+股权若适用）一次到位</div>
+        <div class="pc-body" id="pathABody">锁定完整续存方案。</div>
+      </button>
+      <button class="path-card" type="button" id="pathB" data-path="debt">
+        <div class="pc-tag">路径 B · 先破冰成交</div>
+        <div class="pc-title">先保债务单，利润下季再加</div>
+        <div class="pc-body" id="pathBBody">银行最急、最好核保；把「公司不被拖垮」先锁住。</div>
+      </button>
+    </div>
+
+    <div class="close-cta">
+      <button class="btn btn-gold" type="button" id="btnClosePrint">生成建议书 PDF</button>
+      <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp 锁定正式 Quotation</a>
+    </div>
+    <div class="close-note" id="closeNote">收口只留两个选项：A 全做，或 B 先债务。不要留「再考虑」。</div>
+  </div>
+</section>
+
 <footer>
   保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
-  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.8
+  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.9
   <div class="draft-hint no-print" id="draftHint"></div>
 </footer>
 </div><!-- /.desk-lower -->
@@ -1271,7 +1282,6 @@ function openPrintPreview(){
     {t:'四种算法对比', d:'含核保上限红线'},
     {t:'建议保障方案', d: r ? `总保额 ${fmt(r.grossSA)} · 预估保费区间` : '建议保额与保费'},
     {t:'决策校准', d:'愿付利润% · 增长 · 救急来源 · 现金跑道'},
-    {t:'破局与成交', d:'续存权 reframing · 路径 A/B · WhatsApp'},
     {t:'12 个月双剧本', d:'有 / 无 Keyman 对照'},
     {t:'核保文件清单', d:'按保额分级的文件要求'},
     {t:'顾问联系与签署栏', d:'WhatsApp QR · 双方签名'},
@@ -1350,6 +1360,17 @@ const btnClosePrint = $('btnClosePrint');
 if(btnClosePrint) btnClosePrint.addEventListener('click', openPrintPreview);
 $('pathA')?.addEventListener('click', ()=>applyClosePath('full'));
 $('pathB')?.addEventListener('click', ()=>applyClosePath('debt'));
+$('btnCloseToggle')?.addEventListener('click', ()=>{
+  const kit = $('closeKit');
+  const open = !kit.classList.contains('open');
+  kit.classList.toggle('open', open);
+  $('btnCloseToggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+  $('closeChev').textContent = open ? '收起' : '展开';
+  if(open){
+    renderClose();
+    requestAnimationFrame(()=>kit.scrollIntoView({behavior:'smooth', block:'nearest'}));
+  }
+});
 
 /* dates */
 const today = new Date();
