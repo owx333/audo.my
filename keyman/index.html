@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Key Man Policy · 企业关键人保障分析 | AUDO × Hong Leong Assurance</title>
+<meta name="description" content="为企业关键人物量化风险缺口：四种国际通用算法、核保上限检验、税务 Gross-up 与建议保额。AUDO × Hong Leong Assurance。">
+<link rel="canonical" href="https://audo.my/keyman/">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="Key Man Policy · 企业关键人保障分析 | AUDO">
+<meta property="og:description" content="用公司自己的数字，精算关键人风险缺口与建议保障方案。">
+<meta property="og:url" content="https://audo.my/keyman/">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --ink:#0F1E3D; --ink-2:#1B2D52; --ink-3:#2A3E68;
+  --paper:#F7F6F2; --card:#FFFFFF;
+  --gold:#C9A24B; --gold-hi:#E8C775; --gold-soft:#F6EFDD;
+  --teal:#0E8C7F; --teal-soft:#E1F1EE;
+  --red:#B4452F; --red-soft:#F8E9E4;
+  --plum:#6B4E8E; --plum-soft:#EFEAF6;
+  --line:#E5E2D8; --tx:#232A3C; --tx2:#707786;
+  --serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC",Georgia,serif;
+  --sans:-apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--tx);font-family:var(--sans);font-size:15px;line-height:1.7;padding-bottom:92px}
+b,strong{color:var(--ink)}
+
+/* ============ HEADER ============ */
+header{background:linear-gradient(160deg,#0C1830 0%,#0F1E3D 55%,#16295220 100%),#0F1E3D;color:#fff;padding:34px 22px 38px;position:relative;overflow:hidden}
+header::before{content:"";position:absolute;right:-60px;top:-60px;width:230px;height:230px;border:1px solid rgba(201,162,75,.30);border-radius:50%}
+header::after{content:"";position:absolute;right:-20px;top:-110px;width:230px;height:230px;border:1px solid rgba(201,162,75,.14);border-radius:50%}
+.eyebrow{font-size:11px;letter-spacing:.4em;color:var(--gold);margin-bottom:10px}
+header h1{font-family:var(--serif);font-size:29px;font-weight:700;letter-spacing:.05em;position:relative;display:inline-block;
+  background:linear-gradient(100deg,#fff 30%,var(--gold-hi) 46%,#7FE0D3 52%,#fff 64%);
+  background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:sweep 5.5s ease-in-out infinite}
+@keyframes sweep{0%,20%{background-position:120% 0}55%,100%{background-position:-60% 0}}
+header .sub{font-size:13px;color:#A9B4CC;margin-top:8px;max-width:520px}
+header .presenter{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#C9D2E4;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px}
+header .presenter i{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block}
+
+/* ============ RISK DASH ============ */
+.risk{max-width:660px;margin:-18px auto 0;padding:0 14px;position:relative;z-index:5}
+.risk-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:0 10px 30px rgba(15,30,61,.10)}
+.risk-card h3{font-family:var(--serif);font-size:16px;color:var(--ink);text-align:center}
+.risk-card .q{text-align:center;font-size:12px;color:var(--tx2);margin:2px 0 14px}
+.risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.risk-tile{border-radius:12px;padding:12px 10px;text-align:center}
+.risk-tile .t-ico{font-size:20px;line-height:1}
+.risk-tile .t-name{font-size:11.5px;font-weight:600;margin-top:4px}
+.risk-tile .t-val{font-family:var(--serif);font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;line-height:1.2}
+.rt-red{background:var(--red-soft)}.rt-red .t-name,.rt-red .t-val{color:var(--red)}
+.rt-gold{background:var(--gold-soft)}.rt-gold .t-name{color:#8A6B25}.rt-gold .t-val{color:#8A6B25}
+.rt-plum{background:var(--plum-soft)}.rt-plum .t-name,.rt-plum .t-val{color:var(--plum)}
+.risk-foot{text-align:center;font-size:11.5px;color:var(--tx2);margin-top:12px}
+
+/* ============ LAYOUT ============ */
+main{max-width:660px;margin:0 auto;padding:20px 14px 30px}
+section.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-bottom:18px;position:relative;overflow:hidden}
+section.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--gold))}
+.step-tag{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.step-ico{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px;background:var(--accent-soft,var(--gold-soft));flex:none}
+.step-tag h2{font-family:var(--serif);font-size:19px;color:var(--ink)}
+.step-tag .no{font-size:10.5px;letter-spacing:.3em;color:var(--tx2);display:block}
+.step-desc{font-size:13px;color:var(--tx2);margin-bottom:16px}
+
+/* live analysis strip inside each section */
+.live{border-radius:10px;padding:10px 13px;font-size:13px;margin-top:4px;background:var(--accent-soft,var(--gold-soft));color:var(--ink)}
+.live b{font-variant-numeric:tabular-nums}
+
+/* ============ INPUTS ============ */
+.field{margin-bottom:15px}
+.field label{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.hint{font-size:11.5px;color:var(--tx2);margin-bottom:6px}
+.money-wrap{position:relative}
+.money-wrap span.rm{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--tx2)}
+input[type=number],input[type=text]{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:12px;font-size:16px;background:#fff;color:var(--tx);font-variant-numeric:tabular-nums}
+.money-wrap input{padding-left:44px}
+input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.18)}
+input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px 14px;font-size:13px;color:var(--tx);cursor:pointer;transition:.15s;text-align:left}
+.chip small{display:block;font-size:10.5px;color:var(--tx2);line-height:1.3}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 12px rgba(15,30,61,.25)}
+.chip.on small{color:#C4CCDD}
+.chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.purpose{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:13px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s;background:#fff}
+.purpose.on{border-color:var(--gold);background:var(--gold-soft);box-shadow:0 3px 10px rgba(201,162,75,.15)}
+.purpose input{width:19px;height:19px;margin-top:3px;accent-color:var(--ink);flex:none}
+.purpose b{font-size:14.5px}
+.purpose p{font-size:12px;color:var(--tx2)}
+.fold{display:none;margin-top:12px}
+.fold.open{display:block}
+.badge{display:inline-block;font-size:10.5px;padding:2px 10px;border-radius:999px;background:var(--gold-soft);color:#8A6B25;margin-left:6px;vertical-align:middle}
+
+.note{border-left:3px solid var(--gold);background:var(--gold-soft);border-radius:0 10px 10px 0;padding:11px 13px;font-size:12.5px;color:#5A4A22;margin:12px 0}
+
+/* ============ METHOD ANALYSIS CARDS ============ */
+.m-card{border:1.5px solid var(--line);border-radius:14px;padding:15px 15px 13px;margin-bottom:12px;position:relative;overflow:hidden;background:#fff}
+.m-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--mc)}
+.m-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.m-name{font-size:14.5px;font-weight:700;color:var(--ink)}
+.m-name small{display:block;font-size:10.5px;color:var(--tx2);font-weight:400;letter-spacing:.06em}
+.m-val{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--mc);font-variant-numeric:tabular-nums;white-space:nowrap}
+.m-math{font-size:12px;color:var(--tx2);background:var(--paper);border-radius:8px;padding:7px 10px;margin:9px 0 8px;font-variant-numeric:tabular-nums}
+.m-say{font-size:12.5px;color:var(--tx)}
+.m-say b{color:var(--mc)}
+.bar-track{height:12px;background:#EFEDE5;border-radius:6px;position:relative;margin-top:10px}
+.bar-fill{height:100%;border-radius:6px;background:var(--mc);transition:width .6s cubic-bezier(.22,1,.36,1);min-width:2px;opacity:.9}
+.cap-line{position:absolute;top:-5px;bottom:-5px;width:2.5px;background:var(--red)}
+.cap-flag{font-size:10.5px;color:var(--red);margin-top:4px}
+.cap-note{font-size:12px;color:var(--tx2);background:var(--red-soft);border-radius:10px;padding:9px 12px;margin-top:6px}
+.cap-note b{color:var(--red)}
+
+/* ============ VERDICT ============ */
+.verdict{background:linear-gradient(150deg,#0C1830,#15294F);color:#fff;border-radius:18px;padding:24px 20px;margin-bottom:18px;position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(15,30,61,.28)}
+.verdict::before{content:"";position:absolute;right:-50px;bottom:-70px;width:200px;height:200px;border:1px solid rgba(201,162,75,.25);border-radius:50%}
+.v-label{font-size:11px;letter-spacing:.35em;color:var(--gold)}
+.v-sum{font-family:var(--serif);font-size:40px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15;margin-top:4px}
+.v-sub{font-size:12.5px;color:#A9B4CC;margin-top:4px}
+.pol{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px;margin-top:12px}
+.pol .p-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pol .p-name{font-size:13.5px;font-weight:700;color:var(--gold-hi)}
+.pol .p-sa{font-family:var(--serif);font-size:17px;font-variant-numeric:tabular-nums}
+.pol .p-type{font-size:11px;color:#8FA0C0;margin-top:1px}
+.pol .p-why{font-size:12px;color:#C6CFDF;margin-top:5px}
+.v-prem{border-top:1px solid rgba(255,255,255,.16);margin-top:16px;padding-top:14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.v-prem .pl{font-size:13px;color:#C6CFDF}
+.v-prem .pv{font-family:var(--serif);font-size:19px;color:var(--gold-hi);font-variant-numeric:tabular-nums;text-align:right}
+.v-foot{font-size:11px;color:#7E8DAB;margin-top:8px}
+
+/* docs */
+table.docs{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:8px}
+table.docs td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.docs td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+tr.active-band td{background:var(--gold-soft)}
+tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:10px;color:#8A6B25}
+
+/* sticky */
+.sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(12,24,48,.97);backdrop-filter:blur(10px);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;border-top:1px solid rgba(201,162,75,.3)}
+.sticky .s-label{font-size:10px;letter-spacing:.25em;color:var(--gold)}
+.sticky .s-val{font-family:var(--serif);font-size:21px;font-variant-numeric:tabular-nums}
+.btn{border:none;border-radius:11px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer}
+.btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold-hi));color:var(--ink);box-shadow:0 4px 14px rgba(201,162,75,.4)}
+.btn-gold:active{transform:scale(.97)}
+.btn-ghost{background:transparent;color:#C6CFDF;border:1px solid rgba(255,255,255,.25);padding:10px 14px;font-size:13px}
+.btn-ghost:active{transform:scale(.97)}
+.sticky .btn-row{display:flex;gap:8px;align-items:center;flex:none}
+
+/* print preview modal */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(12,24,48,.55);z-index:80;align-items:flex-end;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border-radius:18px 18px 14px 14px;width:100%;max-width:420px;padding:22px 20px 18px;box-shadow:0 20px 50px rgba(15,30,61,.35);max-height:88vh;overflow:auto}
+.modal h3{font-family:var(--serif);font-size:20px;color:var(--ink)}
+.modal .m-desc{font-size:13px;color:var(--tx2);margin:4px 0 14px}
+.modal ul{list-style:none;margin:0 0 16px}
+.modal li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--tx)}
+.modal li:last-child{border-bottom:none}
+.modal li .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:6px;flex:none}
+.modal .m-actions{display:flex;gap:10px}
+.modal .m-actions .btn{flex:1}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-line{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.draft-hint{font-size:11px;color:var(--tx2);margin-top:4px}
+
+/* ============ DAILY COST ============ */
+.daily{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.daily .d-tile{background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.35);border-radius:12px;padding:11px 12px;text-align:center}
+.daily .d-big{font-family:var(--serif);font-size:20px;color:var(--gold-hi);font-variant-numeric:tabular-nums;line-height:1.2}
+.daily .d-cap{font-size:11px;color:#C6CFDF;margin-top:3px}
+
+/* ============ TIMELINE ============ */
+.tl-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.tl-tab{border:1.5px solid var(--line);border-radius:12px;padding:12px 10px;font-size:14px;font-weight:700;cursor:pointer;background:#fff;color:var(--tx2);text-align:center;transition:.15s}
+.tl-tab small{display:block;font-size:10.5px;font-weight:400;margin-top:1px}
+.tl-tab.on-red{background:var(--red);border-color:var(--red);color:#fff}
+.tl-tab.on-teal{background:var(--teal);border-color:var(--teal);color:#fff}
+.tl-tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.tl{position:relative;padding-left:26px}
+.tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--tlc,var(--red));opacity:.3}
+.tl-node{position:relative;margin-bottom:16px}
+.tl-node::before{content:"";position:absolute;left:-24px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--tlc,var(--red));box-shadow:0 0 0 3px color-mix(in srgb,var(--tlc,var(--red)) 20%,transparent)}
+.tl-when{font-size:11px;letter-spacing:.2em;font-weight:700;color:var(--tlc,var(--red))}
+.tl-what{font-size:13.5px;color:var(--tx);margin-top:2px}
+.tl-what b{font-variant-numeric:tabular-nums}
+.tl-wrap{border-radius:14px;padding:16px 16px 6px;transition:.3s}
+.tl-wrap.bg-red{background:var(--red-soft);--tlc:var(--red)}
+.tl-wrap.bg-teal{background:var(--teal-soft);--tlc:var(--teal)}
+.tl-punch{font-size:13px;font-weight:700;text-align:center;padding:10px 0 12px;color:var(--tlc)}
+
+/* ============ CONTACT / SIGNATURE ============ */
+.contact{background:var(--ink);color:#fff;border-radius:16px;padding:18px;display:flex;gap:16px;align-items:center;margin-bottom:18px}
+.contact img{width:86px;height:86px;border-radius:10px;background:#fff;padding:4px;flex:none}
+.contact .c-name{font-family:var(--serif);font-size:17px;color:var(--gold-hi)}
+.contact .c-sub{font-size:11.5px;color:#A9B4CC;line-height:1.6;margin-top:2px}
+.contact a{color:#7FE0D3;text-decoration:none;font-size:12.5px}
+.sign-row{display:none;margin-top:22px;gap:20px}
+.sign-row .s-box{flex:1;border-top:1.5px solid rgba(255,255,255,.45);padding-top:6px;font-size:11px;color:#C6CFDF;text-align:center}
+
+/* ============ PRINT COVER ============ */
+#cover{display:none}
+
+footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;line-height:1.8}
+
+@media print{
+  body{padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sticky,.no-print,.modal-bg,header{display:none!important}
+  section.card,.verdict,.risk-card,.contact{break-inside:avoid;box-shadow:none}
+  #cover{display:flex;flex-direction:column;justify-content:center;min-height:96vh;background:var(--ink);color:#fff;padding:60px 50px;page-break-after:always;border-radius:0}
+  #cover .cv-eyebrow{font-size:12px;letter-spacing:.45em;color:var(--gold)}
+  #cover h1{font-family:var(--serif);font-size:38px;margin:14px 0 6px;color:#fff}
+  #cover .cv-for{font-family:var(--serif);font-size:22px;color:var(--gold-hi);margin-top:30px}
+  #cover .cv-meta{font-size:13px;color:#A9B4CC;margin-top:40px;line-height:2}
+  .sign-row{display:flex}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:390px){.row2{grid-template-columns:1fr}.risk-grid{grid-template-columns:1fr 1fr 1fr;gap:6px}.risk-tile{padding:10px 6px}.risk-tile .t-val{font-size:13.5px}}
+</style>
+</head>
+<body>
+
+<!-- 打印封面（仅打印显示） -->
+<div id="cover">
+  <div class="cv-eyebrow">CONFIDENTIAL · BUSINESS PROTECTION PROPOSAL</div>
+  <h1>企业关键人风险分析建议书</h1>
+  <div style="width:70px;height:3px;background:var(--gold)"></div>
+  <div class="cv-for" id="cvFor">呈交：贵公司管理层</div>
+  <div class="cv-meta">
+    分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance<br>
+    分析日期：<span id="cvDate"></span><br>
+    联系：+60 12-567 6118 (WhatsApp)
+  </div>
+</div>
+
+<header>
+  <div class="eyebrow">BUSINESS PROTECTION ANALYSIS</div>
+  <h1>企业关键人保障分析系统</h1>
+  <div class="sub" id="headerSub">用您公司自己的数字，精算出企业风险缺口 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构</div>
+  <div class="presenter"><i></i>分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</div>
+</header>
+
+<!-- ============ RISK DASHBOARD ============ -->
+<div class="risk no-print-keep">
+  <div class="risk-card">
+    <h3 id="rkHead">如果关键人明天缺席，公司立刻面对——</h3>
+    <div class="q">以下数字随您输入的资料实时更新</div>
+    <div class="risk-grid">
+      <div class="risk-tile rt-red">
+        <div class="t-ico">🏦</div>
+        <div class="t-name">银行照样追债</div>
+        <div class="t-val" id="rkDebt">RM 0</div>
+      </div>
+      <div class="risk-tile rt-gold">
+        <div class="t-ico">📉</div>
+        <div class="t-name">利润恢复缺口</div>
+        <div class="t-val" id="rkProfit">RM 0</div>
+      </div>
+      <div class="risk-tile rt-plum">
+        <div class="t-ico">⚖️</div>
+        <div class="t-name">股权动荡风险</div>
+        <div class="t-val" id="rkEquity">—</div>
+      </div>
+    </div>
+    <div class="risk-foot" id="rkTotal">合计风险敞口：<b>RM 0</b> —— 这不是保险问题，是企业续存问题。</div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ 零 客户资料 ============ -->
+<section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
+  <div class="step-tag">
+    <div class="step-ico">🏢</div>
+    <div><span class="no">客 户 资 料</span><h2>这份分析为谁定制</h2></div>
+  </div>
+  <div class="row2">
+    <div class="field">
+      <label for="compName">公司名称</label>
+      <input type="text" id="compName" placeholder="例：ABC Engineering Sdn Bhd">
+    </div>
+    <div class="field">
+      <label for="bossName">关键人姓名 / 称呼</label>
+      <input type="text" id="bossName" placeholder="例：Dato' Tan / 陈老板">
+    </div>
+  </div>
+  <div class="hint" style="margin:0">分析日期：<span id="todayStr"></span> · 资料仅用于本次风险分析，绝对保密。</div>
+</section>
+
+<!-- ============ 壹 ============ -->
+<section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
+  <div class="step-tag">
+    <div class="step-ico">👤</div>
+    <div><span class="no">第 壹 步</span><h2>关键人资料</h2></div>
+  </div>
+  <p class="step-desc">"关键人"= 公司离了他会伤筋动骨的人。通常是老板本人、技术核心或头号业务功臣。</p>
+
+  <div class="row2">
+    <div class="field">
+      <label for="age">年龄</label>
+      <input type="number" id="age" value="45" min="18" max="70" inputmode="numeric">
+    </div>
+    <div class="field">
+      <label>性别 / 吸烟状况</label>
+      <div class="chips">
+        <button class="chip on" data-g="chip" data-group="gender" data-val="M" type="button">男</button>
+        <button class="chip" data-g="chip" data-group="gender" data-val="F" type="button">女</button>
+        <button class="chip" data-g="chip" data-group="smoker" data-val="Y" type="button">吸烟</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="rem">年度总报酬</label>
+    <div class="hint">底薪 + 花红 + 董事费 + EPF 雇主部分，一年的总数。</div>
+    <div class="money-wrap"><span class="rm">RM</span><input type="number" id="rem" value="300000" inputmode="numeric"></div>
+  </div>
+  <div class="live" id="liveA"></div>
+</section>
+
+<!-- ============ 贰 ============ -->
+<section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
+  <div class="step-tag">
+    <div class="step-ico">📊</div>
+    <div><span class="no">第 贰 步</span><h2>盈利分析 · 他为公司赚多少</h2></div>
+  </div>
+  <p class="step-desc">这一步量化一件事：公司每年的利润，有多少直接系在这个人身上。</p>
+
+  <div class="row2">
+    <div class="field">
+      <label for="gp">近三年平均毛利</label>
+      <div class="hint">Gross Profit，大约数即可</div>
+      <div class="money-wrap"><span class="rm">RM</span><input type="number" id="gp" value="2500000" inputmode="numeric"></div>
+    </div>
+    <div class="field">
+      <label for="np">近三年平均净利</label>
+      <div class="hint">税前 Net Profit</div>
+      <div class="money-wrap"><span class="rm">RM</span><input type="number" id="np" value="1000000" inputmode="numeric"></div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>他在公司扮演什么角色？</label>
+    <div class="hint">角色决定"利润贡献度"——公司的钱有多少是靠他赚回来的。</div>
+    <div class="chips" id="attrChips">
+      <button class="chip" data-attr="0.7" type="button">一人扛全部业务<small>贡献 70%</small></button>
+      <button class="chip on" data-attr="0.5" type="button">技术 / 业务核心<small>贡献 50%</small></button>
+      <button class="chip" data-attr="0.3" type="button">多位董事之一<small>贡献 30%</small></button>
+      <button class="chip" data-attr="0.2" type="button">关键高管<small>贡献 20%</small></button>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>如果他不在了，公司要多久恢复元气？</label>
+    <div class="chips" id="recChips">
+      <button class="chip" data-rec="2" type="button">市场招得到人<small>2 年</small></button>
+      <button class="chip on" data-rec="3" type="button">要挖角 + 交接<small>3 年</small></button>
+      <button class="chip" data-rec="5" type="button">几乎无可替代<small>5 年</small></button>
+    </div>
+  </div>
+  <div class="live" id="liveB"></div>
+</section>
+
+<!-- ============ 叁 ============ -->
+<section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
+  <div class="step-tag">
+    <div class="step-ico">🏦</div>
+    <div><span class="no">第 叁 步</span><h2>债务分析 · 银行不等人</h2></div>
+  </div>
+  <p class="step-desc">关键人不在，贷款照追。个人担保更会直接烧到家人身上。这里填公司对银行的敞口。</p>
+
+  <div class="field">
+    <label for="loan">Term Loan 未还余额</label>
+    <div class="money-wrap"><span class="rm">RM</span><input type="number" id="loan" value="1500000" inputmode="numeric"></div>
+  </div>
+  <div class="row2">
+    <div class="field">
+      <label for="od">OD 额度</label>
+      <div class="money-wrap"><span class="rm">RM</span><input type="number" id="od" value="500000" inputmode="numeric"></div>
+    </div>
+    <div class="field">
+      <label for="odu">平均使用率 %</label>
+      <input type="number" id="odu" value="60" min="0" max="100" inputmode="numeric">
+    </div>
+  </div>
+  <div class="row2">
+    <div class="field">
+      <label for="pg">个人担保净额</label>
+      <div class="hint">未被以上贷款覆盖的部分</div>
+      <div class="money-wrap"><span class="rm">RM</span><input type="number" id="pg" value="0" inputmode="numeric"></div>
+    </div>
+    <div class="field">
+      <label for="exist">现有 Keyman 保额</label>
+      <div class="hint">已买过的要扣除</div>
+      <div class="money-wrap"><span class="rm">RM</span><input type="number" id="exist" value="0" inputmode="numeric"></div>
+    </div>
+  </div>
+  <div class="live" id="liveC"></div>
+</section>
+
+<!-- ============ 肆 ============ -->
+<section class="card" style="--accent:var(--plum);--accent-soft:var(--plum-soft)">
+  <div class="step-tag">
+    <div class="step-ico">⚖️</div>
+    <div><span class="no">第 肆 步</span><h2>股权买卖 <span class="badge">合伙人公司适用</span></h2></div>
+  </div>
+  <p class="step-desc">股东走了，股份落到家属手上——其他股东要有钱把股份买回来，公司决策才不会瘫痪。</p>
+  <label class="purpose" id="bsToggle">
+    <input type="checkbox" id="bsOn">
+    <div><b>这家公司有 2 位或以上股东</b><p>启用 Buy-Sell 股权估值计算</p></div>
+  </label>
+  <div class="fold" id="bsFold">
+    <div class="row2">
+      <div class="field">
+        <label for="pe">估值倍数 (PE)</label>
+        <div class="hint">中小企业一般 3–5 倍净利</div>
+        <input type="number" id="pe" value="4" min="1" max="10" step="0.5" inputmode="decimal">
+      </div>
+      <div class="field">
+        <label for="eq">关键人持股 %</label>
+        <input type="number" id="eq" value="40" min="1" max="100" inputmode="numeric">
+      </div>
+    </div>
+    <div class="live" id="liveD" style="--accent-soft:var(--plum-soft)"></div>
+    <div class="note">保单只是资金工具，必须配律师起草的 Buy-Sell Agreement 才有法律骨架。股东 ≥3 人建议由公司统一持单。</div>
+  </div>
+</section>
+
+<!-- ============ 伍 ============ -->
+<section class="card" style="--accent:var(--ink);--accent-soft:#E8EBF2">
+  <div class="step-tag">
+    <div class="step-ico">🛡️</div>
+    <div><span class="no">第 伍 步</span><h2>保障结构选择</h2></div>
+  </div>
+  <p class="step-desc">不同用途分开设单，理赔用途和税务安排才清清楚楚。可多选。</p>
+
+  <label class="purpose on"><input type="checkbox" class="pUse" id="uDebt" checked>
+    <div><b>债务保障</b><p>Cover 银行贷款与担保，公司不被债务拖垮 → Level / Reducing Term</p></div></label>
+  <label class="purpose on"><input type="checkbox" class="pUse" id="uProfit" checked>
+    <div><b>利润 / 营运保障</b><p>补足恢复期少赚的钱，员工薪水照发、供应商照付 → Level Term</p></div></label>
+  <label class="purpose"><input type="checkbox" class="pUse" id="uBS">
+    <div><b>股权买卖资金</b><p>需先启用第肆步 → 独立保单 + Buy-Sell Agreement</p></div></label>
+
+  <label class="purpose" style="margin-top:14px">
+    <input type="checkbox" id="grossup" checked>
+    <div><b>税务优化：Term 扣税路线（Gross-up 24%）</b>
+    <p>仅放大<strong>债务保障</strong>与<strong>利润/营运保障</strong>的 Term 保额（保费可扣税 → 理赔金通常课 24% 公司税，故 ÷0.76）。<strong>股权买卖单</strong>为独立结构，不套用 Gross-up，税务请与 Tax Agent 确认。</p></div>
+  </label>
+</section>
+
+<!-- ============ 陆 四法分析 ============ -->
+<section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
+  <div class="step-tag">
+    <div class="step-ico">🧮</div>
+    <div><span class="no">第 陆 步</span><h2>四种算法 · 详细分析</h2></div>
+  </div>
+  <p class="step-desc">每种算法从不同角度衡量同一个风险。红线是保险公司的核保上限。</p>
+  <div id="methods"></div>
+  <div class="cap-note" id="capNote"></div>
+</section>
+
+<!-- ============ VERDICT ============ -->
+<div class="verdict" id="verdict"></div>
+
+<!-- ============ 时间轴对比 ============ -->
+<section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
+  <div class="step-tag">
+    <div class="step-ico">⏳</div>
+    <div><span class="no">两 个 剧 本</span><h2>关键人缺席之后的 12 个月</h2></div>
+  </div>
+  <p class="step-desc">同一家公司，同一场意外，两种截然不同的结局。数字来自您刚才输入的资料。</p>
+  <div class="tl-tabs no-print">
+    <button class="tl-tab on-red" id="tabNo" type="button">没有保障<small>公司硬扛</small></button>
+    <button class="tl-tab" id="tabYes" type="button">有 Keyman 保障<small>保险公司扛</small></button>
+  </div>
+  <div class="tl-wrap bg-red" id="tlWrap">
+    <div class="tl" id="tlBody"></div>
+    <div class="tl-punch" id="tlPunch"></div>
+  </div>
+</section>
+
+<!-- ============ 柒 ============ -->
+<section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
+  <div class="step-tag">
+    <div class="step-ico">📋</div>
+    <div><span class="no">第 柒 步</span><h2>核保文件清单</h2></div>
+  </div>
+  <p class="step-desc">按方案总保额分级。文件一次备齐，核保一次过。</p>
+  <table class="docs" id="docsTable">
+    <tr data-band="1"><td>&lt; RM1m</td><td>财务问卷 (Financial Questionnaire)</td></tr>
+    <tr data-band="2"><td>RM1m – 3m</td><td>问卷 + 近 2 年 Management Accounts</td></tr>
+    <tr data-band="3"><td>&gt; RM3m</td><td>近 3 年 Audited Accounts + 贷款 Offer Letter + 董事会决议（Keyman 用途声明）</td></tr>
+  </table>
+</section>
+
+<div class="contact">
+  <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTYiIGhlaWdodD0iMTE2IiB2aWV3Qm94PSIwIDAgMTE2IDExNiIgc2hhcGUtcmVuZGVyaW5nPSJjcmlzcEVkZ2VzIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEyIiB5PSI4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTYiIHk9IjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyMCIgeT0iOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSI4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjgiIHk9IjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIzMiIgeT0iOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ4IiB5PSI4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNTYiIHk9IjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2NCIgeT0iOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSI4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODQiIHk9IjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4OCIgeT0iOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSI4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOTYiIHk9IjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDAiIHk9IjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDQiIHk9IjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ4IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjYwIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY4IiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY4IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijk2IiB5PSIxNiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iMTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ0IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ4IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjYwIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY4IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijk2IiB5PSIyMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iMjAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ0IiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY0IiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijk2IiB5PSIyNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iMjQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ0IiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjUyIiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY0IiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY4IiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSIyOCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iMjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEyIiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI4IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ4IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY0IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg0IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijk2IiB5PSIzMiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwMCIgeT0iMzIiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDQiIHk9IjMyIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDAiIHk9IjM2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDQiIHk9IjM2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDgiIHk9IjM2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNTIiIHk9IjM2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjQiIHk9IjM2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjgiIHk9IjM2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxNiIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyMCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyNCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyOCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIzMiIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0NCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI1MiIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2MCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2OCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI3MiIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4MCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4NCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4OCIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI5MiIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI5NiIgeT0iNDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMiIgeT0iNDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyOCIgeT0iNDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0MCIgeT0iNDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0OCIgeT0iNDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI1NiIgeT0iNDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2NCIgeT0iNDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4NCIgeT0iNDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDAiIHk9IjQ0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTIiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTYiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjAiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjgiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMzIiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMzYiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDAiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDgiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjAiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjQiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjgiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODAiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODQiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODgiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOTIiIHk9IjQ4IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTAwIiB5PSI0OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iNDgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI4IiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijc2IiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg0IiB5PSI1MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iNTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyMCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyNCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyOCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIzMiIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIzNiIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0NCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0OCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI1NiIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2MCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2OCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI3MiIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4MCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4NCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4OCIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI5NiIgeT0iNTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDAiIHk9IjU2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTA0IiB5PSI1NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgiIHk9IjYwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTIiIHk9IjYwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjAiIHk9IjYwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDQiIHk9IjYwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjQiIHk9IjYwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODQiIHk9IjYwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOTIiIHk9IjYwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTAwIiB5PSI2MCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTYiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjAiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjQiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMzIiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMzYiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDAiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDgiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNTIiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNTYiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjAiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjQiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjgiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNzIiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNzYiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODQiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODgiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOTIiIHk9IjY0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTAwIiB5PSI2NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iNjQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI4IiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjUyIiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY0IiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg0IiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSI2OCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iNjgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI4IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjM2IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ0IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ4IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjUyIiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjYwIiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijc2IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg0IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijk2IiB5PSI3MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSI3NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSI3NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY0IiB5PSI3NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY4IiB5PSI3NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSI3NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSI3NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSI3NiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTIiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTYiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjAiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjQiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjgiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMzIiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNTYiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjAiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjQiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNzIiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODAiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODgiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOTYiIHk9IjgwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTAwIiB5PSI4MCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iODAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ0IiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY4IiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjcyIiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSI4NCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwMCIgeT0iODQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDQiIHk9Ijg0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxNiIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyMCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyNCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIzMiIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0MCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0NCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0OCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI1MiIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2MCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2OCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI3MiIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI3NiIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4MCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4NCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4OCIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI5NiIgeT0iODgiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjIwIiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI0IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjMyIiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQwIiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ0IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjUyIiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjU2IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY0IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijc2IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg4IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijk2IiB5PSI5MiIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwMCIgeT0iOTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDQiIHk9IjkyIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOCIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxNiIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyMCIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyNCIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIzMiIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0MCIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI0NCIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI5MiIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI5NiIgeT0iOTYiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDQiIHk9Ijk2IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOCIgeT0iMTAwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMzIiIHk9IjEwMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ4IiB5PSIxMDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI1NiIgeT0iMTAwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNjQiIHk9IjEwMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjY4IiB5PSIxMDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI3MiIgeT0iMTAwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNzYiIHk9IjEwMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9Ijg0IiB5PSIxMDAiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4OCIgeT0iMTAwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOTIiIHk9IjEwMCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjEwNCIgeT0iMTAwIiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iOCIgeT0iMTA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTIiIHk9IjEwNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjE2IiB5PSIxMDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIyMCIgeT0iMTA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMjQiIHk9IjEwNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjI4IiB5PSIxMDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIzMiIgeT0iMTA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNDAiIHk9IjEwNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjQ4IiB5PSIxMDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI2MCIgeT0iMTA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iNzYiIHk9IjEwNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjgwIiB5PSIxMDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI4NCIgeT0iMTA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iODgiIHk9IjEwNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjxyZWN0IHg9IjkyIiB5PSIxMDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSI5NiIgeT0iMTA0IiB3aWR0aD0iNCIgaGVpZ2h0PSI0Ii8+PHJlY3QgeD0iMTAwIiB5PSIxMDQiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiLz48cmVjdCB4PSIxMDQiIHk9IjEwNCIgd2lkdGg9IjQiIGhlaWdodD0iNCIvPjwvc3ZnPg==" alt="WhatsApp QR · +60 12-567 6118" width="86" height="86">
+  <div>
+    <div class="c-name">黄冠尊 Wilson Ooi</div>
+    <div class="c-sub">企业保障顾问 · Hong Leong Assurance<br>
+    WhatsApp <a href="https://wa.me/60125676118">+60 12-567 6118</a> · 扫码直接咨询</div>
+    <div class="sign-row">
+      <div class="s-box">客户签名 / 日期</div>
+      <div class="s-box">顾问签名 / 日期</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
+  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.2
+  <div class="draft-hint no-print" id="draftHint"></div>
+</footer>
+</main>
+
+<div class="sticky no-print">
+  <div>
+    <div class="s-label">建 议 总 保 额</div>
+    <div class="s-val" id="stickyVal">RM 0</div>
+  </div>
+  <div class="btn-row">
+    <button class="btn btn-gold" id="btnPrint" type="button">生成建议书 PDF</button>
+  </div>
+</div>
+
+<!-- 打印预览 -->
+<div class="modal-bg no-print" id="printModal" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
+  <div class="modal">
+    <h3 id="printModalTitle">建议书将包含</h3>
+    <p class="m-desc">打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。</p>
+    <ul id="printPages"></ul>
+    <div class="m-actions">
+      <button class="btn btn-line" id="btnPrintCancel" type="button">取消</button>
+      <button class="btn btn-ink" id="btnPrintGo" type="button">继续打印</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= state & utils ================= */
+const S = { gender:'M', smoker:false, attr:0.5, rec:3 };
+const $ = id => document.getElementById(id);
+const num = id => parseFloat($(id).value) || 0;
+const fmt = v => 'RM ' + Math.round(v).toLocaleString('en-MY');
+const fmtM = v => v>=1000000 ? 'RM ' + (v/1000000).toFixed(2).replace(/\.?0+$/,'') + 'm' : fmt(v);
+
+/* count-up animation */
+const counters = {};
+function countUp(el, target){
+  const key = el.id || el.dataset.k;
+  const from = counters[key] ?? 0;
+  counters[key] = target;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ el.textContent = fmt(target); return; }
+  const t0 = performance.now(), dur = 650;
+  function tick(t){
+    const p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,3);
+    el.textContent = fmt(from + (target-from)*e);
+    if(p<1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+/* ================= tables ================= */
+const RATE = [[30,2600],[35,3200],[40,5000],[45,7500],[50,12000],[55,20000],[60,32000]];
+function rate(age){
+  if(age<=RATE[0][0]) return RATE[0][1];
+  if(age>=RATE[RATE.length-1][0]) return RATE[RATE.length-1][1];
+  for(let i=0;i<RATE.length-1;i++){
+    const [a1,r1]=RATE[i],[a2,r2]=RATE[i+1];
+    if(age>=a1&&age<=a2) return r1+(r2-r1)*(age-a1)/(a2-a1);
+  }
+}
+const multiplier = age => age<40?10 : age<50?8 : age<55?6 : 5;
+
+/* ================= core ================= */
+function calc(){
+  const age=num('age'), rem=num('rem'), gp=num('gp'), np=num('np');
+  const loan=num('loan'), od=num('od'), odu=num('odu')/100, pg=num('pg'), exist=num('exist');
+
+  const mult = multiplier(age);
+  const SA_A = rem * mult;
+  const attrProfit = gp * S.attr;
+  const SA_B = attrProfit * S.rec;
+  const debtGross = loan + od*odu + pg;
+  const SA_C = Math.max(0, debtGross - exist);
+  const bsOn = $('bsOn').checked;
+  const valuation = np * num('pe');
+  const SA_D = bsOn ? valuation * (num('eq')/100) : 0;
+
+  const cap1 = rem * mult, cap2 = np * 5, cap = Math.min(cap1, cap2);
+
+  const useDebt = $('uDebt').checked, useProfit = $('uProfit').checked, useBS = $('uBS').checked && bsOn;
+  const rawProfit = Math.max(SA_A, SA_B);
+  const cappedProfit = Math.min(rawProfit, cap);
+  const profitCapped = rawProfit > cap;
+
+  let parts=[];
+  if(useDebt && SA_C>0) parts.push({name:'① 债务保障单', sa:SA_C, type:'Level / Reducing Term', why:'银行贷款与担保一次清零，公司与家人不背债。贷款文件支持，通常可全额核保。', gu:true});
+  if(useProfit && cappedProfit>0) parts.push({name:'② 利润保障单', sa:cappedProfit, type:'Level Term', why: (profitCapped?'需求超出核保上限，先保到上限，其余分期加保。':'恢复期内员工薪水照发、供应商照付、客户不流失。'), gu:true});
+  if(useBS && SA_D>0) parts.push({name:'③ 股权买卖单', sa:SA_D, type:'独立结构 + Buy-Sell Agreement', why:'理赔金直接成为股东买回股份的现金，家属拿钱、公司拿回控制权，两边都体面。', gu:false});
+
+  const gu = $('grossup').checked;
+  /* Gross-up 仅套用债务 + 利润 Term；股权买卖单独立不加 */
+  let termSA = 0, bsSA = 0;
+  parts.forEach(p=>{ if(p.gu) termSA += p.sa; else bsSA += p.sa; });
+  const termGross = gu ? termSA/0.76 : termSA;
+  const totalSA = termSA + bsSA;
+  const grossSA = termGross + bsSA;
+  /* 展示用：把 Term 部分按比例放大到各单 */
+  const guFactor = (gu && termSA>0) ? (1/0.76) : 1;
+  parts = parts.map(p=>({...p, displaySA: p.gu ? p.sa*guFactor : p.sa}));
+
+  let f=1; if(S.smoker)f*=1.75; if(S.gender==='F')f*=0.85;
+  const prem = (grossSA/1000000)*rate(age)*f;
+
+  render({age,mult,rem,gp,np,attrProfit,SA_A,SA_B,SA_C,SA_D,bsOn,valuation,debtGross,exist,
+          cap,cap1,cap2,parts,totalSA,grossSA,gu,termSA,bsSA,termGross,profitCapped,rawProfit,
+          premLo:prem*0.85, premHi:prem*1.2});
+  saveDraft();
+}
+
+/* ================= render ================= */
+function render(r){
+  /* risk dashboard */
+  countUp($('rkDebt'), r.SA_C);
+  countUp($('rkProfit'), r.SA_B);
+  $('rkEquity').textContent = r.bsOn ? fmtM(r.SA_D) : '—';
+  const totRisk = r.SA_C + r.SA_B + (r.bsOn?r.SA_D:0);
+  $('rkTotal').innerHTML = `合计风险敞口：<b style="color:var(--red)">${fmt(totRisk)}</b> —— 这不是保险问题，是企业续存问题。`;
+
+  /* live analysis strips */
+  $('liveA').innerHTML = `📌 ${r.age} 岁核保档：保险公司最高接受 报酬 × <b>${r.mult} 倍</b> ≈ <b>${fmtM(r.SA_A)}</b> 的关键人保额。`;
+  $('liveB').innerHTML = `📌 分析：关键人每年为公司带来约 <b>${fmtM(r.attrProfit)}</b> 毛利。若缺席 ${S.rec} 年恢复期，公司总缺口 = <b>${fmtM(r.SA_B)}</b>。`;
+  $('liveC').innerHTML = `📌 分析：银行总敞口 <b>${fmtM(r.debtGross)}</b>${r.exist>0?`，扣除现有保障 ${fmtM(r.exist)}`:''}，未被保障的债务风险 = <b>${fmtM(r.SA_C)}</b>。`;
+  if(r.bsOn) $('liveD').innerHTML = `📌 分析：公司估值 ≈ 净利 × ${num('pe')} = <b>${fmtM(r.valuation)}</b>；关键人 ${num('eq')}% 股份价值 = <b>${fmtM(r.SA_D)}</b>，这就是其他股东需要准备的买回资金。`;
+
+  /* method cards */
+  const items=[
+    {n:'薪资倍数法', en:'MULTIPLE OF REMUNERATION', v:r.SA_A, c:'var(--ink)',
+     math:`${fmt(num('rem'))} 总报酬 × ${r.mult} 倍（${r.age}岁核保档）`,
+     say:`最保守的算法，也是保险公司核保的<b>锚点</b>。低于这个数，核保基本一路绿灯。`},
+    {n:'利润贡献法', en:'PROFIT CONTRIBUTION', v:r.SA_B, c:'var(--gold)',
+     math:`${fmtM(num('gp'))} 毛利 × ${Math.round(S.attr*100)}% 贡献度 × ${S.rec} 年恢复期`,
+     say:`最贴近真实的算法：量化<b>公司会真正少赚的钱</b>。这是企业风险的核心数字。`},
+    {n:'债务覆盖法', en:'DEBT PROTECTION', v:r.SA_C, c:'var(--teal)',
+     math:`Term Loan + OD 使用额 + 个人担保 − 现有保障`,
+     say:`痛点最具体：人不在，<b>银行照样追债</b>，个人担保直接波及家人。这部分保额刻不容缓。`},
+  ];
+  if(r.bsOn) items.push({n:'股权买卖法', en:'BUY-SELL FUNDING', v:r.SA_D, c:'var(--plum)',
+     math:`(净利 ${fmtM(num('np'))} × PE ${num('pe')}) × 持股 ${num('eq')}%`,
+     say:`保护的是<b>公司控制权</b>：家属拿到公道的钱，股东拿回股份，生意继续跑。`});
+
+  const maxV = Math.max(...items.map(i=>i.v), r.cap, 1);
+  $('methods').innerHTML = items.map(i=>`
+    <div class="m-card" style="--mc:${i.c}">
+      <div class="m-top">
+        <div class="m-name">${i.n}<small>${i.en}</small></div>
+        <div class="m-val">${fmt(i.v)}</div>
+      </div>
+      <div class="m-math">${i.math}</div>
+      <div class="m-say">${i.say}</div>
+      <div class="bar-track">
+        <div class="bar-fill" style="width:${Math.min(100,i.v/maxV*100)}%"></div>
+        <div class="cap-line" style="left:${Math.min(100,r.cap/maxV*100)}%"></div>
+      </div>
+      ${i.v>r.cap?'<div class="cap-flag">▲ 超出核保上限，超出部分需 Audited Accounts 支持或分期加保</div>':''}
+    </div>`).join('');
+  $('capNote').innerHTML = `核保上限 ≈ <b>${fmt(r.cap)}</b>：取「报酬×倍数 ${fmtM(r.cap1)}」与「净利×5 ${fmtM(r.cap2)}」两者较低。红线以内 = 顺畅核保区。`;
+
+  /* verdict */
+  let polHTML = r.parts.map(p=>`
+    <div class="pol">
+      <div class="p-head"><span class="p-name">${p.name}</span><span class="p-sa">${fmt(p.displaySA)}</span></div>
+      <div class="p-type">${p.type}${r.gu && p.gu ? ' · 已 Gross-up' : (!p.gu ? ' · 不套用 Gross-up' : '')}</div>
+      <div class="p-why">${p.why}</div>
+    </div>`).join('');
+  if(!r.parts.length) polHTML = '<div class="pol"><div class="p-why">请在第伍步选择至少一个保障用途。</div></div>';
+
+  let guSub;
+  if(r.gu && r.termSA>0){
+    guSub = `Term 需求 ${fmt(r.termSA)} ÷ 0.76 = ${fmt(r.termGross)}${r.bsSA>0?`；股权买卖 ${fmt(r.bsSA)} 不加 Gross-up`:''} —— 公司<b style="color:var(--gold-hi)">Term 实拿足额</b>；保费同时享有扣税。`;
+  } else if(r.gu && r.termSA===0){
+    guSub = '已勾选 Gross-up，但当前方案无 Term 债务/利润单可放大；股权买卖单独立处理。';
+  } else {
+    guSub = '未启用 Gross-up：走理赔免税路线（保费通常不可扣税）。';
+  }
+
+  $('verdict').innerHTML = `
+    <div class="v-label">建 议 保 障 方 案</div>
+    <div class="v-sum" id="vSum">${fmt(r.grossSA)}</div>
+    <div class="v-sub">${guSub}</div>
+    ${polHTML}
+    <div class="v-prem">
+      <span class="pl">预估年保费<br><span style="font-size:11px;color:#7E8DAB">${r.age}岁 · ${S.gender==='M'?'男':'女'} · ${S.smoker?'吸烟':'非吸烟'} · Level Term</span></span>
+      <span class="pv">${fmt(r.premLo)}<br>– ${fmt(r.premHi)} /年</span>
+    </div>
+    <div class="daily">
+      <div class="d-tile">
+        <div class="d-big">RM ${Math.round(((r.premLo+r.premHi)/2)/365).toLocaleString()}<span style="font-size:12px">/天</span></div>
+        <div class="d-cap">≈ 一顿饭钱，换整家公司的续存</div>
+      </div>
+      <div class="d-tile">
+        <div class="d-big">1 : ${((r.premLo+r.premHi)/2)>0?Math.round(r.grossSA/((r.premLo+r.premHi)/2)).toLocaleString():'—'}</div>
+        <div class="d-cap">每 RM1 保费撬动的保障杠杆</div>
+      </div>
+    </div>
+    <div class="v-foot">以上保费为行业参考费率估算，非 HLA 正式报价；正式保费以 Quotation 为准。</div>`;
+  const vs = $('vSum'); vs.dataset.k='vsum'; countUp(vs, r.grossSA);
+
+  $('stickyVal').textContent = fmt(r.grossSA);
+
+  /* docs band */
+  document.querySelectorAll('#docsTable tr').forEach(tr=>tr.classList.remove('active-band'));
+  const band = r.grossSA<1000000?1 : r.grossSA<=3000000?2 : 3;
+  const tr = document.querySelector(`#docsTable tr[data-band="${band}"]`);
+  if(tr && r.grossSA>0) tr.classList.add('active-band');
+
+  lastR = r;
+  renderTimeline();
+}
+
+/* ================= timeline ================= */
+let lastR = null;
+let tlMode = 'no'; // 'no' | 'yes'
+function renderTimeline(){
+  if(!lastR) return;
+  const r = lastR;
+  const mLoss = r.attrProfit/12;
+  const who = ($('bossName').value.trim() || '关键人');
+  const comp = ($('compName').value.trim() || '公司');
+
+  let nodes, punch;
+  if(tlMode==='no'){
+    nodes = [
+      {w:'第 1 个月', t:`现金流立即失血：每月少 <b>${fmt(mLoss)}</b> 毛利。银行察觉变故，OD 随时冻结，供应商开始收紧账期。`},
+      {w:'第 6 个月', t:`银行 Call Loan：<b>${fmt(r.debtGross)}</b> 债务全数到期。核心员工被同行挖走，老客户流失，${comp} 元气大伤。`},
+      {w:'第 12 个月', t:`被迫贱卖资产还债${num('pg')>0?`，个人担保 <b>${fmt(num('pg'))}</b> 直接追到家人身上`:''}。多年心血，一场变故归零。`},
+    ];
+    punch = '没有人会为这个剧本负责——除了家人。';
+  } else {
+    nodes = [
+      {w:'第 1 个月', t:`理赔金 <b>${fmt(r.grossSA)}</b> 免遗产程序直接到账。银行债务 <b>${fmt(r.SA_C)}</b> 一次清零，OD 照常运作。`},
+      {w:'第 6 个月', t:`公司有充足银弹高薪聘请接班人。员工薪水照发、供应商照付，客户完全无感，生意照跑。`},
+      {w:'第 12 个月', t:`恢复期利润缺口由 <b>${fmt(r.SA_B)}</b> 补贴，${comp} 平稳过渡${$('bsOn').checked?'，股权按 Buy-Sell 协议体面交接':''}。${who} 留给公司的不是烂摊子，是从容。`},
+    ];
+    punch = '同一场意外，保险公司扛，不是家人扛。';
+  }
+  $('tlBody').innerHTML = nodes.map(n=>`
+    <div class="tl-node"><div class="tl-when">${n.w}</div><div class="tl-what">${n.t}</div></div>`).join('');
+  $('tlPunch').textContent = punch;
+  $('tlWrap').className = 'tl-wrap ' + (tlMode==='no'?'bg-red':'bg-teal');
+}
+
+/* ================= personalization ================= */
+function personalize(){
+  const comp = $('compName').value.trim();
+  const boss = $('bossName').value.trim();
+  $('headerSub').innerHTML = comp
+    ? `为 <b style="color:var(--gold-hi)">${comp}</b> 定制的企业风险分析 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构`
+    : '用您公司自己的数字，精算出企业风险缺口 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构';
+  $('rkHead').textContent = `如果${boss||'关键人'}明天缺席，${comp||'公司'}立刻面对——`;
+  $('cvFor').textContent = `呈交：${comp||'贵公司管理层'}${boss?` · ${boss}`:''}`;
+  renderTimeline();
+}
+
+/* ================= draft (localStorage) ================= */
+const DRAFT_KEY = 'keyman-calc-draft-v2';
+const FIELD_IDS = ['compName','bossName','age','rem','gp','np','loan','od','odu','pg','exist','pe','eq'];
+
+function saveDraft(){
+  try{
+    const draft = {
+      fields:{}, S:{gender:S.gender,smoker:S.smoker,attr:S.attr,rec:S.rec},
+      checks:{bsOn:$('bsOn').checked,uDebt:$('uDebt').checked,uProfit:$('uProfit').checked,uBS:$('uBS').checked,grossup:$('grossup').checked},
+      tlMode, savedAt: Date.now()
+    };
+    FIELD_IDS.forEach(id=>{ const el=$(id); if(el) draft.fields[id]=el.value; });
+    localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    const hint=$('draftHint');
+    if(hint) hint.textContent = '草稿已自动保存在本机浏览器，刷新不会丢失。';
+  }catch(e){/* private mode */}
+}
+
+function loadDraft(){
+  try{
+    const raw = localStorage.getItem(DRAFT_KEY);
+    if(!raw) return false;
+    const draft = JSON.parse(raw);
+    if(draft.fields) FIELD_IDS.forEach(id=>{ if(draft.fields[id]!=null && $(id)) $(id).value=draft.fields[id]; });
+    if(draft.S){
+      S.gender=draft.S.gender||'M'; S.smoker=!!draft.S.smoker; S.attr=draft.S.attr??0.5; S.rec=draft.S.rec??3;
+      document.querySelectorAll('[data-group=gender]').forEach(b=>b.classList.toggle('on', b.dataset.val===S.gender));
+      document.querySelectorAll('[data-group=smoker]').forEach(b=>b.classList.toggle('on', S.smoker));
+      document.querySelectorAll('#attrChips .chip').forEach(b=>b.classList.toggle('on', parseFloat(b.dataset.attr)===S.attr));
+      document.querySelectorAll('#recChips .chip').forEach(b=>b.classList.toggle('on', parseFloat(b.dataset.rec)===S.rec));
+    }
+    if(draft.checks){
+      ['bsOn','uDebt','uProfit','uBS','grossup'].forEach(id=>{
+        if(draft.checks[id]!=null && $(id)){
+          $(id).checked=draft.checks[id];
+          const purpose=$(id).closest('.purpose');
+          if(purpose) purpose.classList.toggle('on', $(id).checked);
+        }
+      });
+      $('bsFold').classList.toggle('open', $('bsOn').checked);
+      $('bsToggle').classList.toggle('on', $('bsOn').checked);
+    }
+    if(draft.tlMode){
+      tlMode=draft.tlMode;
+      if(tlMode==='yes'){ $('tabNo').className='tl-tab'; $('tabYes').className='tl-tab on-teal'; }
+      else { $('tabNo').className='tl-tab on-red'; $('tabYes').className='tl-tab'; }
+    }
+    const hint=$('draftHint');
+    if(hint && draft.savedAt){
+      const d=new Date(draft.savedAt);
+      hint.textContent = `已恢复本机草稿（${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}）`;
+    }
+    return true;
+  }catch(e){ return false; }
+}
+
+function setBuySell(on, from){
+  /* bidirectional: 第肆步 ↔ 第伍步股权买卖 */
+  if(from!=='bs'){
+    $('bsOn').checked=on;
+    $('bsFold').classList.toggle('open', on);
+    $('bsToggle').classList.toggle('on', on);
+  }
+  if(from!=='uBS'){
+    $('uBS').checked=on;
+    $('uBS').closest('.purpose').classList.toggle('on', on);
+  }
+}
+
+/* ================= print preview ================= */
+function openPrintPreview(){
+  const r = lastR;
+  const comp = ($('compName').value.trim() || '贵公司');
+  const pages = [
+    {t:'封面', d:`呈交 ${comp} 的机密建议书封面`},
+    {t:'风险仪表板', d:'债务 / 利润缺口 / 股权风险一览'},
+    {t:'客户与关键人资料', d:'公司、关键人、年龄与报酬'},
+    {t:'盈利 · 债务 · 股权分析', d:'输入假设与即时解读'},
+    {t:'四种算法对比', d:'含核保上限红线'},
+    {t:'建议保障方案', d: r ? `总保额 ${fmt(r.grossSA)} · 预估保费区间` : '建议保额与保费'},
+    {t:'12 个月双剧本', d:'有 / 无 Keyman 对照'},
+    {t:'核保文件清单', d:'按保额分级的文件要求'},
+    {t:'顾问联系与签署栏', d:'WhatsApp QR · 双方签名'},
+  ];
+  $('printPages').innerHTML = pages.map(p=>`<li><span class="dot"></span><div><b>${p.t}</b><br><span style="color:var(--tx2);font-size:12px">${p.d}</span></div></li>`).join('');
+  $('printModal').classList.add('open');
+}
+function closePrintPreview(){ $('printModal').classList.remove('open'); }
+
+/* ================= events ================= */
+document.querySelectorAll('input[type=number]').forEach(el=>el.addEventListener('input', calc));
+document.querySelectorAll('[data-g=chip]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    if(btn.dataset.group==='gender'){
+      document.querySelectorAll('[data-group=gender]').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on'); S.gender = btn.dataset.val;
+    } else { btn.classList.toggle('on'); S.smoker = btn.classList.contains('on'); }
+    calc();
+  });
+});
+document.querySelectorAll('#attrChips .chip').forEach(btn=>btn.addEventListener('click', ()=>{
+  document.querySelectorAll('#attrChips .chip').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); S.attr=parseFloat(btn.dataset.attr); calc();
+}));
+document.querySelectorAll('#recChips .chip').forEach(btn=>btn.addEventListener('click', ()=>{
+  document.querySelectorAll('#recChips .chip').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on'); S.rec=parseFloat(btn.dataset.rec); calc();
+}));
+$('bsOn').addEventListener('change', e=>{
+  setBuySell(e.target.checked, 'bs');
+  calc();
+});
+document.querySelectorAll('.pUse, #grossup').forEach(cb=>cb.addEventListener('change', ()=>{
+  cb.closest('.purpose').classList.toggle('on', cb.checked);
+  if(cb.id==='uBS') setBuySell(cb.checked, 'uBS');
+  calc();
+}));
+
+/* client info */
+$('compName').addEventListener('input', ()=>{ personalize(); saveDraft(); });
+$('bossName').addEventListener('input', ()=>{ personalize(); saveDraft(); });
+
+/* timeline tabs */
+$('tabNo').addEventListener('click', ()=>{
+  tlMode='no';
+  $('tabNo').className='tl-tab on-red'; $('tabYes').className='tl-tab';
+  renderTimeline(); saveDraft();
+});
+$('tabYes').addEventListener('click', ()=>{
+  tlMode='yes';
+  $('tabNo').className='tl-tab'; $('tabYes').className='tl-tab on-teal';
+  renderTimeline(); saveDraft();
+});
+
+/* print modal */
+$('btnPrint').addEventListener('click', openPrintPreview);
+$('btnPrintCancel').addEventListener('click', closePrintPreview);
+$('btnPrintGo').addEventListener('click', ()=>{ closePrintPreview(); setTimeout(()=>window.print(), 80); });
+$('printModal').addEventListener('click', e=>{ if(e.target===$('printModal')) closePrintPreview(); });
+
+/* dates */
+const today = new Date();
+const dStr = today.getFullYear()+'年'+(today.getMonth()+1)+'月'+today.getDate()+'日';
+$('todayStr').textContent = dStr;
+$('cvDate').textContent = dStr;
+
+loadDraft();
+calc();
+personalize();
+</script>
+</body>
+</html>
