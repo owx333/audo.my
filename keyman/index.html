@@ -26,11 +26,18 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--tx);font-family:var(--sans);font-size:15px;line-height:1.7;padding-bottom:92px}
+body{
+  background:
+    radial-gradient(900px 420px at 12% -10%, rgba(201,162,75,.10), transparent 55%),
+    radial-gradient(700px 380px at 92% 8%, rgba(14,140,127,.07), transparent 50%),
+    var(--paper);
+  color:var(--tx);font-family:var(--sans);font-size:15px;line-height:1.7;padding-bottom:92px
+}
 b,strong{color:var(--ink)}
+.wrap{width:100%;max-width:660px;margin:0 auto;padding:0 14px}
 
 /* ============ HEADER ============ */
-header{background:linear-gradient(160deg,#0C1830 0%,#0F1E3D 55%,#16295220 100%),#0F1E3D;color:#fff;padding:34px 22px 38px;position:relative;overflow:hidden}
+header{background:linear-gradient(160deg,#0C1830 0%,#0F1E3D 55%,#16295220 100%),#0F1E3D;color:#fff;padding:34px 0 38px;position:relative;overflow:hidden}
 header::before{content:"";position:absolute;right:-60px;top:-60px;width:230px;height:230px;border:1px solid rgba(201,162,75,.30);border-radius:50%}
 header::after{content:"";position:absolute;right:-20px;top:-110px;width:230px;height:230px;border:1px solid rgba(201,162,75,.14);border-radius:50%}
 .eyebrow{font-size:11px;letter-spacing:.4em;color:var(--gold);margin-bottom:10px}
@@ -39,12 +46,14 @@ header h1{font-family:var(--serif);font-size:29px;font-weight:700;letter-spacing
   background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   animation:sweep 5.5s ease-in-out infinite}
 @keyframes sweep{0%,20%{background-position:120% 0}55%,100%{background-position:-60% 0}}
-header .sub{font-size:13px;color:#A9B4CC;margin-top:8px;max-width:520px}
+header .sub{font-size:13px;color:#A9B4CC;margin-top:8px;max-width:560px}
 header .presenter{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-size:12px;color:#C9D2E4;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px}
 header .presenter i{width:7px;height:7px;border-radius:50%;background:var(--gold);display:inline-block}
+.header-brand{font-size:11px;color:#8FA0C0;margin-top:10px;letter-spacing:.08em}
 
 /* ============ RISK DASH ============ */
-.risk{max-width:660px;margin:-18px auto 0;padding:0 14px;position:relative;z-index:5}
+.risk-wrap{margin-top:-18px;position:relative;z-index:5}
+.risk{margin:0}
 .risk-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:0 10px 30px rgba(15,30,61,.10)}
 .risk-card h3{font-family:var(--serif);font-size:16px;color:var(--ink);text-align:center}
 .risk-card .q{text-align:center;font-size:12px;color:var(--tx2);margin:2px 0 14px}
@@ -59,7 +68,11 @@ header .presenter i{width:7px;height:7px;border-radius:50%;background:var(--gold
 .risk-foot{text-align:center;font-size:11.5px;color:var(--tx2);margin-top:12px}
 
 /* ============ LAYOUT ============ */
-main{max-width:660px;margin:0 auto;padding:20px 14px 30px}
+.workspace{max-width:660px;margin:0 auto;padding:20px 14px 0;display:flex;flex-direction:column}
+.desk-main{min-width:0;order:1}
+.desk-aside{min-width:0;order:2}
+.desk-aside .verdict{margin-bottom:18px}
+.desk-lower{max-width:660px;margin:0 auto;padding:0 14px 30px}
 section.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-bottom:18px;position:relative;overflow:hidden}
 section.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--gold))}
 .step-tag{display:flex;align-items:center;gap:12px;margin-bottom:6px}
@@ -144,6 +157,7 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:10px;col
 
 /* sticky */
 .sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(12,24,48,.97);backdrop-filter:blur(10px);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;border-top:1px solid rgba(201,162,75,.3)}
+.sticky-inner{width:100%;max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .sticky .s-label{font-size:10px;letter-spacing:.25em;color:var(--gold)}
 .sticky .s-val{font-family:var(--serif);font-size:21px;font-variant-numeric:tabular-nums}
 .btn{border:none;border-radius:11px;padding:12px 20px;font-size:14px;font-weight:700;cursor:pointer}
@@ -152,6 +166,8 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:10px;col
 .btn-ghost{background:transparent;color:#C6CFDF;border:1px solid rgba(255,255,255,.25);padding:10px 14px;font-size:13px}
 .btn-ghost:active{transform:scale(.97)}
 .sticky .btn-row{display:flex;gap:8px;align-items:center;flex:none}
+.aside-actions{display:none;margin-top:14px}
+.aside-actions .btn{width:100%}
 
 /* print preview modal */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(12,24,48,.55);z-index:80;align-items:flex-end;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
@@ -210,7 +226,9 @@ footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;l
 
 @media print{
   body{padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .sticky,.no-print,.modal-bg,header{display:none!important}
+  .sticky,.no-print,.modal-bg,header,.aside-actions{display:none!important}
+  .workspace,.desk-lower{max-width:none;display:block;padding:0}
+  .desk-aside{position:static!important}
   section.card,.verdict,.risk-card,.contact{break-inside:avoid;box-shadow:none}
   #cover{display:flex;flex-direction:column;justify-content:center;min-height:96vh;background:var(--ink);color:#fff;padding:60px 50px;page-break-after:always;border-radius:0}
   #cover .cv-eyebrow{font-size:12px;letter-spacing:.45em;color:var(--gold)}
@@ -221,6 +239,61 @@ footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;l
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (max-width:390px){.row2{grid-template-columns:1fr}.risk-grid{grid-template-columns:1fr 1fr 1fr;gap:6px}.risk-tile{padding:10px 6px}.risk-tile .t-val{font-size:13.5px}}
+
+/* ============ DESKTOP / FULLSCREEN ============ */
+@media (min-width:960px){
+  body{font-size:15.5px;padding-bottom:88px}
+  .wrap{max-width:1120px;padding:0 28px}
+  .risk-wrap{margin-top:-24px}
+  .risk-card{padding:22px 24px}
+  .risk-tile .t-val{font-size:22px}
+  .risk-card h3{font-size:20px}
+  header{padding:48px 0 56px}
+  header h1{font-size:42px}
+  header .sub{font-size:15px;max-width:720px;margin-top:12px}
+  .workspace{
+    max-width:1120px;padding:28px 28px 0;
+    display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:24px;align-items:start;
+  }
+  .desk-main,.desk-aside{order:unset}
+  .desk-aside{
+    position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;
+    padding-bottom:8px;scrollbar-width:thin;
+  }
+  .desk-aside .verdict{margin-bottom:0}
+  .desk-aside .v-sum{font-size:36px}
+  .aside-actions{display:block}
+  .desk-lower{
+    max-width:1120px;padding:8px 28px 40px;
+    display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start;
+  }
+  .desk-lower .contact{grid-column:1 / -1}
+  .desk-lower footer{grid-column:1 / -1;padding-top:8px}
+  #methods{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  #methods .m-card{margin-bottom:0}
+  #capNote{margin-top:12px}
+  .purpose-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .purpose-grid .purpose{margin-bottom:0}
+  .purpose-grid .purpose.span2{grid-column:1 / -1;margin-top:4px}
+  #attrChips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  #recChips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  section.card{padding:24px 22px;margin-bottom:20px}
+  .step-tag h2{font-size:22px}
+  .modal-bg{align-items:center;padding:24px}
+  .modal{border-radius:18px;max-width:480px}
+  .sticky-inner{max-width:1120px;padding:0 10px}
+}
+@media (min-width:1200px){
+  .workspace,.desk-lower,.wrap,.sticky-inner{max-width:1200px}
+  .workspace{grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);gap:28px}
+  header h1{font-size:46px}
+  .desk-aside .v-sum{font-size:40px}
+  .risk-tile .t-val{font-size:24px}
+}
+@media (min-width:960px) and (min-height:800px){
+  .sticky{display:none}
+  body{padding-bottom:24px}
+}
 </style>
 </head>
 <body>
@@ -239,39 +312,45 @@ footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;l
 </div>
 
 <header>
-  <div class="eyebrow">BUSINESS PROTECTION ANALYSIS</div>
-  <h1>企业关键人保障分析系统</h1>
-  <div class="sub" id="headerSub">用您公司自己的数字，精算出企业风险缺口 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构</div>
-  <div class="presenter"><i></i>分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</div>
+  <div class="wrap">
+    <div class="eyebrow">BUSINESS PROTECTION ANALYSIS</div>
+    <h1>企业关键人保障分析系统</h1>
+    <div class="sub" id="headerSub">用您公司自己的数字，精算出企业风险缺口 —— 四种国际通用算法 · 核保上限检验 · 税务优化结构</div>
+    <div class="presenter"><i></i>分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</div>
+    <div class="header-brand">AUDO × Hong Leong Assurance · Key Man Policy</div>
+  </div>
 </header>
 
 <!-- ============ RISK DASHBOARD ============ -->
-<div class="risk no-print-keep">
-  <div class="risk-card">
-    <h3 id="rkHead">如果关键人明天缺席，公司立刻面对——</h3>
-    <div class="q">以下数字随您输入的资料实时更新</div>
-    <div class="risk-grid">
-      <div class="risk-tile rt-red">
-        <div class="t-ico">🏦</div>
-        <div class="t-name">银行照样追债</div>
-        <div class="t-val" id="rkDebt">RM 0</div>
+<div class="wrap risk-wrap">
+  <div class="risk no-print-keep">
+    <div class="risk-card">
+      <h3 id="rkHead">如果关键人明天缺席，公司立刻面对——</h3>
+      <div class="q">以下数字随您输入的资料实时更新</div>
+      <div class="risk-grid">
+        <div class="risk-tile rt-red">
+          <div class="t-ico">🏦</div>
+          <div class="t-name">银行照样追债</div>
+          <div class="t-val" id="rkDebt">RM 0</div>
+        </div>
+        <div class="risk-tile rt-gold">
+          <div class="t-ico">📉</div>
+          <div class="t-name">利润恢复缺口</div>
+          <div class="t-val" id="rkProfit">RM 0</div>
+        </div>
+        <div class="risk-tile rt-plum">
+          <div class="t-ico">⚖️</div>
+          <div class="t-name">股权动荡风险</div>
+          <div class="t-val" id="rkEquity">—</div>
+        </div>
       </div>
-      <div class="risk-tile rt-gold">
-        <div class="t-ico">📉</div>
-        <div class="t-name">利润恢复缺口</div>
-        <div class="t-val" id="rkProfit">RM 0</div>
-      </div>
-      <div class="risk-tile rt-plum">
-        <div class="t-ico">⚖️</div>
-        <div class="t-name">股权动荡风险</div>
-        <div class="t-val" id="rkEquity">—</div>
-      </div>
+      <div class="risk-foot" id="rkTotal">合计风险敞口：<b>RM 0</b> —— 这不是保险问题，是企业续存问题。</div>
     </div>
-    <div class="risk-foot" id="rkTotal">合计风险敞口：<b>RM 0</b> —— 这不是保险问题，是企业续存问题。</div>
   </div>
 </div>
 
-<main>
+<div class="workspace">
+  <div class="desk-main">
 
 <!-- ============ 零 客户资料 ============ -->
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
@@ -439,6 +518,7 @@ footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;l
   </div>
   <p class="step-desc">不同用途分开设单，理赔用途和税务安排才清清楚楚。可多选。</p>
 
+  <div class="purpose-grid">
   <label class="purpose on"><input type="checkbox" class="pUse" id="uDebt" checked>
     <div><b>债务保障</b><p>Cover 银行贷款与担保，公司不被债务拖垮 → Level / Reducing Term</p></div></label>
   <label class="purpose on"><input type="checkbox" class="pUse" id="uProfit" checked>
@@ -446,11 +526,12 @@ footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;l
   <label class="purpose"><input type="checkbox" class="pUse" id="uBS">
     <div><b>股权买卖资金</b><p>需先启用第肆步 → 独立保单 + Buy-Sell Agreement</p></div></label>
 
-  <label class="purpose" style="margin-top:14px">
+  <label class="purpose span2" style="margin-top:0">
     <input type="checkbox" id="grossup" checked>
     <div><b>税务优化：Term 扣税路线（Gross-up 24%）</b>
     <p>仅放大<strong>债务保障</strong>与<strong>利润/营运保障</strong>的 Term 保额（保费可扣税 → 理赔金通常课 24% 公司税，故 ÷0.76）。<strong>股权买卖单</strong>为独立结构，不套用 Gross-up，税务请与 Tax Agent 确认。</p></div>
   </label>
+  </div>
 </section>
 
 <!-- ============ 陆 四法分析 ============ -->
@@ -464,8 +545,17 @@ footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;l
   <div class="cap-note" id="capNote"></div>
 </section>
 
-<!-- ============ VERDICT ============ -->
-<div class="verdict" id="verdict"></div>
+  </div><!-- /.desk-main -->
+
+  <aside class="desk-aside">
+    <div class="verdict" id="verdict"></div>
+    <div class="aside-actions no-print">
+      <button class="btn btn-gold" id="btnPrintAside" type="button">生成建议书 PDF</button>
+    </div>
+  </aside>
+</div><!-- /.workspace -->
+
+<div class="desk-lower">
 
 <!-- ============ 时间轴对比 ============ -->
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
@@ -513,18 +603,20 @@ footer{text-align:center;font-size:11px;color:var(--tx2);padding:6px 20px 24px;l
 
 <footer>
   保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
-  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.2
+  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.3
   <div class="draft-hint no-print" id="draftHint"></div>
 </footer>
-</main>
+</div><!-- /.desk-lower -->
 
 <div class="sticky no-print">
-  <div>
-    <div class="s-label">建 议 总 保 额</div>
-    <div class="s-val" id="stickyVal">RM 0</div>
-  </div>
-  <div class="btn-row">
-    <button class="btn btn-gold" id="btnPrint" type="button">生成建议书 PDF</button>
+  <div class="sticky-inner">
+    <div>
+      <div class="s-label">建 议 总 保 额</div>
+      <div class="s-val" id="stickyVal">RM 0</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-gold" id="btnPrint" type="button">生成建议书 PDF</button>
+    </div>
   </div>
 </div>
 
@@ -904,6 +996,8 @@ $('tabYes').addEventListener('click', ()=>{
 
 /* print modal */
 $('btnPrint').addEventListener('click', openPrintPreview);
+const btnAside = $('btnPrintAside');
+if(btnAside) btnAside.addEventListener('click', openPrintPreview);
 $('btnPrintCancel').addEventListener('click', closePrintPreview);
 $('btnPrintGo').addEventListener('click', ()=>{ closePrintPreview(); setTimeout(()=>window.print(), 80); });
 $('printModal').addEventListener('click', e=>{ if(e.target===$('printModal')) closePrintPreview(); });
