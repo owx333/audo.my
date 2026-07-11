@@ -173,12 +173,29 @@ input[type=range]{width:100%;accent-color:var(--ink);height:6px;cursor:pointer}
 .btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--ink)}
 .btn-ink{background:var(--ink);color:#fff}
 .btn-ghost{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-line{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
 .close-note{font-size:13.5px;color:var(--tx2);margin-top:10px}
+
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(12,24,48,.55);z-index:80;align-items:flex-end;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border-radius:18px 18px 14px 14px;width:100%;max-width:420px;padding:22px 20px 18px;box-shadow:0 20px 50px rgba(15,30,61,.35);max-height:88vh;overflow:auto}
+.modal h3{font-family:var(--serif);font-size:23px;color:var(--ink)}
+.modal .m-desc{font-size:15px;color:var(--tx2);margin:4px 0 14px}
+.modal ul{list-style:none;margin:0 0 16px}
+.modal li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--tx)}
+.modal li:last-child{border-bottom:none}
+.modal li .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:6px;flex:none}
+.modal .m-actions{display:flex;gap:10px}
+.modal .m-actions .btn{flex:1}
 
 .contact{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-bottom:18px;text-align:center}
 .contact .c-name{font-family:var(--serif);font-size:22px;font-weight:800;color:var(--ink)}
 .contact .c-sub{font-size:14px;color:var(--tx2);margin-top:4px}
 .contact .c-phone{font-size:18px;font-weight:800;color:var(--ink);margin-top:10px}
+.sign-row{display:none;margin-top:22px;gap:20px;text-align:left}
+.sign-row .s-box{flex:1;border-top:1.5px solid var(--line);padding-top:6px;font-size:13px;color:var(--tx2);text-align:center}
+
+#cover{display:none}
 
 footer{text-align:center;font-size:12.5px;color:var(--tx2);padding:8px 0 20px;line-height:1.6}
 footer a{color:var(--ink);font-weight:700;text-decoration:none}
@@ -187,7 +204,27 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 .sticky-inner{max-width:660px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .sticky .s-lab{font-size:12px;color:#8FA0C0}
 .sticky .s-val{font-size:16px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
-.sticky a{flex:none;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:800;font-size:14px;padding:10px 14px;border-radius:10px}
+.sticky .btn-row{display:flex;gap:8px;align-items:center;flex:none}
+.sticky a,.sticky button.btn-sticky{
+  flex:none;background:var(--gold);color:var(--ink);text-decoration:none;font-weight:800;font-size:14px;
+  padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-family:inherit
+}
+.sticky button.btn-sticky-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
+
+@media print{
+  body{padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sticky,.no-print,.modal-bg,header{display:none!important}
+  .workspace,.desk-lower,.verdict-wrap,.wrap{max-width:none;display:block;padding:0 12px}
+  section.card,.verdict,.gap-card,.contact{break-inside:avoid;box-shadow:none}
+  .cover-item:not(.on){opacity:.55}
+  #cover{display:flex;flex-direction:column;justify-content:center;min-height:96vh;background:var(--ink);color:#fff;padding:60px 50px;page-break-after:always;border-radius:0}
+  #cover .cv-eyebrow{font-size:12px;letter-spacing:.45em;color:var(--gold)}
+  #cover h1{font-family:var(--serif);font-size:36px;margin:14px 0 6px;color:#fff;background:none;-webkit-text-fill-color:#fff}
+  #cover .cv-for{font-family:var(--serif);font-size:22px;color:var(--gold-hi);margin-top:30px}
+  #cover .cv-meta{font-size:13px;color:#A9B4CC;margin-top:40px;line-height:2}
+  .sign-row{display:flex}
+  .gap-wrap{margin-top:0}
+}
 
 @media (min-width:900px){
   .wrap{max-width:1120px;padding:0 28px}
@@ -220,6 +257,19 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 </style>
 </head>
 <body>
+
+<!-- 打印封面 -->
+<div id="cover">
+  <div class="cv-eyebrow">CONFIDENTIAL · PERSONAL PROTECTION BLUEPRINT</div>
+  <h1>个人与家庭保障蓝图建议书</h1>
+  <div style="width:70px;height:3px;background:var(--gold)"></div>
+  <div class="cv-for" id="cvFor">呈交：客户</div>
+  <div class="cv-meta">
+    分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance<br>
+    分析日期：<span id="cvDate"></span><br>
+    联系：+60 12-567 6118 (WhatsApp)
+  </div>
+</div>
 
 <header>
   <div class="wrap">
@@ -473,7 +523,8 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
     </button>
   </div>
 
-  <div class="btn-row">
+  <div class="btn-row no-print">
+    <button class="btn btn-gold" type="button" id="btnPrint">生成蓝图 PDF</button>
     <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp 要正式报价</a>
     <a class="btn btn-ghost" id="btnAsk" href="https://wa.me/60125676118" target="_blank" rel="noopener">先问一个问题</a>
   </div>
@@ -484,6 +535,10 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
   <div class="c-name">黄冠尊 Wilson Ooi</div>
   <div class="c-sub">企业与家庭保障顾问 · Hong Leong Assurance</div>
   <div class="c-phone">+60 12-567 6118</div>
+  <div class="sign-row">
+    <div class="s-box">客户签署 / 日期</div>
+    <div class="s-box">顾问签署 / 日期</div>
+  </div>
 </div>
 
 <footer>
@@ -494,13 +549,28 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 
 </div>
 
-<div class="sticky">
+<div class="sticky no-print">
   <div class="sticky-inner">
     <div>
       <div class="s-lab">建议月保费区间</div>
       <div class="s-val" id="stickyVal">RM —</div>
     </div>
-    <a id="stickyWA" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp</a>
+    <div class="btn-row">
+      <button class="btn-sticky btn-sticky-ghost" type="button" id="stickyPrint">PDF</button>
+      <a id="stickyWA" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg no-print" id="printModal" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
+  <div class="modal">
+    <h3 id="printModalTitle">蓝图 PDF 将包含</h3>
+    <p class="m-desc">打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。</p>
+    <ul id="printPages"></ul>
+    <div class="m-actions">
+      <button class="btn btn-line" type="button" id="btnPrintCancel">取消</button>
+      <button class="btn btn-ink" type="button" id="btnPrintGo">打印 / 存 PDF</button>
+    </div>
   </div>
 </div>
 
@@ -1076,6 +1146,33 @@ syncCover('cvBlank','hasBlank', false);
 
 $('pathFull').addEventListener('click', ()=>{ S.path = 'full'; render(); });
 $('pathPhase').addEventListener('click', ()=>{ S.path = 'phase'; render(); });
+
+/* ================= print / PDF ================= */
+function openPrintPreview(){
+  const who = ($('name').value.trim() || '客户');
+  $('cvFor').textContent = `呈交：${who}`;
+  $('cvDate').textContent = new Date().toLocaleDateString('zh-CN', {year:'numeric', month:'long', day:'numeric'});
+  const pages = [
+    {t:'封面', d:`呈交 ${who} 的保障蓝图封面`},
+    {t:'三层缺口看板', d:'住院 / 大病 / 人寿 · 红黄绿'},
+    {t:'家庭画像', d:'年龄、收入、阶段、负债与供养'},
+    {t:'现有保障盘点', d:'公司卡 / 个人卡 / CI / 人寿 / PA'},
+    {t:'痛点与预算', d:'优先层、月预算、医疗偏好'},
+    {t:'建议保障蓝图', d:'医药卡参数 · CI · 人寿 · Rider'},
+    {t:'利益明细', d:'房费 / 自付 / 年限 / 豁免等格子'},
+    {t:'路径与下一步', d:'一次到位或今年先做'},
+    {t:'顾问联系与签署栏', d:'WhatsApp · 双方签名'},
+  ];
+  $('printPages').innerHTML = pages.map(p=>`<li><span class="dot"></span><div><b>${p.t}</b><br><span style="color:var(--tx2);font-size:14px">${p.d}</span></div></li>`).join('');
+  $('printModal').classList.add('open');
+}
+function closePrintPreview(){ $('printModal').classList.remove('open'); }
+
+$('btnPrint').addEventListener('click', openPrintPreview);
+$('stickyPrint').addEventListener('click', openPrintPreview);
+$('btnPrintCancel').addEventListener('click', closePrintPreview);
+$('btnPrintGo').addEventListener('click', ()=>{ closePrintPreview(); setTimeout(()=>window.print(), 80); });
+$('printModal').addEventListener('click', e=>{ if(e.target===$('printModal')) closePrintPreview(); });
 
 render();
 </script>
