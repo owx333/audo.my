@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>个人与家庭保障蓝图 · 人寿 · 医药卡 · 36病 | AUDO × Hong Leong Assurance</title>
-<meta name="description" content="按缺口客制化：医药卡、36种疾病、人寿、住院津贴、豁免与意外。先盘现有保障，再拼组合。AUDO × Hong Leong Assurance。">
+<title>个人与家庭保障蓝图 · Life · Medical · CI | AUDO × Hong Leong Assurance</title>
+<meta name="description" content="Custom protection blueprint: medical card, critical illness, life, hospital income, waiver & PA. AUDO × Hong Leong Assurance.">
 <link rel="canonical" href="https://audo.my/medical/">
 <link rel="icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -33,6 +33,14 @@ body{
     var(--paper);
   color:var(--tx);font-family:var(--sans);font-size:17px;line-height:1.7;padding-bottom:92px
 }
+body.lang-en .zh, body.lang-zh .en{display:none!important}
+body.lang-en{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+body.lang-en .step-tag h2,body.lang-en header h1,body.lang-en .gap-card h3,body.lang-en .verdict .v-punch,body.lang-en .contact .c-name{
+  font-family:Georgia,"Times New Roman",serif;letter-spacing:0
+}
+.langbar{position:absolute;top:14px;right:14px;z-index:6;display:flex;gap:4px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:3px}
+.langbar button{border:0;background:transparent;color:#A9B4CC;font-size:12px;font-weight:800;letter-spacing:.08em;padding:6px 10px;border-radius:999px;cursor:pointer;font-family:inherit}
+.langbar button.active{background:var(--gold);color:var(--ink)}
 b,strong{color:var(--ink);font-weight:800}
 .wrap{width:100%;max-width:660px;margin:0 auto;padding:0 14px}
 
@@ -256,48 +264,62 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 .gap-foot b,.live b,.layer .l-detail b,.verdict .v-punch b{font-weight:800}
 </style>
 </head>
-<body>
+<body class="lang-zh">
 
 <!-- 打印封面 -->
 <div id="cover">
   <div class="cv-eyebrow">CONFIDENTIAL · PERSONAL PROTECTION BLUEPRINT</div>
-  <h1>个人与家庭保障蓝图建议书</h1>
+  <h1><span class="zh">个人与家庭保障蓝图建议书</span><span class="en">Personal &amp; Family Protection Blueprint</span></h1>
   <div style="width:70px;height:3px;background:var(--gold)"></div>
   <div class="cv-for" id="cvFor">呈交：客户</div>
   <div class="cv-meta">
-    分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance<br>
-    分析日期：<span id="cvDate"></span><br>
-    联系：+60 12-567 6118 (WhatsApp)
+    <span class="zh">分析师：黄冠尊 Wilson Ooi · Hong Leong Assurance</span>
+    <span class="en">Advisor: Wilson Ooi · Hong Leong Assurance</span><br>
+    <span class="zh">分析日期：</span><span class="en">Date: </span><span id="cvDate"></span><br>
+    <span class="zh">联系：</span><span class="en">Contact: </span>+60 12-567 6118 (WhatsApp)
   </div>
 </div>
 
 <header>
-  <div class="wrap">
+  <div class="wrap" style="position:relative">
+    <div class="langbar no-print" role="group" aria-label="Language">
+      <button type="button" data-lang="zh" class="active">中文</button>
+      <button type="button" data-lang="en">EN</button>
+    </div>
     <div class="eyebrow">PERSONAL PROTECTION BLUEPRINT</div>
-    <h1>个人与家庭保障蓝图</h1>
-    <div class="sub">三层保障按你的缺口拼——医药卡、36病、人寿——不按产品目录卖</div>
-    <div class="presenter"><i></i>分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</div>
+    <h1><span class="zh">个人与家庭保障蓝图</span><span class="en">Personal Protection Blueprint</span></h1>
+    <div class="sub">
+      <span class="zh">三层保障按你的缺口拼——医药卡、36病、人寿——不按产品目录卖</span>
+      <span class="en">Build cover around your gaps — medical, critical illness, life — not a product catalogue</span>
+    </div>
+    <div class="presenter"><i></i>
+      <span class="zh">分析师 · 黄冠尊 Wilson Ooi · Hong Leong Assurance</span>
+      <span class="en">Advisor · Wilson Ooi · Hong Leong Assurance</span>
+    </div>
     <div class="header-brand">AUDO × Hong Leong Assurance · Medical &amp; Life</div>
   </div>
 </header>
 
 <div class="wrap gap-wrap">
   <div class="gap-card">
-    <h3>你现在的三层保障缺口</h3>
-    <div class="q">随你填写的资料实时更新 · 红＝空 · 黄＝薄 · 绿＝够</div>
+    <h3><span class="zh">你现在的三层保障缺口</span><span class="en">Your three protection gaps</span></h3>
+    <div class="q">
+      <span class="zh">随你填写的资料实时更新 · 红＝空 · 黄＝薄 · 绿＝够</span>
+      <span class="en">Updates live as you fill in · Red = empty · Amber = thin · Green = adequate</span>
+    </div>
     <div class="gap-grid">
       <div class="gap-tile gs-red" id="tileMed">
-        <div class="t-name">住院现金流</div>
+        <div class="t-name"><span class="zh">住院现金流</span><span class="en">Hospital cashflow</span></div>
         <div class="t-status" id="stMed">空</div>
         <div class="t-note" id="noteMed">医药卡 / 自付额</div>
       </div>
       <div class="gap-tile gs-red" id="tileCI">
-        <div class="t-name">大病一次现金</div>
+        <div class="t-name"><span class="zh">大病一次现金</span><span class="en">Critical illness cash</span></div>
         <div class="t-status" id="stCI">空</div>
         <div class="t-note" id="noteCI">36 病 / 早晚期</div>
       </div>
       <div class="gap-tile gs-red" id="tileLife">
-        <div class="t-name">家人收入接续</div>
+        <div class="t-name"><span class="zh">家人收入接续</span><span class="en">Family income</span></div>
         <div class="t-status" id="stLife">空</div>
         <div class="t-note" id="noteLife">人寿 / 负债</div>
       </div>
@@ -312,53 +334,59 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">01</div>
-    <div><span class="no">家庭画像</span><h2>这份蓝图为谁定制</h2></div>
+    <div>
+      <span class="no"><span class="zh">家庭画像</span><span class="en">Family profile</span></span>
+      <h2><span class="zh">这份蓝图为谁定制</span><span class="en">Who is this blueprint for</span></h2>
+    </div>
   </div>
-  <p class="step-desc">年龄、收入、供养与负债，决定「谁要保」和「保多少」。</p>
+  <p class="step-desc">
+    <span class="zh">年龄、收入、供养与负债，决定「谁要保」和「保多少」。</span>
+    <span class="en">Age, income, dependants and debts decide who to cover and how much.</span>
+  </p>
 
   <div class="row2">
     <div class="field">
-      <label for="name">称呼</label>
-      <input type="text" id="name" placeholder="例：Wei Xiang / 阿伟">
+      <label for="name"><span class="zh">称呼</span><span class="en">Name</span></label>
+      <input type="text" id="name" placeholder="e.g. Wei Xiang / Alex">
     </div>
     <div class="field">
-      <label for="age">年龄</label>
+      <label for="age"><span class="zh">年龄</span><span class="en">Age</span></label>
       <input type="number" id="age" value="35" min="18" max="70" inputmode="numeric">
     </div>
   </div>
 
   <div class="row2">
     <div class="field">
-      <label for="income">个人年收入</label>
-      <div class="hint">大约数即可</div>
+      <label for="income"><span class="zh">个人年收入</span><span class="en">Annual income</span></label>
+      <div class="hint"><span class="zh">大约数即可</span><span class="en">Approximate is fine</span></div>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="income" value="84000" inputmode="numeric"></div>
     </div>
     <div class="field">
-      <label for="expense">家庭年支出</label>
-      <div class="hint">生活费，不含还贷</div>
+      <label for="expense"><span class="zh">家庭年支出</span><span class="en">Annual household spend</span></label>
+      <div class="hint"><span class="zh">生活费，不含还贷</span><span class="en">Living costs, exclude loan repayments</span></div>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="expense" value="48000" inputmode="numeric"></div>
     </div>
   </div>
 
   <div class="field">
-    <label>人生阶段</label>
+    <label><span class="zh">人生阶段</span><span class="en">Life stage</span></label>
     <div class="chips" id="stageChips">
-      <button class="chip" data-stage="single" type="button">单身<small>先锁自己</small></button>
-      <button class="chip on" data-stage="couple" type="button">新婚 / 两人<small>互保开始</small></button>
-      <button class="chip" data-stage="family" type="button">有孩家庭<small>收入接续优先</small></button>
-      <button class="chip" data-stage="mortgage" type="button">供楼中<small>负债必须盖住</small></button>
-      <button class="chip" data-stage="preRetire" type="button">接近退休<small>医疗续保关键</small></button>
+      <button class="chip" data-stage="single" type="button"><span class="zh">单身<small>先锁自己</small></span><span class="en">Single<small>Cover yourself first</small></span></button>
+      <button class="chip on" data-stage="couple" type="button"><span class="zh">新婚 / 两人<small>互保开始</small></span><span class="en">Couple<small>Start mutual cover</small></span></button>
+      <button class="chip" data-stage="family" type="button"><span class="zh">有孩家庭<small>收入接续优先</small></span><span class="en">Family with kids<small>Income continuity first</small></span></button>
+      <button class="chip" data-stage="mortgage" type="button"><span class="zh">供楼中<small>负债必须盖住</small></span><span class="en">Mortgage<small>Debts must be covered</small></span></button>
+      <button class="chip" data-stage="preRetire" type="button"><span class="zh">接近退休<small>医疗续保关键</small></span><span class="en">Pre-retirement<small>Medical renewal matters</small></span></button>
     </div>
   </div>
 
   <div class="row2">
     <div class="field">
-      <label for="dependents">供养人数</label>
-      <div class="hint">配偶、子女、父母等</div>
+      <label for="dependents"><span class="zh">供养人数</span><span class="en">Dependants</span></label>
+      <div class="hint"><span class="zh">配偶、子女、父母等</span><span class="en">Spouse, children, parents, etc.</span></div>
       <input type="number" id="dependents" value="1" min="0" max="10" inputmode="numeric">
     </div>
     <div class="field">
-      <label for="mortgage">房贷 / 负债余额</label>
+      <label for="mortgage"><span class="zh">房贷 / 负债余额</span><span class="en">Mortgage / debts</span></label>
       <div class="money-wrap"><span class="rm">RM</span><input type="number" id="mortgage" value="350000" inputmode="numeric"></div>
     </div>
   </div>
@@ -369,25 +397,31 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 <section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
   <div class="step-tag">
     <div class="step-ico">02</div>
-    <div><span class="no">现有保障盘点</span><h2>先减重，再补洞 <span class="badge">客制化关键</span></h2></div>
+    <div>
+      <span class="no"><span class="zh">现有保障盘点</span><span class="en">Existing cover</span></span>
+      <h2><span class="zh">先减重，再补洞</span><span class="en">Trim overlap, then fill gaps</span> <span class="badge"><span class="zh">客制化关键</span><span class="en">Key</span></span></h2>
+    </div>
   </div>
-  <p class="step-desc">有就勾、有保额就填。系统只补缺口，避免叠买。</p>
+  <p class="step-desc">
+    <span class="zh">有就勾、有保额就填。系统只补缺口，避免叠买。</span>
+    <span class="en">Tick what you have and enter sums. We only fill gaps — no stacking.</span>
+  </p>
 
   <div class="cover-grid">
     <div class="cover-item" id="cvCompany" role="button" tabindex="0">
       <input type="checkbox" id="hasCompanyMed">
       <div class="cover-body">
-        <b>公司医药卡</b>
-        <p>雇主团体医疗，离职常失效</p>
+        <b><span class="zh">公司医药卡</span><span class="en">Company medical</span></b>
+        <p><span class="zh">雇主团体医疗，离职常失效</span><span class="en">Employer group cover — often ends when you leave</span></p>
       </div>
     </div>
     <div class="cover-item has-amt" id="cvMed" role="button" tabindex="0">
       <input type="checkbox" id="hasMed">
       <div class="cover-body">
-        <b>个人医药卡</b>
-        <p>已有 Hospital &amp; Surgical</p>
+        <b><span class="zh">个人医药卡</span><span class="en">Personal medical card</span></b>
+        <p><span class="zh">已有 Hospital &amp; Surgical</span><span class="en">Existing Hospital &amp; Surgical</span></p>
         <div class="amt" data-stop>
-          <div class="hint">年限额大约</div>
+          <div class="hint"><span class="zh">年限额大约</span><span class="en">Approx. annual limit</span></div>
           <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existMedAnnual" value="50000" inputmode="numeric" min="0" step="1000"></div>
         </div>
       </div>
@@ -395,10 +429,10 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
     <div class="cover-item has-amt" id="cvCI" role="button" tabindex="0">
       <input type="checkbox" id="hasCI">
       <div class="cover-body">
-        <b>危疾 / 36 病</b>
-        <p>已有 Critical Illness</p>
+        <b><span class="zh">危疾 / 36 病</span><span class="en">Critical illness / CI</span></b>
+        <p><span class="zh">已有 Critical Illness</span><span class="en">Existing CI cover</span></p>
         <div class="amt" data-stop>
-          <div class="hint">现有 CI 保额</div>
+          <div class="hint"><span class="zh">现有 CI 保额</span><span class="en">Existing CI sum</span></div>
           <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existCI" value="100000" inputmode="numeric" min="0" step="10000"></div>
         </div>
       </div>
@@ -406,10 +440,10 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
     <div class="cover-item has-amt" id="cvLife" role="button" tabindex="0">
       <input type="checkbox" id="hasLife">
       <div class="cover-body">
-        <b>人寿保额</b>
-        <p>身故 / TPD 已有部分</p>
+        <b><span class="zh">人寿保额</span><span class="en">Life cover</span></b>
+        <p><span class="zh">身故 / TPD 已有部分</span><span class="en">Existing death / TPD cover</span></p>
         <div class="amt" data-stop>
-          <div class="hint">现有人寿保额</div>
+          <div class="hint"><span class="zh">现有人寿保额</span><span class="en">Existing life sum</span></div>
           <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existLife" value="200000" inputmode="numeric" min="0" step="10000"></div>
         </div>
       </div>
@@ -417,15 +451,15 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
     <div class="cover-item" id="cvBlank" role="button" tabindex="0">
       <input type="checkbox" id="hasBlank">
       <div class="cover-body">
-        <b>几乎空白</b>
-        <p>没有个人医疗 / CI / 人寿</p>
+        <b><span class="zh">几乎空白</span><span class="en">Almost none</span></b>
+        <p><span class="zh">没有个人医疗 / CI / 人寿</span><span class="en">No personal medical / CI / life</span></p>
       </div>
     </div>
     <div class="cover-item" id="cvPA" role="button" tabindex="0">
       <input type="checkbox" id="hasPA">
       <div class="cover-body">
-        <b>已有意外 PA</b>
-        <p>意外身故 / 伤残已安排</p>
+        <b><span class="zh">已有意外 PA</span><span class="en">Existing PA</span></b>
+        <p><span class="zh">意外身故 / 伤残已安排</span><span class="en">Accidental death / disablement in place</span></p>
       </div>
     </div>
   </div>
@@ -436,21 +470,36 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
   <div class="step-tag">
     <div class="step-ico">03</div>
-    <div><span class="no">痛点排序</span><h2>最怕哪一件先发生</h2></div>
+    <div>
+      <span class="no"><span class="zh">痛点排序</span><span class="en">Priority</span></span>
+      <h2><span class="zh">最怕哪一件先发生</span><span class="en">What worries you most</span></h2>
+    </div>
   </div>
-  <p class="step-desc">点选你的第一优先。系统会把这一层加厚，其余按预算往后排。</p>
+  <p class="step-desc">
+    <span class="zh">点选你的第一优先。系统会把这一层加厚，其余按预算往后排。</span>
+    <span class="en">Pick your #1 priority. We thicken that layer; the rest follows your budget.</span>
+  </p>
   <div class="pain-rank" id="painRank">
     <button class="pain on" type="button" data-pain="hospital">
       <div class="p-no">1</div>
-      <div><b>住院账单</b><span>怕先垫钱、房费不够</span></div>
+      <div>
+        <b><span class="zh">住院账单</span><span class="en">Hospital bills</span></b>
+        <span><span class="zh">怕先垫钱、房费不够</span><span class="en">Fear of paying cash first / room limit</span></span>
+      </div>
     </button>
     <button class="pain" type="button" data-pain="ci">
       <div class="p-no">2</div>
-      <div><b>大病不能工作</b><span>怕一次要一大笔现金</span></div>
+      <div>
+        <b><span class="zh">大病不能工作</span><span class="en">Critical illness</span></b>
+        <span><span class="zh">怕一次要一大笔现金</span><span class="en">Need a lump sum if you cannot work</span></span>
+      </div>
     </button>
     <button class="pain" type="button" data-pain="death">
       <div class="p-no">3</div>
-      <div><b>家人没收入</b><span>怕房贷与生活断档</span></div>
+      <div>
+        <b><span class="zh">家人没收入</span><span class="en">Family income loss</span></b>
+        <span><span class="zh">怕房贷与生活断档</span><span class="en">Mortgage and living costs must continue</span></span>
+      </div>
     </button>
   </div>
   <div class="live" id="live3" style="--accent-soft:var(--red-soft)"></div>
@@ -460,13 +509,19 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 <section class="card" style="--accent:var(--plum);--accent-soft:var(--plum-soft)">
   <div class="step-tag">
     <div class="step-ico">04</div>
-    <div><span class="no">预算与取舍</span><h2>月保费愿意放多少</h2></div>
+    <div>
+      <span class="no"><span class="zh">预算与取舍</span><span class="en">Budget &amp; trade-offs</span></span>
+      <h2><span class="zh">月保费愿意放多少</span><span class="en">Monthly premium budget</span></h2>
+    </div>
   </div>
-  <p class="step-desc">拖动预算，组合结构会跟着变——不是只改一个数字。</p>
+  <p class="step-desc">
+    <span class="zh">拖动预算，组合结构会跟着变——不是只改一个数字。</span>
+    <span class="en">Move the slider and the structure changes — not just one number.</span>
+  </p>
 
   <div class="budget-box">
     <div class="budget-top">
-      <div class="bl">每月保费预算</div>
+      <div class="bl"><span class="zh">每月保费预算</span><span class="en">Monthly premium budget</span></div>
       <div class="bv" id="budgetVal">RM 400</div>
     </div>
     <input type="range" id="budget" min="150" max="1200" step="50" value="400">
@@ -475,11 +530,11 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
   </div>
 
   <div class="field" style="margin-top:16px">
-    <label>医疗偏好</label>
+    <label><span class="zh">医疗偏好</span><span class="en">Medical preference</span></label>
     <div class="chips" id="medPrefChips">
-      <button class="chip" data-medpref="lean" type="button">省保费<small>较高自付额</small></button>
-      <button class="chip on" data-medpref="balanced" type="button">均衡<small>常用档</small></button>
-      <button class="chip" data-medpref="comfort" type="button">住得舒服<small>更高房费</small></button>
+      <button class="chip" data-medpref="lean" type="button"><span class="zh">省保费<small>较高自付额</small></span><span class="en">Lean<small>Higher deductible</small></span></button>
+      <button class="chip on" data-medpref="balanced" type="button"><span class="zh">均衡<small>常用档</small></span><span class="en">Balanced<small>Most common</small></span></button>
+      <button class="chip" data-medpref="comfort" type="button"><span class="zh">住得舒服<small>更高房费</small></span><span class="en">Comfort<small>Higher room rate</small></span></button>
     </div>
   </div>
   <div class="live" id="live4" style="--accent-soft:var(--plum-soft)"></div>
@@ -496,9 +551,15 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 <section class="card" style="--accent:var(--ink);--accent-soft:#E8EBF2">
   <div class="step-tag">
     <div class="step-ico">05</div>
-    <div><span class="no">利益明细</span><h2>一张单里建议摆什么</h2></div>
+    <div>
+      <span class="no"><span class="zh">利益明细</span><span class="en">Benefit details</span></span>
+      <h2><span class="zh">一张单里建议摆什么</span><span class="en">What to put on one policy</span></h2>
+    </div>
   </div>
-  <p class="step-desc">对外是生活语言，对内落到 rider 格子——方便你对照 HLA Quotation。</p>
+  <p class="step-desc">
+    <span class="zh">对外是生活语言，对内落到 rider 格子——方便你对照 HLA Quotation。</span>
+    <span class="en">Plain language outside, rider grid inside — ready for an HLA quotation.</span>
+  </p>
   <div class="detail-grid" id="detailGrid"></div>
   <div class="note" id="uwNote">核保提示会随年龄与资料更新。</div>
 </section>
@@ -506,45 +567,56 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 <section class="card close-kit" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">→</div>
-    <div><span class="no">下一步</span><h2>把蓝图变成正式报价</h2></div>
+    <div>
+      <span class="no"><span class="zh">下一步</span><span class="en">Next step</span></span>
+      <h2><span class="zh">把蓝图变成正式报价</span><span class="en">Turn the blueprint into a quotation</span></h2>
+    </div>
   </div>
-  <p class="step-desc">选路径后，WhatsApp 会自动带上缺口色、建议组合与待核实问题。</p>
+  <p class="step-desc">
+    <span class="zh">选路径后，WhatsApp 会自动带上缺口色、建议组合与待核实问题。</span>
+    <span class="en">After you pick a path, WhatsApp carries your gaps, plan and open questions.</span>
+  </p>
 
   <div class="path-row">
     <button class="phase-card on" type="button" id="pathFull" data-path="full" style="background:#fff;color:var(--tx);border:1.5px solid var(--line)">
-      <div class="pc-tag" style="color:var(--gold)">路径 A · 预算内一次到位</div>
+      <div class="pc-tag" style="color:var(--gold)"><span class="zh">路径 A · 预算内一次到位</span><span class="en">Path A · Full plan in budget</span></div>
       <div class="pc-title" style="color:var(--ink)" id="pathATitle">三层齐全</div>
       <div class="pc-body" id="pathABody">按当前预算拼完整结构。</div>
     </button>
     <button class="phase-card" type="button" id="pathPhase" data-path="phase" style="background:#fff;color:var(--tx);border:1.5px solid var(--line)">
-      <div class="pc-tag" style="color:var(--gold)">路径 B · 今年先做</div>
+      <div class="pc-tag" style="color:var(--gold)"><span class="zh">路径 B · 今年先做</span><span class="en">Path B · This year first</span></div>
       <div class="pc-title" style="color:var(--ink)" id="pathBTitle">先锁最痛的一层</div>
       <div class="pc-body" id="pathBBody">其余明年再加，降低一次买齐的抗拒。</div>
     </button>
   </div>
 
   <div class="btn-row no-print">
-    <button class="btn btn-gold" type="button" id="btnPrint">生成蓝图 PDF</button>
-    <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener">WhatsApp 要正式报价</a>
-    <a class="btn btn-ghost" id="btnAsk" href="https://wa.me/60125676118" target="_blank" rel="noopener">先问一个问题</a>
+    <button class="btn btn-gold" type="button" id="btnPrint"><span class="zh">生成蓝图 PDF</span><span class="en">Save blueprint PDF</span></button>
+    <a class="btn btn-ink" id="btnWhatsApp" href="https://wa.me/60125676118" target="_blank" rel="noopener"><span class="zh">WhatsApp 要正式报价</span><span class="en">WhatsApp for quotation</span></a>
+    <a class="btn btn-ghost" id="btnAsk" href="https://wa.me/60125676118" target="_blank" rel="noopener"><span class="zh">先问一个问题</span><span class="en">Ask one question first</span></a>
   </div>
   <div class="close-note" id="closeNote">正式数字以 Hong Leong Assurance Quotation 为准；本页为顾问估算工具。</div>
 </section>
 
 <div class="contact">
   <div class="c-name">黄冠尊 Wilson Ooi</div>
-  <div class="c-sub">企业与家庭保障顾问 · Hong Leong Assurance</div>
+  <div class="c-sub">
+    <span class="zh">企业与家庭保障顾问 · Hong Leong Assurance</span>
+    <span class="en">Corporate &amp; Family Protection Advisor · Hong Leong Assurance</span>
+  </div>
   <div class="c-phone">+60 12-567 6118</div>
   <div class="sign-row">
-    <div class="s-box">客户签署 / 日期</div>
-    <div class="s-box">顾问签署 / 日期</div>
+    <div class="s-box"><span class="zh">客户签署 / 日期</span><span class="en">Client sign / date</span></div>
+    <div class="s-box"><span class="zh">顾问签署 / 日期</span><span class="en">Advisor sign / date</span></div>
   </div>
 </div>
 
 <footer>
-  保费与保额为<strong>行业参考估算</strong>，非 Hong Leong Assurance 正式报价<br>
-  正式数字、核保结果与条款以保险公司 Quotation / Policy Contract 为准<br>
-  <a href="https://audo.my/">audo.my</a> · <a href="https://audo.my/keyman/">Key Man 企业分析</a>
+  <span class="zh">保费与保额为<strong>行业参考估算</strong>，非 Hong Leong Assurance 正式报价<br>
+  正式数字、核保结果与条款以保险公司 Quotation / Policy Contract 为准<br></span>
+  <span class="en">Premiums and sums are <strong>industry estimates</strong>, not an official Hong Leong Assurance quotation<br>
+  Final figures, underwriting and terms follow the insurer Quotation / Policy Contract<br></span>
+  <a href="https://audo.my/">audo.my</a> · <a href="https://audo.my/keyman/">Key Man</a>
 </footer>
 
 </div>
@@ -552,7 +624,7 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 <div class="sticky no-print">
   <div class="sticky-inner">
     <div>
-      <div class="s-lab">建议月保费区间</div>
+      <div class="s-lab"><span class="zh">建议月保费区间</span><span class="en">Suggested monthly premium</span></div>
       <div class="s-val" id="stickyVal">RM —</div>
     </div>
     <div class="btn-row">
@@ -564,12 +636,15 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
 
 <div class="modal-bg no-print" id="printModal" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
   <div class="modal">
-    <h3 id="printModalTitle">蓝图 PDF 将包含</h3>
-    <p class="m-desc">打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。</p>
+    <h3 id="printModalTitle"><span class="zh">蓝图 PDF 将包含</span><span class="en">This PDF will include</span></h3>
+    <p class="m-desc">
+      <span class="zh">打印 / 另存为 PDF 前确认内容。浏览器打印对话框中请勾选「背景图形」。</span>
+      <span class="en">Confirm contents, then Print / Save as PDF. Enable “Background graphics” in the print dialog.</span>
+    </p>
     <ul id="printPages"></ul>
     <div class="m-actions">
-      <button class="btn btn-line" type="button" id="btnPrintCancel">取消</button>
-      <button class="btn btn-ink" type="button" id="btnPrintGo">打印 / 存 PDF</button>
+      <button class="btn btn-line" type="button" id="btnPrintCancel"><span class="zh">取消</span><span class="en">Cancel</span></button>
+      <button class="btn btn-ink" type="button" id="btnPrintGo"><span class="zh">打印 / 存 PDF</span><span class="en">Print / Save PDF</span></button>
     </div>
   </div>
 </div>
@@ -584,6 +659,10 @@ const fmtK = n => {
   return fmt(n);
 };
 
+function isEn(){ return document.body.classList.contains('lang-en'); }
+function t(zh, en){ return isEn() ? en : zh; }
+function perDay(v){ return t(fmt(v)+'/天', fmt(v)+'/day'); }
+
 const S = {
   stage: 'couple',
   pain: 'hospital',
@@ -592,14 +671,34 @@ const S = {
   budget: 400
 };
 
+function medPrefLabel(key){
+  return ({
+    lean: t('省保费档','Lean'),
+    balanced: t('均衡档','Balanced'),
+    comfort: t('舒适档','Comfort')
+  })[key] || key;
+}
+
 const MED_PREF = {
-  lean:     { room: 200, deductible: 5000, annual: 100000, lifetime: 1000000, label: '省保费档' },
-  balanced: { room: 300, deductible: 1000, annual: 150000, lifetime: 1500000, label: '均衡档' },
-  comfort:  { room: 400, deductible: 0,    annual: 250000, lifetime: 2500000, label: '舒适档' }
+  lean:     { room: 200, deductible: 5000, annual: 100000, lifetime: 1000000 },
+  balanced: { room: 300, deductible: 1000, annual: 150000, lifetime: 1500000 },
+  comfort:  { room: 400, deductible: 0,    annual: 250000, lifetime: 2500000 }
 };
 
 function roundTo(n, step){
   return Math.round(n / step) * step;
+}
+
+function setLang(lang){
+  document.body.classList.toggle('lang-zh', lang === 'zh');
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.documentElement.lang = lang === 'en' ? 'en' : 'zh';
+  document.querySelectorAll('.langbar button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('audo.medical.lang', lang); } catch(e){}
+  document.title = lang === 'en'
+    ? 'Personal Protection Blueprint · Life · Medical · CI | AUDO × Hong Leong Assurance'
+    : '个人与家庭保障蓝图 · 人寿 · 医药卡 · 36病 | AUDO × Hong Leong Assurance';
+  render();
 }
 
 function calcNeeds(){
@@ -610,7 +709,6 @@ function calcNeeds(){
   const mortgage = num('mortgage');
   const stage = S.stage;
 
-  // Existing
   const hasCompany = $('hasCompanyMed').checked;
   const hasMed = $('hasMed').checked;
   const hasCI = $('hasCI').checked;
@@ -621,7 +719,6 @@ function calcNeeds(){
   const existCI = hasCI ? num('existCI') : 0;
   const existLife = hasLife ? num('existLife') : 0;
 
-  // Years of income replacement
   let lifeYears = 5;
   if(stage === 'single') lifeYears = 3;
   if(stage === 'couple') lifeYears = 5;
@@ -635,20 +732,15 @@ function calcNeeds(){
   const gapCI = Math.max(0, needCI - existCI);
   const gapLife = Math.max(0, needLife - existLife);
 
-  // Medical need score
-  let medScore = 'empty'; // empty | thin | ok
+  let medScore = 'empty';
   if(hasBlank && !hasCompany && !hasMed) medScore = 'empty';
-  else if(hasCompany && !hasMed) medScore = 'thin'; // company only = fragile
+  else if(hasCompany && !hasMed) medScore = 'thin';
   else if(hasMed && existMedAnnual >= 100000) medScore = 'ok';
   else if(hasMed) medScore = 'thin';
   else medScore = 'empty';
 
   let ciScore = gapCI <= 0 ? 'ok' : (existCI > 0 && gapCI < needCI * 0.5 ? 'thin' : 'empty');
   let lifeScore = gapLife <= 0 ? 'ok' : (existLife > 0 && gapLife < needLife * 0.5 ? 'thin' : 'empty');
-  if(stage === 'single' && mortgage < 50000 && deps === 0 && lifeScore === 'empty' && existLife === 0){
-    // single low liability: life is lower priority, mark thin if budget tight later
-    lifeScore = lifeScore;
-  }
 
   return {
     age, income, expense, deps, mortgage, stage,
@@ -665,17 +757,15 @@ function buildPlan(n){
   const pain = S.pain;
   const path = S.path;
 
-  // Monthly premium cost model (illustrative industry refs)
   const cost = {
     med: S.medPref === 'lean' ? 120 : S.medPref === 'comfort' ? 220 : 160,
-    hi: 35,          // hospital income rider
+    hi: 35,
     waiver: 25,
     pa: 30,
     ciPer100k: n.age < 35 ? 45 : n.age < 45 ? 70 : n.age < 55 ? 110 : 160,
     lifePer100k: n.age < 35 ? 18 : n.age < 45 ? 28 : n.age < 55 ? 45 : 70
   };
 
-  // Recommended SA after existing
   let recCI = n.gapCI;
   let recLife = n.gapLife;
   let includeMed = n.medScore !== 'ok';
@@ -685,11 +775,9 @@ function buildPlan(n){
   let includeCI = recCI > 0;
   let includeLife = recLife > 0;
 
-  // Pain priority boosts
   if(pain === 'hospital'){
     includeMed = true;
     includeHI = true;
-    if(S.medPref === 'lean') { /* keep lean */ }
   } else if(pain === 'ci'){
     recCI = Math.max(recCI, roundTo(n.income * Math.max(n.ciMult, 3.5), 50000));
     includeCI = true;
@@ -698,9 +786,7 @@ function buildPlan(n){
     includeLife = true;
   }
 
-  // Stage nudges
   if(n.stage === 'single' && n.mortgage < 80000 && n.deps === 0){
-    // can soft-prioritize med+CI over large life
     if(pain !== 'death') recLife = Math.min(recLife, roundTo(Math.max(n.income * 3, n.mortgage), 50000));
   }
   if(n.stage === 'preRetire'){
@@ -731,35 +817,32 @@ function buildPlan(n){
   let prem = estimatePrem(cfg);
   const cuts = [];
 
-  // Budget cutter — order depends on pain (never cut the #1 pain first)
   function tryCut(){
     const order = [];
     if(pain !== 'death') order.push('life');
     if(pain !== 'ci') order.push('ci');
     order.push('pa', 'hi', 'waiver');
     if(pain !== 'hospital') order.push('med');
-    // always allow shrinking SA before dropping core
     if(cfg.life > 100000 && pain !== 'death'){
       cfg.life = Math.max(100000, roundTo(cfg.life * 0.7, 50000));
-      cuts.push('人寿保额先降档');
+      cuts.push(t('人寿保额先降档','Scale down life cover first'));
       return;
     }
     if(cfg.ci > 100000 && pain !== 'ci'){
       cfg.ci = Math.max(100000, roundTo(cfg.ci * 0.7, 50000));
-      cuts.push('CI 保额先降档');
+      cuts.push(t('CI 保额先降档','Scale down CI cover first'));
       return;
     }
     for(const k of order){
-      if(k === 'life' && cfg.life > 0){ cfg.life = 0; cuts.push('人寿改「明年再加」'); return; }
-      if(k === 'ci' && cfg.ci > 0){ cfg.ci = 0; cuts.push('CI 改「明年再加」'); return; }
-      if(k === 'pa' && cfg.pa){ cfg.pa = false; cuts.push('暂缓 PA'); return; }
-      if(k === 'hi' && cfg.hi){ cfg.hi = false; cuts.push('暂缓住院津贴'); return; }
-      if(k === 'waiver' && cfg.waiver){ cfg.waiver = false; cuts.push('暂缓豁免'); return; }
-      if(k === 'med' && cfg.med && n.hasCompany){ cfg.med = false; cfg.hi = false; cuts.push('先靠公司卡，个人卡明年补'); return; }
+      if(k === 'life' && cfg.life > 0){ cfg.life = 0; cuts.push(t('人寿改「明年再加」','Defer life to next year')); return; }
+      if(k === 'ci' && cfg.ci > 0){ cfg.ci = 0; cuts.push(t('CI 改「明年再加」','Defer CI to next year')); return; }
+      if(k === 'pa' && cfg.pa){ cfg.pa = false; cuts.push(t('暂缓 PA','Defer PA')); return; }
+      if(k === 'hi' && cfg.hi){ cfg.hi = false; cuts.push(t('暂缓住院津贴','Defer hospital income')); return; }
+      if(k === 'waiver' && cfg.waiver){ cfg.waiver = false; cuts.push(t('暂缓豁免','Defer waiver')); return; }
+      if(k === 'med' && cfg.med && n.hasCompany){ cfg.med = false; cfg.hi = false; cuts.push(t('先靠公司卡，个人卡明年补','Rely on company card; personal medical next year')); return; }
     }
-    // last resort: shrink remaining SA
-    if(cfg.life > 50000){ cfg.life = Math.max(50000, roundTo(cfg.life - 50000, 50000)); cuts.push('人寿再降'); return; }
-    if(cfg.ci > 50000){ cfg.ci = Math.max(50000, roundTo(cfg.ci - 50000, 50000)); cuts.push('CI 再降'); return; }
+    if(cfg.life > 50000){ cfg.life = Math.max(50000, roundTo(cfg.life - 50000, 50000)); cuts.push(t('人寿再降','Reduce life further')); return; }
+    if(cfg.ci > 50000){ cfg.ci = Math.max(50000, roundTo(cfg.ci - 50000, 50000)); cuts.push(t('CI 再降','Reduce CI further')); return; }
   }
 
   let guard = 0;
@@ -771,25 +854,21 @@ function buildPlan(n){
     guard++;
   }
 
-  // Phase path: keep only top pain + essential medical
-  let phaseCfg = {...cfg};
   let phaseNote = '';
   if(path === 'phase'){
     if(pain === 'hospital'){
-      phaseCfg = { med: true, hi: true, waiver: cfg.waiver, pa: false, ci: 0, life: 0 };
-      phaseNote = '今年先锁医药卡 + 住院津贴；CI / 人寿明年加。';
+      cfg = { med: true, hi: true, waiver: cfg.waiver, pa: false, ci: 0, life: 0 };
+      phaseNote = t('今年先锁医药卡 + 住院津贴；CI / 人寿明年加。','This year: medical + hospital income; CI / life next year.');
     } else if(pain === 'ci'){
-      phaseCfg = { med: n.medScore === 'empty', hi: false, waiver: true, pa: false, ci: Math.max(cfg.ci, 100000), life: 0 };
-      phaseNote = '今年先锁危疾现金；人寿明年、医疗按缺口补。';
+      cfg = { med: n.medScore === 'empty', hi: false, waiver: true, pa: false, ci: Math.max(cfg.ci, 100000), life: 0 };
+      phaseNote = t('今年先锁危疾现金；人寿明年、医疗按缺口补。','This year: CI cash; life next year; medical as needed.');
     } else {
-      phaseCfg = { med: n.medScore === 'empty', hi: false, waiver: true, pa: false, ci: 0, life: Math.max(cfg.life, roundTo(n.mortgage || n.income * 3, 50000)) };
-      phaseNote = '今年先盖住房贷与家人收入；医疗/CI 明年补。';
+      cfg = { med: n.medScore === 'empty', hi: false, waiver: true, pa: false, ci: 0, life: Math.max(cfg.life, roundTo(n.mortgage || n.income * 3, 50000)) };
+      phaseNote = t('今年先盖住房贷与家人收入；医疗/CI 明年补。','This year: cover mortgage & family income; medical/CI next year.');
     }
-    cfg = phaseCfg;
     prem = estimatePrem(cfg);
   }
 
-  // Gap scores after plan
   const medAfter = (!cfg.med && n.medScore === 'ok') ? 'ok'
     : cfg.med ? 'ok'
     : n.hasCompany ? 'thin'
@@ -806,42 +885,37 @@ function buildPlan(n){
   const pct = (premAnnual / Math.max(n.income, 1)) * 100;
   const budgetPct = (budgetAnnual / Math.max(n.income, 1)) * 100;
 
-  // Tags
   function tag(included, essential){
-    if(!included) return {cls:'later', text:'明年 / 暂缓'};
-    if(essential) return {cls:'must', text:'优先必做'};
-    return {cls:'core', text:'建议纳入'};
+    if(!included) return {cls:'later', text:t('明年 / 暂缓','Later / defer')};
+    if(essential) return {cls:'must', text:t('优先必做','Must-do first')};
+    return {cls:'core', text:t('建议纳入','Recommended')};
   }
 
   const medEssential = pain === 'hospital' || n.medScore === 'empty';
   const ciEssential = pain === 'ci' || (n.ciScore === 'empty' && n.deps > 0);
   const lifeEssential = pain === 'death' || n.mortgage > 100000;
-
-  // Hospital income daily
   const hiDaily = S.medPref === 'comfort' ? 200 : S.medPref === 'lean' ? 100 : 150;
 
-  // Punch line
   let punch = '';
   if(n.medScore === 'empty' && pain === 'hospital'){
-    punch = '现在最大的洞不是保费，是<strong>住院时要先垫现金</strong>。';
+    punch = t('现在最大的洞不是保费，是<strong>住院时要先垫现金</strong>。','The biggest gap is not premium — it is <strong>paying hospital bills in cash first</strong>.');
   } else if(n.hasCompany && !n.hasMed){
-    punch = '公司卡能用，但<strong>离职那天保障可能归零</strong>——个人卡才是带得走的。';
+    punch = t('公司卡能用，但<strong>离职那天保障可能归零</strong>——个人卡才是带得走的。','Company cover helps, but <strong>it may end the day you leave</strong> — personal cover travels with you.');
   } else if(pain === 'ci' && n.gapCI > 0){
-    punch = `大病现金缺口约 <b>${fmtK(n.gapCI)}</b>——医药卡报销账单，CI 才是进口袋的钱。`;
+    punch = t(`大病现金缺口约 <b>${fmtK(n.gapCI)}</b>——医药卡报销账单，CI 才是进口袋的钱。`,`CI cash gap about <b>${fmtK(n.gapCI)}</b> — medical pays bills; CI puts cash in your pocket.`);
   } else if(pain === 'death' && n.gapLife > 0){
-    punch = `家人收入接续缺口约 <b>${fmtK(n.gapLife)}</b>——房贷与生活费不会因为意外而暂停。`;
+    punch = t(`家人收入接续缺口约 <b>${fmtK(n.gapLife)}</b>——房贷与生活费不会因为意外而暂停。`,`Family income gap about <b>${fmtK(n.gapLife)}</b> — mortgage and living costs do not pause.`);
   } else if(pct > 15){
-    punch = '按完整理想保额会偏重；系统已按预算<strong>自动砍层</strong>，先锁最痛的。';
+    punch = t('按完整理想保额会偏重；系统已按预算<strong>自动砍层</strong>，先锁最痛的。','Full ideal cover is heavy; we <strong>auto-trimmed layers</strong> to lock your top priority first.');
   } else if(medAfter === 'ok' && ciAfter === 'ok' && lifeAfter === 'ok'){
-    punch = '三层缺口已基本对齐——下一步是把「打算」变成 HLA 正式 Quotation。';
+    punch = t('三层缺口已基本对齐——下一步是把「打算」变成 HLA 正式 Quotation。','Three gaps are largely aligned — next, turn intent into an official HLA quotation.');
   } else {
-    punch = '先补红灯层，再加厚黄灯层——客制化从缺口开始，不是从产品目录开始。';
+    punch = t('先补红灯层，再加厚黄灯层——客制化从缺口开始，不是从产品目录开始。','Fix red gaps first, then thicken amber — customise from gaps, not a product list.');
   }
 
   return {
     cfg, pref, cost, prem, premLo, premHi, premAnnual, pct, budgetPct, budgetAnnual, cuts, phaseNote, hiDaily,
     medAfter, ciAfter, lifeAfter,
-    medEssential, ciEssential, lifeEssential,
     tagMed: tag(cfg.med, medEssential),
     tagCI: tag(cfg.ci > 0, ciEssential),
     tagLife: tag(cfg.life > 0, lifeEssential),
@@ -853,159 +927,190 @@ function buildPlan(n){
 }
 
 function scoreClass(s){ return s === 'ok' ? 'gs-teal' : s === 'thin' ? 'gs-gold' : 'gs-red'; }
-function scoreLabel(s){ return s === 'ok' ? '够' : s === 'thin' ? '薄' : '空'; }
+function scoreLabel(s){
+  if(s === 'ok') return t('够','OK');
+  if(s === 'thin') return t('薄','Thin');
+  return t('空','Empty');
+}
+function holdTag(ok){ return ok ? t('现有可留','Keep existing') : t('暂缓','Defer'); }
+function yesNo(v){ return v ? t('要','Yes') : t('暂缓','Defer'); }
 
 function render(){
   const n = calcNeeds();
   const p = buildPlan(n);
-  const name = ($('name').value.trim() || '您');
+  const name = ($('name').value.trim() || t('您','you'));
+  const sep = t('、', ', ');
 
-  // Gap tiles — show AFTER plan intent for sticky truth, but base on current + proposed fill
-  // Display current gap status (before buying), foot explains recommendation
   $('tileMed').className = 'gap-tile ' + scoreClass(n.medScore);
   $('tileCI').className = 'gap-tile ' + scoreClass(n.ciScore);
   $('tileLife').className = 'gap-tile ' + scoreClass(n.lifeScore);
   $('stMed').textContent = scoreLabel(n.medScore);
   $('stCI').textContent = scoreLabel(n.ciScore);
   $('stLife').textContent = scoreLabel(n.lifeScore);
-  $('noteMed').textContent = n.hasCompany && !n.hasMed ? '仅公司卡 · 不稳'
-    : n.hasMed ? `年额约 ${fmtK(n.existMedAnnual)}` : '无个人医药卡';
-  $('noteCI').textContent = n.existCI > 0 ? `已有 ${fmtK(n.existCI)} · 缺口 ${fmtK(n.gapCI)}` : `建议约 ${fmtK(n.needCI)}`;
-  $('noteLife').textContent = n.existLife > 0 ? `已有 ${fmtK(n.existLife)} · 缺口 ${fmtK(n.gapLife)}` : `建议约 ${fmtK(n.needLife)}`;
+  $('noteMed').textContent = n.hasCompany && !n.hasMed
+    ? t('仅公司卡 · 不稳','Company only · fragile')
+    : n.hasMed ? t(`年额约 ${fmtK(n.existMedAnnual)}`,`Annual ~ ${fmtK(n.existMedAnnual)}`)
+    : t('无个人医药卡','No personal medical');
+  $('noteCI').textContent = n.existCI > 0
+    ? t(`已有 ${fmtK(n.existCI)} · 缺口 ${fmtK(n.gapCI)}`,`Have ${fmtK(n.existCI)} · gap ${fmtK(n.gapCI)}`)
+    : t(`建议约 ${fmtK(n.needCI)}`,`Need ~ ${fmtK(n.needCI)}`);
+  $('noteLife').textContent = n.existLife > 0
+    ? t(`已有 ${fmtK(n.existLife)} · 缺口 ${fmtK(n.gapLife)}`,`Have ${fmtK(n.existLife)} · gap ${fmtK(n.gapLife)}`)
+    : t(`建议约 ${fmtK(n.needLife)}`,`Need ~ ${fmtK(n.needLife)}`);
 
   const reds = [n.medScore, n.ciScore, n.lifeScore].filter(x => x === 'empty').length;
   $('gapFoot').innerHTML = reds === 0
-    ? `三层都有底子；重点是<strong>补差额与结构</strong>（早晚期 CI、自付额、豁免）。`
-    : `目前 <b style="color:var(--red)">${reds}</b> 层亮红灯——建议优先处理，而不是一次买齐所有 rider。`;
+    ? t(`三层都有底子；重点是<strong>补差额与结构</strong>（早晚期 CI、自付额、豁免）。`,`Base cover exists; focus on <strong>top-ups & structure</strong> (early/late CI, deductible, waiver).`)
+    : t(`目前 <b style="color:var(--red)">${reds}</b> 层亮红灯——建议优先处理，而不是一次买齐所有 rider。`,`Currently <b style="color:var(--red)">${reds}</b> red layer(s) — prioritise those before buying every rider.`);
 
-  // Lives
-  const stageMap = {single:'单身', couple:'新婚/两人', family:'有孩家庭', mortgage:'供楼中', preRetire:'接近退休'};
-  $('live1').innerHTML = `${name} · ${n.age} 岁 · ${stageMap[n.stage]} · 供养 <b>${n.deps}</b> 人 · 负债 <b>${fmtK(n.mortgage)}</b> → 人寿需求锚点约 <b>${fmtK(n.needLife)}</b>（支出 × ${n.lifeYears} 年 + 负债）。`;
+  const stageMap = {
+    single: t('单身','Single'),
+    couple: t('新婚/两人','Couple'),
+    family: t('有孩家庭','Family'),
+    mortgage: t('供楼中','Mortgage'),
+    preRetire: t('接近退休','Pre-retirement')
+  };
+  $('live1').innerHTML = t(
+    `${name} · ${n.age} 岁 · ${stageMap[n.stage]} · 供养 <b>${n.deps}</b> 人 · 负债 <b>${fmtK(n.mortgage)}</b> → 人寿需求锚点约 <b>${fmtK(n.needLife)}</b>（支出 × ${n.lifeYears} 年 + 负债）。`,
+    `${name} · age ${n.age} · ${stageMap[n.stage]} · <b>${n.deps}</b> dependant(s) · debts <b>${fmtK(n.mortgage)}</b> → life need ~ <b>${fmtK(n.needLife)}</b> (spend × ${n.lifeYears} yrs + debts).`
+  );
 
   const covered = [];
-  if(n.hasCompany) covered.push('公司卡');
-  if(n.hasMed) covered.push('个人卡');
+  if(n.hasCompany) covered.push(t('公司卡','Company medical'));
+  if(n.hasMed) covered.push(t('个人卡','Personal medical'));
   if(n.hasCI) covered.push('CI');
-  if(n.hasLife) covered.push('人寿');
+  if(n.hasLife) covered.push(t('人寿','Life'));
   if(n.hasPA) covered.push('PA');
-  if(n.hasBlank) covered.push('几乎空白');
+  if(n.hasBlank) covered.push(t('几乎空白','Almost none'));
   $('live2').innerHTML = covered.length
-    ? `已勾选：<b>${covered.join('、')}</b>。系统会从「减重」开始，只补真空与差额。`
-    : `尚未勾选现有保障——将按「几乎从零搭建」来建议。`;
+    ? t(`已勾选：<b>${covered.join(sep)}</b>。系统会从「减重」开始，只补真空与差额。`,`Selected: <b>${covered.join(sep)}</b>. We start by trimming overlap, then fill true gaps.`)
+    : t(`尚未勾选现有保障——将按「几乎从零搭建」来建议。`,`No existing cover selected — recommending as a near-from-scratch build.`);
 
-  const painMap = {hospital:'住院账单', ci:'大病现金', death:'家人收入'};
-  $('live3').innerHTML = `第一优先：<b>${painMap[S.pain]}</b>。这一层会加厚；预算不够时，其他层先降档或改明年。`;
+  const painMap = {
+    hospital: t('住院账单','Hospital bills'),
+    ci: t('大病现金','CI cash'),
+    death: t('家人收入','Family income')
+  };
+  $('live3').innerHTML = t(
+    `第一优先：<b>${painMap[S.pain]}</b>。这一层会加厚；预算不够时，其他层先降档或改明年。`,
+    `Priority #1: <b>${painMap[S.pain]}</b>. We thicken this layer; if budget is tight, other layers scale down or wait.`
+  );
 
   $('budgetVal').textContent = fmt(S.budget);
   const monthlyIncome = n.income / 12;
-  $('budgetPct').innerHTML = `月预算 <b>${fmt(S.budget)}</b> ≈ 年付 <b>${fmt(p.budgetAnnual)}</b>，约占年收入 <b>${p.budgetPct.toFixed(1)}%</b>（年收入 ${fmt(n.income)} · 月收入约 ${fmt(monthlyIncome)}）。建议总保费落在年收入的 <b>8–15%</b> 内。`;
+  $('budgetPct').innerHTML = t(
+    `月预算 <b>${fmt(S.budget)}</b> ≈ 年付 <b>${fmt(p.budgetAnnual)}</b>，约占年收入 <b>${p.budgetPct.toFixed(1)}%</b>（年收入 ${fmt(n.income)} · 月收入约 ${fmt(monthlyIncome)}）。建议总保费落在年收入的 <b>8–15%</b> 内。`,
+    `Monthly budget <b>${fmt(S.budget)}</b> ≈ yearly <b>${fmt(p.budgetAnnual)}</b>, about <b>${p.budgetPct.toFixed(1)}%</b> of annual income (income ${fmt(n.income)} · monthly ~ ${fmt(monthlyIncome)}). A common guide is <b>8–15%</b> of annual income.`
+  );
   $('live4').innerHTML = p.cuts.length
-    ? `预算 <b>${fmt(S.budget)}/月</b> 偏紧，已自动取舍：${p.cuts.slice(0,3).map(c=>`<b>${c}</b>`).join(' → ')}。`
-    : `预算 <b>${fmt(S.budget)}/月</b> 可支撑当前建议结构（医疗偏好：${p.pref.label}）。`;
+    ? t(`预算 <b>${fmt(S.budget)}/月</b> 偏紧，已自动取舍：${p.cuts.slice(0,3).map(c=>`<b>${c}</b>`).join(' → ')}。`,`Budget <b>${fmt(S.budget)}/mo</b> is tight; auto trade-offs: ${p.cuts.slice(0,3).map(c=>`<b>${c}</b>`).join(' → ')}.`)
+    : t(`预算 <b>${fmt(S.budget)}/月</b> 可支撑当前建议结构（医疗偏好：${medPrefLabel(S.medPref)}）。`,`Budget <b>${fmt(S.budget)}/mo</b> can support this structure (medical preference: ${medPrefLabel(S.medPref)}).`);
 
-  // Verdict
+  const later = t('暂缓','Defer');
   const layers = [];
   layers.push(`
-    <div class="layer ${p.cfg.med || n.medScore==='ok' ? '' : ''}">
-      <div class="l-top"><span class="l-name">医药卡 Hospital &amp; Surgical</span><span class="l-tag ${p.tagMed.cls}">${p.cfg.med ? p.tagMed.text : (n.medScore==='ok'?'现有可留':'暂缓')}</span></div>
+    <div class="layer">
+      <div class="l-top"><span class="l-name">${t('医药卡 Hospital & Surgical','Medical card · Hospital & Surgical')}</span><span class="l-tag ${p.tagMed.cls}">${p.cfg.med ? p.tagMed.text : holdTag(n.medScore==='ok')}</span></div>
       <div class="l-detail">${p.cfg.med
-        ? `房费 <b>${fmt(p.pref.room)}/天</b> · 自付额 <b>${p.pref.deductible?fmt(p.pref.deductible):'RM 0'}</b> · 年限 <b>${fmtK(p.pref.annual)}</b> · 终身 <b>${fmtK(p.pref.lifetime)}</b> · 建议核对 <b>Panel 医院</b>`
+        ? t(`房费 <b>${perDay(p.pref.room)}</b> · 自付额 <b>${p.pref.deductible?fmt(p.pref.deductible):'RM 0'}</b> · 年限 <b>${fmtK(p.pref.annual)}</b> · 终身 <b>${fmtK(p.pref.lifetime)}</b> · 建议核对 <b>Panel 医院</b>`,`Room <b>${perDay(p.pref.room)}</b> · deductible <b>${p.pref.deductible?fmt(p.pref.deductible):'RM 0'}</b> · annual <b>${fmtK(p.pref.annual)}</b> · lifetime <b>${fmtK(p.pref.lifetime)}</b> · check nearby <b>panel hospitals</b>`)
         : n.hasCompany
-          ? `暂靠公司卡；请确认 panel、年限额，并计划离职后的接续。`
+          ? t(`暂靠公司卡；请确认 panel、年限额，并计划离职后的接续。`,`Rely on company cover for now; confirm panel, annual limit, and a post-resignation plan.`)
           : n.hasMed
-            ? `现有卡年额约 <b>${fmtK(n.existMedAnnual)}</b>；可复核房费与自付额是否仍够用。`
-            : `预算内未纳入；建议路径 B 或上调预算后优先补回。`
+            ? t(`现有卡年额约 <b>${fmtK(n.existMedAnnual)}</b>；可复核房费与自付额是否仍够用。`,`Existing annual limit ~ <b>${fmtK(n.existMedAnnual)}</b>; re-check room rate and deductible.`)
+            : t(`预算内未纳入；建议路径 B 或上调预算后优先补回。`,`Not in budget; use Path B or raise budget to add this first.`)
       }</div>
     </div>`);
 
   layers.push(`
     <div class="layer">
-      <div class="l-top"><span class="l-name">危疾 36 病（建议含早/晚期）</span><span class="l-tag ${p.tagCI.cls}">${p.cfg.ci>0 ? p.tagCI.text : (n.existCI>0?'现有可留':'暂缓')}</span></div>
+      <div class="l-top"><span class="l-name">${t('危疾 36 病（建议含早/晚期）','Critical illness (early / late stages)')}</span><span class="l-tag ${p.tagCI.cls}">${p.cfg.ci>0 ? p.tagCI.text : holdTag(n.existCI>0)}</span></div>
       <div class="l-detail">${p.cfg.ci>0
-        ? `建议新保额 <b>${fmtK(p.cfg.ci)}</b>${n.existCI?`（已有 ${fmtK(n.existCI)}，补差额）`:''} · 优先选 <b>额外赔 Additional</b> 而非加速赔 · 问清早/中/晚期定义`
+        ? t(`建议新保额 <b>${fmtK(p.cfg.ci)}</b>${n.existCI?`（已有 ${fmtK(n.existCI)}，补差额）`:''} · 优先选 <b>额外赔 Additional</b> 而非加速赔 · 问清早/中/晚期定义`,`Suggested new sum <b>${fmtK(p.cfg.ci)}</b>${n.existCI?` (have ${fmtK(n.existCI)}; top up gap)`:''} · prefer <b>Additional</b> over accelerator · clarify early/mid/late definitions`)
         : n.existCI>0
-          ? `现有 <b>${fmtK(n.existCI)}</b> 已接近需求 <b>${fmtK(n.needCI)}</b>；复核是否含早期与多重赔。`
-          : `本年暂缓；需求锚点仍为约 <b>${fmtK(n.needCI)}</b>（收入 × ${n.ciMult}）。`
+          ? t(`现有 <b>${fmtK(n.existCI)}</b> 已接近需求 <b>${fmtK(n.needCI)}</b>；复核是否含早期与多重赔。`,`Existing <b>${fmtK(n.existCI)}</b> is near need <b>${fmtK(n.needCI)}</b>; check early-stage & multiple claims.`)
+          : t(`本年暂缓；需求锚点仍为约 <b>${fmtK(n.needCI)}</b>（收入 × ${n.ciMult}）。`,`Deferred this year; need anchor still ~ <b>${fmtK(n.needCI)}</b> (income × ${n.ciMult}).`)
       }</div>
     </div>`);
 
   layers.push(`
     <div class="layer">
-      <div class="l-top"><span class="l-name">人寿 Life（± TPD）</span><span class="l-tag ${p.tagLife.cls}">${p.cfg.life>0 ? p.tagLife.text : (n.existLife>0?'现有可留':'暂缓')}</span></div>
+      <div class="l-top"><span class="l-name">${t('人寿 Life（± TPD）','Life (± TPD)')}</span><span class="l-tag ${p.tagLife.cls}">${p.cfg.life>0 ? p.tagLife.text : holdTag(n.existLife>0)}</span></div>
       <div class="l-detail">${p.cfg.life>0
-        ? `建议新保额 <b>${fmtK(p.cfg.life)}</b>${n.existLife?`（已有 ${fmtK(n.existLife)}）`:''} · 覆盖负债 <b>${fmtK(n.mortgage)}</b> + 约 <b>${n.lifeYears}</b> 年生活费`
+        ? t(`建议新保额 <b>${fmtK(p.cfg.life)}</b>${n.existLife?`（已有 ${fmtK(n.existLife)}）`:''} · 覆盖负债 <b>${fmtK(n.mortgage)}</b> + 约 <b>${n.lifeYears}</b> 年生活费`,`Suggested new sum <b>${fmtK(p.cfg.life)}</b>${n.existLife?` (have ${fmtK(n.existLife)})`:''} · covers debts <b>${fmtK(n.mortgage)}</b> + ~ <b>${n.lifeYears}</b> years of living costs`)
         : n.existLife>0
-          ? `现有 <b>${fmtK(n.existLife)}</b>；需求锚点 <b>${fmtK(n.needLife)}</b>。`
-          : `本年暂缓；若有房贷，建议尽快用路径 B 先盖负债。`
+          ? t(`现有 <b>${fmtK(n.existLife)}</b>；需求锚点 <b>${fmtK(n.needLife)}</b>。`,`Existing <b>${fmtK(n.existLife)}</b>; need anchor <b>${fmtK(n.needLife)}</b>.`)
+          : t(`本年暂缓；若有房贷，建议尽快用路径 B 先盖负债。`,`Deferred this year; if you have a mortgage, use Path B to cover debts soon.`)
       }</div>
     </div>`);
 
   layers.push(`
     <div class="layer span2">
-      <div class="l-top"><span class="l-name">配套 Rider</span><span class="l-tag core">结构件</span></div>
+      <div class="l-top"><span class="l-name">${t('配套 Rider','Supporting riders')}</span><span class="l-tag core">${t('结构件','Structure')}</span></div>
       <div class="l-detail">
-        住院津贴 <b>${p.cfg.hi ? fmt(p.hiDaily)+'/天' : '暂缓'}</b>
-        · 疾病豁免 Waiver <b>${p.cfg.waiver ? '建议要' : '暂缓'}</b>
-        · 意外 PA <b>${p.cfg.pa ? '建议要' : (n.hasPA?'已有':'暂缓')}</b>
-        · Payor Waiver：若由配偶/父母缴费再加谈
+        ${t('住院津贴','Hospital income')} <b>${p.cfg.hi ? perDay(p.hiDaily) : later}</b>
+        · ${t('疾病豁免 Waiver','CI/TPD Waiver')} <b>${p.cfg.waiver ? t('建议要','Recommended') : later}</b>
+        · ${t('意外 PA','PA')} <b>${p.cfg.pa ? t('建议要','Recommended') : (n.hasPA?t('已有','Existing'):later)}</b>
+        · ${t('Payor Waiver：若由配偶/父母缴费再加谈','Payor Waiver: discuss if spouse/parent pays premiums')}
       </div>
     </div>`);
 
   $('verdict').innerHTML = `
-    <div class="v-label">建 议 保 障 蓝 图</div>
+    <div class="v-label">${t('建 议 保 障 蓝 图','PROTECTION BLUEPRINT')}</div>
     <div class="v-punch">${p.punch}</div>
     <div class="layers">${layers.join('')}</div>
     <div class="phase">
       <div>
-        <div style="font-size:12px;color:#8FA0C0;letter-spacing:.12em">预估月保费</div>
+        <div style="font-size:12px;color:#8FA0C0;letter-spacing:.12em">${t('预估月保费','Est. monthly premium')}</div>
         <div style="font-family:var(--serif);font-size:28px;font-weight:800;color:var(--gold-hi);margin-top:2px">${fmt(p.premLo)} – ${fmt(p.premHi)}</div>
       </div>
       <div>
-        <div style="font-size:12px;color:#8FA0C0;letter-spacing:.12em">约占年收入</div>
+        <div style="font-size:12px;color:#8FA0C0;letter-spacing:.12em">${t('约占年收入','% of annual income')}</div>
         <div style="font-family:var(--serif);font-size:28px;font-weight:800;color:#fff;margin-top:2px">${p.pct.toFixed(1)}%</div>
       </div>
     </div>
     ${p.path==='phase' && p.phaseNote ? `<div style="margin-top:12px;font-size:14px;color:#C9D2E4">${p.phaseNote}</div>` : ''}
-    <div class="v-foot">以上为行业参考估算，供顾问讨论；正式保费、核保与条款以 Hong Leong Assurance Quotation 为准。医疗通胀与续保跳档未计入保费数字。</div>`;
+    <div class="v-foot">${t('以上为行业参考估算，供顾问讨论；正式保费、核保与条款以 Hong Leong Assurance Quotation 为准。医疗通胀与续保跳档未计入保费数字。','Industry estimates for advisory discussion only. Official premium, underwriting and terms follow the Hong Leong Assurance Quotation. Medical inflation and renewal step-ups are not included.')}</div>`;
 
-  // Detail cards
   $('detailGrid').innerHTML = `
     <div class="d-card">
-      <h4>医药卡参数</h4>
-      <div class="d-row"><span class="dk">房费 Room &amp; Board</span><span class="dv">${p.cfg.med?fmt(p.pref.room)+'/天': '—'}</span></div>
-      <div class="d-row"><span class="dk">ICU</span><span class="dv">${p.cfg.med?'通常另计 / 更高档': '—'}</span></div>
-      <div class="d-row"><span class="dk">自付额 Deductible</span><span class="dv">${p.cfg.med?(p.pref.deductible?fmt(p.pref.deductible):'RM 0'): '—'}</span></div>
-      <div class="d-row"><span class="dk">年度上限</span><span class="dv">${p.cfg.med?fmtK(p.pref.annual): '—'}</span></div>
-      <div class="d-row"><span class="dk">终身上限</span><span class="dv">${p.cfg.med?fmtK(p.pref.lifetime): '—'}</span></div>
-      <div class="d-row"><span class="dk">Panel 医院</span><span class="dv">${p.cfg.med?'报价时核对住家附近': '—'}</span></div>
+      <h4>${t('医药卡参数','Medical card parameters')}</h4>
+      <div class="d-row"><span class="dk">${t('房费 Room & Board','Room & Board')}</span><span class="dv">${p.cfg.med?perDay(p.pref.room): '—'}</span></div>
+      <div class="d-row"><span class="dk">ICU</span><span class="dv">${p.cfg.med?t('通常另计 / 更高档','Usually separate / higher'): '—'}</span></div>
+      <div class="d-row"><span class="dk">${t('自付额 Deductible','Deductible')}</span><span class="dv">${p.cfg.med?(p.pref.deductible?fmt(p.pref.deductible):'RM 0'): '—'}</span></div>
+      <div class="d-row"><span class="dk">${t('年度上限','Annual limit')}</span><span class="dv">${p.cfg.med?fmtK(p.pref.annual): '—'}</span></div>
+      <div class="d-row"><span class="dk">${t('终身上限','Lifetime limit')}</span><span class="dv">${p.cfg.med?fmtK(p.pref.lifetime): '—'}</span></div>
+      <div class="d-row"><span class="dk">${t('Panel 医院','Panel hospitals')}</span><span class="dv">${p.cfg.med?t('报价时核对住家附近','Confirm near home at quotation'): '—'}</span></div>
     </div>
     <div class="d-card">
-      <h4>危疾与人寿</h4>
-      <div class="d-row"><span class="dk">CI 建议保额</span><span class="dv">${p.cfg.ci?fmtK(p.cfg.ci):'—'}</span></div>
-      <div class="d-row"><span class="dk">CI 结构</span><span class="dv">额外赔 + 早/晚期</span></div>
-      <div class="d-row"><span class="dk">人寿建议保额</span><span class="dv">${p.cfg.life?fmtK(p.cfg.life):'—'}</span></div>
-      <div class="d-row"><span class="dk">住院津贴</span><span class="dv">${p.cfg.hi?fmt(p.hiDaily)+'/天': '—'}</span></div>
-      <div class="d-row"><span class="dk">Waiver</span><span class="dv">${p.cfg.waiver?'CI / TPD 豁免':'—'}</span></div>
-      <div class="d-row"><span class="dk">PA</span><span class="dv">${p.cfg.pa?'意外身故/伤残':'—'}</span></div>
+      <h4>${t('危疾与人寿','CI & Life')}</h4>
+      <div class="d-row"><span class="dk">${t('CI 建议保额','Suggested CI sum')}</span><span class="dv">${p.cfg.ci?fmtK(p.cfg.ci):'—'}</span></div>
+      <div class="d-row"><span class="dk">${t('CI 结构','CI structure')}</span><span class="dv">${t('额外赔 + 早/晚期','Additional + early/late')}</span></div>
+      <div class="d-row"><span class="dk">${t('人寿建议保额','Suggested life sum')}</span><span class="dv">${p.cfg.life?fmtK(p.cfg.life):'—'}</span></div>
+      <div class="d-row"><span class="dk">${t('住院津贴','Hospital income')}</span><span class="dv">${p.cfg.hi?perDay(p.hiDaily): '—'}</span></div>
+      <div class="d-row"><span class="dk">Waiver</span><span class="dv">${p.cfg.waiver?t('CI / TPD 豁免','CI / TPD waiver'):'—'}</span></div>
+      <div class="d-row"><span class="dk">PA</span><span class="dv">${p.cfg.pa?t('意外身故/伤残','Accidental death/disablement'):'—'}</span></div>
     </div>`;
 
-  // UW note
   let uw = [];
-  if(n.age >= 50) uw.push('50 岁后医疗与 CI 费率跳档更快，宜尽早锁定');
-  if(n.hasCompany) uw.push('请准备公司卡利益摘要（年限、panel、是否含门诊）');
-  if(n.medScore === 'empty') uw.push('个人医药卡通常有等候期（意外除外）');
-  uw.push('报价前如实申报健康与职业，避免理赔争议');
-  $('uwNote').textContent = '核保与执行提示：' + uw.join(' · ') + '。';
+  if(n.age >= 50) uw.push(t('50 岁后医疗与 CI 费率跳档更快，宜尽早锁定','Medical & CI rates step up faster after 50 — lock earlier'));
+  if(n.hasCompany) uw.push(t('请准备公司卡利益摘要（年限、panel、是否含门诊）','Prepare company-card benefit summary (limit, panel, outpatient)'));
+  if(n.medScore === 'empty') uw.push(t('个人医药卡通常有等候期（意外除外）','Personal medical usually has waiting periods (except accident)'));
+  uw.push(t('报价前如实申报健康与职业，避免理赔争议','Declare health & occupation truthfully before quotation'));
+  $('uwNote').textContent = t('核保与执行提示：','Underwriting notes: ') + uw.join(t(' · ',' · ')) + (isEn()?'.':'。');
 
-  // Paths
-  $('pathATitle').textContent = p.path === 'full' ? '按预算拼完整结构' : '可切回完整结构';
-  $('pathABody').innerHTML = `预估 <b>${fmt(p.path==='full'?p.premLo:estimateFull(n))}</b> 起/月 · 三层按缺口配置`;
-  $('pathBTitle').textContent = painMap[S.pain] + '优先';
+  $('pathATitle').textContent = p.path === 'full'
+    ? t('按预算拼完整结构','Full structure within budget')
+    : t('可切回完整结构','Switch back to full structure');
+  $('pathABody').innerHTML = t(
+    `预估 <b>${fmt(p.path==='full'?p.premLo:estimateFull(n))}</b> 起/月 · 三层按缺口配置`,
+    `From <b>${fmt(p.path==='full'?p.premLo:estimateFull(n))}</b>/mo · three layers by gap`
+  );
+  $('pathBTitle').textContent = t(`${painMap[S.pain]}优先`, `${painMap[S.pain]} first`);
   $('pathBBody').innerHTML = S.pain === 'hospital'
-    ? '今年先医药卡 + 津贴；CI/人寿明年。'
+    ? t('今年先医药卡 + 津贴；CI/人寿明年。','This year: medical + income benefit; CI/life next year.')
     : S.pain === 'ci'
-      ? '今年先危疾现金；人寿明年补。'
-      : '今年先人寿盖负债；医疗/CI 明年。';
+      ? t('今年先危疾现金；人寿明年补。','This year: CI cash; life next year.')
+      : t('今年先人寿盖负债；医疗/CI 明年。','This year: life for debts; medical/CI next year.');
 
   document.querySelectorAll('.phase-card').forEach(el=>{
     el.classList.toggle('on', el.dataset.path === S.path);
@@ -1019,16 +1124,16 @@ function render(){
   });
 
   $('stickyVal').textContent = `${fmt(p.premLo)} – ${fmt(p.premHi)}`;
-  const wa = buildWhatsApp(n, p, name, false);
-  const waAsk = buildWhatsApp(n, p, name, true);
-  $('btnWhatsApp').href = wa;
-  $('stickyWA').href = wa;
-  $('btnAsk').href = waAsk;
-  $('closeNote').innerHTML = `收口：路径 A 一次到位，或路径 B 先做「${painMap[S.pain]}」。正式数字以 <b>HLA Quotation</b> 为准。`;
+  $('btnWhatsApp').href = buildWhatsApp(n, p, name, false);
+  $('stickyWA').href = buildWhatsApp(n, p, name, false);
+  $('btnAsk').href = buildWhatsApp(n, p, name, true);
+  $('closeNote').innerHTML = t(
+    `收口：路径 A 一次到位，或路径 B 先做「${painMap[S.pain]}」。正式数字以 <b>HLA Quotation</b> 为准。`,
+    `Close: Path A full plan, or Path B first on “${painMap[S.pain]}”. Official figures follow the <b>HLA Quotation</b>.`
+  );
 }
 
 function estimateFull(n){
-  // rough mid for path A label when currently on phase
   const prefCost = S.medPref === 'lean' ? 120 : S.medPref === 'comfort' ? 220 : 160;
   const ci = Math.max(n.gapCI, 100000);
   const life = Math.max(n.gapLife, 100000);
@@ -1038,10 +1143,20 @@ function estimateFull(n){
 }
 
 function buildWhatsApp(n, p, name, askOnly){
-  const painMap = {hospital:'住院账单', ci:'大病现金', death:'家人收入'};
-  const score = s => s==='ok'?'绿':s==='thin'?'黄':'红';
+  const painMap = {
+    hospital: t('住院账单','Hospital bills'),
+    ci: t('大病现金','CI cash'),
+    death: t('家人收入','Family income')
+  };
+  const score = s => s==='ok'?t('绿','G'):s==='thin'?t('黄','A'):t('红','R');
+  const yn = v => v ? t('有','Y') : t('无','N');
   if(askOnly){
-    const lines = [
+    const lines = isEn() ? [
+      `Hi Wilson, I reviewed audo.my/medical and have a quick question.`,
+      `Name: ${name} · age ${n.age}`,
+      `Top concern: ${painMap[S.pain]}`,
+      `Gaps: hospital ${score(n.medScore)} / CI ${score(n.ciScore)} / life ${score(n.lifeScore)}`,
+    ] : [
       `您好 Wilson，我看了 audo.my/medical，想先问一个问题。`,
       `称呼：${name} · ${n.age}岁`,
       `目前最在意：${painMap[S.pain]}`,
@@ -1049,14 +1164,31 @@ function buildWhatsApp(n, p, name, askOnly){
     ];
     return 'https://wa.me/60125676118?text=' + encodeURIComponent(lines.join('\n'));
   }
-  const lines = [
+  const lines = isEn() ? [
+    `Hi Wilson, I'd like to follow up on a personal/family protection plan.`,
+    `Name: ${name}`,
+    `Age: ${n.age} · stage: ${n.stage} · dependants: ${n.deps}`,
+    `Annual income: ${fmt(n.income)} · debts: ${fmt(n.mortgage)}`,
+    `Priority: ${painMap[S.pain]}`,
+    `Gaps: hospital ${score(n.medScore)} / CI ${score(n.ciScore)} / life ${score(n.lifeScore)}`,
+    `Existing: company med ${yn(n.hasCompany)} · personal med ${yn(n.hasMed)} · CI ${n.existCI?fmt(n.existCI):'none'} · life ${n.existLife?fmt(n.existLife):'none'}`,
+    `Suggested:`,
+    p.cfg.med ? `· Medical ${fmt(p.pref.room)}/day · deductible ${p.pref.deductible?fmt(p.pref.deductible):'0'} · annual ${fmt(p.pref.annual)}` : `· Medical: defer/existing`,
+    p.cfg.ci ? `· CI new sum ${fmt(p.cfg.ci)} (early/late · additional)` : `· CI: defer/existing`,
+    p.cfg.life ? `· Life new sum ${fmt(p.cfg.life)}` : `· Life: defer/existing`,
+    `· Hospital income ${p.cfg.hi?'yes':'defer'} · Waiver ${p.cfg.waiver?'yes':'defer'} · PA ${p.cfg.pa?'yes':(n.hasPA?'existing':'defer')}`,
+    `Path: ${p.path==='full'?'A full plan':'B this year first'} · budget ~ ${fmt(S.budget)}/mo`,
+    `Est. monthly premium: ${fmt(p.premLo)} – ${fmt(p.premHi)}`,
+    `To verify: panel hospitals, old-policy summary, health declaration`,
+    `Please help with an official Quotation.`
+  ] : [
     `您好 Wilson，我想跟进个人/家庭保障方案。`,
     `称呼：${name}`,
     `年龄：${n.age} · 阶段：${n.stage} · 供养：${n.deps}人`,
     `年收入：${fmt(n.income)} · 负债：${fmt(n.mortgage)}`,
     `痛点优先：${painMap[S.pain]}`,
     `缺口：住院${score(n.medScore)} / 大病${score(n.ciScore)} / 人寿${score(n.lifeScore)}`,
-    `现有：公司卡${n.hasCompany?'有':'无'} · 个人卡${n.hasMed?'有':'无'} · CI ${n.existCI?fmt(n.existCI):'无'} · 人寿 ${n.existLife?fmt(n.existLife):'无'}`,
+    `现有：公司卡${yn(n.hasCompany)} · 个人卡${yn(n.hasMed)} · CI ${n.existCI?fmt(n.existCI):'无'} · 人寿 ${n.existLife?fmt(n.existLife):'无'}`,
     `建议：`,
     p.cfg.med ? `· 医药卡 ${fmt(p.pref.room)}/天 · 自付 ${p.pref.deductible?fmt(p.pref.deductible):'0'} · 年限 ${fmt(p.pref.annual)}` : `· 医药卡：暂缓/现有`,
     p.cfg.ci ? `· CI 新保额 ${fmt(p.cfg.ci)}（早/晚期·额外赔）` : `· CI：暂缓/现有`,
@@ -1070,7 +1202,6 @@ function buildWhatsApp(n, p, name, askOnly){
   return 'https://wa.me/60125676118?text=' + encodeURIComponent(lines.join('\n'));
 }
 
-/* ================= events ================= */
 function bindChips(containerId, key, dataAttr){
   const root = $(containerId);
   if(!root) return;
@@ -1111,9 +1242,7 @@ function syncCover(itemId, checkId, exclusiveBlank){
       $('cvBlank').classList.remove('on');
     }
     if(checkId === 'hasBlank' && box.checked){
-      ['hasCompanyMed','hasMed','hasCI','hasLife','hasPA'].forEach(id=>{
-        $(id).checked = false;
-      });
+      ['hasCompanyMed','hasMed','hasCI','hasLife','hasPA'].forEach(id=>{ $(id).checked = false; });
       ['cvCompany','cvMed','cvCI','cvLife','cvPA'].forEach(id=>$(id).classList.remove('on'));
     }
     render();
@@ -1147,12 +1276,25 @@ syncCover('cvBlank','hasBlank', false);
 $('pathFull').addEventListener('click', ()=>{ S.path = 'full'; render(); });
 $('pathPhase').addEventListener('click', ()=>{ S.path = 'phase'; render(); });
 
-/* ================= print / PDF ================= */
+document.querySelectorAll('.langbar button').forEach(btn=>{
+  btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+});
+
 function openPrintPreview(){
-  const who = ($('name').value.trim() || '客户');
-  $('cvFor').textContent = `呈交：${who}`;
-  $('cvDate').textContent = new Date().toLocaleDateString('zh-CN', {year:'numeric', month:'long', day:'numeric'});
-  const pages = [
+  const who = ($('name').value.trim() || t('客户','Client'));
+  $('cvFor').textContent = t(`呈交：${who}`, `Prepared for: ${who}`);
+  $('cvDate').textContent = new Date().toLocaleDateString(isEn()?'en-MY':'zh-CN', {year:'numeric', month:'long', day:'numeric'});
+  const pages = isEn() ? [
+    {t:'Cover', d:`Blueprint cover for ${who}`},
+    {t:'Gap dashboard', d:'Hospital / CI / Life · RAG status'},
+    {t:'Family profile', d:'Age, income, stage, debts, dependants'},
+    {t:'Existing cover', d:'Company / personal / CI / life / PA'},
+    {t:'Priority & budget', d:'Top pain, monthly budget, medical preference'},
+    {t:'Suggested blueprint', d:'Medical params · CI · Life · riders'},
+    {t:'Benefit details', d:'Room / deductible / limits / waiver'},
+    {t:'Path & next step', d:'Full plan or this-year-first'},
+    {t:'Advisor & signatures', d:'WhatsApp · dual signature'},
+  ] : [
     {t:'封面', d:`呈交 ${who} 的保障蓝图封面`},
     {t:'三层缺口看板', d:'住院 / 大病 / 人寿 · 红黄绿'},
     {t:'家庭画像', d:'年龄、收入、阶段、负债与供养'},
@@ -1174,7 +1316,11 @@ $('btnPrintCancel').addEventListener('click', closePrintPreview);
 $('btnPrintGo').addEventListener('click', ()=>{ closePrintPreview(); setTimeout(()=>window.print(), 80); });
 $('printModal').addEventListener('click', e=>{ if(e.target===$('printModal')) closePrintPreview(); });
 
-render();
+try {
+  const saved = localStorage.getItem('audo.medical.lang');
+  if(saved === 'en' || saved === 'zh') setLang(saved);
+  else render();
+} catch(e){ render(); }
 </script>
 </body>
 </html>
