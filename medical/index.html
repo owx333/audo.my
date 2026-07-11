@@ -731,8 +731,10 @@ function buildPlan(n){
 
   const premLo = Math.round(prem * 0.85);
   const premHi = Math.round(prem * 1.2);
-  const incomeMonthly = n.income / 12;
-  const pct = (prem / Math.max(incomeMonthly, 1)) * 100;
+  const premAnnual = prem * 12;
+  const budgetAnnual = S.budget * 12;
+  const pct = (premAnnual / Math.max(n.income, 1)) * 100;
+  const budgetPct = (budgetAnnual / Math.max(n.income, 1)) * 100;
 
   // Tags
   function tag(included, essential){
@@ -767,7 +769,7 @@ function buildPlan(n){
   }
 
   return {
-    cfg, pref, cost, prem, premLo, premHi, pct, cuts, phaseNote, hiDaily,
+    cfg, pref, cost, prem, premLo, premHi, premAnnual, pct, budgetPct, budgetAnnual, cuts, phaseNote, hiDaily,
     medAfter, ciAfter, lifeAfter,
     medEssential, ciEssential, lifeEssential,
     tagMed: tag(cfg.med, medEssential),
@@ -825,7 +827,8 @@ function render(){
   $('live3').innerHTML = `第一优先：<b>${painMap[S.pain]}</b>。这一层会加厚；预算不够时，其他层先降档或改明年。`;
 
   $('budgetVal').textContent = fmt(S.budget);
-  $('budgetPct').innerHTML = `约占月收入 <b>${p.pct.toFixed(1)}%</b>（年收入 ${fmtK(n.income)}）。一般建议个人保障总保费落在收入的 <b>8–15%</b> 内。`;
+  const monthlyIncome = n.income / 12;
+  $('budgetPct').innerHTML = `月预算 <b>${fmt(S.budget)}</b> ≈ 年付 <b>${fmt(p.budgetAnnual)}</b>，约占年收入 <b>${p.budgetPct.toFixed(1)}%</b>（年收入 ${fmt(n.income)} · 月收入约 ${fmt(monthlyIncome)}）。建议总保费落在年收入的 <b>8–15%</b> 内。`;
   $('live4').innerHTML = p.cuts.length
     ? `预算 <b>${fmt(S.budget)}/月</b> 偏紧，已自动取舍：${p.cuts.slice(0,3).map(c=>`<b>${c}</b>`).join(' → ')}。`
     : `预算 <b>${fmt(S.budget)}/月</b> 可支撑当前建议结构（医疗偏好：${p.pref.label}）。`;
@@ -888,7 +891,7 @@ function render(){
         <div style="font-family:var(--serif);font-size:28px;font-weight:800;color:var(--gold-hi);margin-top:2px">${fmt(p.premLo)} – ${fmt(p.premHi)}</div>
       </div>
       <div>
-        <div style="font-size:12px;color:#8FA0C0;letter-spacing:.12em">占月收入</div>
+        <div style="font-size:12px;color:#8FA0C0;letter-spacing:.12em">约占年收入</div>
         <div style="font-family:var(--serif);font-size:28px;font-weight:800;color:#fff;margin-top:2px">${p.pct.toFixed(1)}%</div>
       </div>
     </div>
