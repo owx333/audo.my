@@ -68,11 +68,9 @@ header .presenter i{width:7px;height:7px;border-radius:50%;background:var(--gold
 .risk-foot{text-align:center;font-size:13.5px;color:var(--tx2);margin-top:12px}
 
 /* ============ LAYOUT ============ */
-.workspace{max-width:660px;margin:0 auto;padding:20px 14px 0;display:flex;flex-direction:column}
-.desk-main{min-width:0;order:1}
-.desk-aside{min-width:0;order:2}
-.desk-aside .verdict{margin-bottom:18px}
+.workspace{max-width:660px;margin:0 auto;padding:20px 14px 0}
 .desk-lower{max-width:660px;margin:0 auto;padding:0 14px 30px}
+.verdict-wrap{max-width:660px;margin:0 auto;padding:0 14px}
 section.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin-bottom:18px;position:relative;overflow:hidden}
 section.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--gold))}
 .step-tag{display:flex;align-items:center;gap:12px;margin-bottom:6px}
@@ -166,8 +164,7 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 .btn-ghost{background:transparent;color:#C6CFDF;border:1px solid rgba(255,255,255,.25);padding:10px 14px;font-size:15px}
 .btn-ghost:active{transform:scale(.97)}
 .sticky .btn-row{display:flex;gap:8px;align-items:center;flex:none}
-.aside-actions{display:none;margin-top:14px}
-.aside-actions .btn{width:100%}
+.aside-actions{display:none}
 
 /* print preview modal */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(12,24,48,.55);z-index:80;align-items:flex-end;justify-content:center;padding:14px;backdrop-filter:blur(4px)}
@@ -226,9 +223,8 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 @media print{
   body{padding:0;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .sticky,.no-print,.modal-bg,header,.aside-actions{display:none!important}
-  .workspace,.desk-lower{max-width:none;display:block;padding:0}
-  .desk-aside{position:static!important}
+  .sticky,.no-print,.modal-bg,header{display:none!important}
+  .workspace,.desk-lower,.verdict-wrap{max-width:none;display:block;padding:0}
   section.card,.verdict,.risk-card,.contact{break-inside:avoid;box-shadow:none}
   #cover{display:flex;flex-direction:column;justify-content:center;min-height:96vh;background:var(--ink);color:#fff;padding:60px 50px;page-break-after:always;border-radius:0}
   #cover .cv-eyebrow{font-size:12px;letter-spacing:.45em;color:var(--gold)}
@@ -251,24 +247,22 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   header{padding:48px 0 56px}
   header h1{font-size:48px}
   header .sub{font-size:17px;max-width:760px;margin-top:12px}
-  .workspace{
-    max-width:1120px;padding:28px 28px 0;
-    display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:24px;align-items:start;
+  .workspace,.verdict-wrap,.desk-lower{
+    max-width:1120px;padding-left:28px;padding-right:28px;
   }
-  .desk-main,.desk-aside{order:unset}
-  .desk-aside{
-    position:sticky;top:20px;max-height:calc(100vh - 40px);overflow:auto;
-    padding-bottom:8px;scrollbar-width:thin;
-  }
-  .desk-aside .verdict{margin-bottom:0}
-  .desk-aside .v-sum{font-size:44px}
-  .aside-actions{display:block}
+  .workspace{padding-top:28px;padding-bottom:0}
+  .verdict-wrap{padding-top:4px;padding-bottom:8px}
   .desk-lower{
-    max-width:1120px;padding:8px 28px 40px;
+    padding-top:8px;padding-bottom:40px;
     display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:start;
   }
   .desk-lower .contact{grid-column:1 / -1}
   .desk-lower footer{grid-column:1 / -1;padding-top:8px}
+  .verdict{padding:32px 28px;border-radius:20px}
+  .verdict .v-sum{font-size:52px}
+  .verdict .pols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+  .verdict .pols .pol{margin-top:0}
+  .verdict .pols .pol.span-full{grid-column:1 / -1}
   #methods{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   #methods .m-card{margin-bottom:0}
   #capNote{margin-top:12px}
@@ -284,15 +278,10 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   .sticky-inner{max-width:1120px;padding:0 10px}
 }
 @media (min-width:1200px){
-  .workspace,.desk-lower,.wrap,.sticky-inner{max-width:1200px}
-  .workspace{grid-template-columns:minmax(0,1.2fr) minmax(360px,.8fr);gap:28px}
+  .workspace,.desk-lower,.wrap,.sticky-inner,.verdict-wrap{max-width:1200px}
   header h1{font-size:52px}
-  .desk-aside .v-sum{font-size:48px}
+  .verdict .v-sum{font-size:56px}
   .risk-tile .t-val{font-size:28px}
-}
-@media (min-width:960px) and (min-height:800px){
-  .sticky{display:none}
-  body{padding-bottom:24px}
 }
 </style>
 </head>
@@ -350,7 +339,6 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 </div>
 
 <div class="workspace">
-  <div class="desk-main">
 
 <!-- ============ 零 客户资料 ============ -->
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
@@ -545,15 +533,12 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   <div class="cap-note" id="capNote"></div>
 </section>
 
-  </div><!-- /.desk-main -->
-
-  <aside class="desk-aside">
-    <div class="verdict" id="verdict"></div>
-    <div class="aside-actions no-print">
-      <button class="btn btn-gold" id="btnPrintAside" type="button">生成建议书 PDF</button>
-    </div>
-  </aside>
 </div><!-- /.workspace -->
+
+<!-- ============ 建议保障方案（下方总结） ============ -->
+<div class="verdict-wrap">
+  <div class="verdict" id="verdict"></div>
+</div>
 
 <div class="desk-lower">
 
@@ -603,7 +588,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 <footer>
   保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
-  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.4
+  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.5
   <div class="draft-hint no-print" id="draftHint"></div>
 </footer>
 </div><!-- /.desk-lower -->
@@ -771,7 +756,7 @@ function render(r){
       <div class="p-type">${p.type}${r.gu && p.gu ? ' · 已 Gross-up' : (!p.gu ? ' · 不套用 Gross-up' : '')}</div>
       <div class="p-why">${p.why}</div>
     </div>`).join('');
-  if(!r.parts.length) polHTML = '<div class="pol"><div class="p-why">请在第伍步选择至少一个保障用途。</div></div>';
+  if(!r.parts.length) polHTML = '<div class="pol span-full"><div class="p-why">请在第伍步选择至少一个保障用途。</div></div>';
 
   let guSub;
   if(r.gu && r.termSA>0){
@@ -786,7 +771,7 @@ function render(r){
     <div class="v-label">建 议 保 障 方 案</div>
     <div class="v-sum" id="vSum">${fmt(r.grossSA)}</div>
     <div class="v-sub">${guSub}</div>
-    ${polHTML}
+    <div class="pols">${polHTML}</div>
     <div class="v-prem">
       <span class="pl">预估年保费<br><span style="font-size:13px;color:#7E8DAB">${r.age}岁 · ${S.gender==='M'?'男':'女'} · ${S.smoker?'吸烟':'非吸烟'} · Level Term</span></span>
       <span class="pv">${fmt(r.premLo)}<br>– ${fmt(r.premHi)} /年</span>
@@ -996,8 +981,6 @@ $('tabYes').addEventListener('click', ()=>{
 
 /* print modal */
 $('btnPrint').addEventListener('click', openPrintPreview);
-const btnAside = $('btnPrintAside');
-if(btnAside) btnAside.addEventListener('click', openPrintPreview);
 $('btnPrintCancel').addEventListener('click', closePrintPreview);
 $('btnPrintGo').addEventListener('click', ()=>{ closePrintPreview(); setTimeout(()=>window.print(), 80); });
 $('printModal').addEventListener('click', e=>{ if(e.target===$('printModal')) closePrintPreview(); });
