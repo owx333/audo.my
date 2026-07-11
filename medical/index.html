@@ -99,12 +99,23 @@ input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .cover-grid{display:grid;gap:8px}
 .cover-item{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:13px;padding:13px 14px;cursor:pointer;transition:.15s;background:#fff}
 .cover-item.on{border-color:var(--teal);background:var(--teal-soft)}
-.cover-item input{width:18px;height:18px;margin-top:3px;accent-color:var(--ink);flex:none}
+.cover-item > input[type=checkbox]{width:18px;height:18px;margin-top:3px;accent-color:var(--ink);flex:none}
+.cover-item .cover-body{flex:1;min-width:0}
 .cover-item b{font-size:15.5px;font-weight:800;display:block}
 .cover-item p{font-size:13.5px;color:var(--tx2)}
-.cover-item .amt{display:none;margin-top:10px}
+.cover-item .amt{display:none;margin-top:12px;padding-top:12px;border-top:1px dashed rgba(14,140,127,.25)}
 .cover-item.on .amt{display:block}
-.cover-item .amt .money-wrap input{padding:10px 10px 10px 40px;font-size:16px}
+.cover-item .amt .hint{margin-bottom:8px}
+.cover-item .amt .money-wrap{width:100%}
+.cover-item .amt input[type=number]{
+  width:100%;min-height:52px;padding:14px 14px 14px 48px;font-size:20px;font-weight:700;
+  border:1.5px solid var(--line);border-radius:11px;background:#fff;color:var(--tx);
+  font-variant-numeric:tabular-nums
+}
+.cover-item .amt input[type=number]:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(14,140,127,.18)}
+@media (min-width:900px){
+  .cover-item.has-amt.on{grid-column:1 / -1}
+}
 
 .pain-rank{display:grid;gap:8px}
 .pain{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:13px;padding:14px;cursor:pointer;background:#fff;transition:.15s;text-align:left;width:100%;font:inherit;color:inherit}
@@ -313,60 +324,60 @@ footer a{color:var(--ink);font-weight:700;text-decoration:none}
   <p class="step-desc">有就勾、有保额就填。系统只补缺口，避免叠买。</p>
 
   <div class="cover-grid">
-    <label class="cover-item" id="cvCompany">
+    <div class="cover-item" id="cvCompany" role="button" tabindex="0">
       <input type="checkbox" id="hasCompanyMed">
-      <div>
+      <div class="cover-body">
         <b>公司医药卡</b>
         <p>雇主团体医疗，离职常失效</p>
       </div>
-    </label>
-    <label class="cover-item" id="cvMed">
+    </div>
+    <div class="cover-item has-amt" id="cvMed" role="button" tabindex="0">
       <input type="checkbox" id="hasMed">
-      <div>
+      <div class="cover-body">
         <b>个人医药卡</b>
         <p>已有 Hospital &amp; Surgical</p>
-        <div class="amt">
+        <div class="amt" data-stop>
           <div class="hint">年限额大约</div>
-          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existMedAnnual" value="50000" inputmode="numeric"></div>
+          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existMedAnnual" value="50000" inputmode="numeric" min="0" step="1000"></div>
         </div>
       </div>
-    </label>
-    <label class="cover-item" id="cvCI">
+    </div>
+    <div class="cover-item has-amt" id="cvCI" role="button" tabindex="0">
       <input type="checkbox" id="hasCI">
-      <div>
+      <div class="cover-body">
         <b>危疾 / 36 病</b>
         <p>已有 Critical Illness</p>
-        <div class="amt">
+        <div class="amt" data-stop>
           <div class="hint">现有 CI 保额</div>
-          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existCI" value="100000" inputmode="numeric"></div>
+          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existCI" value="100000" inputmode="numeric" min="0" step="10000"></div>
         </div>
       </div>
-    </label>
-    <label class="cover-item" id="cvLife">
+    </div>
+    <div class="cover-item has-amt" id="cvLife" role="button" tabindex="0">
       <input type="checkbox" id="hasLife">
-      <div>
+      <div class="cover-body">
         <b>人寿保额</b>
         <p>身故 / TPD 已有部分</p>
-        <div class="amt">
+        <div class="amt" data-stop>
           <div class="hint">现有人寿保额</div>
-          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existLife" value="200000" inputmode="numeric"></div>
+          <div class="money-wrap"><span class="rm">RM</span><input type="number" id="existLife" value="200000" inputmode="numeric" min="0" step="10000"></div>
         </div>
       </div>
-    </label>
-    <label class="cover-item" id="cvBlank">
+    </div>
+    <div class="cover-item" id="cvBlank" role="button" tabindex="0">
       <input type="checkbox" id="hasBlank">
-      <div>
+      <div class="cover-body">
         <b>几乎空白</b>
         <p>没有个人医疗 / CI / 人寿</p>
       </div>
-    </label>
-    <label class="cover-item" id="cvPA">
+    </div>
+    <div class="cover-item" id="cvPA" role="button" tabindex="0">
       <input type="checkbox" id="hasPA">
-      <div>
+      <div class="cover-body">
         <b>已有意外 PA</b>
         <p>意外身故 / 伤残已安排</p>
       </div>
-    </label>
+    </div>
   </div>
   <div class="live" id="live2" style="--accent-soft:var(--teal-soft)"></div>
 </section>
@@ -1035,7 +1046,18 @@ function syncCover(itemId, checkId, exclusiveBlank){
     render();
   };
   box.addEventListener('change', sync);
-  // init class
+  item.addEventListener('click', e=>{
+    if(e.target.closest('[data-stop]') || e.target === box || e.target.closest('input[type=number]')) return;
+    box.checked = !box.checked;
+    box.dispatchEvent(new Event('change'));
+  });
+  item.addEventListener('keydown', e=>{
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    if(e.target.closest('input[type=number]')) return;
+    e.preventDefault();
+    box.checked = !box.checked;
+    box.dispatchEvent(new Event('change'));
+  });
   item.classList.toggle('on', box.checked);
 }
 
