@@ -33,7 +33,7 @@ body{
     var(--paper);
   color:var(--tx);font-family:var(--sans);font-size:17px;line-height:1.7;padding-bottom:92px
 }
-b,strong{color:var(--ink)}
+b,strong{color:var(--ink);font-weight:800}
 .wrap{width:100%;max-width:660px;margin:0 auto;padding:0 14px}
 
 /* ============ HEADER ============ */
@@ -41,7 +41,7 @@ header{background:linear-gradient(160deg,#0C1830 0%,#0F1E3D 55%,#16295220 100%),
 header::before{content:"";position:absolute;right:-60px;top:-60px;width:230px;height:230px;border:1px solid rgba(201,162,75,.30);border-radius:50%}
 header::after{content:"";position:absolute;right:-20px;top:-110px;width:230px;height:230px;border:1px solid rgba(201,162,75,.14);border-radius:50%}
 .eyebrow{font-size:12px;letter-spacing:.4em;color:var(--gold);margin-bottom:10px}
-header h1{font-family:var(--serif);font-size:34px;font-weight:700;letter-spacing:.05em;position:relative;display:inline-block;
+header h1{font-family:var(--serif);font-size:34px;font-weight:800;letter-spacing:.05em;position:relative;display:inline-block;
   background:linear-gradient(100deg,#fff 30%,var(--gold-hi) 46%,#7FE0D3 52%,#fff 64%);
   background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
   animation:sweep 5.5s ease-in-out infinite}
@@ -55,13 +55,13 @@ header .presenter i{width:7px;height:7px;border-radius:50%;background:var(--gold
 .risk-wrap{margin-top:-18px;position:relative;z-index:5}
 .risk{margin:0}
 .risk-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:0 10px 30px rgba(15,30,61,.10)}
-.risk-card h3{font-family:var(--serif);font-size:19px;color:var(--ink);text-align:center}
+.risk-card h3{font-family:var(--serif);font-size:19px;color:var(--ink);text-align:center;font-weight:800}
 .risk-card .q{text-align:center;font-size:14px;color:var(--tx2);margin:2px 0 14px}
 .risk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .risk-tile{border-radius:12px;padding:12px 10px;text-align:center}
 .risk-tile .t-ico{font-size:24px;line-height:1}
-.risk-tile .t-name{font-size:13.5px;font-weight:600;margin-top:4px}
-.risk-tile .t-val{font-family:var(--serif);font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;line-height:1.2}
+.risk-tile .t-name{font-size:13.5px;font-weight:800;margin-top:4px}
+.risk-tile .t-val{font-family:var(--serif);font-size:20px;font-weight:800;font-variant-numeric:tabular-nums;margin-top:2px;line-height:1.2}
 .rt-red{background:var(--red-soft)}.rt-red .t-name,.rt-red .t-val{color:var(--red)}
 .rt-gold{background:var(--gold-soft)}.rt-gold .t-name{color:#8A6B25}.rt-gold .t-val{color:#8A6B25}
 .rt-plum{background:var(--plum-soft)}.rt-plum .t-name,.rt-plum .t-val{color:var(--plum)}
@@ -75,8 +75,8 @@ section.card{background:var(--card);border:1px solid var(--line);border-radius:1
 section.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,var(--gold))}
 .step-tag{display:flex;align-items:center;gap:12px;margin-bottom:6px}
 .step-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--accent-soft,var(--gold-soft));flex:none}
-.step-tag h2{font-family:var(--serif);font-size:23px;color:var(--ink)}
-.step-tag .no{font-size:12px;letter-spacing:.3em;color:var(--tx2);display:block}
+.step-tag h2{font-family:var(--serif);font-size:23px;color:var(--ink);font-weight:800}
+.step-tag .no{font-size:12px;letter-spacing:.18em;color:var(--tx2);display:block;font-weight:700}
 .step-desc{font-size:15px;color:var(--tx2);margin-bottom:16px}
 
 /* live analysis strip inside each section */
@@ -85,7 +85,7 @@ section.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4p
 
 /* ============ INPUTS ============ */
 .field{margin-bottom:15px}
-.field label{display:block;font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.field label{display:block;font-size:15.5px;font-weight:800;color:var(--ink);margin-bottom:3px}
 .hint{font-size:13.5px;color:var(--tx2);margin-bottom:6px}
 .money-wrap{position:relative}
 .money-wrap span.rm{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:15px;color:var(--tx2)}
@@ -96,7 +96,7 @@ input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 16px;font-size:15px;color:var(--tx);cursor:pointer;transition:.15s;text-align:left}
 .chip small{display:block;font-size:12.5px;color:var(--tx2);line-height:1.3}
-.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 12px rgba(15,30,61,.25)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 4px 12px rgba(15,30,61,.25);font-weight:700}
 .chip.on small{color:#C4CCDD}
 .chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -104,7 +104,7 @@ input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .purpose{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:13px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s;background:#fff}
 .purpose.on{border-color:var(--gold);background:var(--gold-soft);box-shadow:0 3px 10px rgba(201,162,75,.15)}
 .purpose input{width:19px;height:19px;margin-top:3px;accent-color:var(--ink);flex:none}
-.purpose b{font-size:16.5px}
+.purpose b{font-size:16.5px;font-weight:800}
 .purpose p{font-size:14px;color:var(--tx2)}
 .fold{display:none;margin-top:12px}
 .fold.open{display:block}
@@ -116,9 +116,9 @@ input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .m-card{border:1.5px solid var(--line);border-radius:14px;padding:15px 15px 13px;margin-bottom:12px;position:relative;overflow:hidden;background:#fff}
 .m-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--mc)}
 .m-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
-.m-name{font-size:16.5px;font-weight:700;color:var(--ink)}
+.m-name{font-size:16.5px;font-weight:800;color:var(--ink)}
 .m-name small{display:block;font-size:12px;color:var(--tx2);font-weight:400;letter-spacing:.06em}
-.m-val{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--mc);font-variant-numeric:tabular-nums;white-space:nowrap}
+.m-val{font-family:var(--serif);font-size:24px;font-weight:800;color:var(--mc);font-variant-numeric:tabular-nums;white-space:nowrap}
 .m-math{font-size:14px;color:var(--tx2);background:var(--paper);border-radius:8px;padding:7px 10px;margin:9px 0 8px;font-variant-numeric:tabular-nums}
 .m-say{font-size:14.5px;color:var(--tx)}
 .m-say b{color:var(--mc)}
@@ -132,24 +132,24 @@ input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 /* ============ VERDICT ============ */
 .verdict{background:linear-gradient(150deg,#0C1830,#15294F);color:#fff;border-radius:18px;padding:24px 20px;margin-bottom:18px;position:relative;overflow:hidden;box-shadow:0 14px 34px rgba(15,30,61,.28)}
 .verdict::before{content:"";position:absolute;right:-50px;bottom:-70px;width:200px;height:200px;border:1px solid rgba(201,162,75,.25);border-radius:50%}
-.v-label{font-size:13px;letter-spacing:.35em;color:var(--gold)}
-.v-sum{font-family:var(--serif);font-size:46px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.15;margin-top:4px}
+.v-label{font-size:13px;letter-spacing:.35em;color:var(--gold);font-weight:700}
+.v-sum{font-family:var(--serif);font-size:46px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.15;margin-top:4px}
 .v-sub{font-size:14.5px;color:#A9B4CC;margin-top:4px}
 .pol{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px 14px;margin-top:12px}
 .pol .p-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.pol .p-name{font-size:15.5px;font-weight:700;color:var(--gold-hi)}
-.pol .p-sa{font-family:var(--serif);font-size:20px;font-variant-numeric:tabular-nums}
+.pol .p-name{font-size:15.5px;font-weight:800;color:var(--gold-hi)}
+.pol .p-sa{font-family:var(--serif);font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
 .pol .p-type{font-size:13px;color:#8FA0C0;margin-top:1px}
 .pol .p-why{font-size:14px;color:#C6CFDF;margin-top:5px}
 .v-prem{border-top:1px solid rgba(255,255,255,.16);margin-top:16px;padding-top:14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .v-prem .pl{font-size:15px;color:#C6CFDF}
-.v-prem .pv{font-family:var(--serif);font-size:22px;color:var(--gold-hi);font-variant-numeric:tabular-nums;text-align:right}
+.v-prem .pv{font-family:var(--serif);font-size:22px;font-weight:800;color:var(--gold-hi);font-variant-numeric:tabular-nums;text-align:right}
 .v-foot{font-size:13px;color:#7E8DAB;margin-top:8px}
 
 /* docs */
 table.docs{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:8px}
 table.docs td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
-table.docs td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+table.docs td:first-child{font-weight:800;color:var(--ink);white-space:nowrap}
 tr.active-band td{background:var(--gold-soft)}
 tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;color:#8A6B25}
 
@@ -157,8 +157,8 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 .sticky{position:fixed;left:0;right:0;bottom:0;background:rgba(12,24,48,.97);backdrop-filter:blur(10px);color:#fff;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;border-top:1px solid rgba(201,162,75,.3)}
 .sticky-inner{width:100%;max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .sticky .s-label{font-size:12px;letter-spacing:.25em;color:var(--gold)}
-.sticky .s-val{font-family:var(--serif);font-size:24px;font-variant-numeric:tabular-nums}
-.btn{border:none;border-radius:11px;padding:13px 22px;font-size:16px;font-weight:700;cursor:pointer}
+.sticky .s-val{font-family:var(--serif);font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.btn{border:none;border-radius:11px;padding:13px 22px;font-size:16px;font-weight:800;cursor:pointer}
 .btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold-hi));color:var(--ink);box-shadow:0 4px 14px rgba(201,162,75,.4)}
 .btn-gold:active{transform:scale(.97)}
 .btn-ghost{background:transparent;color:#C6CFDF;border:1px solid rgba(255,255,255,.25);padding:10px 14px;font-size:15px}
@@ -185,12 +185,12 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 /* ============ SURVEY / DECISION ============ */
 .survey-q{margin-bottom:18px}
 .survey-q:last-of-type{margin-bottom:8px}
-.survey-q .q-title{font-size:15.5px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.survey-q .q-title{font-size:15.5px;font-weight:800;color:var(--ink);margin-bottom:4px}
 .survey-q .q-hint{font-size:13px;color:var(--tx2);margin-bottom:8px}
 .decide{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}
 .decide-tile{border-radius:12px;padding:14px 14px 12px;background:var(--paper);border:1px solid var(--line)}
 .decide-tile .dt-lab{font-size:12px;color:var(--tx2);letter-spacing:.06em}
-.decide-tile .dt-val{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px;line-height:1.25}
+.decide-tile .dt-val{font-family:var(--serif);font-size:22px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;margin-top:2px;line-height:1.25}
 .decide-tile .dt-say{font-size:13.5px;color:var(--tx);margin-top:6px;line-height:1.55}
 .decide-tile.ok{background:var(--teal-soft);border-color:#9ecfc8}
 .decide-tile.ok .dt-val{color:var(--teal)}
@@ -209,12 +209,12 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 /* ============ DAILY COST ============ */
 .daily{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .daily .d-tile{background:rgba(201,162,75,.12);border:1px solid rgba(201,162,75,.35);border-radius:12px;padding:11px 12px;text-align:center}
-.daily .d-big{font-family:var(--serif);font-size:24px;color:var(--gold-hi);font-variant-numeric:tabular-nums;line-height:1.2}
+.daily .d-big{font-family:var(--serif);font-size:24px;font-weight:800;color:var(--gold-hi);font-variant-numeric:tabular-nums;line-height:1.2}
 .daily .d-cap{font-size:13px;color:#C6CFDF;margin-top:3px}
 
 /* ============ TIMELINE ============ */
 .tl-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-.tl-tab{border:1.5px solid var(--line);border-radius:12px;padding:14px 12px;font-size:16px;font-weight:700;cursor:pointer;background:#fff;color:var(--tx2);text-align:center;transition:.15s}
+.tl-tab{border:1.5px solid var(--line);border-radius:12px;padding:14px 12px;font-size:16px;font-weight:800;cursor:pointer;background:#fff;color:var(--tx2);text-align:center;transition:.15s}
 .tl-tab small{display:block;font-size:12.5px;font-weight:400;margin-top:1px}
 .tl-tab.on-red{background:var(--red);border-color:var(--red);color:#fff}
 .tl-tab.on-teal{background:var(--teal);border-color:var(--teal);color:#fff}
@@ -223,18 +223,18 @@ tr.active-band td:first-child::after{content:" ◄ 本方案";font-size:12px;col
 .tl::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--tlc,var(--red));opacity:.3}
 .tl-node{position:relative;margin-bottom:16px}
 .tl-node::before{content:"";position:absolute;left:-24px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--tlc,var(--red));box-shadow:0 0 0 3px color-mix(in srgb,var(--tlc,var(--red)) 20%,transparent)}
-.tl-when{font-size:13px;letter-spacing:.2em;font-weight:700;color:var(--tlc,var(--red))}
+.tl-when{font-size:13px;letter-spacing:.2em;font-weight:800;color:var(--tlc,var(--red))}
 .tl-what{font-size:15.5px;color:var(--tx);margin-top:2px}
 .tl-what b{font-variant-numeric:tabular-nums}
 .tl-wrap{border-radius:14px;padding:16px 16px 6px;transition:.3s}
 .tl-wrap.bg-red{background:var(--red-soft);--tlc:var(--red)}
 .tl-wrap.bg-teal{background:var(--teal-soft);--tlc:var(--teal)}
-.tl-punch{font-size:15px;font-weight:700;text-align:center;padding:10px 0 12px;color:var(--tlc)}
+.tl-punch{font-size:15px;font-weight:800;text-align:center;padding:10px 0 12px;color:var(--tlc)}
 
 /* ============ CONTACT / SIGNATURE ============ */
 .contact{background:var(--ink);color:#fff;border-radius:16px;padding:18px;display:flex;gap:16px;align-items:center;margin-bottom:18px}
 .contact img{width:86px;height:86px;border-radius:10px;background:#fff;padding:4px;flex:none}
-.contact .c-name{font-family:var(--serif);font-size:20px;color:var(--gold-hi)}
+.contact .c-name{font-family:var(--serif);font-size:20px;color:var(--gold-hi);font-weight:800}
 .contact .c-sub{font-size:14px;color:#A9B4CC;line-height:1.6;margin-top:2px}
 .contact a{color:#7FE0D3;text-decoration:none;font-size:14.5px}
 .sign-row{display:none;margin-top:22px;gap:20px}
@@ -308,6 +308,8 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   .verdict .v-sum{font-size:56px}
   .risk-tile .t-val{font-size:28px}
 }
+
+.risk-foot b,.live b,.m-say b,.cap-note b,.decide-tile .dt-say b,.decide-punch b,.tl-what b,.v-sub b{font-weight:800}
 </style>
 </head>
 <body>
@@ -369,7 +371,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">🏢</div>
-    <div><span class="no">客 户 资 料</span><h2>这份分析为谁定制</h2></div>
+    <div><span class="no">客户资料</span><h2>这份分析为谁定制</h2></div>
   </div>
   <div class="row2">
     <div class="field">
@@ -388,7 +390,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">👤</div>
-    <div><span class="no">第 壹 步</span><h2>关键人资料</h2></div>
+    <div><span class="no">第 1 步</span><h2>关键人资料</h2></div>
   </div>
   <p class="step-desc">"关键人"= 公司离了他会伤筋动骨的人。通常是老板本人、技术核心或头号业务功臣。</p>
 
@@ -419,7 +421,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
   <div class="step-tag">
     <div class="step-ico">📊</div>
-    <div><span class="no">第 贰 步</span><h2>盈利分析 · 他为公司赚多少</h2></div>
+    <div><span class="no">第 2 步</span><h2>盈利分析 · 他为公司赚多少</h2></div>
   </div>
   <p class="step-desc">这一步量化一件事：公司每年的利润，有多少直接系在这个人身上。</p>
 
@@ -462,7 +464,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
   <div class="step-tag">
     <div class="step-ico">🏦</div>
-    <div><span class="no">第 叁 步</span><h2>债务分析 · 银行不等人</h2></div>
+    <div><span class="no">第 3 步</span><h2>债务分析 · 银行不等人</h2></div>
   </div>
   <p class="step-desc">关键人不在，贷款照追。个人担保更会直接烧到家人身上。这里填公司对银行的敞口。</p>
 
@@ -499,7 +501,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--plum);--accent-soft:var(--plum-soft)">
   <div class="step-tag">
     <div class="step-ico">⚖️</div>
-    <div><span class="no">第 肆 步</span><h2>股权买卖 <span class="badge">合伙人公司适用</span></h2></div>
+    <div><span class="no">第 4 步</span><h2>股权买卖 <span class="badge">合伙人公司适用</span></h2></div>
   </div>
   <p class="step-desc">股东走了，股份落到家属手上——其他股东要有钱把股份买回来，公司决策才不会瘫痪。</p>
   <label class="purpose" id="bsToggle">
@@ -527,7 +529,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--ink);--accent-soft:#E8EBF2">
   <div class="step-tag">
     <div class="step-ico">🛡️</div>
-    <div><span class="no">第 伍 步</span><h2>保障结构选择</h2></div>
+    <div><span class="no">第 5 步</span><h2>保障结构选择</h2></div>
   </div>
   <p class="step-desc">不同用途分开设单，理赔用途和税务安排才清清楚楚。可多选。</p>
 
@@ -537,7 +539,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
   <label class="purpose on"><input type="checkbox" class="pUse" id="uProfit" checked>
     <div><b>利润 / 营运保障</b><p>补足恢复期少赚的钱，员工薪水照发、供应商照付 → Level Term</p></div></label>
   <label class="purpose"><input type="checkbox" class="pUse" id="uBS">
-    <div><b>股权买卖资金</b><p>需先启用第肆步 → 独立保单 + Buy-Sell Agreement</p></div></label>
+    <div><b>股权买卖资金</b><p>需先启用第 4 步 → 独立保单 + Buy-Sell Agreement</p></div></label>
 
   <label class="purpose span2" style="margin-top:0">
     <input type="checkbox" id="grossup" checked>
@@ -551,7 +553,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">🧮</div>
-    <div><span class="no">第 陆 步</span><h2>四种算法 · 详细分析</h2></div>
+    <div><span class="no">第 6 步</span><h2>四种算法 · 详细分析</h2></div>
   </div>
   <p class="step-desc">每种算法从不同角度衡量同一个风险。红线是保险公司的核保上限。</p>
   <div id="methods"></div>
@@ -571,7 +573,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card survey" style="--accent:var(--gold);--accent-soft:var(--gold-soft)">
   <div class="step-tag">
     <div class="step-ico">🎯</div>
-    <div><span class="no">决 策 校 准</span><h2>三个问题，帮老板把账算清楚</h2></div>
+    <div><span class="no">决策校准</span><h2>三个问题，帮老板把账算清楚</h2></div>
   </div>
   <p class="step-desc">不是问卷，是成交前的心理对齐：愿付多少、公司长多快、谁会真正买单。答案会立刻对照上方建议方案。</p>
 
@@ -611,7 +613,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
   <div class="survey-q">
     <div class="q-title">4. 没有关键人，公司现金撑得住几个月？</div>
-    <div class="q-hint">对照第贰步的恢复期（通常 2–5 年）。现金跑道越短，越需要立刻有保额入账。</div>
+    <div class="q-hint">对照第 2 步的恢复期（通常 2–5 年）。现金跑道越短，越需要立刻有保额入账。</div>
     <div class="chips" id="runwayChips">
       <button class="chip on" data-runway="1" type="button">≤ 1 个月<small>非常紧</small></button>
       <button class="chip" data-runway="3" type="button">约 3 个月<small>常见</small></button>
@@ -628,7 +630,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--red);--accent-soft:var(--red-soft)">
   <div class="step-tag">
     <div class="step-ico">⏳</div>
-    <div><span class="no">两 个 剧 本</span><h2>关键人缺席之后的 12 个月</h2></div>
+    <div><span class="no">两个剧本</span><h2>关键人缺席之后的 12 个月</h2></div>
   </div>
   <p class="step-desc">同一家公司，同一场意外，两种截然不同的结局。数字来自您刚才输入的资料。</p>
   <div class="tl-tabs no-print">
@@ -645,7 +647,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 <section class="card" style="--accent:var(--teal);--accent-soft:var(--teal-soft)">
   <div class="step-tag">
     <div class="step-ico">📋</div>
-    <div><span class="no">第 柒 步</span><h2>核保文件清单</h2></div>
+    <div><span class="no">第 7 步</span><h2>核保文件清单</h2></div>
   </div>
   <p class="step-desc">按方案总保额分级。文件一次备齐，核保一次过。</p>
   <table class="docs" id="docsTable">
@@ -670,7 +672,7 @@ footer{text-align:center;font-size:13px;color:var(--tx2);padding:6px 20px 24px;l
 
 <footer>
   保费为<strong>行业参考费率估算</strong>，非 Hong Leong Assurance 正式报价；正式数字以保险公司 Quotation 为准 · 税务安排请与贵司 Tax Agent 确认落实<br>
-  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.6
+  © 黄冠尊 Wilson Ooi · 企业关键人保障分析系统 v2.7
   <div class="draft-hint no-print" id="draftHint"></div>
 </footer>
 </div><!-- /.desk-lower -->
@@ -838,7 +840,7 @@ function render(r){
       <div class="p-type">${p.type}${r.gu && p.gu ? ' · 已 Gross-up' : (!p.gu ? ' · 不套用 Gross-up' : '')}</div>
       <div class="p-why">${p.why}</div>
     </div>`).join('');
-  if(!r.parts.length) polHTML = '<div class="pol span-full"><div class="p-why">请在第伍步选择至少一个保障用途。</div></div>';
+  if(!r.parts.length) polHTML = '<div class="pol span-full"><div class="p-why">请在第 5 步选择至少一个保障用途。</div></div>';
 
   let guSub;
   if(r.gu && r.termSA>0){
@@ -1060,7 +1062,7 @@ function loadDraft(){
 }
 
 function setBuySell(on, from){
-  /* bidirectional: 第肆步 ↔ 第伍步股权买卖 */
+  /* bidirectional: 第 4 步 ↔ 第 5 步股权买卖 */
   if(from!=='bs'){
     $('bsOn').checked=on;
     $('bsFold').classList.toggle('open', on);
