@@ -1774,6 +1774,16 @@
     .kp-note{text-align:center;color:var(--muted);font-family:var(--mono);font-size:11.5px;margin-top:14px;letter-spacing:.04em}
     @media (max-width: 960px){.kp-grid{grid-template-columns:1fr 1fr}}
     @media (max-width: 620px){.kp-grid{grid-template-columns:1fr}}
+  
+    .stage-grid{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:1fr;gap:14px}
+    .stage-grid .service:nth-child(1){grid-row:auto}
+    .stage-grid .glass-card.service{display:flex;flex-direction:column;height:100%;box-sizing:border-box}
+    .stage-grid .service h3{font-size:24px;margin-top:12px}
+    .stage-grid .service p{flex:1}
+    .stage-grid .service .tags{margin-top:16px;gap:6px}
+    .stage-grid .service .tag{font-size:10.5px;padding:5px 9px;letter-spacing:.02em}
+    @media (max-width: 1080px){.stage-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width: 620px){.stage-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body class="lang-en" data-theme="dark">
@@ -1870,7 +1880,7 @@
           <p><span class="zh">我们先看商业流程，再决定技术。目标不是多买工具，而是把客户、团队、收款、报表与广告数据放进同一套可执行系统。</span><span class="en">We map the business before the tech. The goal is not more tools. It is one operating system for customers, teams, payments, reports and growth data.</span></p>
         </div>
 
-        <div class="asym-grid">
+        <div class="asym-grid stage-grid">
           <article class="glass-card service">
             <div class="num">STAGE 01</div>
             <h3><span class="zh">立品牌</span><span class="en">Brand</span></h3>
@@ -1920,7 +1930,6 @@
             <article class="sys-card" data-en="Customer Management" data-zh="客户管理"><div class="sys-top"><div class="sys-icon">VIP</div><div class="check">✓</div></div><h3><span class="zh">客户管理</span><span class="en">Customer Mgmt</span></h3><p><span class="zh">会员档案、积分回购、生日营销、满意度跟进。</span><span class="en">Member profiles, points, retention and birthday campaigns.</span></p><div class="module-tags"><span>Members</span><span>Points</span><span>Retention</span></div></article>
             <article class="sys-card" data-en="Profit & Margin" data-zh="利润管理"><div class="sys-top"><div class="sys-icon">P&L</div><div class="check">✓</div></div><h3><span class="zh">利润管理</span><span class="en">Profit & Margin</span></h3><p><span class="zh">成本核算、毛利分析、损益报表、定价建议。</span><span class="en">Costing, margin analysis, P&L reports and pricing logic.</span></p><div class="module-tags"><span>Costing</span><span>P&L</span><span>Pricing</span></div></article>
             <article class="sys-card" data-en="HR & Payroll" data-zh="HR 人事薪资"><div class="sys-top"><div class="sys-icon">HR</div><div class="check">✓</div></div><h3><span class="zh">HR 人事薪资</span><span class="en">HR & Payroll</span></h3><p><span class="zh">考勤排班、薪资计算、EPF/SOCSO/EIS、假期。</span><span class="en">Attendance, scheduling, payroll, statutory and leave.</span></p><div class="module-tags"><span>Payroll</span><span>Leave</span><span>EPF</span></div></article>
-            <article class="sys-card" data-en="Keyman Protection" data-zh="企业保障 Keyman"><div class="sys-top"><div class="sys-icon">KP</div><div class="check">✓</div></div><h3><span class="zh">企业保障</span><span class="en">Keyman Protection</span></h3><p><span class="zh">Keyman 要员保险、Buy-Sell 股权保障、贷款保障规划。</span><span class="en">Keyman policy, buy-sell funding and loan protection planning.</span></p><div class="module-tags"><span>Keyman</span><span>Buy-Sell</span><span>Loan</span></div></article>
             </div>
           </div>
 
